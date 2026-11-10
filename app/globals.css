@@ -3815,3 +3815,105 @@ body { overscroll-behavior-y: contain; }
     transform: translateY(-26%) scale(.84);
   }
 }
+
+
+/* Navigation state and About hero composition refinement */
+.desktop-nav a[aria-current="page"],
+.mobile-nav a[aria-current="page"] {
+  color: var(--cyan);
+}
+.desktop-nav a[aria-current="page"] {
+  position: relative;
+}
+.desktop-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -12px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(22,217,245,.35);
+}
+.mobile-nav a[aria-current="page"] {
+  position: relative;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--cyan);
+}
+
+.inner-page-hero-content {
+  z-index: 2;
+}
+.inner-page-visual {
+  z-index: 0;
+}
+.about-page-hero .inner-page-hero-content {
+  width: min(100%, 760px);
+  max-width: 760px;
+}
+.about-page-hero h1 {
+  max-width: 730px;
+  text-wrap: pretty;
+}
+.about-page-hero .inner-page-intro {
+  max-width: 610px;
+}
+.about-page-hero .inner-page-visual.page-visual-architecture {
+  right: -1%;
+  width: min(42vw, 540px);
+  height: min(34vw, 400px);
+  opacity: .48;
+}
+@media (max-width: 1100px) {
+  .about-page-hero .inner-page-visual.page-visual-architecture {
+    right: -100px;
+    opacity: .24;
+  }
+}
+@media (max-width: 760px) {
+  .about-page-hero {
+    min-height: 0;
+    padding-top: 142px;
+    padding-bottom: 76px;
+  }
+  .about-page-hero .inner-page-hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+  .about-page-hero h1 {
+    max-width: 100%;
+    font-size: clamp(38px, 9vw, 58px);
+    line-height: 1.06;
+    margin: 20px 0;
+    overflow-wrap: normal;
+  }
+  .about-page-hero .inner-page-intro {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .about-page-hero .inner-page-visual.page-visual-architecture {
+    right: -190px;
+    width: 330px;
+    height: 270px;
+    opacity: .13;
+    transform: translateY(-30%) scale(.86);
+  }
+  .desktop-nav a[aria-current="page"]::after {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  .about-page-hero {
+    padding-top: 132px;
+    padding-bottom: 68px;
+  }
+  .about-page-hero h1 {
+    font-size: clamp(35px, 9.5vw, 43px);
+    letter-spacing: -.045em;
+  }
+  .about-page-hero .inner-breadcrumb {
+    margin-top: 34px;
+  }
+}
