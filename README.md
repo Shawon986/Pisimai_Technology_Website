@@ -60,6 +60,6 @@ The visual system follows the approved **Hybrid Intelligence Core** direction: a
 
 ## Current scope
 
-This is the initial application foundation and bilingual starter landing page. Service detail pages, case studies, contact workflows, CMS/admin tools, analytics, and backend integrations are deferred to later phases.
+The foundation and Phase 2 bilingual homepage are in place. The homepage includes the Hybrid Intelligence Core hero, capability areas, engineering approach, company introduction, and contact invitation. The hero and supporting visual details use CSS motion rather than a heavyweight 3D runtime. Service detail pages, verified case studies, working contact workflows, CMS/admin tools, analytics, and backend integrations are deferred to later phases.
 
 No external service credentials are required in this phase. Keep secrets in local environment files and never commit credentials.
