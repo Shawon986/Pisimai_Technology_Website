@@ -4918,3 +4918,69 @@ body { overscroll-behavior-y: contain; }
     transform:none;
   }
 }
+
+
+/* Brighter golden network joints with compositor-friendly, gentle pulses. */
+.tech-hero-visual .architecture-network-joints {
+  fill:rgba(255,205,105,.2);
+  stroke:rgba(255,222,157,.98);
+  stroke-width:1.5;
+}
+.tech-hero-visual .architecture-network-joints circle {
+  opacity:.28;
+  animation:gold-joint-glow 3.8s cubic-bezier(.4,0,.2,1) infinite;
+}
+.tech-hero-visual .architecture-network-joint-cores {
+  fill:#fff0bd;
+  stroke:rgba(255,224,160,.9);
+  stroke-width:.7;
+}
+.tech-hero-visual .architecture-network-joint-cores circle {
+  opacity:.72;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:gold-joint-core 3.8s cubic-bezier(.4,0,.2,1) infinite;
+}
+.tech-hero-visual .architecture-network-joints circle:nth-child(2),
+.tech-hero-visual .architecture-network-joint-cores circle:nth-child(2) { animation-delay:-.63s; }
+.tech-hero-visual .architecture-network-joints circle:nth-child(3),
+.tech-hero-visual .architecture-network-joint-cores circle:nth-child(3) { animation-delay:-1.26s; }
+.tech-hero-visual .architecture-network-joints circle:nth-child(4),
+.tech-hero-visual .architecture-network-joint-cores circle:nth-child(4) { animation-delay:-1.89s; }
+.tech-hero-visual .architecture-network-joints circle:nth-child(5),
+.tech-hero-visual .architecture-network-joint-cores circle:nth-child(5) { animation-delay:-2.52s; }
+.tech-hero-visual .architecture-network-joints circle:nth-child(6),
+.tech-hero-visual .architecture-network-joint-cores circle:nth-child(6) { animation-delay:-3.15s; }
+@keyframes gold-joint-glow {
+  0%,100% { opacity:.18; transform:scale(.78); }
+  42%,56% { opacity:1; transform:scale(1.28); }
+}
+@keyframes gold-joint-core {
+  0%,100% { opacity:.55; transform:scale(.86); }
+  42%,56% { opacity:1; transform:scale(1.5); }
+}
+/* Keep the hero's ambient motion slow and its animated surfaces inexpensive to paint. */
+.hero-section.tech-hero::before {
+  animation-duration:30s;
+  will-change:transform;
+}
+.tech-hero-visual .architecture-core {
+  animation-duration:8s !important;
+  animation-timing-function:cubic-bezier(.4,0,.2,1) !important;
+}
+.tech-hero-visual .architecture-network-nodes circle,
+.hero-network-backdrop .network-nodes circle {
+  animation-timing-function:cubic-bezier(.4,0,.2,1);
+}
+@media (max-width:760px) {
+  .hero-section.tech-hero::before { animation-duration:36s; }
+  .tech-hero-visual .architecture-network-joints circle,
+  .tech-hero-visual .architecture-network-joint-cores circle { animation-duration:4.6s; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .tech-hero-visual .architecture-network-joint-cores circle {
+    animation:none !important;
+    opacity:1;
+    transform:none;
+  }
+}
