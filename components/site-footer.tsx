@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { copy } from "@/lib/i18n";
 
-export function SiteFooter({ locale }: { locale: Locale }) {
+export function SiteFooter({ locale, currentPath }: { locale: Locale; currentPath?: string }) {
   const t = copy[locale];
   const navItems = [
     ["home", "/" + locale],
@@ -46,7 +46,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} PISIMAI TECHNOLOGY. {t.copyright}</span>
         <div className="footer-bottom-right">
-          <Link href={"/" + (locale === "en" ? "zh" : "en")}>{t.language}</Link>
+          <Link href={"/" + (locale === "en" ? "zh" : "en") + (currentPath ? "/" + currentPath : "")}>{t.language}</Link>
           <span className="footer-status"><i /> {locale === "zh" ? "面向未来而构建" : "BUILT FOR WHAT COMES NEXT"}</span>
         </div>
       </div>
