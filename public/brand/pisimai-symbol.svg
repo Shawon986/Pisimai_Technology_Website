@@ -2,8 +2,8 @@
   <defs>
     <linearGradient id="g" x1="35" y1="20" x2="176" y2="150" gradientUnits="userSpaceOnUse"><stop stop-color="#62F2F4"/><stop offset=".48" stop-color="#278EFF"/><stop offset="1" stop-color="#8A72FF"/></linearGradient>
     <style>
-      .mark{fill:none;stroke:url(#g);stroke-width:17;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:430;stroke-dashoffset:430;animation:p-draw 1.7s cubic-bezier(.2,.75,.25,1) .12s forwards,p-glow 5.8s ease-in-out 1.9s infinite}
-      @keyframes p-draw{to{stroke-dashoffset:0}}
+      .mark{fill:none;stroke:url(#g);stroke-width:17;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:430;stroke-dashoffset:430;animation:p-draw-loop 3.2s cubic-bezier(.35,.05,.25,1) .12s infinite,p-glow 5.8s ease-in-out 1.9s infinite}
+      @keyframes p-draw-loop{0%,100%{stroke-dashoffset:430}38%,82%{stroke-dashoffset:0}83%{stroke-dashoffset:430}}
       @keyframes p-glow{0%,100%{filter:drop-shadow(0 0 2px rgba(65,220,255,.16))}50%{filter:drop-shadow(0 0 8px rgba(65,220,255,.48))}}
       @media(prefers-reduced-motion:reduce){.mark{animation:none;stroke-dasharray:none;stroke-dashoffset:0;filter:none}}
     </style>
