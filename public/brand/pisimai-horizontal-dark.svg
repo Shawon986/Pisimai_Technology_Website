@@ -20,9 +20,9 @@
     <style>
       .p-mark{fill:none;stroke:url(#markGradient);stroke-width:17;stroke-linecap:round;stroke-linejoin:round}
       .p-highlight{fill:none;stroke:#D9FFFF;stroke-width:2;stroke-linecap:round;opacity:.48}
-      .signal-line{fill:none;stroke:url(#signalGradient);stroke-width:3;stroke-linecap:round;stroke-dasharray:8 34;animation:signalTravel 3.2s linear infinite}
-      .signal-node{fill:#DDFEFF;stroke:#39DDF3;stroke-width:4;transform-box:fill-box;transform-origin:center;animation:nodePulse 2.4s ease-in-out infinite}
-      .mark-shell{transform-origin:112px 88px;animation:markFloat 7s ease-in-out infinite}
+      .signal-line{fill:none;stroke:url(#signalGradient);stroke-width:3;stroke-linecap:round;stroke-dasharray:8 34;animation:none}
+      .signal-node{fill:#DDFEFF;stroke:#39DDF3;stroke-width:4;transform-box:fill-box;transform-origin:center;animation:none}
+      .mark-shell{transform-origin:112px 88px;animation:none}
       .wordmark{fill:url(#wordGradient);font-family:Arial,Helvetica,sans-serif;font-size:61px;font-weight:700;letter-spacing:5px}
       .descriptor{fill:#55DCEB;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:600;letter-spacing:11px}
       @keyframes signalTravel{to{stroke-dashoffset:-84}}
