@@ -5169,3 +5169,45 @@ body { overscroll-behavior-y: contain; }
     opacity:.38;
   }
 }
+
+
+/* Hero layout and network rendering refinements. */
+@media (min-width:761px) and (max-width:920px) {
+  .hero-section.tech-hero {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    align-items:start;
+    min-height:0;
+    padding:132px clamp(28px,6vw,64px) 76px;
+    gap:34px;
+  }
+  .tech-hero .hero-copy {
+    width:100%;
+    max-width:720px;
+  }
+  .tech-hero-visual {
+    justify-self:center;
+    width:min(100%,680px);
+    height:500px;
+  }
+  .hero-section.tech-hero > .hero-network-canvas {
+    opacity:.62;
+  }
+}
+@media (max-width:760px) {
+  .hero-section.tech-hero {
+    overflow:hidden;
+    gap:28px;
+    padding-bottom:58px;
+  }
+  .tech-hero-visual {
+    flex:none;
+    width:100%;
+    max-width:620px;
+    align-self:center;
+    aspect-ratio:1 / 1.04;
+  }
+  .hero-section.tech-hero > .hero-network-canvas {
+    opacity:.32;
+  }
+}
