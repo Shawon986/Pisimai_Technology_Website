@@ -129,10 +129,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   )}
                   {index === 3 && (
                     <div className="service-art service-art-integration">
-                      <div className="integration-hub"><i /><i /><i /><i /></div>
-                      <div className="integration-node integration-node-one"><i /></div><div className="integration-node integration-node-two"><i /></div><div className="integration-node integration-node-three"><i /></div><div className="integration-node integration-node-four"><i /></div>
-                      <b className="integration-line integration-line-one" /><b className="integration-line integration-line-two" /><b className="integration-line integration-line-three" /><b className="integration-line integration-line-four" />
-                      <span className="integration-packet integration-packet-one" /><span className="integration-packet integration-packet-two" />
+                      <div className="svc-integration-path svc-integration-path-top" /><div className="svc-integration-path svc-integration-path-right" /><div className="svc-integration-path svc-integration-path-bottom" /><div className="svc-integration-path svc-integration-path-left" />
+                      <div className="svc-integration-endpoint svc-integration-cloud"><i /><b>CLOUD / API</b></div>
+                      <div className="svc-integration-endpoint svc-integration-app"><i /><b>APPLICATION</b></div>
+                      <div className="svc-integration-endpoint svc-integration-device"><i /><b>DEVICES</b></div>
+                      <div className="svc-integration-endpoint svc-integration-data"><i /><b>DATABASE</b></div>
+                      <div className="svc-integration-switch"><div className="svc-integration-switch-top"><i /><i /><i /><span>CORE SWITCH</span></div><div className="svc-integration-ports"><i /><i /><i /><i /><i /><i /></div><small>CONNECTED</small></div>
+                      <span className="svc-integration-packet svc-integration-packet-a" /><span className="svc-integration-packet svc-integration-packet-b" /><span className="svc-integration-packet svc-integration-packet-c" /><span className="svc-integration-packet svc-integration-packet-d" />
                     </div>
                   )}
                 </div>
