@@ -2885,3 +2885,85 @@ html { scroll-padding-top: 0; }
     animation:none!important;transition:none!important;
   }
 }
+
+/* Restore the earlier, restrained homepage motion for Software and Integration. */
+.service-art-software .software-window{animation:service-software-focus 5.5s ease-in-out infinite}
+.service-art-software .software-content b{animation:service-ui-progress 4.8s ease-in-out infinite}
+.service-art-software .software-cursor{animation:service-cursor-work 5.5s ease-in-out infinite}
+.service-art-integration .integration-line{animation:service-bus-signal 3.6s ease-in-out infinite}
+.service-art-integration .integration-line-two{animation-delay:-.9s}
+.service-art-integration .integration-line-three{animation-delay:-1.8s}
+.service-art-integration .integration-line-four{animation-delay:-2.7s}
+.service-art-integration .integration-hub{animation:service-hub-ready 4.8s ease-in-out infinite}
+.service-art-integration .integration-node{animation:service-port-pulse 3.8s ease-in-out infinite}
+.service-art-integration .integration-node-two{animation-delay:-.95s}
+.service-art-integration .integration-node-three{animation-delay:-1.9s}
+.service-art-integration .integration-node-four{animation-delay:-2.85s}
+.service-art-integration .integration-packet-one{animation:integration-packet-old 4.2s ease-in-out infinite}
+.service-art-integration .integration-packet-two{animation:integration-packet-old 4.2s -2.1s ease-in-out infinite}
+
+/* Services page: four physical engineering modules connected on a precision lab platform. */
+.scene-service-lab{position:absolute;inset:13% 5% 9%;perspective:1100px;transform-style:preserve-3d}
+.lab-platform{position:absolute;left:9%;right:8%;top:27%;height:60%;border:1px solid #6fd2f24d;border-radius:18px;background:linear-gradient(145deg,#1b3f5b99,#05101fee 65%);box-shadow:0 35px 55px #0009,inset 0 1px #cdf3ff2e,inset 0 -18px 35px #020914;transform:rotateX(62deg) rotateZ(-8deg)}
+.lab-platform:before{content:"";position:absolute;inset:9%;border:1px solid #60cde829;background:repeating-linear-gradient(90deg,transparent 0 38px,#64cdee0b 39px 40px),repeating-linear-gradient(0deg,transparent 0 28px,#64cdee0a 29px 30px)}
+.lab-bus{position:absolute;left:19%;right:17%;top:54%;height:2px;z-index:2;background:linear-gradient(90deg,transparent,#46d9ed,#7a8cff 52%,#55e2d1 84%,transparent);box-shadow:0 0 13px #48d8ed6b;transform:rotate(-8deg)}
+.lab-bus i{position:absolute;top:-3px;width:7px;height:7px;border-radius:50%;background:#d9ffff;box-shadow:0 0 12px 4px #47dced88}
+.lab-bus i:nth-child(1){left:9%}.lab-bus i:nth-child(2){left:37%}.lab-bus i:nth-child(3){left:66%}.lab-bus i:nth-child(4){right:7%}
+.lab-module{position:absolute;z-index:3;width:36%;height:34%;min-height:90px;border:1px solid #82cdeb6b;border-radius:9px;background:linear-gradient(145deg,#22435fee,#071323 72%);box-shadow:0 18px 28px #0009,inset 0 1px #daf6ff2e,0 0 22px #41bbdc14;transform:rotateY(-12deg) rotateX(5deg)}
+.lab-module:after{content:"";position:absolute;left:8%;right:8%;bottom:9%;height:2px;background:linear-gradient(90deg,transparent,var(--module-accent),transparent);opacity:.65}
+.lab-module-cap{position:absolute;left:10px;top:8px;color:#b8d4e6;font:8px "JetBrains Mono",monospace;letter-spacing:.1em}
+.lab-module small{position:absolute;left:10px;bottom:14px;color:#86a8c3;font:7px "JetBrains Mono",monospace;letter-spacing:.1em}
+.lab-ai{--module-accent:#55e5f4;left:11%;top:8%}.lab-software{--module-accent:#679cff;right:9%;top:8%}.lab-robotics{--module-accent:#a28aff;left:11%;bottom:3%}.lab-integration{--module-accent:#53e0c8;right:9%;bottom:3%}
+.lab-chip{position:absolute;left:50%;top:51%;width:48px;height:39px;transform:translate(-50%,-50%);border:1px solid #71e8f2;border-radius:7px;background:radial-gradient(circle,#23647a,#0b263d 70%);box-shadow:0 0 18px #50e6f455,inset 0 0 13px #6defff44}
+.lab-chip:before,.lab-chip:after{content:"";position:absolute;left:-7px;right:-7px;top:8px;height:21px;border-left:2px solid #6bddeb;border-right:2px solid #6bddeb}
+.lab-chip:after{left:8px;right:8px;top:-7px;height:53px;border:0;border-top:2px solid #6bddeb;border-bottom:2px solid #6bddeb}
+.lab-chip i{position:absolute;z-index:2;width:4px;height:4px;border-radius:50%;background:#d9ffff;box-shadow:0 0 7px #6beafa}
+.lab-chip i:nth-child(1){left:10px;top:9px}.lab-chip i:nth-child(2){right:10px;top:9px}.lab-chip i:nth-child(3){left:10px;bottom:9px}.lab-chip i:nth-child(4){right:10px;bottom:9px}
+.lab-chip b{position:absolute;z-index:2;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:#efffff;transform:translate(-50%,-50%);box-shadow:0 0 12px 4px #5de7f5;animation:lab-core-active 3.8s ease-in-out infinite}
+.lab-screen{position:absolute;left:50%;top:49%;width:66%;height:52%;transform:translate(-50%,-50%) perspective(300px) rotateY(-8deg);border:1px solid #80baff88;border-radius:4px;background:linear-gradient(145deg,#142f50,#071526);box-shadow:0 0 18px #528fff33,inset 0 0 12px #73b7ff18}
+.lab-screen i{display:block;height:3px;margin:7px 8px;background:#6faaff66;border-radius:3px}.lab-screen i:nth-child(2){width:62%}.lab-screen i:nth-child(3){width:43%}
+.lab-screen b{display:block;width:70%;height:12px;margin:5px 8px;border-left:2px solid #8bd6ff;background:linear-gradient(90deg,#4f9dff55,transparent)}
+.lab-mini-arm{position:absolute;left:50%;top:52%;width:78px;height:40px;transform:translate(-50%,-50%)}
+.lab-mini-arm:before,.lab-mini-arm:after{content:"";position:absolute;left:12px;top:13px;width:35px;height:7px;border:1px solid #c0b5ff;border-radius:4px;background:linear-gradient(#8d80ca,#292b51);transform:rotate(-35deg);transform-origin:left center}
+.lab-mini-arm:after{left:42px;top:-7px;width:26px;transform:rotate(55deg)}
+.lab-mini-arm i,.lab-mini-arm b{position:absolute;z-index:2;width:13px;height:13px;border-radius:50%;border:2px solid #c0b5ff;background:radial-gradient(circle at 35% 30%,#eeeaff,#5f55a6 55%,#111b35);box-shadow:0 0 9px #9c8aff66}
+.lab-mini-arm i{left:7px;top:10px}.lab-mini-arm b{left:38px;top:-5px}.lab-mini-arm em{position:absolute;right:1px;top:4px;width:11px;height:7px;border-right:2px solid #b5f7ff;border-left:2px solid #b5f7ff;transform:rotate(20deg)}
+.lab-port-grid{position:absolute;left:50%;top:48%;display:grid;grid-template-columns:repeat(2,14px);gap:8px;transform:translate(-50%,-50%)}
+.lab-port-grid i{width:14px;height:14px;border:1px solid #6be3d3;border-radius:3px;background:radial-gradient(circle,#62e8d4 0 2px,#174b50 3px);box-shadow:0 0 9px #5ce4d366}
+.lab-data-stream{position:absolute;z-index:4;width:5px;height:5px;border-radius:50%;background:#e8ffff;box-shadow:0 0 12px 4px #52e2f4aa;opacity:0}
+.stream-a{left:25%;top:50%;animation:lab-data-a 4.8s ease-in-out infinite}.stream-b{left:73%;top:49%;animation:lab-data-b 4.8s -1.2s ease-in-out infinite}.stream-c{left:27%;top:72%;animation:lab-data-c 4.8s -2.4s ease-in-out infinite}.stream-d{left:72%;top:72%;animation:lab-data-d 4.8s -3.6s ease-in-out infinite}
+
+/* About page: a dimensional technology campus, with illuminated floors and moving infrastructure. */
+.scene-about-campus{position:absolute;inset:8% 3% 7%;perspective:1200px;transform-style:preserve-3d}
+.campus-horizon{position:absolute;left:8%;right:8%;top:16%;height:55%;background:radial-gradient(ellipse,#439fd335,transparent 68%);filter:blur(12px)}
+.campus-floor{position:absolute;left:3%;right:1%;bottom:6%;height:37%;border:1px solid #6bbde54a;background:linear-gradient(160deg,#173653a8,#071322 74%);transform:rotateX(66deg) rotateZ(-7deg);box-shadow:0 28px 42px #0009}
+.campus-floor i{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(transparent,#72c9ed55,transparent)}
+.campus-floor i:nth-child(1){left:28%}.campus-floor i:nth-child(2){left:52%}.campus-floor i:nth-child(3){left:76%}
+.campus-building{position:absolute;bottom:22%;width:24%;border:1px solid #8ac9e577;background:linear-gradient(90deg,#091a2b,#234967 46%,#0b1d31);box-shadow:inset 0 0 25px #77c9ed18,0 25px 35px #0009;transform:skewY(-7deg) rotateY(-10deg);transform-origin:bottom}
+.campus-building:before{content:"";position:absolute;inset:0 8px;background:repeating-linear-gradient(0deg,transparent 0 16px,#8bdfff40 17px 18px),repeating-linear-gradient(90deg,transparent 0 19px,#8bdfff22 20px 21px)}
+.campus-building:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,transparent,#6ddff2,transparent);box-shadow:0 0 14px #5cdcf277}
+.building-left{left:7%;height:46%;width:22%}.building-core{left:37%;height:75%;width:28%;border-color:#a3a8ff99;background:linear-gradient(90deg,#111b34,#3b4c70 48%,#11182d)}.building-right{right:6%;height:55%;width:22%;border-color:#64d9c488;background:linear-gradient(90deg,#09242b,#20505a 48%,#0a2028)}
+.campus-building span{position:relative;z-index:1;display:block;height:7px;margin:9px 13px 0;background:linear-gradient(90deg,#83dfff55,#b8f5ffbb 46%,#83dfff33);box-shadow:0 0 8px #76dcff44;opacity:.35;animation:campus-window-light 6s ease-in-out infinite}
+.campus-building span:nth-child(2){animation-delay:-1.2s}.campus-building span:nth-child(3){animation-delay:-2.4s}.campus-building span:nth-child(4){animation-delay:-3.6s}.campus-building span:nth-child(5){animation-delay:-4.8s}
+.building-core span{height:8px;margin-left:16px;margin-right:16px}
+.campus-bridge{position:absolute;z-index:3;height:5px;border-top:1px solid #b4efff;border-bottom:1px solid #5c9ec5;background:linear-gradient(90deg,#193b5b,#7ac9e7,#303f70);box-shadow:0 0 15px #69c9eb55;transform:skewY(-7deg)}
+.bridge-upper{left:25%;right:22%;top:34%}.bridge-lower{left:20%;right:20%;top:58%;opacity:.7}
+.campus-skyline-light{position:absolute;left:50%;top:12%;width:2px;height:60%;background:linear-gradient(transparent,#8de9ff,#8de9ff66,transparent);box-shadow:0 0 18px 5px #56d9f344;transform:rotate(16deg);animation:campus-beacon 5s ease-in-out infinite}
+.campus-lift{position:absolute;z-index:4;left:49%;bottom:24%;width:14px;height:35%;border:1px solid #8bdfff88;background:linear-gradient(90deg,#10243a,#6bbbd6,#10243a);box-shadow:0 0 15px #56c8e855;animation:campus-lift-travel 7s ease-in-out infinite}
+.campus-lift i{position:absolute;left:2px;right:2px;top:3px;height:2px;background:#e4ffff;box-shadow:0 0 8px #d6ffff}
+.campus-signal{position:absolute;z-index:5;width:5px;height:5px;border-radius:50%;background:#eaffff;box-shadow:0 0 13px 4px #5bdff4}
+.signal-a{left:25%;top:34%;animation:campus-signal-a 5s ease-in-out infinite}.signal-b{left:68%;top:58%;animation:campus-signal-b 5s -1.65s ease-in-out infinite}.signal-c{left:49%;top:18%;animation:campus-signal-c 5s -3.3s ease-in-out infinite}
+@keyframes lab-core-active{0%,100%{opacity:.65;scale:.8}45%,60%{opacity:1;scale:1.3}}
+@keyframes lab-data-a{0%,10%,100%{translate:0 0;opacity:0}24%{opacity:1}72%{translate:85px 18px;opacity:1}82%{opacity:0}}
+@keyframes lab-data-b{0%,10%,100%{translate:0 0;opacity:0}24%{opacity:1}72%{translate:-78px 16px;opacity:1}82%{opacity:0}}
+@keyframes lab-data-c{0%,10%,100%{translate:0 0;opacity:0}24%{opacity:1}72%{translate:70px -24px;opacity:1}82%{opacity:0}}
+@keyframes lab-data-d{0%,10%,100%{translate:0 0;opacity:0}24%{opacity:1}72%{translate:-70px -22px;opacity:1}82%{opacity:0}}
+@keyframes campus-window-light{0%,22%,100%{opacity:.2;filter:brightness(.8)}38%,58%{opacity:.95;filter:brightness(1.5)}}
+@keyframes campus-beacon{0%,100%{opacity:.35;scale:1 .82}50%{opacity:1;scale:1 1.08}}
+@keyframes campus-lift-travel{0%,12%,100%{translate:0 0}44%,70%{translate:0 -42px}}
+@keyframes campus-signal-a{0%,12%,100%{translate:0 0;opacity:0}25%{opacity:1}75%{translate:170px 34px;opacity:1}90%{opacity:0}}
+@keyframes campus-signal-b{0%,12%,100%{translate:0 0;opacity:0}25%{opacity:1}75%{translate:-145px -42px;opacity:1}90%{opacity:0}}
+@keyframes campus-signal-c{0%,12%,100%{translate:0 0;opacity:0}25%{opacity:1}75%{translate:4px 130px;opacity:1}90%{opacity:0}}
+@keyframes integration-packet-old{0%,100%{translate:0 0;opacity:0}18%{opacity:1}78%{translate:28px 18px;opacity:1}90%{opacity:0}}
+@media(max-width:760px){.scene-service-lab{inset:17% 0 12%;transform:scale(.9)}.lab-module{width:39%;height:32%;min-height:76px}.lab-module-cap{font-size:6px;left:7px;top:6px}.lab-module small{font-size:5px;left:7px;bottom:9px}.lab-chip{scale:.8}.scene-about-campus{inset:12% -2% 7%;transform:scale(.88)}.campus-building span{height:5px;margin:7px 8px 0}.campus-lift{width:10px}}
+@media(prefers-reduced-motion:reduce){.lab-chip b,.lab-data-stream,.campus-building span,.campus-skyline-light,.campus-lift,.campus-signal,.service-art-software .software-window,.service-art-software .software-content b,.service-art-software .software-cursor,.service-art-integration .integration-line,.service-art-integration .integration-hub,.service-art-integration .integration-node,.service-art-integration .integration-packet{animation:none!important;transition:none!important}}
