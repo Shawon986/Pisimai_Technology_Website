@@ -50,7 +50,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </h1>
             <p className="hero-description">{t.description}</p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#services">{t.primaryCta}<span aria-hidden="true">↗</span></a>
+              <a className="button button-primary" href="#services">{t.primaryCta}<span aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></span></a>
               <a className="button button-secondary" href="#contact">{t.secondaryCta}</a>
             </div>
             <div className="hero-bottomline">
@@ -158,7 +158,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   )}
                 </div>
                 <div className="service-card-copy"><h3>{service.title}</h3><p>{service.text}</p></div>
-                <span className="service-arrow" aria-hidden="true">↗</span>
+                <span className="service-arrow" aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></span>
               </Link>
             ))}
           </div>
@@ -185,7 +185,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <article className="principle-item" key={item.number}>
                 <span className="principle-number">{item.number}</span>
                 <div><h3>{item.title}</h3><p>{item.text}</p></div>
-                <span className="principle-arrow" aria-hidden="true">↗</span>
+                <span className="principle-arrow" aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></span>
               </article>
             ))}
           </div>
@@ -220,7 +220,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <div className="blueprint-node blueprint-node-a"><i /><span>IDEA</span></div>
               <div className="blueprint-node blueprint-node-b"><i /><span>ENGINEERING</span></div>
               <div className="blueprint-node blueprint-node-c"><i /><span>OUTCOME</span></div>
-              <div className="blueprint-center"><span>LET&apos;S BUILD</span><b>↗</b></div>
+              <div className="blueprint-center"><span>LET&apos;S BUILD</span><b><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></b></div>
             </div>
             <div className="contact-visual-bottom"><span>FROM CHALLENGE TO POSSIBILITY</span><span>PST / 04</span></div>
           </div>
