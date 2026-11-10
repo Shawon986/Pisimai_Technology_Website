@@ -5388,3 +5388,48 @@ body { overscroll-behavior-y: contain; }
 .hero-section.tech-hero > .tech-hero-visual::before {
   background: radial-gradient(ellipse at 52% 48%, rgba(22, 137, 205, .12), transparent 62%) !important;
 }
+
+
+/* Homepage headline hierarchy: three deliberate lines with descending scale. */
+.hero-section.tech-hero .hero-title-hierarchy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  gap: .035em;
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  text-wrap: initial;
+}
+.hero-section.tech-hero .hero-title-line {
+  display: block;
+  max-width: 100%;
+  font-weight: 600;
+}
+.hero-section.tech-hero .hero-title-line-one {
+  font-size: clamp(44px, 5.2vw, 74px);
+  line-height: 1.02;
+}
+.hero-section.tech-hero .hero-title-line-two {
+  font-size: clamp(35px, 4.15vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+.hero-section.tech-hero .hero-title-line-three {
+  font-size: clamp(27px, 3.2vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  color: #a9c4df;
+}
+@media (max-width: 760px) {
+  .hero-section.tech-hero .hero-title-line-one { font-size: clamp(40px, 9.5vw, 58px); }
+  .hero-section.tech-hero .hero-title-line-two { font-size: clamp(32px, 7.6vw, 47px); }
+  .hero-section.tech-hero .hero-title-line-three { font-size: clamp(25px, 6vw, 37px); }
+}
+@media (max-width: 420px) {
+  .hero-section.tech-hero .hero-title-hierarchy { letter-spacing: -.045em; }
+  .hero-section.tech-hero .hero-title-line-one { font-size: clamp(36px, 9.2vw, 42px); }
+  .hero-section.tech-hero .hero-title-line-two { font-size: clamp(29px, 7.4vw, 34px); }
+  .hero-section.tech-hero .hero-title-line-three { font-size: clamp(23px, 5.9vw, 27px); }
+}
