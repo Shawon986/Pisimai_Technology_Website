@@ -6,12 +6,12 @@ import { copy } from "@/lib/i18n";
 export function SiteFooter({ locale }: { locale: Locale }) {
   const t = copy[locale];
   const navItems = [
-    ["home", "#home"],
-    ["solutions", "#solutions"],
-    ["services", "#services"],
-    ["technology", "#technology"],
-    ["about", "#about"],
-    ["contact", "#contact"]
+    ["home", "/" + locale],
+    ["solutions", "/" + locale + "/solutions"],
+    ["services", "/" + locale + "/services"],
+    ["technology", "/" + locale + "/solutions"],
+    ["about", "/" + locale + "/about"],
+    ["contact", "/" + locale + "/contact"]
   ] as const;
 
   return (
@@ -32,15 +32,15 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <div className="footer-links-block">
           <span className="footer-column-label">{locale === "zh" ? "快速导航" : "EXPLORE"}</span>
           <nav className="footer-nav" aria-label={locale === "zh" ? "页脚导航" : "Footer navigation"}>
-            {navItems.map(([key, href]) => <a key={key} href={href}>{t.nav[key]}</a>)}
+            {navItems.map(([key, href]) => <Link key={key} href={href}>{t.nav[key]}</Link>)}
           </nav>
         </div>
         <div className="footer-connect-block">
           <span className="footer-column-label">{locale === "zh" ? "开启交流" : "LET'S CONNECT"}</span>
           <h2>{locale === "zh" ? "让我们探讨下一步。" : "Let's explore what's possible."}</h2>
-          <a className="footer-contact-link" href="#contact">
+          <Link className="footer-contact-link" href={"/" + locale + "/contact"}>
             {t.nav.contact}<span aria-hidden="true">↗</span>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="footer-bottom">
