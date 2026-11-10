@@ -68,9 +68,34 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Please check the required fields" }, { status: 400 });
   }
 
-  const formId = process.env.FORMSPREE_FORM_ID?.trim();
-  if (!formId || !/^[a-zA-Z0-9]+$/.test(formId)) {
-    console.error("[contact] Formspree is not configured or the form ID is invalid");
+  const configuredFormValue = process.env.FORMSPREE_FORM_ID?.trim() ?? "";
+  let formId = "";
+
+  // Accept either the Form ID itself or the complete Formspree endpoint URL.
+  // Only the official HTTPS Formspree host and /f/{id} endpoint are allowed.
+  if (/^https:\/\//i.test(configuredFormValue)) {
+    try {
+      const endpoint = new URL(configuredFormValue);
+      const endpointMatch = endpoint.pathname.match(/^\/f\/([a-zA-Z0-9_-]+)\/?$/);
+      if (
+        endpoint.protocol === "https:" &&
+        endpoint.hostname === "formspree.io" &&
+        !endpoint.port &&
+        !endpoint.search &&
+        !endpoint.hash &&
+        endpointMatch
+      ) {
+        formId = endpointMatch[1];
+      }
+    } catch {
+      // Invalid URL; handled by the configuration check below.
+    }
+  } else if (/^[a-zA-Z0-9_-]+$/.test(configuredFormValue)) {
+    formId = configuredFormValue;
+  }
+
+  if (!formId) {
+    console.error("[contact] Formspree configuration is missing or invalid");
     return NextResponse.json({ error: "Contact service is not configured" }, { status: 503 });
   }
 
