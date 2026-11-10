@@ -1766,3 +1766,50 @@ body{background:#080e1b}
     animation: none !important;
   }
 }
+
+
+/* Restore the earlier animated orbit treatment for the
+   "Technology, connected by design" service-card visuals. */
+.service-visual-orbit {
+  inset: auto;
+  width: 104px;
+  height: 54px;
+  border: 1px solid rgba(87, 139, 232, .4);
+  border-radius: 50%;
+  transform: rotate(-32deg);
+  background: none;
+  animation: service-orbit-spin 28s linear infinite !important;
+}
+.service-visual-orbit i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #80e9f7;
+  box-shadow: 0 0 7px #80e9f7;
+  animation: none !important;
+}
+.service-visual-orbit i:nth-child(1) { left: 12%; top: 30%; right: auto; bottom: auto; }
+.service-visual-orbit i:nth-child(2) { right: 8%; top: 46%; left: auto; bottom: auto; }
+.service-visual-orbit i:nth-child(3) { left: 49%; bottom: -2%; right: auto; top: auto; }
+.service-visual-2 .service-visual-orbit {
+  width: 120px;
+  height: 40px;
+  border-color: rgba(108, 137, 255, .35);
+  transform: rotate(28deg);
+}
+.service-visual-3 .service-visual-orbit {
+  width: 128px;
+  height: 44px;
+  border-color: rgba(143, 129, 255, .35);
+}
+.service-visual-4 .service-visual-orbit {
+  width: 92px;
+  height: 92px;
+  border-radius: 4px;
+  transform: rotate(45deg);
+  border-color: rgba(54, 217, 242, .3);
+}
+.service-visual-frame { animation: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .service-visual-orbit { animation: none !important; }
+}
