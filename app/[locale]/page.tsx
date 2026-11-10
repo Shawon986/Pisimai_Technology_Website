@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { copy, isLocale, locales } from "@/lib/i18n";
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
+import { copy, isLocale } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -48,8 +44,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="art-orbit orbit-three"><i /></div>
             <div className="art-core"><div className="core-inner" /><span /></div>
             <div className="art-node node-one" /><div className="art-node node-two" /><div className="art-node node-three" />
-            <div className="art-label label-one">INTELLIGENCE / 01</div>
-            <div className="art-label label-two">SYSTEMS CONNECTED</div>
+            <div className="art-label label-one">{locale === "zh" ? "智能核心 / 01" : "INTELLIGENCE / 01"}</div>
+            <div className="art-label label-two">{locale === "zh" ? "系统互联" : "SYSTEMS CONNECTED"}</div>
           </div>
           <div className="hero-index"><span>01</span><i />04</div>
         </section>
@@ -78,9 +74,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         <section className="technology-band" id="technology">
           <div className="tech-band-inner">
-            <span className="section-kicker">PISIMAI / TECHNOLOGY</span>
-            <p>AI <i /> SOFTWARE <i /> ROBOTICS <i /> INTEGRATION</p>
-            <span className="tech-band-caption">A connected technology ecosystem</span>
+            <span className="section-kicker">{locale === "zh" ? "PISIMAI / 科技" : "PISIMAI / TECHNOLOGY"}</span>
+            <p>{locale === "zh" ? <>人工智能 <i /> 软件 <i /> 机器人 <i /> 系统集成</> : <>AI <i /> SOFTWARE <i /> ROBOTICS <i /> INTEGRATION</>}</p>
+            <span className="tech-band-caption">{locale === "zh" ? "互联协同的技术生态" : "A connected technology ecosystem"}</span>
           </div>
         </section>
 
@@ -93,7 +89,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         <section className="contact-section section-wrap" id="contact">
           <div><p className="section-kicker">{t.contactLabel}</p><h2>{t.contactTitle}</h2><p>{t.contactText}</p></div>
-          <a className="button button-primary" href="mailto:contact@pisimai.com">{t.contactCta}<span aria-hidden="true">↗</span></a>
+          
         </section>
       </main>
       <SiteFooter locale={locale} />
