@@ -70,6 +70,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <circle cx="155" cy="45" r="8" /><circle cx="275" cy="105" r="8" /><circle cx="390" cy="42" r="8" />
                 <circle cx="155" cy="285" r="8" /><circle cx="275" cy="350" r="8" /><circle cx="390" cy="285" r="8" />
               </g>
+              <g className="architecture-network-joint-cores">
+                <circle cx="155" cy="45" r="2.8" /><circle cx="275" cy="105" r="2.8" /><circle cx="390" cy="42" r="2.8" />
+                <circle cx="155" cy="285" r="2.8" /><circle cx="275" cy="350" r="2.8" /><circle cx="390" cy="285" r="2.8" />
+              </g>
               <g className="architecture-network-nodes">
                 <circle cx="40" cy="95" r="3" /><circle cx="155" cy="45" r="3.5" /><circle cx="275" cy="105" r="3" /><circle cx="390" cy="42" r="3.5" /><circle cx="555" cy="100" r="3" />
                 <circle cx="40" cy="345" r="2.5" /><circle cx="155" cy="285" r="3.5" /><circle cx="275" cy="350" r="3" /><circle cx="390" cy="285" r="3.5" /><circle cx="555" cy="350" r="3" />
