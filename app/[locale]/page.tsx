@@ -83,8 +83,38 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <article className="service-card" key={service.number}>
                 <div className="service-card-top"><span className="service-number">{service.number}</span><span className="service-index">{["AI","DEV","ROB","SYS"][index]}</span></div>
                 <div className={`service-visual service-visual-${index + 1}`} aria-hidden="true">
-                  <div className="service-visual-frame"><span /><span /><span /><i /><b /></div>
-                  <div className="service-visual-orbit"><i /><i /><i /></div>
+                  {index === 0 && (
+                    <div className="service-art service-art-ai">
+                      <div className="ai-orbit ai-orbit-one" /><div className="ai-orbit ai-orbit-two" />
+                      <div className="ai-core"><i /><i /><i /></div>
+                      <span className="ai-node ai-node-one" /><span className="ai-node ai-node-two" /><span className="ai-node ai-node-three" /><span className="ai-node ai-node-four" />
+                      <b className="ai-link ai-link-one" /><b className="ai-link ai-link-two" /><b className="ai-link ai-link-three" />
+                    </div>
+                  )}
+                  {index === 1 && (
+                    <div className="service-art service-art-software">
+                      <div className="software-window">
+                        <div className="software-bar"><i /><i /><i /><span>APP / INTERFACE</span></div>
+                        <div className="software-sidebar"><i /><i /><i /><i /></div>
+                        <div className="software-content"><b /><b /><b /><span /><span /><em /></div>
+                        <div className="software-cursor" />
+                      </div>
+                      <div className="software-bracket software-bracket-one" /><div className="software-bracket software-bracket-two" />
+                    </div>
+                  )}
+                  {index === 2 && (
+                    <div className="service-art service-art-robotics">
+                      <div className="robot-base" /><div className="robot-joint robot-joint-one" /><div className="robot-arm robot-arm-one" /><div className="robot-joint robot-joint-two" /><div className="robot-arm robot-arm-two" /><div className="robot-joint robot-joint-three" /><div className="robot-tool" /><span className="robot-spark robot-spark-one" /><span className="robot-spark robot-spark-two" />
+                    </div>
+                  )}
+                  {index === 3 && (
+                    <div className="service-art service-art-integration">
+                      <div className="integration-hub"><i /><i /><i /><i /></div>
+                      <div className="integration-node integration-node-one"><i /></div><div className="integration-node integration-node-two"><i /></div><div className="integration-node integration-node-three"><i /></div><div className="integration-node integration-node-four"><i /></div>
+                      <b className="integration-line integration-line-one" /><b className="integration-line integration-line-two" /><b className="integration-line integration-line-three" /><b className="integration-line integration-line-four" />
+                      <span className="integration-packet integration-packet-one" /><span className="integration-packet integration-packet-two" />
+                    </div>
+                  )}
                 </div>
                 <div className="service-card-copy"><h3>{service.title}</h3><p>{service.text}</p></div>
                 <span className="service-arrow" aria-hidden="true">↗</span>
