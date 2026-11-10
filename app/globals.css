@@ -3154,3 +3154,40 @@ html { scroll-padding-top: 0; }
 @media(prefers-reduced-motion:reduce) {
   .contact-form-grid input,.contact-form-grid select,.contact-form-grid textarea {transition:none}
 }
+
+/* Rendering performance: skip painting off-screen sections without changing
+   their layout, visual styling, or animation definitions. */
+@supports (content-visibility: auto) {
+  .intro-section,
+  .services-section,
+  .technology-band,
+  .approach-section,
+  .about-section,
+  .contact-section,
+  .inner-content-section,
+  .inner-page-cta,
+  .site-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 640px;
+  }
+
+  .intro-section { contain-intrinsic-size: auto 390px; }
+  .services-section { contain-intrinsic-size: auto 760px; }
+  .technology-band { contain-intrinsic-size: auto 220px; }
+  .approach-section { contain-intrinsic-size: auto 560px; }
+  .about-section { contain-intrinsic-size: auto 560px; }
+  .contact-section { contain-intrinsic-size: auto 500px; }
+  .inner-content-section { contain-intrinsic-size: auto 760px; }
+  .inner-page-cta { contain-intrinsic-size: auto 340px; }
+  .site-footer { contain-intrinsic-size: auto 420px; }
+
+  @media (max-width: 760px) {
+    .services-section { contain-intrinsic-size: auto 1180px; }
+    .approach-section { contain-intrinsic-size: auto 760px; }
+    .about-section { contain-intrinsic-size: auto 620px; }
+    .contact-section { contain-intrinsic-size: auto 620px; }
+    .inner-content-section { contain-intrinsic-size: auto 1050px; }
+    .site-footer { contain-intrinsic-size: auto 520px; }
+  }
+}
+
