@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+
+export const runtime = "nodejs";
 
 const recipient = "shawonh986@pisimai.com";
 const allowedServices = new Set([
@@ -38,9 +41,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM_EMAIL;
-  if (!apiKey || !from) {
+  const gmailUser = process.env.GMAIL_USER?.trim();
+  const gmailAppPassword = process.env.GMAIL_APP_PASSWORD?.replace(/\s/g, "");
+  if (!gmailUser || !gmailAppPassword) {
+    console.error("[contact] Gmail SMTP is not configured", {
+      hasGmailUser: Boolean(gmailUser),
+      hasGmailAppPassword: Boolean(gmailAppPassword),
+    });
     return NextResponse.json({ error: "Email service is not configured" }, { status: 503 });
   }
 
@@ -94,40 +101,39 @@ export async function POST(request: NextRequest) {
   ].join("\n");
   const html = `<h2>New project inquiry</h2><p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p><strong>Company:</strong> ${escapeHtml(company || "Not provided")}</p><p><strong>Area:</strong> ${escapeHtml(service)}</p><p><strong>Language:</strong> ${locale === "zh" ? "Simplified Chinese" : "English"}</p><h3>Project details</h3><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`;
 
-  try {
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from,
-        to: [recipient],
-        reply_to: email,
-        subject,
-        text,
-        html,
-      }),
-      signal: AbortSignal.timeout(10000),
-      cache: "no-store",
-    });
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: gmailUser,
+      pass: gmailAppPassword,
+    },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+  });
 
-    if (!response.ok) {
-      // Log the provider's response for server-side diagnosis; never log credentials.
-      const providerError = await response.text().catch(() => "");
-      console.error("[contact] Resend rejected the email request", {
-        status: response.status,
-        response: providerError.slice(0, 2000),
-      });
-      return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
-    }
+  try {
+    await transporter.sendMail({
+      from: { name: "PISIMAI TECHNOLOGY Website", address: gmailUser },
+      to: recipient,
+      replyTo: email,
+      subject,
+      text,
+      html,
+    });
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("[contact] Email request failed", {
-      name: error instanceof Error ? error.name : "UnknownError",
-      message: error instanceof Error ? error.message : "Unknown error",
+    const mailError = error as { name?: string; code?: string; responseCode?: number; command?: string };
+    console.error("[contact] Gmail SMTP delivery failed", {
+      name: mailError.name ?? "UnknownError",
+      code: mailError.code ?? "UNKNOWN",
+      responseCode: mailError.responseCode,
+      command: mailError.command,
     });
     return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
+  } finally {
+    transporter.close();
   }
 }
