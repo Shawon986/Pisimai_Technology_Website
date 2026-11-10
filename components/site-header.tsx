@@ -7,8 +7,8 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const t = copy[locale];
   const otherLocale = locale === "en" ? "zh" : "en";
   const items = [
-    ["home", "#home"], ["services", "#services"], ["solutions", "#solutions"],
-    ["technology", "#technology"], ["about", "#about"], ["contact", "#contact"]
+    ["home", "/" + locale], ["services", "/" + locale + "/services"], ["solutions", "/" + locale + "/solutions"],
+    ["technology", "/" + locale + "/solutions"], ["about", "/" + locale + "/about"], ["contact", "/" + locale + "/contact"]
   ] as const;
 
   return (
@@ -18,11 +18,11 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <span className="brand-logo-wrap"><Image src="/brand/pisimai-horizontal-dark.svg" alt="PISIMAI TECHNOLOGY" width={270} height={58} priority className="brand-logo" /></span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
-          {items.map(([key, href]) => <a key={key} href={href}>{t.nav[key]}</a>)}
+          {items.map(([key, href]) => <Link key={key} href={href}>{t.nav[key]}</Link>)}
         </nav>
         <div className="header-actions">
           <Link className="language-switch" href={"/" + otherLocale} hrefLang={otherLocale}>{t.language}</Link>
-          <a className="header-contact" href="#contact">{t.nav.contact}<span aria-hidden="true">↗</span></a>
+          <Link className="header-contact" href={"/" + locale + "/contact"}>{t.nav.contact}<span aria-hidden="true">↗</span></Link>
         </div>
       </div>
       <nav className="mobile-nav" aria-label="Mobile navigation">
