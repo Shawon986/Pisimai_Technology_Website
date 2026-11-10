@@ -9,7 +9,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
     ["home", "/" + locale],
     ["solutions", "/" + locale + "/solutions"],
     ["services", "/" + locale + "/services"],
-    ["technology", "/" + locale + "/solutions"],
+    ["technology", "/" + locale + "/technology"],
     ["about", "/" + locale + "/about"],
     ["contact", "/" + locale + "/contact"]
   ] as const;
