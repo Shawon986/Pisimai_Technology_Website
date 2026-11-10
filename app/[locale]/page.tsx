@@ -63,7 +63,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="tech-hero-visual" role="img" aria-label={locale === "zh" ? "人工智能、软件、自动化与系统集成的互联技术架构示意" : "An interconnected technology architecture showing AI, software, automation and system integration"}>
             <div className="visual-topline"><span> PISIMAI / SYSTEMS LAB</span><span><i /> {locale === "zh" ? "系统在线" : "SYSTEMS ONLINE"}</span></div>
             <div className="architecture-grid" aria-hidden="true" />
-            <InteractiveSpiderWeb />      </svg>
+            <InteractiveSpiderWeb />
             <div className="architecture-connectors" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
             <div className="architecture-core">
               <div className="core-bracket bracket-a" /><div className="core-bracket bracket-b" />
