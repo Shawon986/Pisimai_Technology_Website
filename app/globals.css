@@ -4422,3 +4422,93 @@ body { overscroll-behavior-y: contain; }
   .ai-lab-backdrop { inset:15% 2% 17%; }
   .scene-neural .neural-label { font-size:6px; }
 }
+
+
+/* Homepage hero performance rebuild: minimal compositing, one transform-only motion layer. */
+/* Remove full-viewport moving layers; the hero now uses one contained visual surface. */
+.hero-section.tech-hero {
+  background: radial-gradient(ellipse at 76% 48%, rgba(22,111,160,.16), transparent 42%), linear-gradient(112deg,#050914 0%,#081326 52%,#07101f 100%) !important;
+}
+.tech-hero > .hero-grid,
+.tech-hero > .hero-atmosphere,
+.tech-hero > .hero-lightfield,
+.tech-hero > .hero-particle-field,
+.tech-hero > .hero-floor,
+.tech-hero > .hero-vignette { display:none !important; }
+.tech-hero-visual {
+  contain:layout paint;
+  isolation:isolate;
+  perspective:none !important;
+  transform:none !important;
+  transform-style:flat !important;
+  animation:none !important;
+  background:linear-gradient(145deg,rgba(13,31,51,.96),rgba(5,13,26,.98)) !important;
+  border:1px solid rgba(103,177,221,.2) !important;
+  box-shadow:0 18px 38px rgba(0,0,0,.2),inset 0 1px rgba(190,232,255,.05) !important;
+}
+.tech-hero-visual::before,
+.tech-hero-visual::after { animation:none !important; background:none !important; opacity:0 !important; }
+.tech-hero-visual .architecture-grid { display:none !important; }
+.tech-hero-visual .architecture-orbit {
+  box-shadow:none !important;
+  transform-style:flat !important;
+  animation:none !important;
+  border-color:rgba(67,198,226,.25) !important;
+}
+.tech-hero-visual .architecture-orbit.orbit-b { border-color:rgba(128,128,226,.2) !important; }
+.tech-hero-visual .architecture-core {
+  transform-style:flat !important;
+  filter:none !important;
+  box-shadow:0 0 0 8px rgba(54,217,242,.035),inset 0 1px 8px rgba(217,246,255,.12),inset 0 -12px 24px rgba(2,9,22,.55) !important;
+  will-change:transform;
+  animation:intelligence-core-float 8s ease-in-out infinite !important;
+}
+.tech-hero-visual .architecture-core::before,
+.tech-hero-visual .architecture-core::after { box-shadow:none !important; }
+.tech-hero-visual .core-bracket,
+.tech-hero-visual .core-symbol { filter:none !important; }
+.tech-hero-visual .architecture-module {
+  transform-style:flat !important;
+  animation:none !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  background:linear-gradient(145deg,rgba(19,40,64,.98),rgba(8,19,35,.99)) !important;
+  border-color:rgba(128,190,228,.28) !important;
+  box-shadow:0 6px 14px rgba(0,0,0,.16),inset 0 1px rgba(227,246,255,.05) !important;
+}
+.tech-hero-visual .architecture-module::before { display:none !important; }
+.tech-hero-visual .architecture-connectors i {
+  filter:none !important;
+  box-shadow:none !important;
+  animation:none !important;
+  background:linear-gradient(90deg,transparent,rgba(74,196,221,.62),transparent) !important;
+  opacity:.5;
+}
+.tech-hero-visual .architecture-connectors i:first-child { animation:intelligence-signal 5.5s ease-in-out infinite !important; }
+.tech-hero-visual .visual-topline,
+.tech-hero-visual .visual-bottomline { text-shadow:none !important; }
+.tech-hero-visual .visual-topline i {
+  box-shadow:none !important;
+  animation:intelligence-status 4s ease-in-out infinite !important;
+}
+@keyframes intelligence-core-float {
+  0%,100% { translate:0 0; }
+  50% { translate:0 -4px; }
+}
+@keyframes intelligence-signal {
+  0%,18%,100% { opacity:.22; }
+  45%,65% { opacity:.85; }
+}
+@keyframes intelligence-status {
+  0%,100% { opacity:.62; }
+  50% { opacity:1; }
+}
+@media (max-width:760px) {
+  .tech-hero-visual { contain:layout paint style; box-shadow:0 10px 24px rgba(0,0,0,.16),inset 0 1px rgba(231,247,255,.04) !important; }
+  .tech-hero-visual .architecture-core { animation-duration:10s !important; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .tech-hero-visual .architecture-core,
+  .tech-hero-visual .architecture-connectors i:first-child,
+  .tech-hero-visual .visual-topline i { animation:none !important; will-change:auto; }
+}
