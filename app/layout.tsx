@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { RouteScrollReset } from "@/components/route-scroll-reset";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
@@ -14,5 +15,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body suppressHydrationWarning>{children}</body></html>;
+  return <html lang="en"><body suppressHydrationWarning><RouteScrollReset />{children}</body></html>;
 }
