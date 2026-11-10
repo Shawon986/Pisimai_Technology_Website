@@ -67,13 +67,14 @@ No external service credentials are required in this phase. Keep secrets in loca
 
 ## Contact inquiry email setup
 
-The bilingual contact form sends new project inquiries to **shawonh986@pisimai.com** through the Resend email API. The recipient is configured server-side and is not exposed to the browser.
+The bilingual contact form sends project inquiries to **shawonh986@pisimai.com** through Gmail SMTP using Nodemailer. No paid sending domain or Resend subscription is required. The Gmail account is used only as the sender; customer replies go to the visitor's email address.
 
-1. Create a Resend account and verify a sending domain you control by adding the DNS records Resend provides.
-2. Create a Resend API key with permission to send email.
-3. Copy `.env.example` to `.env.local` for local development and set:
-   - `RESEND_API_KEY` — your private Resend API key.
-   - `RESEND_FROM_EMAIL` — a sender address on the domain verified in Resend, for example `PISIMAI Website <website@your-verified-domain.com>`.
-4. Add the same two variables to the production deployment's environment variables, then redeploy.
+1. Choose a Gmail account that you control and enable 2-Step Verification.
+2. Create a Google **App Password** for that account. Google only shows App Passwords when the account is eligible and 2-Step Verification is enabled. Do not use your normal Gmail password.
+3. Copy `.env.example` to `.env.local` and set:
+   - `GMAIL_USER` — the full Gmail address used to send website inquiries.
+   - `GMAIL_APP_PASSWORD` — the 16-character Google App Password (spaces may be included or omitted).
+4. Restart the local development server after changing environment variables.
+5. Add the same two variables to the production hosting environment and redeploy.
 
-Never put the API key in a `NEXT_PUBLIC_*` variable or commit it to Git. The form does not store inquiries in a database; it forwards them by email. If email credentials are missing or delivery fails, the form reports that it could not send the inquiry rather than showing a false success message.
+Never put these credentials in a `NEXT_PUBLIC_*` variable or commit them to Git. The contact form does not store inquiries in a database; it forwards them by email to the configured company inbox. Gmail account sending limits and Google's account security policies apply. If credentials are missing or delivery fails, the form reports an error rather than showing a false success message.
