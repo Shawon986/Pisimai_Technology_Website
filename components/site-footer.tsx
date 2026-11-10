@@ -24,7 +24,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       <div className="footer-main">
         <div className="footer-brand-block">
           <Link href={"/" + locale} aria-label="PISIMAI TECHNOLOGY home">
-            <Image src="/brand/pisimai-horizontal-dark.svg" alt="PISIMAI TECHNOLOGY" width={270} height={58} />
+            <span className="brand-logo-wrap footer-brand-logo-wrap"><Image src="/brand/pisimai-horizontal-dark.svg" alt="PISIMAI TECHNOLOGY" width={270} height={58} /><span className="logo-signal" aria-hidden="true" /><span className="logo-node" aria-hidden="true" /></span>
           </Link>
           <p>{t.footerLine}</p>
           <span className="footer-brand-caption">{locale === "zh" ? "面向未来的技术合作伙伴" : "A technology partner for what comes next."}</span>
