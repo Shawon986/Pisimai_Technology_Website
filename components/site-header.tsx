@@ -15,7 +15,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
     <header className="site-header">
       <div className="header-inner">
         <Link className="brand" href={"/" + locale} aria-label="PISIMAI TECHNOLOGY home">
-          <span className="brand-logo-wrap"><Image src="/brand/pisimai-horizontal-dark.svg" alt="PISIMAI TECHNOLOGY" width={270} height={58} priority className="brand-logo" /><span className="logo-signal" aria-hidden="true" /><span className="logo-node" aria-hidden="true" /></span>
+          <span className="brand-logo-wrap"><Image src="/brand/pisimai-horizontal-dark.svg" alt="PISIMAI TECHNOLOGY" width={270} height={58} priority className="brand-logo" /></span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {items.map(([key, href]) => <a key={key} href={href}>{t.nav[key]}</a>)}
