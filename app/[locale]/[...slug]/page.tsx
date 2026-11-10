@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ContactForm } from "@/components/contact-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -139,7 +140,7 @@ const pages: Record<string, PageRecord> = {
       sections: [
         { title: "Share the context", text: "What are you trying to achieve? A short description of your goal and current situation is a helpful place to begin." },
         { title: "Explore the right capabilities", text: "Your project may involve software, AI, robotics, system integration, or a combination. We can start with the problem rather than assuming a particular technology." },
-        { title: "A note about contact channels", text: "Official company contact details have not yet been provided for publication. Verified contact channels and a working inquiry form will be added in the next functionality phase." }
+        { title: "A direct contact channel", text: "Use the project inquiry form below to share your requirements. Your message will be sent directly to our company inbox." }
       ],
       ctaTitle: "A thoughtful first step.",
       ctaText: "Prepare a short project brief with your goals, timeline, and any important technical constraints.",
@@ -152,7 +153,7 @@ const pages: Record<string, PageRecord> = {
       sections: [
         { title: "介绍项目背景", text: "您希望实现什么目标？简要说明目标与当前情况，是很好的开始。" },
         { title: "探索合适的技术能力", text: "项目可能涉及软件、人工智能、机器人、系统集成或多种技术组合。我们可以从问题出发，而不是预设技术。" },
-        { title: "关于联系渠道", text: "目前尚未收到可公开发布的官方公司联系方式。经过确认的联系渠道与可用咨询表单将在下一阶段功能开发中加入。" }
+        { title: "联系渠道", text: "您可以使用下方项目咨询表单介绍需求，消息将直接发送至我们的公司邮箱。" }
       ],
       ctaTitle: "从清晰的第一步开始。",
       ctaText: "您可以先准备简要项目说明，包括目标、时间安排与重要技术限制。",
@@ -363,6 +364,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
             </div>
           )}
         </section>
+        {pageKey === "contact" && <ContactForm locale={locale} />}
         <section className="inner-page-cta">
           <div><p className="section-kicker">{locale === "zh" ? "下一步" : "WHAT'S NEXT"}</p><h2>{content.ctaTitle}</h2><p>{content.ctaText}</p></div>
           <Link className="button button-primary" href={"/" + locale + content.ctaHref}>{content.ctaLabel}<span aria-hidden="true">↗</span></Link>
