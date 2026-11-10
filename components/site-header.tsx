@@ -8,7 +8,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const otherLocale = locale === "en" ? "zh" : "en";
   const items = [
     ["home", "/" + locale], ["services", "/" + locale + "/services"], ["solutions", "/" + locale + "/solutions"],
-    ["technology", "/" + locale + "/solutions"], ["about", "/" + locale + "/about"], ["contact", "/" + locale + "/contact"]
+    ["technology", "/" + locale + "/technology"], ["about", "/" + locale + "/about"], ["contact", "/" + locale + "/contact"]
   ] as const;
 
   return (
