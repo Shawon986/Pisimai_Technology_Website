@@ -3788,3 +3788,30 @@ body { overscroll-behavior-y: contain; }
 .inner-page-hero, .inner-content-section, .inner-page-cta, .site-footer {
   overflow-wrap: anywhere;
 }
+
+
+/* Keep the refreshed hero artwork visible on narrow screens without covering copy. */
+.inner-page-visual.page-visual-technology,
+.inner-page-visual.page-visual-architecture {
+  opacity: .88;
+}
+@media (max-width: 760px) {
+  .inner-page-visual.page-visual-technology,
+  .inner-page-visual.page-visual-architecture {
+    right: -105px;
+    width: 340px;
+    height: 280px;
+    opacity: .42;
+    transform: translateY(-34%) scale(.88);
+  }
+}
+@media (max-width: 420px) {
+  .inner-page-visual.page-visual-technology,
+  .inner-page-visual.page-visual-architecture {
+    right: -168px;
+    width: 330px;
+    height: 260px;
+    opacity: .3;
+    transform: translateY(-26%) scale(.84);
+  }
+}
