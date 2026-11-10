@@ -32,7 +32,7 @@ export function NetworkBackground() {
     let pixelRatio = 1;
 
     const createPoints = () => {
-      const count = Math.max(20, Math.min(42, Math.round(width / 27)));
+      const count = Math.max(26, Math.min(56, Math.round(width / 22)));
       points = Array.from({ length: count }, (_, index) => {
         const angle = Math.random() * Math.PI * 2;
         const speed = 0.1 + Math.random() * 0.14;
@@ -71,21 +71,38 @@ export function NetworkBackground() {
       }
 
       const maxDistance = width < 600 ? 116 : 148;
+      const maxDistanceSquared = maxDistance * maxDistance;
       const lineBuckets: number[][] = [[], [], [], []];
+      const spatialCells = new Map<string, number[]>();
 
+      // Spatial hashing keeps the denser network inexpensive to connect.
       for (let i = 0; i < points.length; i += 1) {
         const point = points[i];
-        for (let j = i + 1; j < points.length; j += 1) {
+        const cellX = Math.floor(point.x / maxDistance);
+        const cellY = Math.floor(point.y / maxDistance);
+        const cellKey = cellX + "," + cellY;
+        const nearby: number[] = [];
+        for (let offsetY = -1; offsetY <= 1; offsetY += 1) {
+          for (let offsetX = -1; offsetX <= 1; offsetX += 1) {
+            const cell = spatialCells.get((cellX + offsetX) + "," + (cellY + offsetY));
+            if (cell) nearby.push(...cell);
+          }
+        }
+
+        for (const j of nearby) {
           const other = points[j];
           const dx = point.x - other.x;
           const dy = point.y - other.y;
           const distanceSquared = dx * dx + dy * dy;
-          if (distanceSquared >= maxDistance * maxDistance) continue;
-          const distance = Math.sqrt(distanceSquared);
-          const strength = 1 - distance / maxDistance;
+          if (distanceSquared >= maxDistanceSquared) continue;
+          const strength = 1 - Math.sqrt(distanceSquared) / maxDistance;
           const bucket = Math.min(3, Math.floor(strength * 4));
           lineBuckets[bucket].push(point.x, point.y, other.x, other.y);
         }
+
+        const cell = spatialCells.get(cellKey);
+        if (cell) cell.push(i);
+        else spatialCells.set(cellKey, [i]);
       }
 
       for (let bucket = 0; bucket < lineBuckets.length; bucket += 1) {
@@ -112,8 +129,8 @@ export function NetworkBackground() {
     const animate = (time: number) => {
       if (!running) return;
 
-      // Render at a stable 30fps instead of repainting the full network every display refresh.
-      if (lastFrame && time - lastFrame < 33) {
+      // A steady 40fps cadence keeps motion fluid without repainting at full display refresh.
+      if (lastFrame && time - lastFrame < 25) {
         frame = window.requestAnimationFrame(animate);
         return;
       }
@@ -126,7 +143,7 @@ export function NetworkBackground() {
           const dy = point.y - pointer.y;
           const distance = Math.max(1, Math.hypot(dx, dy));
           if (distance < 128) {
-            const force = ((128 - distance) / 128) * 0.009;
+            const force = ((128 - distance) / 128) * 0.007;
             point.vx += (dx / distance) * force * delta;
             point.vy += (dy / distance) * force * delta;
           }
