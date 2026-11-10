@@ -1,0 +1,318 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { isLocale, type Locale } from "@/lib/i18n";
+
+type PageCopy = {
+  eyebrow: string; title: string; intro: string;
+  sections: { title: string; text: string; points?: string[] }[];
+  ctaTitle: string; ctaText: string; ctaLabel: string; ctaHref: string;
+};
+type PageRecord = { en: PageCopy; zh: PageCopy };
+
+const pages: Record<string, PageRecord> = {
+  services: {
+    en: {
+      eyebrow: "WHAT WE DO / CAPABILITY AREAS",
+      title: "Technology capabilities, connected around your goals.",
+      intro: "Explore the disciplines that shape PISIMAI TECHNOLOGY. We bring together intelligent systems, software, robotics, and integration thinking to approach practical technology challenges.",
+      sections: [
+        { title: "AI & Intelligent Systems", text: "Bring intelligence into products and workflows through AI-enabled applications, model and API integration, and thoughtfully designed intelligent experiences.", points: ["AI-enabled applications and assistants", "Model and API integration", "Intelligent workflow concepts"] },
+        { title: "Software & Digital Platforms", text: "Design and develop digital experiences that make services easier to access, operate, and improve.", points: ["Websites and digital experiences", "Web applications and platforms", "Custom software development"] },
+        { title: "Robotics & Automation", text: "Explore robotics capabilities through application-layer development, intelligent interaction, and automation-oriented solutions.", points: ["Robotics secondary development", "Intelligent interaction and control applications", "Automation concepts and integration"] },
+        { title: "System Integration", text: "Connect software, services, devices, and data so that separate components can work as a coherent solution.", points: ["API and service integration", "Device and data connectivity", "Cross-system workflow design"] }
+      ],
+      ctaTitle: "Have a project in mind?",
+      ctaText: "Tell us about the challenge, the environment, and the outcome you want to achieve.",
+      ctaLabel: "Start a conversation", ctaHref: "/contact"
+    },
+    zh: {
+      eyebrow: "我们的业务 / 核心能力",
+      title: "围绕目标，连接多元技术能力。",
+      intro: "了解构成 PISIMAI TECHNOLOGY 的专业领域。我们融合智能系统、软件、机器人与系统集成思维，探索切实可行的技术方案。",
+      sections: [
+        { title: "人工智能与智能系统", text: "通过 AI 应用、模型与 API 集成，以及精心设计的智能体验，将智能能力融入产品与工作流程。", points: ["AI 智能应用与助手", "模型与 API 集成", "智能工作流程设计"] },
+        { title: "软件与数字平台", text: "设计并开发数字化体验，让服务更易于访问、运营与持续改进。", points: ["企业网站与数字体验", "Web 应用与平台", "定制软件开发"] },
+        { title: "机器人与自动化", text: "通过应用层开发、智能交互与自动化方案，探索机器人技术的应用能力。", points: ["机器人二次开发", "智能交互与控制应用", "自动化方案与集成"] },
+        { title: "系统集成", text: "连接软件、服务、设备与数据，让独立组件协同构成完整方案。", points: ["API 与服务集成", "设备与数据连接", "跨系统工作流程设计"] }
+      ],
+      ctaTitle: "您正在规划一个项目吗？",
+      ctaText: "欢迎介绍您的挑战、应用环境以及希望实现的目标。",
+      ctaLabel: "开启交流", ctaHref: "/contact"
+    }
+  },
+  solutions: {
+    en: {
+      eyebrow: "SOLUTIONS / CONNECTED THINKING",
+      title: "Start with the challenge. Engineer the right combination.",
+      intro: "Technology works best when the pieces are designed to work together. We approach each opportunity by understanding the context first, then connecting the capabilities that make sense for the intended outcome.",
+      sections: [
+        { title: "Understand the real need", text: "Clarify the problem, users, operating environment, constraints, and the result that would make a meaningful difference." },
+        { title: "Shape the right architecture", text: "Identify where software, AI, automation, APIs, devices, or existing systems can contribute—and where they should remain simple." },
+        { title: "Connect and implement", text: "Bring the chosen components together with attention to usability, maintainability, and the realities of deployment." },
+        { title: "Improve with purpose", text: "Treat delivery as a foundation for learning and refinement, not a reason to add complexity without value." }
+      ],
+      ctaTitle: "Let's explore a practical path forward.",
+      ctaText: "Share the context and constraints. We can begin by understanding the problem before choosing the technology.",
+      ctaLabel: "Discuss your project", ctaHref: "/contact"
+    },
+    zh: {
+      eyebrow: "解决方案 / 协同思维",
+      title: "从实际挑战出发，构建合适的技术组合。",
+      intro: "当各个部分经过协同设计，技术才能发挥更大价值。我们首先理解实际场景，再围绕目标连接真正有意义的能力。",
+      sections: [
+        { title: "理解真实需求", text: "明确问题、用户、运行环境、限制条件，以及真正有价值的成果。" },
+        { title: "规划合理架构", text: "判断软件、AI、自动化、API、设备与现有系统如何发挥作用，并保持不必要部分的简单。" },
+        { title: "连接并实施", text: "将选定组件整合起来，同时关注易用性、可维护性与实际部署条件。" },
+        { title: "持续优化", text: "将交付视为持续学习与改进的基础，而不是不断增加复杂度的理由。" }
+      ],
+      ctaTitle: "一起探索切实可行的方向。",
+      ctaText: "欢迎分享您的场景与限制条件。我们可以先理解问题，再选择合适的技术。",
+      ctaLabel: "讨论您的项目", ctaHref: "/contact"
+    }
+  },
+  about: {
+    en: {
+      eyebrow: "ABOUT / PISIMAI TECHNOLOGY",
+      title: "A connected mindset for a changing technology landscape.",
+      intro: "PISIMAI TECHNOLOGY brings together a broad set of technology disciplines under one direction: making intelligent, useful, and connected solutions easier to build and apply.",
+      sections: [
+        { title: "What guides us", text: "We believe good engineering begins with understanding. The right solution is not necessarily the most complicated one; it is the one that fits the need, works in its environment, and can evolve responsibly." },
+        { title: "How our disciplines connect", text: "AI can add intelligence to software. Software can coordinate devices and services. Robotics can extend digital capabilities into physical environments. Integration makes the parts work together." },
+        { title: "Our areas of focus", text: "Our current capability direction spans AI and intelligent systems, software and digital platforms, robotics and automation, and system integration." }
+      ],
+      ctaTitle: "Build what comes next with us.",
+      ctaText: "If your goals involve intelligent technology, software, automation, or connected systems, we'd be glad to hear about them.",
+      ctaLabel: "Get in touch", ctaHref: "/contact"
+    },
+    zh: {
+      eyebrow: "关于我们 / PISIMAI TECHNOLOGY",
+      title: "以协同思维，应对不断变化的科技领域。",
+      intro: "PISIMAI TECHNOLOGY 汇聚多元技术领域，围绕共同方向开展工作：让智能、实用、互联的解决方案更易于构建与应用。",
+      sections: [
+        { title: "我们的理念", text: "我们相信，优秀的工程始于理解。合适的方案不一定最复杂，而是能够满足需求、适应实际环境并持续发展。" },
+        { title: "技术领域如何协同", text: "AI 为软件注入智能，软件协调设备与服务，机器人将数字能力延伸至物理环境，而系统集成让各个部分协同工作。" },
+        { title: "我们的关注领域", text: "目前的技术方向涵盖人工智能与智能系统、软件与数字平台、机器人与自动化，以及系统集成。" }
+      ],
+      ctaTitle: "与我们一起探索未来。",
+      ctaText: "如果您的目标涉及智能科技、软件、自动化或互联系统，我们期待了解更多。",
+      ctaLabel: "联系我们", ctaHref: "/contact"
+    }
+  },
+  contact: {
+    en: {
+      eyebrow: "CONTACT / START A CONVERSATION",
+      title: "Tell us what you're looking to make possible.",
+      intro: "Whether you're exploring an idea, planning a digital product, or connecting existing technologies, a useful conversation starts with understanding the challenge.",
+      sections: [
+        { title: "Share the context", text: "What are you trying to achieve? A short description of your goal and current situation is a helpful place to begin." },
+        { title: "Explore the right capabilities", text: "Your project may involve software, AI, robotics, system integration, or a combination. We can start with the problem rather than assuming a particular technology." },
+        { title: "A note about contact channels", text: "Official company contact details have not yet been provided for publication. Verified contact channels and a working inquiry form will be added in the next functionality phase." }
+      ],
+      ctaTitle: "A thoughtful first step.",
+      ctaText: "Prepare a short project brief with your goals, timeline, and any important technical constraints.",
+      ctaLabel: "Explore our services", ctaHref: "/services"
+    },
+    zh: {
+      eyebrow: "联系 / 开启交流",
+      title: "告诉我们，您希望实现什么可能。",
+      intro: "无论您正在探索一个想法、规划数字产品，还是连接现有技术，有价值的交流都始于对挑战的理解。",
+      sections: [
+        { title: "介绍项目背景", text: "您希望实现什么目标？简要说明目标与当前情况，是很好的开始。" },
+        { title: "探索合适的技术能力", text: "项目可能涉及软件、人工智能、机器人、系统集成或多种技术组合。我们可以从问题出发，而不是预设技术。" },
+        { title: "关于联系渠道", text: "目前尚未收到可公开发布的官方公司联系方式。经过确认的联系渠道与可用咨询表单将在下一阶段功能开发中加入。" }
+      ],
+      ctaTitle: "从清晰的第一步开始。",
+      ctaText: "您可以先准备简要项目说明，包括目标、时间安排与重要技术限制。",
+      ctaLabel: "了解我们的服务", ctaHref: "/services"
+    }
+  },
+  "ai-intelligent-systems": {
+    en: {
+      eyebrow: "CAPABILITY / 01",
+      title: "AI & Intelligent Systems",
+      intro: "Bring intelligence into products and workflows through useful AI applications, model and API integration, and carefully considered intelligent experiences.",
+      sections: [
+        { title: "AI-enabled applications", text: "Explore how language models, vision capabilities, and other AI services can support real user needs and product experiences." },
+        { title: "Model and API integration", text: "Connect suitable AI models and services to applications through clear interfaces, controlled data flows, and maintainable integration patterns." },
+        { title: "Intelligent workflows", text: "Identify repetitive or information-heavy processes where AI assistance can improve the experience while keeping people in control." }
+      ],
+      ctaTitle: "Have an AI use case to explore?",
+      ctaText: "Start with the task, the users, and the outcome you want—not just the model.",
+      ctaLabel: "Discuss an AI project", ctaHref: "/contact"
+    },
+    zh: {
+      eyebrow: "技术领域 / 01",
+      title: "人工智能与智能系统",
+      intro: "通过实用的 AI 应用、模型与 API 集成，以及经过审慎设计的智能体验，将智能能力融入产品与工作流程。",
+      sections: [
+        { title: "AI 智能应用", text: "探索语言模型、视觉能力及其他 AI 服务如何支持真实用户需求与产品体验。" },
+        { title: "模型与 API 集成", text: "通过清晰接口、受控数据流与可维护的集成方式，将合适的 AI 模型和服务连接到应用中。" },
+        { title: "智能工作流程", text: "识别适合 AI 辅助的重复性或信息密集型流程，同时确保人员保有必要的控制权。" }
+      ],
+      ctaTitle: "正在探索 AI 应用场景？",
+      ctaText: "从任务、用户与预期成果出发，而不仅仅是模型本身。",
+      ctaLabel: "讨论 AI 项目", ctaHref: "/contact"
+    }
+  },
+  "software-digital-platforms": {
+    en: {
+      eyebrow: "CAPABILITY / 02",
+      title: "Software & Digital Platforms",
+      intro: "Create digital experiences that help people access services, work with information, and interact with products more effectively.",
+      sections: [
+        { title: "Websites and digital experiences", text: "Build clear, responsive web experiences that communicate value and make the next step easy to understand." },
+        { title: "Web applications and platforms", text: "Develop application interfaces and workflows around the needs of users, teams, and the wider service." },
+        { title: "Custom software development", text: "Shape software around a defined problem, with attention to maintainability, security, and a sensible path for future growth." }
+      ],
+      ctaTitle: "Planning a digital product?",
+      ctaText: "Let's understand the users, essential workflows, and the job the product needs to do.",
+      ctaLabel: "Discuss a software project", ctaHref: "/contact"
+    },
+    zh: {
+      eyebrow: "技术领域 / 02",
+      title: "软件与数字平台",
+      intro: "打造数字化体验，帮助用户更高效地获取服务、处理信息并与产品互动。",
+      sections: [
+        { title: "网站与数字体验", text: "构建清晰、响应式的网站体验，有效传达价值并让用户轻松理解下一步操作。" },
+        { title: "Web 应用与平台", text: "围绕用户、团队与整体服务需求，开发应用界面与工作流程。" },
+        { title: "定制软件开发", text: "围绕明确的问题设计软件，同时关注可维护性、安全性与未来扩展路径。" }
+      ],
+      ctaTitle: "正在规划数字产品？",
+      ctaText: "让我们先了解用户、核心流程以及产品需要解决的问题。",
+      ctaLabel: "讨论软件项目", ctaHref: "/contact"
+    }
+  },
+  "robotics-automation": {
+    en: {
+      eyebrow: "CAPABILITY / 03",
+      title: "Robotics & Automation",
+      intro: "Explore the connection between intelligent software and physical systems through robotics application development, secondary development, and automation-oriented integration.",
+      sections: [
+        { title: "Robotics secondary development", text: "Develop application-layer capabilities on supported robotic platforms while respecting the boundaries of the underlying hardware and vendor SDK." },
+        { title: "Intelligent interaction", text: "Connect speech, vision, and language capabilities to create more natural ways for people to interact with robotic systems." },
+        { title: "Automation and integration", text: "Consider how robotic applications can coordinate with software, services, and operational workflows." }
+      ],
+      ctaTitle: "Exploring a robotics application?",
+      ctaText: "Share the platform, application environment, and capabilities you want to develop.",
+      ctaLabel: "Discuss robotics", ctaHref: "/contact"
+    },
+    zh: {
+      eyebrow: "技术领域 / 03",
+      title: "机器人与自动化",
+      intro: "通过机器人应用开发、二次开发与自动化集成，探索智能软件与物理系统之间的连接。",
+      sections: [
+        { title: "机器人二次开发", text: "在支持的机器人平台上开发应用层能力，同时遵循底层硬件与厂商 SDK 的技术边界。" },
+        { title: "智能交互", text: "结合语音、视觉与语言能力，为人与机器人系统创造更自然的交互方式。" },
+        { title: "自动化与集成", text: "探索机器人应用如何与软件、服务及实际运营流程协同工作。" }
+      ],
+      ctaTitle: "正在探索机器人应用？",
+      ctaText: "欢迎介绍平台、应用环境以及希望开发的能力。",
+      ctaLabel: "讨论机器人项目", ctaHref: "/contact"
+    }
+  },
+  "system-integration": {
+    en: {
+      eyebrow: "CAPABILITY / 04",
+      title: "System Integration",
+      intro: "Connect software, services, devices, and data into systems that work together instead of operating as isolated parts.",
+      sections: [
+        { title: "API and service integration", text: "Connect applications and services through well-defined interfaces and predictable data exchange." },
+        { title: "Device and data connectivity", text: "Consider how supported devices and data sources can participate in a wider application or operational environment." },
+        { title: "Cross-system workflows", text: "Map how information and actions move between components, with attention to reliability, visibility, and maintainability." }
+      ],
+      ctaTitle: "Need separate systems to work together?",
+      ctaText: "Describe the systems involved and where the current gaps or friction occur.",
+      ctaLabel: "Discuss integration", ctaHref: "/contact"
+    },
+    zh: {
+      eyebrow: "技术领域 / 04",
+      title: "系统集成",
+      intro: "连接软件、服务、设备与数据，让各个部分协同工作，而不是彼此孤立。",
+      sections: [
+        { title: "API 与服务集成", text: "通过定义清晰的接口与稳定的数据交换方式连接应用和服务。" },
+        { title: "设备与数据连接", text: "探索受支持的设备与数据源如何融入更广泛的应用或运营环境。" },
+        { title: "跨系统工作流程", text: "梳理信息与操作在各组件之间的流动方式，并关注可靠性、可见性与可维护性。" }
+      ],
+      ctaTitle: "需要让不同系统协同工作？",
+      ctaText: "欢迎介绍涉及的系统，以及当前存在的断点或效率问题。",
+      ctaLabel: "讨论系统集成", ctaHref: "/contact"
+    }
+  }
+};
+
+const slugs = Object.keys(pages);
+export function generateStaticParams() {
+  return (["en", "zh"] as const).flatMap((locale) => slugs.map((slug) => ({ locale, slug: [slug] })));
+}
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string[] }> }): Promise<Metadata> {
+  const { locale: rawLocale, slug } = await params;
+  if (!isLocale(rawLocale)) return {};
+  const page = pages[slug.join("/")];
+  if (!page) return {};
+  const content = page[rawLocale];
+  return { title: content.title, description: content.intro, alternates: { languages: { en: "/en/" + slug.join("/"), "zh-CN": "/zh/" + slug.join("/") } } };
+}
+export default async function ContentPage({ params }: { params: Promise<{ locale: string; slug: string[] }> }) {
+  const { locale: rawLocale, slug } = await params;
+  if (!isLocale(rawLocale)) notFound();
+  const page = pages[slug.join("/")];
+  if (!page) notFound();
+  const locale: Locale = rawLocale;
+  const content = page[locale];
+  const serviceSlugs = ["ai-intelligent-systems", "software-digital-platforms", "robotics-automation", "system-integration"];
+  const isServices = slug[0] === "services";
+  const labels = locale === "zh"
+    ? ["人工智能与智能系统", "软件与数字平台", "机器人与自动化", "系统集成"]
+    : ["AI & Intelligent Systems", "Software & Digital Platforms", "Robotics & Automation", "System Integration"];
+  return (
+    <>
+      <SiteHeader locale={locale} />
+      <main className="inner-page">
+        <section className="inner-page-hero">
+          <div className="inner-hero-grid" aria-hidden="true" />
+          <div className="inner-hero-glow" aria-hidden="true" />
+          <div className="inner-page-hero-content">
+            <p className="section-kicker"><span className="kicker-dot" />{content.eyebrow}</p>
+            <h1>{content.title}</h1>
+            <p className="inner-page-intro">{content.intro}</p>
+            <div className="inner-breadcrumb"><Link href={"/" + locale}>{locale === "zh" ? "首页" : "HOME"}</Link><span>/</span><span>{slug.map((part) => part.replaceAll("-", " ")).join(" / ").toUpperCase()}</span></div>
+          </div>
+          <div className="inner-hero-index">PST <span>/</span> {String(slugs.indexOf(slug.join("/")) + 1).padStart(2, "0")}</div>
+        </section>
+        <section className="inner-content-section">
+          <div className="inner-content-heading">
+            <p className="section-kicker">{locale === "zh" ? "专业领域与方法" : "CAPABILITIES & APPROACH"}</p>
+            <span>{locale === "zh" ? "PISIMAI / 技术" : "PISIMAI / TECHNOLOGY"}</span>
+          </div>
+          <div className="inner-content-grid">
+            {content.sections.map((section, index) => (
+              <article className="inner-content-card" key={section.title}>
+                <div className="inner-card-index">0{index + 1}<i /></div>
+                <h2>{section.title}</h2>
+                <p>{section.text}</p>
+                {section.points && <ul>{section.points.map((point) => <li key={point}>{point}</li>)}</ul>}
+              </article>
+            ))}
+          </div>
+          {isServices && (
+            <div className="inner-service-links">
+              {serviceSlugs.map((serviceSlug, index) => (
+                <Link href={"/" + locale + "/services/" + serviceSlug} key={serviceSlug}>
+                  <span>0{index + 1}</span><strong>{labels[index]}</strong><i>↗</i>
+                </Link>
+              ))}
+            </div>
+          )}
+        </section>
+        <section className="inner-page-cta">
+          <div><p className="section-kicker">{locale === "zh" ? "下一步" : "WHAT'S NEXT"}</p><h2>{content.ctaTitle}</h2><p>{content.ctaText}</p></div>
+          <Link className="button button-primary" href={"/" + locale + content.ctaHref}>{content.ctaLabel}<span aria-hidden="true">↗</span></Link>
+        </section>
+      </main>
+      <SiteFooter locale={locale} />
+    </>
+  );
+}
