@@ -61,7 +61,7 @@ export function InteractiveSpiderWeb() {
       onPointerLeave={handlePointerLeave}
     >
       <defs>
-        <radialGradient id="spider-web-cursor-glow">
+        <radialGradient id="spider-web-cursor-glow" gradientUnits="userSpaceOnUse" cx="var(--web-x, 50%)" cy="var(--web-y, 50%)" r="150">
           <stop offset="0%" stopColor="#72eaff" stopOpacity=".2" />
           <stop offset="55%" stopColor="#72eaff" stopOpacity=".055" />
           <stop offset="100%" stopColor="#72eaff" stopOpacity="0" />
@@ -89,13 +89,13 @@ export function InteractiveSpiderWeb() {
           <circle className="spider-web-center" cx={CENTER_X} cy={CENTER_Y} r="4" />
         </g>
       </g>
-      <circle
+      <rect
         className="spider-web-cursor-glow"
-        cx="0"
-        cy="0"
-        r="116"
+        x="0"
+        y="0"
+        width="600"
+        height="440"
         fill="url(#spider-web-cursor-glow)"
-        style={{ cx: "var(--web-x, 50%)", cy: "var(--web-y, 50%)" }}
       />
     </svg>
   );
