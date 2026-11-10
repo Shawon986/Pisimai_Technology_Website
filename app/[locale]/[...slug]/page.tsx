@@ -299,7 +299,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
     : ["AI & Intelligent Systems", "Software & Digital Platforms", "Robotics & Automation", "System Integration"];
   return (
     <>
-      <SiteHeader locale={locale} />
+      <SiteHeader locale={locale} currentPath={slug.join("/")} />
       <main className="inner-page">
         <section className="inner-page-hero">
           <div className="inner-hero-grid" aria-hidden="true" />
@@ -342,7 +342,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
           <Link className="button button-primary" href={"/" + locale + content.ctaHref}>{content.ctaLabel}<span aria-hidden="true">↗</span></Link>
         </section>
       </main>
-      <SiteFooter locale={locale} />
+      <SiteFooter locale={locale} currentPath={slug.join("/")} />
     </>
   );
 }
