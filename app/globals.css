@@ -2161,3 +2161,32 @@ body{background:#080e1b}
     animation: none !important;
   }
 }
+
+
+/* Brand interaction: restrained illumination, keeping the logo readable. */
+.brand {
+  position: relative;
+  isolation: isolate;
+  transition: transform .35s cubic-bezier(.2,.75,.25,1), filter .35s ease;
+}
+.brand::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 12% 8%;
+  border-radius: 50%;
+  opacity: 0;
+  background: radial-gradient(ellipse, rgba(27,190,235,.22), transparent 70%);
+  filter: blur(13px);
+  transition: opacity .4s ease;
+}
+.brand:hover {
+  transform: translateY(-1px) scale(1.018);
+  filter: drop-shadow(0 0 8px rgba(37,190,240,.18));
+}
+.brand:hover::before { opacity: 1; }
+.brand-logo { transform-origin: left center; }
+@media (prefers-reduced-motion: reduce) {
+  .brand,.brand::before { transition: none !important; }
+  .brand:hover { transform: none; }
+}
