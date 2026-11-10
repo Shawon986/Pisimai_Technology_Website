@@ -21,7 +21,8 @@ a { color: inherit; text-decoration: none; }
 .site-header { position: absolute; z-index: 20; top: 0; left: 0; width: 100%; border-bottom: 1px solid rgba(194,214,255,.09); background: rgba(7,11,22,.72); backdrop-filter: blur(18px); }
 .header-inner { min-height: 88px; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .brand { display: inline-flex; flex: 0 0 auto; align-items: center; }
-.brand-logo-wrap { position: relative; display: block; flex: 0 0 auto; width: 220px; aspect-ratio: 900 / 190; overflow: visible; }\n.brand-logo { display: block; width: 100%; height: auto; }
+.brand-logo-wrap { position: relative; display: block; flex: 0 0 auto; width: 220px; aspect-ratio: 900 / 190; overflow: visible; }
+.brand-logo { display: block; width: 100%; height: auto; }
 .desktop-nav,.header-actions { display: flex; align-items: center; }
 .desktop-nav { gap: clamp(15px,2vw,30px); }
 .desktop-nav a,.mobile-nav a { color: #b8c4d9; font-size: 12px; transition: color .2s ease; }
@@ -111,7 +112,8 @@ a { color: inherit; text-decoration: none; }
 .contact-section h2 { max-width: 690px; margin-top: 15px; }.contact-section>div>p:last-child { margin-bottom: 0; }.contact-section>.button { flex: 0 0 auto; }
 .site-footer { padding: 42px var(--gutter) 24px; background: #050913; border-top: 1px solid var(--line); }
 .footer-main { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 38px; }
-.footer-main img { display: block; width: 100%; height: auto; }\n.footer-brand-logo-wrap { width: 190px; }.footer-main p { color: #8798b3; font-size: 12px; }
+.footer-main img { display: block; width: 100%; height: auto; }
+.footer-brand-logo-wrap { width: 190px; }.footer-main p { color: #8798b3; font-size: 12px; }
 .footer-bottom { border-top: 1px solid var(--line); padding-top: 20px; display: flex; justify-content: space-between; gap: 20px; color: #687993; font-size: 10px; }
 .footer-status { display: flex; align-items: center; gap: 8px; }.footer-status i { width: 5px; height: 5px; border-radius: 50%; background: #36d8a3; box-shadow: 0 0 10px #36d8a3; }
 
@@ -2193,45 +2195,35 @@ body{background:#080e1b}
 
 
 /* Animate the logo in the HTML layer: SVGs loaded through img are static in many browsers. */
-.brand-logo-wrap .logo-signal {
-  position: absolute;
-  left: 16.75%;
-  top: 34.7%;
-  width: 2.65%;
-  height: 2px;
-  overflow: hidden;
-  pointer-events: none;
+  50% { opacity: 1; scale: 1.28; }
 }
-.brand-logo-wrap .logo-signal::after {
+
+
+/* Premium wordmark shimmer: the P monogram remains completely still. */
+.brand-logo-wrap::after {
   content: "";
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 48%;
-  background: linear-gradient(90deg, transparent, #c8ffff 48%, #42e8f5);
-  box-shadow: 0 0 7px 1px rgba(65, 229, 246, .8);
-  animation: brand-signal-travel 1.9s ease-in-out infinite;
-}
-.brand-logo-wrap .logo-node {
-  position: absolute;
-  left: 19.35%;
-  top: 34.7%;
-  width: 2.7%;
-  aspect-ratio: 1;
-  border: 1px solid rgba(180, 251, 255, .95);
-  border-radius: 50%;
-  background: #d9ffff;
-  box-shadow: 0 0 5px 2px rgba(54, 224, 245, .55), 0 0 12px 4px rgba(54, 151, 255, .28);
-  transform: translate(-50%, -50%);
+  z-index: 2;
+  left: 28.5%;
+  top: 17%;
+  width: 49%;
+  height: 43%;
   pointer-events: none;
-  animation: brand-node-pulse 2.1s ease-in-out infinite;
+  opacity: 0;
+  background: linear-gradient(108deg, transparent 0%, rgba(170,245,255,.04) 35%, rgba(198,250,255,.72) 49%, rgba(79,190,255,.16) 58%, transparent 76%);
+  background-size: 220% 100%;
+  background-position: 120% 0;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(180deg, transparent 4%, #000 25%, #000 76%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 4%, #000 25%, #000 76%, transparent 100%);
+  animation: wordmark-sheen 7s ease-in-out infinite;
 }
-@keyframes brand-signal-travel {
-  0% { transform: translateX(-115%); opacity: 0; }
-  18% { opacity: 1; }
-  82% { opacity: 1; }
-  100% { transform: translateX(225%); opacity: 0; }
+@keyframes wordmark-sheen {
+  0%, 18% { opacity: 0; background-position: 120% 0; }
+  28% { opacity: .82; }
+  52% { opacity: .48; background-position: -25% 0; }
+  62%, 100% { opacity: 0; background-position: -25% 0; }
 }
-@keyframes brand-node-pulse {
-  0%, 100% { opacity: .72; scale: .82; }
-  50% { opacity: 1; scale: 1.28; }
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo-wrap::after { animation: none !important; opacity: 0 !important; }
 }
