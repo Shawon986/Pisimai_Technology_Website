@@ -1724,3 +1724,45 @@ body{background:#080e1b}
 @media (prefers-reduced-motion: reduce) {
   .tech-about-visual::after { animation: none !important; }
 }
+
+
+/* Final motion tuning: keep the technology capability section alive,
+   but remove the vertical scan line from the About illustration. */
+.tech-about-visual::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+.service-visual-orbit {
+  animation: circuit-panel-breathe 5.5s ease-in-out infinite !important;
+}
+.service-visual-orbit i {
+  animation: circuit-node-pulse 2.8s ease-in-out infinite !important;
+}
+.service-visual-orbit i:nth-child(2) { animation-delay: .7s !important; }
+.service-visual-orbit i:nth-child(3) { animation-delay: 1.4s !important; }
+.service-visual-frame {
+  animation: service-frame-hover 7s ease-in-out infinite;
+}
+.service-card:nth-child(2) .service-visual-frame { animation-delay: -.9s; }
+.service-card:nth-child(3) .service-visual-frame { animation-delay: -1.8s; }
+.service-card:nth-child(4) .service-visual-frame { animation-delay: -2.7s; }
+@keyframes circuit-panel-breathe {
+  0%, 100% { border-color: rgba(87,165,207,.2); opacity: .78; }
+  50% { border-color: rgba(54,217,242,.52); opacity: 1; }
+}
+@keyframes circuit-node-pulse {
+  0%, 100% { opacity: .45; box-shadow: 0 0 4px rgba(54,217,242,.2); }
+  50% { opacity: 1; box-shadow: 0 0 12px rgba(54,217,242,.72); }
+}
+@keyframes service-frame-hover {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-visual-orbit,
+  .service-visual-orbit i,
+  .service-visual-frame {
+    animation: none !important;
+  }
+}
