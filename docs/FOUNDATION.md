@@ -73,3 +73,28 @@ The bilingual homepage now includes:
 - [ ] Run lint, TypeScript, and production build in GitHub Actions.
 - [ ] Test keyboard-only navigation and reduced-motion settings.
 - [ ] Confirm no horizontal overflow at 320px, 375px, 768px, and desktop widths.
+
+
+## Phase 3 — Complete website pages
+
+Implemented bilingual secondary routes under both `/en` and `/zh`:
+- Services overview.
+- Four service detail pages: AI & Intelligent Systems, Software & Digital Platforms, Robotics & Automation, and System Integration.
+- Solutions approach page.
+- Dedicated Technology page.
+- About page.
+- Contact introduction page.
+
+### Navigation and page experience
+- Header and footer navigation now lead to dedicated pages rather than only homepage anchors.
+- Homepage capability cards link to their corresponding service detail pages.
+- Pages share a consistent responsive visual system, breadcrumb navigation, page metadata, and contextual next-step links.
+- English and Simplified Chinese content are provided for every new route.
+- No unverified company achievements, customers, contact details, certifications, or project claims are introduced.
+
+### Phase 3 review checklist
+- [ ] Review every route in English and Chinese.
+- [ ] Check navigation, breadcrumbs, service links, and language switching.
+- [ ] Review mobile layouts and long Chinese/English text wrapping.
+- [ ] Confirm the official company contact details before enabling a live inquiry channel.
+- [ ] Run lint, TypeScript, and production build; resolve any reported issues.
