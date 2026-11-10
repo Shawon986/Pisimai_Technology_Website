@@ -3461,3 +3461,22 @@ html { scroll-padding-top: 0; }
   48% { opacity: .65; transform: translateX(500%) skewX(-18deg); }
   54%, 100% { opacity: 0; transform: translateX(500%) skewX(-18deg); }
 }
+
+
+/* Desktop hero: retain dimensional motion, but avoid continuously repainting large blurred layers. */
+.hero-atmosphere {
+  filter: none !important;
+}
+.hero-lightfield i {
+  filter: none !important;
+}
+.hero-particle-field i {
+  box-shadow: none !important;
+}
+.core-bracket,
+.core-symbol {
+  filter: none !important;
+}
+.architecture-grid {
+  animation: none !important;
+}
