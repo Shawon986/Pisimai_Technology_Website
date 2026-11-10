@@ -307,3 +307,79 @@ a { color: inherit; text-decoration: none; }
 section[id] { scroll-margin-top:24px; }
 .service-card { transition:transform .28s ease,border-color .28s ease,background .28s ease; }
 @media (hover:none) { .service-card:hover { transform:none; } }
+
+
+/* Phase 2 refinement — subtle motion across every homepage section */
+.intro-section .intro-content,
+.intro-section .intro-aside,
+.section-heading,
+.capability-note,
+.approach-heading,
+.principle-item,
+.about-copy,
+.contact-copy {
+  animation: section-content-in .8s cubic-bezier(.2,.7,.2,1) both;
+}
+.intro-section .intro-content { animation-delay: .08s; }
+.section-heading { animation-delay: .06s; }
+.service-card { animation: card-arrive .8s cubic-bezier(.2,.7,.2,1) both; }
+.service-card:nth-child(2) { animation-delay: .1s; }
+.service-card:nth-child(3) { animation-delay: .2s; }
+.service-card:nth-child(4) { animation-delay: .3s; }
+.service-visual span:nth-child(1) { animation: visual-orbit 12s linear infinite; }
+.service-visual span:nth-child(2) { animation: visual-orbit-reverse 16s linear infinite; }
+.service-visual span:nth-child(3) { animation: visual-orbit 20s linear infinite; }
+.service-visual span:nth-child(4) { animation: visual-pulse 3.2s ease-in-out infinite; }
+.service-visual i { animation: visual-spark 4.8s ease-in-out infinite; }
+.service-visual-2 span:nth-child(1) { animation: visual-float 5s ease-in-out infinite; }
+.service-visual-3 span:nth-child(1) { animation: visual-orbit 18s linear infinite; }
+.service-visual-4 span:nth-child(2) { animation: visual-float 6s ease-in-out infinite reverse; }
+.tech-band-lines span { transform-origin: center; animation: tech-line-breathe 5s ease-in-out infinite; }
+.tech-band-lines span:nth-child(2n) { animation-delay: 1.1s; }
+.tech-band-lines span:nth-child(3n) { animation-delay: 2.2s; }
+.tech-band-inner > p i { animation: tech-dot-pulse 2.8s ease-in-out infinite; }
+.tech-band-inner > p i:nth-of-type(2) { animation-delay: .5s; }
+.tech-band-inner > p i:nth-of-type(3) { animation-delay: 1s; }
+.principle-item { animation-delay: .08s; }
+.principle-item:nth-child(2) { animation-delay: .16s; }
+.principle-item:nth-child(3) { animation-delay: .24s; }
+.principle-item:before { content: ""; position: absolute; left: 0; right: 0; height: 1px; opacity: 0; background: linear-gradient(90deg,transparent,rgba(22,217,245,.5),transparent); pointer-events: none; }
+.principle-item { position: relative; }
+.principle-item:hover:before { opacity: 1; }
+.about-orbit { animation: about-orbit-glow 7s ease-in-out infinite; }
+.about-orbit > div { animation: core-breathe 6s ease-in-out infinite; }
+.about-orbit > span { animation: orbit-beacon 9s linear infinite; }
+.contact-orbit { animation: contact-float 8s ease-in-out infinite; }
+.contact-orbit:before { animation: orbit-drift 28s linear infinite; }
+.contact-orbit:after { animation: orbit-drift-reverse 34s linear infinite; }
+.contact-orbit span { animation: core-breathe 5.5s ease-in-out infinite; }
+.contact-orbit i { animation: orbit-beacon 8s linear infinite; }
+@keyframes section-content-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes card-arrive {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes visual-orbit { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes visual-orbit-reverse { from { rotate: 0deg; } to { rotate: -360deg; } }
+@keyframes visual-pulse { 0%,100% { scale: .88; opacity: .72; box-shadow: 0 0 12px 3px rgba(22,217,245,.3); } 50% { scale: 1.12; opacity: 1; box-shadow: 0 0 22px 7px rgba(22,217,245,.55); } }
+@keyframes visual-spark { 0%,100% { translate: 0 0; opacity: .4; } 50% { translate: 7px -8px; opacity: 1; } }
+@keyframes visual-float { 0%,100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+@keyframes tech-line-breathe { 0%,100% { opacity: .14; scale: 1 .72; } 50% { opacity: .55; scale: 1 1; } }
+@keyframes tech-dot-pulse { 0%,100% { opacity: .55; scale: .8; } 50% { opacity: 1; scale: 1.45; } }
+@keyframes about-orbit-glow { 0%,100% { box-shadow: 0 0 22px rgba(22,217,245,.025); } 50% { box-shadow: 0 0 48px rgba(22,217,245,.09); } }
+@keyframes orbit-beacon { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes contact-float { 0%,100% { translate: 0 -50%; } 50% { translate: 0 calc(-50% - 9px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-section .intro-content, .intro-section .intro-aside, .section-heading,
+  .capability-note, .approach-heading, .principle-item, .about-copy, .contact-copy,
+  .service-card, .service-visual span, .service-visual i, .tech-band-lines span,
+  .tech-band-inner > p i, .about-orbit, .about-orbit > div, .about-orbit > span,
+  .contact-orbit, .contact-orbit:before, .contact-orbit:after,
+  .contact-orbit span, .contact-orbit i {
+    animation: none !important;
+  }
+}
