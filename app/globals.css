@@ -4288,3 +4288,54 @@ body { overscroll-behavior-y: contain; }
     opacity: .32;
   }
 }
+
+
+/* Enlarge the actual Contact hero artwork while keeping its text anchored in place. */
+.inner-page-visual.page-visual-signal .signal-envelope {
+  width: 190px;
+  height: 126px;
+  border-radius: 15px;
+}
+.inner-page-visual.page-visual-signal .signal-envelope span {
+  width: 128px;
+  height: 128px;
+  top: -36px;
+}
+.inner-page-visual.page-visual-signal .signal-envelope i,
+.inner-page-visual.page-visual-signal .signal-envelope b {
+  left: 25px;
+  right: 25px;
+  bottom: 34px;
+}
+.inner-page-visual.page-visual-signal .signal-envelope b {
+  bottom: 22px;
+  right: 58px;
+}
+.inner-page-visual.page-visual-signal .signal-wave {
+  width: 218px;
+  height: 218px;
+}
+.inner-page-visual.page-visual-signal .signal-dot {
+  width: 9px;
+  height: 9px;
+}
+@media (max-width: 760px) {
+  .inner-page-visual.page-visual-signal .signal-envelope {
+    width: 174px;
+    height: 116px;
+  }
+  .inner-page-visual.page-visual-signal .signal-wave {
+    width: 196px;
+    height: 196px;
+  }
+}
+@media (max-width: 420px) {
+  .inner-page-visual.page-visual-signal .signal-envelope {
+    width: 160px;
+    height: 108px;
+  }
+  .inner-page-visual.page-visual-signal .signal-wave {
+    width: 182px;
+    height: 182px;
+  }
+}
