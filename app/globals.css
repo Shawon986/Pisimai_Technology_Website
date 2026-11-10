@@ -5129,3 +5129,63 @@ body { overscroll-behavior-y: contain; }
   }
   .tech-band-caption { font-size:8px !important; letter-spacing:.12em !important; }
 }
+
+/* Interactive spider-web network: pointer response is event-driven, with no idle animation loop. */
+.tech-hero-visual .architecture-spider-web {
+  pointer-events:auto !important;
+  cursor:crosshair;
+  opacity:.84 !important;
+  overflow:visible;
+  touch-action:pan-y;
+  --web-x:50%;
+  --web-y:50%;
+  --web-dx:0px;
+  --web-dy:0px;
+}
+.tech-hero-visual .spider-web-reactive {
+  transform:translate3d(var(--web-dx),var(--web-dy),0);
+  transform-origin:300px 220px;
+  transition:transform 150ms cubic-bezier(.2,.7,.2,1);
+}
+.tech-hero-visual .spider-web-strands {
+  fill:none;
+  stroke:rgba(91,205,231,.32);
+  stroke-width:1.05;
+  vector-effect:non-scaling-stroke;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.tech-hero-visual .spider-web-strands path:nth-child(-n+18) {
+  stroke:rgba(118,213,234,.42);
+  stroke-width:1.2;
+}
+.tech-hero-visual .spider-web-nodes {
+  fill:#e8c46f;
+  stroke:rgba(255,229,166,.8);
+  stroke-width:.8;
+  vector-effect:non-scaling-stroke;
+}
+.tech-hero-visual .spider-web-nodes circle {
+  opacity:.78;
+}
+.tech-hero-visual .spider-web-nodes .spider-web-center {
+  fill:#f4e3a9;
+  stroke:#8cecff;
+  stroke-width:1.5;
+}
+.tech-hero-visual .spider-web-cursor-glow {
+  opacity:.75;
+  pointer-events:none;
+}
+@media (hover:none), (max-width:760px) {
+  .tech-hero-visual .architecture-spider-web {
+    pointer-events:none !important;
+    cursor:default;
+    opacity:.52 !important;
+  }
+  .tech-hero-visual .spider-web-reactive { transform:none !important; transition:none !important; }
+  .tech-hero-visual .spider-web-cursor-glow { display:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .tech-hero-visual .spider-web-reactive { transition:none !important; }
+}
