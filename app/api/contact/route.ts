@@ -114,10 +114,20 @@ export async function POST(request: NextRequest) {
     });
 
     if (!response.ok) {
+      // Log the provider's response for server-side diagnosis; never log credentials.
+      const providerError = await response.text().catch(() => "");
+      console.error("[contact] Resend rejected the email request", {
+        status: response.status,
+        response: providerError.slice(0, 2000),
+      });
       return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
     }
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (error) {
+    console.error("[contact] Email request failed", {
+      name: error instanceof Error ? error.name : "UnknownError",
+      message: error instanceof Error ? error.message : "Unknown error",
+    });
     return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
   }
 }
