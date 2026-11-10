@@ -294,6 +294,19 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
   const content = page[locale];
   const serviceSlugs = ["services/ai-intelligent-systems", "services/software-digital-platforms", "services/robotics-automation", "services/system-integration"];
   const isServices = slug[0] === "services";
+  const pageKey = slug.join("/");
+  const visualKind =
+    pageKey === "services" ? "capabilities" :
+    pageKey === "technology" ? "technology" :
+    pageKey === "solutions" ? "workflow" :
+    pageKey === "about" ? "architecture" :
+    pageKey === "contact" ? "signal" :
+    pageKey.endsWith("ai-intelligent-systems") ? "neural" :
+    pageKey.endsWith("software-digital-platforms") ? "software" :
+    pageKey.endsWith("robotics-automation") ? "robotics" : "integration";
+  const visualLabel: Record<string, string> = locale === "zh"
+    ? { capabilities: "能力矩阵", technology: "技术架构", workflow: "解决方案流程", architecture: "协同技术核心", signal: "连接已就绪", neural: "智能网络", software: "数字平台", robotics: "机器人系统", integration: "系统互联" }
+    : { capabilities: "CAPABILITY MATRIX", technology: "ENGINEERING LAYERS", workflow: "SOLUTION WORKFLOW", architecture: "CONNECTED TECHNOLOGY CORE", signal: "SIGNAL READY", neural: "NEURAL NETWORK", software: "DIGITAL PLATFORM", robotics: "ROBOTIC SYSTEM", integration: "SYSTEM INTEGRATION" };
   const labels = locale === "zh"
     ? ["人工智能与智能系统", "软件与数字平台", "机器人与自动化", "系统集成"]
     : ["AI & Intelligent Systems", "Software & Digital Platforms", "Robotics & Automation", "System Integration"];
@@ -304,6 +317,23 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
         <section className="inner-page-hero">
           <div className="inner-hero-grid" aria-hidden="true" />
           <div className="inner-hero-glow" aria-hidden="true" />
+          <div className={"inner-page-visual page-visual-" + visualKind} aria-hidden="true">
+            <div className="page-visual-orbit orbit-one" />
+            <div className="page-visual-orbit orbit-two" />
+            <div className="page-visual-orbit orbit-three" />
+            <div className="page-visual-axis axis-one" />
+            <div className="page-visual-axis axis-two" />
+            <div className="page-visual-core"><span /><i /><b /></div>
+            <div className="page-visual-node node-one"><i /></div>
+            <div className="page-visual-node node-two"><i /></div>
+            <div className="page-visual-node node-three"><i /></div>
+            <div className="page-visual-node node-four"><i /></div>
+            <div className="page-visual-data data-one" />
+            <div className="page-visual-data data-two" />
+            <div className="page-visual-data data-three" />
+            <div className="page-visual-caption"><span className="kicker-dot" />{visualLabel[visualKind]}</div>
+            <div className="page-visual-readout"><span>SYS / 0{slugs.indexOf(pageKey) + 1}</span><i /><span>ACTIVE</span></div>
+          </div>
           <div className="inner-page-hero-content">
             <p className="section-kicker"><span className="kicker-dot" />{content.eyebrow}</p>
             <h1>{content.title}</h1>
