@@ -4512,3 +4512,128 @@ body { overscroll-behavior-y: contain; }
   .tech-hero-visual .architecture-connectors i:first-child,
   .tech-hero-visual .visual-topline i { animation:none !important; will-change:auto; }
 }
+
+
+/* Homepage motion refinement: a restrained animated signal field behind the technology band. */
+.technology-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 18% 50%, rgba(22,217,245,.13), transparent 38%),
+    radial-gradient(ellipse at 82% 48%, rgba(57,123,255,.15), transparent 42%),
+    linear-gradient(105deg, #091629 0%, #0d1b32 48%, #091629 100%) !important;
+}
+.technology-band::before {
+  opacity: .34 !important;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(22,217,245,.13) 50%, transparent 100%),
+    repeating-linear-gradient(90deg, transparent 0 78px, rgba(98,163,209,.16) 79px, transparent 80px) !important;
+  transform: translate3d(-3%,0,0);
+  animation: tech-band-grid-drift 18s linear infinite !important;
+}
+.technology-band::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -85%;
+  bottom: -85%;
+  left: -35%;
+  width: 34%;
+  pointer-events: none;
+  opacity: .72;
+  background: linear-gradient(90deg, transparent, rgba(22,217,245,.12), rgba(57,123,255,.08), transparent);
+  transform: skewX(-18deg) translate3d(0,0,0);
+  animation: tech-band-signal-sweep 9s ease-in-out infinite;
+}
+.tech-band-inner { z-index: 1; }
+.tech-band-inner > p {
+  text-shadow: 0 0 22px rgba(22,217,245,.12);
+}
+.tech-band-inner > p i {
+  box-shadow: 0 0 10px rgba(22,217,245,.8);
+  animation: tech-band-node-pulse 2.8s ease-in-out infinite !important;
+}
+.tech-band-inner > p i:nth-of-type(2) { animation-delay: .45s !important; }
+.tech-band-inner > p i:nth-of-type(3) { animation-delay: .9s !important; }
+.tech-band-lines {
+  transform: translate3d(0,0,0);
+  animation: tech-band-lines-breathe 6s ease-in-out infinite !important;
+}
+@keyframes tech-band-signal-sweep {
+  0%, 12% { transform: skewX(-18deg) translate3d(0,0,0); opacity: 0; }
+  28% { opacity: .72; }
+  72% { opacity: .5; }
+  100% { transform: skewX(-18deg) translate3d(430%,0,0); opacity: 0; }
+}
+@keyframes tech-band-grid-drift {
+  from { transform: translate3d(-3%,0,0); }
+  to { transform: translate3d(3%,0,0); }
+}
+@keyframes tech-band-node-pulse {
+  0%,100% { opacity: .55; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1.45); }
+}
+@keyframes tech-band-lines-breathe {
+  0%,100% { opacity: .36; }
+  50% { opacity: .78; }
+}
+
+/* Add visible but low-cost movement to the homepage intelligence core and its orbit paths. */
+.tech-hero-visual .architecture-orbit {
+  transform-origin: 50% 50%;
+  rotate: 0deg;
+  animation: intelligence-orbit-turn 34s linear infinite !important;
+}
+.tech-hero-visual .architecture-orbit.orbit-b {
+  animation-duration: 46s !important;
+  animation-direction: reverse !important;
+}
+.tech-hero-visual .architecture-core {
+  animation: intelligence-core-float 5.5s ease-in-out infinite !important;
+}
+.tech-hero-visual .architecture-connectors i:nth-child(2) {
+  animation: intelligence-signal 6.2s ease-in-out .8s infinite !important;
+}
+.tech-hero-visual .architecture-connectors i:nth-child(3) {
+  animation: intelligence-signal 6.8s ease-in-out 1.6s infinite !important;
+}
+.tech-hero-visual .architecture-connectors i:nth-child(4) {
+  animation: intelligence-signal 7.1s ease-in-out 2.1s infinite !important;
+}
+.tech-hero-visual .architecture-module .module-status {
+  animation: intelligence-status 3.2s ease-in-out infinite !important;
+}
+.tech-hero-visual .module-software .module-status { animation-delay: .5s !important; }
+.tech-hero-visual .module-robotics .module-status { animation-delay: 1s !important; }
+.tech-hero-visual .module-integration .module-status { animation-delay: 1.5s !important; }
+@keyframes intelligence-core-float {
+  0%,100% { translate: 0 0; }
+  25% { translate: 0 -7px; }
+  50% { translate: 0 -11px; }
+  75% { translate: 0 -5px; }
+}
+@keyframes intelligence-orbit-turn {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+@media (max-width:760px) {
+  .tech-hero-visual .architecture-core { animation-duration: 7s !important; }
+  .tech-hero-visual .architecture-orbit { animation-duration: 48s !important; }
+  .tech-hero-visual .architecture-orbit.orbit-b { animation-duration: 60s !important; }
+  .technology-band::after { width: 42%; animation-duration: 12s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .technology-band::before,
+  .technology-band::after,
+  .tech-band-inner > p i,
+  .tech-band-lines,
+  .tech-hero-visual .architecture-orbit,
+  .tech-hero-visual .architecture-core,
+  .tech-hero-visual .architecture-connectors i,
+  .tech-hero-visual .architecture-module .module-status {
+    animation: none !important;
+    rotate: none !important;
+    transform: none !important;
+  }
+}
