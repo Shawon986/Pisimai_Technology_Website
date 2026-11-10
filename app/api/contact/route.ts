@@ -25,6 +25,14 @@ function escapeHtml(value: string): string {
 }
 
 export async function POST(request: NextRequest) {
+  const contentLength = Number(request.headers.get("content-length") ?? "0");
+  if (contentLength > 12000) {
+    return NextResponse.json({ error: "Request is too large" }, { status: 413 });
+  }
+  if (!request.headers.get("content-type")?.includes("application/json")) {
+    return NextResponse.json({ error: "Unsupported content type" }, { status: 415 });
+  }
+
   const origin = request.headers.get("origin");
   if (origin && origin !== request.nextUrl.origin) {
     return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
