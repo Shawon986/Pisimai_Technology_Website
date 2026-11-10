@@ -2735,3 +2735,153 @@ html { scroll-padding-top: 0; }
     animation:none!important;
   }
 }
+
+
+/* New homepage motion direction — purposeful engineering activity, not decorative looping. */
+/* Service illustrations each communicate a different kind of work. */
+.service-visual::after { content:none; }
+.service-visual::before {
+  inset:10% 4%;
+  background:linear-gradient(90deg,transparent,rgba(180,235,255,.12),transparent);
+  transform:translateX(-130%) skewX(-18deg);
+  animation:service-stage-light 9s ease-in-out infinite;
+}
+.service-card:hover .service-visual::before { animation-duration:3.8s; }
+
+/* AI: a measured neural inference cycle — core activation, then node response. */
+.service-art-ai .ai-orbit-one { animation:ai-orbit-new 18s linear infinite; }
+.service-art-ai .ai-orbit-two { animation:ai-orbit-new 25s linear infinite reverse; }
+.service-art-ai .ai-core { animation:ai-inference-core 4.8s ease-in-out infinite; }
+.service-art-ai .ai-node { animation:ai-neuron-response 4.8s ease-in-out infinite; }
+.service-art-ai .ai-node-two { animation-delay:.55s; }
+.service-art-ai .ai-node-three { animation-delay:1.1s; }
+.service-art-ai .ai-node-four { animation-delay:1.65s; }
+.service-art-ai .ai-link { animation:ai-synapse-flow 2.4s ease-in-out infinite; }
+.service-art-ai .ai-link-two { animation-delay:.8s; }
+.service-art-ai .ai-link-three { animation-delay:1.6s; }
+
+/* Software: interface loads, data bars resolve, then the cursor performs a task. */
+.service-art-software .software-window {
+  transform-origin:50% 60%;
+  animation:software-product-float 7s ease-in-out infinite,software-product-focus 8s ease-in-out infinite;
+}
+.service-art-software .software-content b { animation:software-data-load 5.6s ease-in-out infinite; }
+.service-art-software .software-content b:nth-child(2) { animation-delay:.35s; }
+.service-art-software .software-content b:nth-child(3) { animation-delay:.7s; }
+.service-art-software .software-cursor { animation:software-task-cursor 6.5s ease-in-out infinite; }
+
+/* Robotics: articulated links move as one mechanism; the tool settles at the work point. */
+.service-art-robotics .robot-arm-one { animation:robot-precision-shoulder 6.4s cubic-bezier(.45,0,.35,1) infinite; }
+.service-art-robotics .robot-arm-two { animation:robot-precision-elbow 6.4s cubic-bezier(.45,0,.35,1) infinite; }
+.service-art-robotics .robot-tool { animation:robot-precision-tool 6.4s ease-in-out infinite; }
+.service-art-robotics .robot-joint { animation:robot-joint-status 3.2s ease-in-out infinite; }
+.service-art-robotics .robot-joint-two { animation-delay:-1.05s; }
+.service-art-robotics .robot-joint-three { animation-delay:-2.1s; }
+.service-art-robotics .robot-spark { animation:robot-contact-spark 6.4s ease-in-out infinite; }
+
+/* Integration: requests travel inward, meet at the hub, then return as a response. */
+.service-art-integration .integration-hub { animation:integration-handshake 5.2s ease-in-out infinite; }
+.service-art-integration .integration-line { animation:integration-channel 5.2s ease-in-out infinite; }
+.service-art-integration .integration-line-two { animation-delay:-1.3s; }
+.service-art-integration .integration-line-three { animation-delay:-2.6s; }
+.service-art-integration .integration-line-four { animation-delay:-3.9s; }
+.service-art-integration .integration-node { animation:integration-endpoint 5.2s ease-in-out infinite; }
+.service-art-integration .integration-node-two { animation-delay:-1.3s; }
+.service-art-integration .integration-node-three { animation-delay:-2.6s; }
+.service-art-integration .integration-node-four { animation-delay:-3.9s; }
+.service-art-integration .integration-packet-one { animation:integration-request 5.2s ease-in-out infinite; }
+.service-art-integration .integration-packet-two { animation:integration-response 5.2s ease-in-out infinite; }
+
+/* About: a connected engineering campus assembles around the PISIMAI core. */
+.tech-about-visual {
+  background:
+    radial-gradient(ellipse at 50% 48%,rgba(31,151,178,.22),transparent 36%),
+    radial-gradient(ellipse at 50% 50%,rgba(39,83,154,.18),transparent 72%),
+    linear-gradient(145deg,#0b1a2c,#071323 70%);
+}
+.about-network::before {
+  width:210px;height:128px;
+  border-color:rgba(72,213,239,.25);
+  animation:about-blueprint-orbit 28s linear infinite;
+}
+.about-network::after {
+  width:156px;height:218px;
+  border-color:rgba(137,103,255,.22);
+  animation:about-blueprint-orbit 36s linear infinite reverse;
+}
+.about-network .network-line {
+  opacity:.38;
+  filter:drop-shadow(0 0 3px rgba(64,221,241,.25));
+  animation:about-circuit-current 5.6s ease-in-out infinite;
+}
+.about-network .line-two { animation-delay:-1.4s; }
+.about-network .line-three { animation-delay:-2.8s; }
+.about-network .line-four { animation-delay:-4.2s; }
+.about-network .network-node {
+  animation:about-node-dock 6s cubic-bezier(.4,0,.2,1) infinite;
+}
+.about-network .node-top { animation-delay:-.75s; }
+.about-network .node-left { animation-delay:-1.5s; }
+.about-network .node-right { animation-delay:-2.25s; }
+.about-network .node-bottom { animation-delay:-3s; }
+.about-network .node-center {
+  animation:about-core-handshake 4.8s ease-in-out infinite;
+}
+.about-network .network-pulse {
+  width:6px;height:6px;
+  box-shadow:0 0 0 3px rgba(54,217,242,.12),0 0 17px 5px rgba(54,217,242,.9);
+  animation:about-network-packet 5.6s ease-in-out infinite;
+}
+.about-network .pulse-two { animation-delay:-1.4s; }
+.about-network .pulse-three { animation-delay:-2.8s; }
+.tech-about-visual::after {
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(118deg,transparent 35%,rgba(104,225,245,.07) 49%,transparent 63%);
+  transform:translateX(-110%);
+  animation:about-architecture-sweep 11s ease-in-out infinite;
+}
+
+@keyframes service-stage-light { 0%,18%{translate:-130% 0;opacity:0}32%{opacity:1}60%,100%{translate:130% 0;opacity:0} }
+@keyframes ai-orbit-new { to { transform:rotate(360deg); } }
+@keyframes ai-inference-core { 0%,100%{scale:.94;filter:brightness(.92)}38%,58%{scale:1.1;filter:brightness(1.32)} }
+@keyframes ai-neuron-response { 0%,12%,100%{scale:.72;opacity:.42}28%,48%{scale:1.38;opacity:1}66%{scale:.9;opacity:.72} }
+@keyframes ai-synapse-flow { 0%,100%{opacity:.22;filter:brightness(.8)}45%{opacity:1;filter:brightness(1.8)} }
+@keyframes software-product-float { 0%,100%{translate:0 2px;rotate:-1deg}50%{translate:0 -7px;rotate:1deg} }
+@keyframes software-product-focus { 0%,18%,100%{filter:brightness(.88)}28%,72%{filter:brightness(1.12)} }
+@keyframes software-data-load { 0%,12%{scale:.12 1;opacity:.25;transform-origin:left}42%,78%{scale:1 1;opacity:1}100%{scale:.12 1;opacity:.25;transform-origin:left} }
+@keyframes software-task-cursor { 0%,12%{translate:0 0;opacity:0}18%{opacity:1}34%{translate:-24px -16px}49%{translate:-43px 8px}65%{translate:-8px 22px}82%,100%{translate:0 0;opacity:0} }
+@keyframes robot-precision-shoulder { 0%,12%,100%{transform:rotate(-132deg)}38%,68%{transform:rotate(-113deg)} }
+@keyframes robot-precision-elbow { 0%,12%,100%{transform:rotate(43deg)}38%,68%{transform:rotate(65deg)} }
+@keyframes robot-precision-tool { 0%,12%,100%{rotate:0deg;translate:0 0}38%,68%{rotate:-18deg;translate:5px -3px} }
+@keyframes robot-joint-status { 0%,100%{filter:brightness(.9)}42%,60%{filter:brightness(1.55) drop-shadow(0 0 7px rgba(184,171,255,.7))} }
+@keyframes robot-contact-spark { 0%,32%,70%,100%{opacity:0;scale:.4}42%,58%{opacity:1;scale:1.5} }
+@keyframes integration-handshake { 0%,15%,85%,100%{filter:brightness(.92);box-shadow:0 18px 44px #0009,0 0 18px #52e7c822,inset 0 1px #d8fff033}38%,60%{filter:brightness(1.28);box-shadow:0 18px 44px #0009,0 0 42px #52e7c866,inset 0 1px #d8fff066} }
+@keyframes integration-channel { 0%,10%,100%{opacity:.18;filter:brightness(.8)}32%,58%{opacity:1;filter:brightness(1.8)} }
+@keyframes integration-endpoint { 0%,12%,100%{filter:brightness(.85)}35%,55%{filter:brightness(1.6) drop-shadow(0 0 8px rgba(91,231,210,.5))} }
+@keyframes integration-request { 0%{translate:0 0;opacity:0}12%{opacity:1}48%{translate:70px 38px;opacity:1}55%,100%{translate:70px 38px;opacity:0} }
+@keyframes integration-response { 0%,52%{translate:70px 38px;opacity:0}62%{opacity:1}92%{translate:0 0;opacity:1}100%{translate:0 0;opacity:0} }
+@keyframes about-blueprint-orbit { to{transform:translate(-50%,-50%) rotate(360deg)} }
+@keyframes about-circuit-current { 0%,100%{opacity:.24;filter:brightness(.8)}35%,55%{opacity:1;filter:brightness(1.7) drop-shadow(0 0 5px rgba(54,217,242,.55))} }
+@keyframes about-node-dock { 0%,12%,100%{translate:0 0}28%,48%{translate:0 -4px} }
+@keyframes about-core-handshake { 0%,100%{box-shadow:0 0 0 8px rgba(54,217,242,.04),0 0 28px rgba(54,217,242,.12)}42%,58%{box-shadow:0 0 0 16px rgba(54,217,242,.1),0 0 54px rgba(54,217,242,.34)} }
+@keyframes about-network-packet { 0%{opacity:0;scale:.6}12%{opacity:1;scale:1.2}72%{opacity:1}100%{opacity:0;scale:.7} }
+@keyframes about-architecture-sweep { 0%,15%{transform:translateX(-110%);opacity:0}32%{opacity:1}58%,100%{transform:translateX(110%);opacity:0} }
+
+@media(max-width:760px) {
+  .about-network::before { width:168px;height:102px; }
+  .about-network::after { width:120px;height:174px; }
+  .service-visual::before { animation-duration:12s; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .service-visual::before,.service-art-ai .ai-orbit-one,.service-art-ai .ai-orbit-two,
+  .service-art-ai .ai-core,.service-art-ai .ai-node,.service-art-ai .ai-link,
+  .service-art-software .software-window,.service-art-software .software-content b,.service-art-software .software-cursor,
+  .service-art-robotics .robot-arm-one,.service-art-robotics .robot-arm-two,.service-art-robotics .robot-tool,
+  .service-art-robotics .robot-joint,.service-art-robotics .robot-spark,
+  .service-art-integration .integration-hub,.service-art-integration .integration-line,
+  .service-art-integration .integration-node,.service-art-integration .integration-packet,
+  .about-network::before,.about-network::after,.about-network .network-line,
+  .about-network .network-node,.about-network .network-pulse,.tech-about-visual::after {
+    animation:none!important;transition:none!important;
+  }
+}
