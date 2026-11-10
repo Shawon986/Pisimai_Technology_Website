@@ -164,7 +164,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="about-visual tech-about-visual" aria-hidden="true">
             <div className="about-visual-header"><span>CONNECTED TECHNOLOGY STACK</span><span>FIG. 02</span></div>
             <div className="about-network">
-              <div className="network-line line-one" /><div className="network-line line-two" /><div className="network-line line-three" /><div className="network-line line-four" />
+              <div className="network-line line-one" /><div className="network-line line-two" /><div className="network-line line-three" /><div className="network-line line-four" />\n              <span className="network-pulse pulse-one" /><span className="network-pulse pulse-two" /><span className="network-pulse pulse-three" />
               <div className="network-node node-center"><span>CORE</span><small>PISIMAI</small></div>
               <div className="network-node node-top"><span>AI</span><small>INTELLIGENCE</small></div>
               <div className="network-node node-left"><span>DEV</span><small>SOFTWARE</small></div>
@@ -179,7 +179,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="contact-visual tech-contact-visual" aria-hidden="true">
             <div className="contact-visual-top"><span>PROJECT INTERFACE</span><span>READY / 04</span></div>
             <div className="contact-blueprint">
-              <div className="blueprint-track track-one" /><div className="blueprint-track track-two" /><div className="blueprint-track track-three" />
+              <div className="blueprint-track track-one" /><div className="blueprint-track track-two" /><div className="blueprint-track track-three" />\n              <span className="blueprint-packet packet-one" /><span className="blueprint-packet packet-two" /><span className="blueprint-packet packet-three" />
               <div className="blueprint-node blueprint-node-a"><i /><span>IDEA</span></div>
               <div className="blueprint-node blueprint-node-b"><i /><span>ENGINEERING</span></div>
               <div className="blueprint-node blueprint-node-c"><i /><span>OUTCOME</span></div>
