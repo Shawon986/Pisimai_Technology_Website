@@ -87,7 +87,7 @@ export function ContactForm({ locale }: Props) {
         <label className="contact-form-trap" aria-hidden="true">{t.honeypot}<input name="website" type="text" tabIndex={-1} autoComplete="off" /></label>
         <div className="contact-form-bottom">
           <p>{t.privacy}</p>
-          <button className="button button-primary" type="submit" disabled={status === "sending"}>{status === "sending" ? t.sending : t.submit}<span aria-hidden="true">↗</span></button>
+          <button className="button button-primary" type="submit" disabled={status === "sending"}>{status === "sending" ? t.sending : t.submit}<span aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></span></button>
         </div>
         <p className={"contact-form-status " + status} role="status" aria-live="polite">
           {status === "success" ? t.success : status === "error" ? t.error : ""}
