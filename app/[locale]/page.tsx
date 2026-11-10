@@ -41,7 +41,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
           <div className="hero-copy">
             <p className="eyebrow"><span />{t.eyebrow}</p>
-            <h1>{t.title}</h1>
+            <h1 className="hero-title-hierarchy">
+              {locale === "zh" ? (
+                <><span className="hero-title-line hero-title-line-one">以工程创新，</span><span className="hero-title-line hero-title-line-two">开启智能科技</span><span className="hero-title-line hero-title-line-three">新篇章。</span></>
+              ) : (
+                <><span className="hero-title-line hero-title-line-one">Engineering</span><span className="hero-title-line hero-title-line-two">the next era of</span><span className="hero-title-line hero-title-line-three">intelligent technology.</span></>
+              )}
+            </h1>
             <p className="hero-description">{t.description}</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#services">{t.primaryCta}<span aria-hidden="true">↗</span></a>
