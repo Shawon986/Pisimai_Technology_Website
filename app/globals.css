@@ -5329,3 +5329,39 @@ body { overscroll-behavior-y: contain; }
     overflow-wrap: anywhere;
   }
 }
+
+
+/* Hero visual: remove the framed panel so the network artwork blends into the page. */
+.hero-section.tech-hero > .tech-hero-visual {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  isolation: auto !important;
+}
+.hero-section.tech-hero > .tech-hero-visual::before {
+  inset: 5% -5% !important;
+  z-index: -1 !important;
+  opacity: .52 !important;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(22, 137, 205, .16), transparent 54%),
+    radial-gradient(ellipse at 78% 28%, rgba(22, 217, 245, .075), transparent 38%) !important;
+  mask-image: none !important;
+}
+.hero-section.tech-hero > .tech-hero-visual::after {
+  inset: 0 !important;
+  opacity: .28 !important;
+  background: radial-gradient(ellipse at center, transparent 42%, rgba(7, 11, 22, .34) 100%) !important;
+}
+.hero-section.tech-hero .visual-topline,
+.hero-section.tech-hero .visual-bottomline {
+  left: 3% !important;
+  right: 3% !important;
+  color: rgba(151, 183, 211, .68) !important;
+}
+@media (max-width: 760px) {
+  .hero-section.tech-hero > .tech-hero-visual {
+    box-shadow: none !important;
+  }
+}
