@@ -7,7 +7,7 @@
       <stop stop-color="#F7FAFF"/><stop offset="1" stop-color="#DCEBFF"/>
     </linearGradient>
     <style>
-      .p-mark{fill:none;stroke:url(#markGradient);stroke-width:17;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:430;stroke-dashoffset:430;animation:p-draw-loop 3.2s cubic-bezier(.35,.05,.25,1) .12s infinite,p-glow 5.8s ease-in-out 1.9s infinite}
+      .p-mark{fill:none;stroke:url(#markGradient);stroke-width:17;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:430;stroke-dashoffset:430;animation:p-draw-loop 6s cubic-bezier(.35,.05,.25,1) .12s infinite,p-glow 5.8s ease-in-out 1.9s infinite}
       .p-highlight{fill:none;stroke:#D9FFFF;stroke-width:2;stroke-linecap:round;opacity:.48}
       .wordmark{fill:url(#wordGradient);font-family:Arial,Helvetica,sans-serif;font-size:61px;font-weight:700;letter-spacing:5px}
       .descriptor{fill:#55DCEB;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:600;letter-spacing:11px}
