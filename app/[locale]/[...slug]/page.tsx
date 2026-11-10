@@ -318,20 +318,16 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
           <div className="inner-hero-grid" aria-hidden="true" />
           <div className="inner-hero-glow" aria-hidden="true" />
           <div className={"inner-page-visual page-visual-" + visualKind} aria-hidden="true">
-            <div className="page-visual-orbit orbit-one" />
-            <div className="page-visual-orbit orbit-two" />
-            <div className="page-visual-orbit orbit-three" />
-            <div className="page-visual-axis axis-one" />
-            <div className="page-visual-axis axis-two" />
-            <div className="page-visual-core"><span /><i /><b /></div>
-            <div className="page-visual-node node-one"><i /></div>
-            <div className="page-visual-node node-two"><i /></div>
-            <div className="page-visual-node node-three"><i /></div>
-            <div className="page-visual-node node-four"><i /></div>
-            <div className="page-visual-data data-one" />
-            <div className="page-visual-data data-two" />
-            <div className="page-visual-data data-three" />
             <div className="page-visual-caption"><span className="kicker-dot" />{visualLabel[visualKind]}</div>
+            {visualKind === "capabilities" && <div className="scene scene-capabilities"><div className="cap-orbit cap-orbit-a" /><div className="cap-orbit cap-orbit-b" /><div className="cap-hub">P</div><i className="cap-node cap-ai" /><i className="cap-node cap-software" /><i className="cap-node cap-robotics" /><i className="cap-node cap-integration" /><span className="cap-link cap-link-a" /><span className="cap-link cap-link-b" /><span className="cap-link cap-link-c" /><span className="cap-link cap-link-d" /></div>}
+            {visualKind === "technology" && <div className="scene scene-technology"><div className="tech-stack"><i /><i /><i /><i /></div><div className="tech-beam" /><div className="tech-data tech-data-a" /><div className="tech-data tech-data-b" /><div className="tech-data tech-data-c" /><span className="tech-label tech-label-a">APPLICATION</span><span className="tech-label tech-label-b">INTELLIGENCE</span><span className="tech-label tech-label-c">INFRASTRUCTURE</span></div>}
+            {visualKind === "workflow" && <div className="scene scene-workflow"><div className="flow-track" /><div className="flow-step flow-step-a"><i>01</i><b>DISCOVER</b></div><div className="flow-step flow-step-b"><i>02</i><b>DESIGN</b></div><div className="flow-step flow-step-c"><i>03</i><b>CONNECT</b></div><div className="flow-step flow-step-d"><i>04</i><b>DELIVER</b></div><span className="flow-packet" /></div>}
+            {visualKind === "architecture" && <div className="scene scene-architecture"><div className="arch-floor" /><div className="arch-tower arch-tower-a" /><div className="arch-tower arch-tower-b" /><div className="arch-tower arch-tower-c" /><div className="arch-bridge arch-bridge-a" /><div className="arch-bridge arch-bridge-b" /><div className="arch-light" /></div>}
+            {visualKind === "signal" && <div className="scene scene-signal"><div className="signal-envelope"><span /><i /><b /></div><div className="signal-wave signal-wave-a" /><div className="signal-wave signal-wave-b" /><div className="signal-wave signal-wave-c" /><div className="signal-dot" /><span className="signal-status">CHANNEL READY</span></div>}
+            {visualKind === "neural" && <div className="scene scene-neural"><div className="neural-web"><i /><i /><i /><i /><i /><i /><i /><i /><i /><span /><b /><em /></div><div className="neural-pulse" /><span className="neural-label">INFERENCE / ACTIVE</span></div>}
+            {visualKind === "software" && <div className="scene scene-software"><div className="software-window"><div className="software-top"><i /><i /><i /><span>workspace.app</span></div><div className="software-sidebar"><b /><b /><b /><b /></div><div className="software-content"><span /><span /><span /><div /><div /><i /></div></div><div className="software-panel"><b /><b /><b /></div><span className="software-cursor" /></div>}
+            {visualKind === "robotics" && <div className="scene scene-robotics"><div className="robot-base" /><div className="robot-joint robot-joint-a" /><div className="robot-arm robot-arm-a" /><div className="robot-joint robot-joint-b" /><div className="robot-arm robot-arm-b" /><div className="robot-joint robot-joint-c" /><div className="robot-tool"><i /><b /></div><div className="robot-floor" /></div>}
+            {visualKind === "integration" && <div className="scene scene-integration"><div className="integration-bus" /><div className="integration-hub"><i /><i /><i /><i /></div><div className="integration-port port-a"><b /></div><div className="integration-port port-b"><b /></div><div className="integration-port port-c"><b /></div><div className="integration-port port-d"><b /></div><span className="integration-packet packet-a" /><span className="integration-packet packet-b" /><span className="integration-packet packet-c" /></div>}
             <div className="page-visual-readout"><span>SYS / 0{slugs.indexOf(pageKey) + 1}</span><i /><span>ACTIVE</span></div>
           </div>
           <div className="inner-page-hero-content">
