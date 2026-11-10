@@ -51,7 +51,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="hero-description">{t.description}</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#services">{t.primaryCta}<span aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></span></a>
-              <a className="button button-secondary" href="#contact">{t.secondaryCta}</a>
+              <Link className="button button-secondary" href={"/" + locale + "/contact#contact-form"}>{t.secondaryCta}</Link>
             </div>
             <div className="hero-bottomline">
               <p className="hero-scroll"><span />{t.scroll}</p>
