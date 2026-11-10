@@ -3480,3 +3480,18 @@ html { scroll-padding-top: 0; }
 .architecture-grid {
   animation: none !important;
 }
+
+
+/* Temporary global motion shutdown: keep the approved layouts and visual styling,
+   but stop all page, component, logo, and hero animations/transitions. */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+html {
+  scroll-behavior: auto !important;
+}
