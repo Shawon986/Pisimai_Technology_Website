@@ -121,7 +121,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   )}
                 </div>
                 <div className="service-card-copy"><h3>{service.title}</h3><p>{service.text}</p></div>
-                <span className="service-arrow" aria-hidden="true">↗</span>
+                <a className="service-arrow" href={"/" + locale + "/services/" + ["ai-intelligent-systems", "software-digital-platforms", "robotics-automation", "system-integration"][index]} aria-label={(locale === "zh" ? "了解更多：" : "Explore: ") + service.title}>↗</a>
               </article>
             ))}
           </div>
