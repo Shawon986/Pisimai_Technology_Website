@@ -19,38 +19,71 @@ function clean(value: unknown, max: number): string {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
 }
 
+function jsonResponse(body: { error?: string; ok?: boolean }, status = 200) {
+  return NextResponse.json(body, {
+    status,
+    headers: { "Cache-Control": "no-store, max-age=0" }
+  });
+}
+
+async function readLimitedBody(request: NextRequest, maxBytes: number): Promise<string> {
+  const reader = request.body?.getReader();
+  if (!reader) return "";
+
+  const decoder = new TextDecoder();
+  let totalBytes = 0;
+  let result = "";
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      totalBytes += value.byteLength;
+      if (totalBytes > maxBytes) {
+        await reader.cancel();
+        throw new Error("BODY_TOO_LARGE");
+      }
+      result += decoder.decode(value, { stream: true });
+    }
+    return result + decoder.decode();
+  } finally {
+    reader.releaseLock();
+  }
+}
+
 export async function POST(request: NextRequest) {
   const contentLength = Number(request.headers.get("content-length") ?? "0");
   if (contentLength > 12000) {
-    return NextResponse.json({ error: "Request is too large" }, { status: 413 });
+    return jsonResponse({ error: "Request is too large" }, 413);
   }
   if (!request.headers.get("content-type")?.includes("application/json")) {
-    return NextResponse.json({ error: "Unsupported content type" }, { status: 415 });
+    return jsonResponse({ error: "Unsupported content type" }, 415);
   }
 
   const origin = request.headers.get("origin");
-  if (!origin || origin !== request.nextUrl.origin) {
-    return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+  const fetchSite = request.headers.get("sec-fetch-site");
+  if (!origin || origin !== request.nextUrl.origin || fetchSite === "cross-site") {
+    return jsonResponse({ error: "Invalid origin" }, 403);
   }
 
   let payload: unknown;
   try {
-    const rawBody = await request.text();
-    if (rawBody.length > 12000) {
-      return NextResponse.json({ error: "Request is too large" }, { status: 413 });
-    }
+    const rawBody = await readLimitedBody(request, 12000);
     payload = JSON.parse(rawBody);
-  } catch {
-    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  } catch (error) {
+    if (error instanceof Error && error.message === "BODY_TOO_LARGE") {
+      return jsonResponse({ error: "Request is too large" }, 413);
+    }
+    return jsonResponse({ error: "Invalid request" }, 400);
   }
 
   if (!payload || typeof payload !== "object") {
-    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    return jsonResponse({ error: "Invalid request" }, 400);
   }
 
   const body = payload as Record<string, unknown>;
   // Quietly accept bot submissions without forwarding them.
-  if (clean(body.website, 200)) return NextResponse.json({ ok: true });
+  if (clean(body.website, 200)) return jsonResponse({ ok: true });
 
   const name = clean(body.name, 100);
   const email = clean(body.email, 254);
@@ -65,7 +98,7 @@ export async function POST(request: NextRequest) {
     !allowedServices.has(service) ||
     message.length < 10
   ) {
-    return NextResponse.json({ error: "Please check the required fields" }, { status: 400 });
+    return jsonResponse({ error: "Please check the required fields" }, 400);
   }
 
   const configuredFormValue = process.env.FORMSPREE_FORM_ID?.trim() ?? "";
@@ -96,7 +129,7 @@ export async function POST(request: NextRequest) {
 
   if (!formId) {
     console.error("[contact] Formspree configuration is missing or invalid");
-    return NextResponse.json({ error: "Contact service is not configured" }, { status: 503 });
+    return jsonResponse({ error: "Contact service is not configured" }, 503);
   }
 
   try {
@@ -124,14 +157,14 @@ export async function POST(request: NextRequest) {
       console.error("[contact] Formspree rejected the inquiry", {
         status: response.status,
       });
-      return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
+      return jsonResponse({ error: "Email delivery failed" }, 502);
     }
 
-    return NextResponse.json({ ok: true });
+    return jsonResponse({ ok: true });
   } catch (error) {
     console.error("[contact] Formspree request failed", {
       name: error instanceof Error ? error.name : "UnknownError",
     });
-    return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
+    return jsonResponse({ error: "Email delivery failed" }, 502);
   }
 }
