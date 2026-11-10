@@ -99,8 +99,9 @@ export function NetworkBackground() {
       for (const link of links) {
         const a = points[link.from];
         const b = points[link.to];
-        // Link membership is precomputed during resize; avoid per-frame
-        // distance checks so animation work stays focused on drawing.
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        if (dx * dx + dy * dy > maxDistanceSquared) continue;
         context.moveTo(a.x, a.y);
         context.lineTo(b.x, b.y);
       }
