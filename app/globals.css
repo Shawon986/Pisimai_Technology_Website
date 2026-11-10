@@ -5433,3 +5433,18 @@ body { overscroll-behavior-y: contain; }
   .hero-section.tech-hero .hero-title-line-two { font-size: clamp(29px, 7.4vw, 34px); }
   .hero-section.tech-hero .hero-title-line-three { font-size: clamp(23px, 5.9vw, 27px); }
 }
+
+/* Final hero performance guard: the canvas owns network motion; stop stacked CSS loops. */
+.hero-section.tech-hero > *:not(.hero-network-canvas),
+.hero-section.tech-hero > *:not(.hero-network-canvas) *,
+.hero-section.tech-hero::before,
+.hero-section.tech-hero::after {
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+.hero-section.tech-hero .hero-network-canvas {
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
