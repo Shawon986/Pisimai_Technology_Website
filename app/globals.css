@@ -5674,3 +5674,109 @@ body { overscroll-behavior-y: contain; }
     width: clamp(132px, 42vw, 145px);
   }
 }
+
+/* Mobile inner-page parity: use the same copy-first, artwork-second composition
+   as the approved About page, while keeping each page's own visual scene. */
+@media (max-width: 760px) {
+  .inner-page-hero:not(.about-page-hero) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: start;
+    row-gap: 30px;
+    min-height: 0 !important;
+    padding: 136px var(--gutter) 76px !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-hero-content {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-hero-content h1 {
+    max-width: 100%;
+    margin: 18px 0;
+    font-size: clamp(36px, 8.8vw, 56px);
+    line-height: 1.07;
+    letter-spacing: -.045em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-intro {
+    max-width: 620px;
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-wrap: break-word;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-breadcrumb {
+    margin-top: 28px;
+    overflow-wrap: anywhere;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual {
+    grid-column: 1;
+    grid-row: 2;
+    position: relative !important;
+    inset: auto !important;
+    right: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100%;
+    height: clamp(250px, 70vw, 350px) !important;
+    min-height: 0 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene {
+    inset: 10% 4%;
+    transform: scale(.96);
+    transform-origin: center;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .page-visual-caption {
+    display: block !important;
+    left: 16px;
+    top: 14px;
+    font-size: 7px;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .page-visual-readout {
+    display: flex !important;
+    right: 16px;
+    bottom: 14px;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-hero-index {
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .inner-page-hero:not(.about-page-hero) {
+    padding: 128px 18px 70px !important;
+    row-gap: 26px;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-hero-content h1 {
+    font-size: clamp(33px, 9vw, 42px);
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual {
+    height: 260px !important;
+    border-radius: 15px;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene {
+    inset: 12% 3% 8%;
+    transform: scale(.9);
+  }
+}
