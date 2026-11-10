@@ -4159,3 +4159,45 @@ body { overscroll-behavior-y: contain; }
     font-size: 5px;
   }
 }
+
+
+/* Final About artwork caption alignment: anchor it to the visual frame, not the inset scene. */
+.about-page-hero .scene-about-ecosystem {
+  inset: 0 !important;
+}
+.about-page-hero .about-ecosystem-node.node-robotics {
+  bottom: 17%;
+}
+.about-page-hero .about-ecosystem-foot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px !important;
+  z-index: 10;
+  width: 100%;
+  padding: 0 14px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-align: center;
+  transform: none;
+}
+@media (max-width: 760px) {
+  .about-page-hero .scene-about-ecosystem {
+    inset: 0 !important;
+  }
+  .about-page-hero .about-ecosystem-node.node-robotics {
+    bottom: 19%;
+  }
+  .about-page-hero .about-ecosystem-foot {
+    bottom: 12px !important;
+    font-size: 6px;
+    letter-spacing: .1em;
+  }
+}
+@media (max-width: 420px) {
+  .about-page-hero .about-ecosystem-foot {
+    bottom: 10px !important;
+    font-size: 5.5px;
+    letter-spacing: .08em;
+  }
+}
