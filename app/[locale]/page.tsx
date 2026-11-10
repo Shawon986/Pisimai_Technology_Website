@@ -36,6 +36,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <SiteHeader locale={locale} />
       <main>
         <section className="hero-section tech-hero" id="home">
+          <svg className="hero-network-backdrop" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g className="network-lines">
+              <path d="M40 170 180 95 310 155 445 70 590 145 735 75 880 155 1030 90 1170 170 M40 430 180 345 310 420 445 315 590 405 735 315 880 410 1030 330 1170 430 M180 95 180 345 M310 155 310 420 M445 70 445 315 M590 145 590 405 M735 75 735 315 M880 155 880 410 M1030 90 1030 330 M40 170 180 345 310 155 445 315 590 145 735 315 880 155 1030 330 1170 170" />
+            </g>
+            <g className="network-nodes">
+              <circle cx="40" cy="170" r="2.5" /><circle cx="180" cy="95" r="3" /><circle cx="310" cy="155" r="2.5" /><circle cx="445" cy="70" r="3" /><circle cx="590" cy="145" r="3.5" /><circle cx="735" cy="75" r="2.5" /><circle cx="880" cy="155" r="3" /><circle cx="1030" cy="90" r="3" /><circle cx="1170" cy="170" r="2.5" />
+              <circle cx="40" cy="430" r="2.5" /><circle cx="180" cy="345" r="3" /><circle cx="310" cy="420" r="2.5" /><circle cx="445" cy="315" r="3" /><circle cx="590" cy="405" r="3.5" /><circle cx="735" cy="315" r="2.5" /><circle cx="880" cy="410" r="3" /><circle cx="1030" cy="330" r="3" /><circle cx="1170" cy="430" r="2.5" />
+            </g>
+          </svg>
           <div className="hero-copy">
             <p className="eyebrow"><span />{t.eyebrow}</p>
             <h1>{t.title}</h1>
@@ -53,8 +62,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="tech-hero-visual" role="img" aria-label={locale === "zh" ? "人工智能、软件、自动化与系统集成的互联技术架构示意" : "An interconnected technology architecture showing AI, software, automation and system integration"}>
             <div className="visual-topline"><span> PISIMAI / SYSTEMS LAB</span><span><i /> {locale === "zh" ? "系统在线" : "SYSTEMS ONLINE"}</span></div>
             <div className="architecture-grid" aria-hidden="true" />
-            <div className="architecture-orbit orbit-a" aria-hidden="true" />
-            <div className="architecture-orbit orbit-b" aria-hidden="true" />
+            <svg className="architecture-network" viewBox="0 0 600 440" preserveAspectRatio="none" aria-hidden="true">
+              <g className="architecture-network-lines">
+                <path d="M40 95 155 45 275 105 390 42 555 100 M40 345 155 285 275 350 390 285 555 350 M155 45 155 285 M275 105 275 350 M390 42 390 285 M40 95 155 285 275 105 390 285 555 100 M40 345 155 45 275 350 390 42 555 350" />
+              </g>
+              <g className="architecture-network-nodes">
+                <circle cx="40" cy="95" r="3" /><circle cx="155" cy="45" r="3.5" /><circle cx="275" cy="105" r="3" /><circle cx="390" cy="42" r="3.5" /><circle cx="555" cy="100" r="3" />
+                <circle cx="40" cy="345" r="3" /><circle cx="155" cy="285" r="3.5" /><circle cx="275" cy="350" r="3" /><circle cx="390" cy="285" r="3.5" /><circle cx="555" cy="350" r="3" />
+              </g>
+            </svg>
             <div className="architecture-connectors" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
             <div className="architecture-core">
               <div className="core-bracket bracket-a" /><div className="core-bracket bracket-b" />
