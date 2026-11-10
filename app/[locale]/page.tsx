@@ -121,24 +121,23 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         <section className="about-section section-wrap" id="about">
-          <div className="about-visual tech-about-visual" aria-hidden="true">
-            <div className="about-visual-header"><span>CONNECTED ARCHITECTURE</span><span>FIG. 02</span></div>
-            <div className="about-network">
-              <div className="network-line line-one" /><div className="network-line line-two" /><div className="network-line line-three" /><div className="network-line line-four" />
-              <div className="network-node node-center"><span>P</span><small>CORE</small></div>
-              <div className="network-node node-top"><span>AI</span><small>INTELLIGENCE</small></div>
-              <div className="network-node node-left"><span>DEV</span><small>SOFTWARE</small></div>
-              <div className="network-node node-right"><span>SYS</span><small>SYSTEMS</small></div>
-              <div className="network-node node-bottom"><span>IO</span><small>INTEGRATION</small></div>
-              <i className="network-pulse pulse-one" /><i className="network-pulse pulse-two" /><i className="network-pulse pulse-three" />
-            </div>
-            <div className="about-visual-footer"><span>MODULAR BY DESIGN</span><span>CONNECTED BY ENGINEERING</span></div>
-          </div>
           <div className="about-copy">
             <p className="section-kicker">{t.aboutLabel}</p>
             <h2>{t.aboutTitle}</h2>
             <p>{t.aboutText}</p>
             <span className="about-signature">PISIMAI <i /> TECHNOLOGY</span>
+          </div>
+          <div className="about-visual tech-about-visual" aria-hidden="true">
+            <div className="about-visual-header"><span>CONNECTED TECHNOLOGY STACK</span><span>FIG. 02</span></div>
+            <div className="about-network">
+              <div className="network-line line-one" /><div className="network-line line-two" /><div className="network-line line-three" /><div className="network-line line-four" />
+              <div className="network-node node-center"><span>CORE</span><small>PISIMAI</small></div>
+              <div className="network-node node-top"><span>AI</span><small>INTELLIGENCE</small></div>
+              <div className="network-node node-left"><span>DEV</span><small>SOFTWARE</small></div>
+              <div className="network-node node-right"><span>SYS</span><small>SYSTEMS</small></div>
+              <div className="network-node node-bottom"><span>IO</span><small>INTEGRATION</small></div>
+            </div>
+            <div className="about-visual-footer"><span>MODULAR ARCHITECTURE</span><span>BUILT TO WORK TOGETHER</span></div>
           </div>
         </section>
 
