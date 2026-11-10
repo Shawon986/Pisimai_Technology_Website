@@ -408,7 +408,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
             <div className="inner-service-links">
               {serviceSlugs.map((serviceSlug, index) => (
                 <Link href={"/" + locale + "/" + serviceSlug} key={serviceSlug}>
-                  <span>0{index + 1}</span><strong>{labels[index]}</strong><i>↗</i>
+                  <span>0{index + 1}</span><strong>{labels[index]}</strong><i><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></i>
                 </Link>
               ))}
             </div>
@@ -417,7 +417,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
         {pageKey === "contact" && <ContactForm locale={locale} />}
         <section className="inner-page-cta">
           <div><p className="section-kicker">{locale === "zh" ? "下一步" : "WHAT'S NEXT"}</p><h2>{content.ctaTitle}</h2><p>{content.ctaText}</p></div>
-          <Link className="button button-primary" href={"/" + locale + content.ctaHref}>{content.ctaLabel}<span aria-hidden="true">↗</span></Link>
+          <Link className="button button-primary" href={"/" + locale + content.ctaHref}>{content.ctaLabel}<span aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></span></Link>
         </section>
       </main>
       <SiteFooter locale={locale} currentPath={slug.join("/")} />
