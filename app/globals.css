@@ -2165,61 +2165,42 @@ body{background:#080e1b}
 }
 
 
-/* Brand interaction: restrained illumination, keeping the logo readable. */
+/* Brand motion: the P draws on once, then holds a restrained luminous finish. */
 .brand {
   position: relative;
   isolation: isolate;
-  transition: transform .35s cubic-bezier(.2,.75,.25,1), filter .35s ease;
-}
-.brand::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 12% 8%;
-  border-radius: 50%;
-  opacity: 0;
-  background: radial-gradient(ellipse, rgba(27,190,235,.22), transparent 70%);
-  filter: blur(13px);
-  transition: opacity .4s ease;
+  transition: transform .3s ease, filter .3s ease;
 }
 .brand:hover {
-  transform: translateY(-1px) scale(1.018);
-  filter: drop-shadow(0 0 8px rgba(37,190,240,.18));
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 10px rgba(37,190,240,.2));
 }
-.brand:hover::before { opacity: 1; }
-.brand-logo { transform-origin: left center; }
-@media (prefers-reduced-motion: reduce) {
-  .brand,.brand::before { transition: none !important; }
-  .brand:hover { transform: none; }
-}
-
-
-
-/* Premium wordmark shimmer: the P monogram remains completely still. */
+.brand-logo-wrap { overflow: hidden; }
 .brand-logo-wrap::after {
   content: "";
   position: absolute;
   z-index: 2;
-  left: 28.5%;
-  top: 17%;
-  width: 49%;
-  height: 43%;
+  top: 20%;
+  left: 28%;
+  width: 13%;
+  height: 58%;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(108deg, transparent 0%, rgba(170,245,255,.04) 35%, rgba(198,250,255,.72) 49%, rgba(79,190,255,.16) 58%, transparent 76%);
-  background-size: 220% 100%;
-  background-position: 120% 0;
+  transform: translateX(-160%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(205,250,255,.08) 24%, rgba(221,252,255,.78) 50%, rgba(94,205,255,.14) 76%, transparent);
   mix-blend-mode: screen;
-  -webkit-mask-image: linear-gradient(180deg, transparent 4%, #000 25%, #000 76%, transparent 100%);
-  mask-image: linear-gradient(180deg, transparent 4%, #000 25%, #000 76%, transparent 100%);
-  animation: wordmark-sheen 7s ease-in-out infinite;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+  animation: wordmark-sheen 8s cubic-bezier(.45,0,.2,1) infinite;
 }
 @keyframes wordmark-sheen {
-  0%, 18% { opacity: 0; background-position: 120% 0; }
-  28% { opacity: .82; }
-  52% { opacity: .48; background-position: -25% 0; }
-  62%, 100% { opacity: 0; background-position: -25% 0; }
+  0%, 12% { opacity: 0; transform: translateX(-160%) skewX(-18deg); }
+  19% { opacity: .9; }
+  38% { opacity: .55; transform: translateX(590%) skewX(-18deg); }
+  44%, 100% { opacity: 0; transform: translateX(590%) skewX(-18deg); }
 }
 @media (prefers-reduced-motion: reduce) {
+  .brand { transition: none !important; }
+  .brand:hover { transform: none; }
   .brand-logo-wrap::after { animation: none !important; opacity: 0 !important; }
 }
