@@ -21,7 +21,6 @@ export function NetworkBackground() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const touchLayout = window.matchMedia("(hover: none), (max-width: 760px)").matches;
     const animateEnabled = !reducedMotion && !touchLayout;
-    const pointer = { x: 0, y: 0, active: false };
     let points: NetworkPoint[] = [];
     let width = 0;
     let height = 0;
@@ -58,17 +57,8 @@ export function NetworkBackground() {
       render();
     };
 
-    const render = () => {
+    const render = (time = 0) => {
       context.clearRect(0, 0, width, height);
-
-      if (pointer.active && animateEnabled) {
-        const glow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 128);
-        glow.addColorStop(0, "rgba(63, 213, 255, 0.09)");
-        glow.addColorStop(0.6, "rgba(63, 213, 255, 0.025)");
-        glow.addColorStop(1, "rgba(63, 213, 255, 0)");
-        context.fillStyle = glow;
-        context.fillRect(pointer.x - 128, pointer.y - 128, 256, 256);
-      }
 
       const maxDistance = width < 600 ? 116 : 148;
       const maxDistanceSquared = maxDistance * maxDistance;
@@ -119,9 +109,12 @@ export function NetworkBackground() {
       }
 
       for (const point of points) {
+        const pulse = point.accent ? 0.5 + (Math.sin(time * 0.0014 + point.x * 0.018) + 1) * 0.25 : 0;
         context.beginPath();
-        context.arc(point.x, point.y, point.accent ? 1.8 : 1.3, 0, Math.PI * 2);
-        context.fillStyle = point.accent ? "rgba(232, 196, 111, 0.86)" : "rgba(111, 225, 255, 0.72)";
+        context.arc(point.x, point.y, point.accent ? 1.7 + pulse * 0.8 : 1.3, 0, Math.PI * 2);
+        context.fillStyle = point.accent
+          ? `rgba(242, 202, 112, ${0.58 + pulse * 0.38})`
+          : "rgba(111, 225, 255, 0.72)";
         context.fill();
       }
     };
@@ -138,17 +131,6 @@ export function NetworkBackground() {
       lastFrame = time;
 
       for (const point of points) {
-        if (pointer.active) {
-          const dx = point.x - pointer.x;
-          const dy = point.y - pointer.y;
-          const distance = Math.max(1, Math.hypot(dx, dy));
-          if (distance < 128) {
-            const force = ((128 - distance) / 128) * 0.007;
-            point.vx += (dx / distance) * force * delta;
-            point.vy += (dy / distance) * force * delta;
-          }
-        }
-
         point.x += point.vx * delta;
         point.y += point.vy * delta;
         point.vx *= 0.999;
@@ -160,7 +142,7 @@ export function NetworkBackground() {
         if (point.y > height + 8) point.y = -8;
       }
 
-      render();
+      render(time);
       frame = window.requestAnimationFrame(animate);
     };
 
@@ -180,22 +162,6 @@ export function NetworkBackground() {
       window.cancelAnimationFrame(frame);
     };
 
-    const handlePointerMove = (event: PointerEvent) => {
-      if (!animateEnabled || event.pointerType !== "mouse") return;
-      const rect = canvas.getBoundingClientRect();
-      const inside = event.clientX >= rect.left && event.clientX <= rect.right &&
-        event.clientY >= rect.top && event.clientY <= rect.bottom;
-      pointer.active = inside;
-      if (inside) {
-        pointer.x = event.clientX - rect.left;
-        pointer.y = event.clientY - rect.top;
-      }
-    };
-
-    const handlePointerLeave = () => {
-      pointer.active = false;
-    };
-
     const handleVisibility = () => {
       if (document.visibilityState === "visible") start();
       else stop();
@@ -210,8 +176,6 @@ export function NetworkBackground() {
     }, { threshold: 0.01 });
     observer.observe(canvas);
 
-    window.addEventListener("pointermove", handlePointerMove, { passive: true });
-    window.addEventListener("pointerleave", handlePointerLeave);
     document.addEventListener("visibilitychange", handleVisibility);
     resize();
 
@@ -219,8 +183,6 @@ export function NetworkBackground() {
       stop();
       resizeObserver.disconnect();
       observer.disconnect();
-      window.removeEventListener("pointermove", handlePointerMove);
-      window.removeEventListener("pointerleave", handlePointerLeave);
       document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
