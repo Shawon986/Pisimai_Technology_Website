@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { RouteScrollReset } from "@/components/route-scroll-reset";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+import { siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
