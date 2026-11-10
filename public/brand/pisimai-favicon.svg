@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Pisimai Technology icon">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20E7F7"/><stop offset=".55" stop-color="#168BFF"/><stop offset="1" stop-color="#8B45F5"/></linearGradient></defs>
+<rect x="2" y="2" width="60" height="60" rx="15" fill="#070B16" stroke="#18375D" stroke-width="1.5"/>
+<path d="M15 14 H35 C45 14 51 20 51 29 C51 38 44 43 34 43 H27 L18 54 L22 39 H34 C40 39 43 36 43 30 C43 25 40 22 34 22 H23 Z" fill="url(#g)"/>
+<ellipse cx="33" cy="34" rx="25" ry="7" transform="rotate(-22 33 34)" fill="none" stroke="#20D9F2" stroke-width="2.2"/>
+<circle cx="55" cy="23" r="2.5" fill="#EAFBFF"/>
+</svg>
