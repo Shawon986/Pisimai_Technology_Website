@@ -1,0 +1,71 @@
+export const locales = ["en", "zh"] as const;
+export type Locale = (typeof locales)[number];
+
+export function isLocale(value: string): value is Locale {
+  return locales.some((locale) => locale === value);
+}
+
+export const copy = {
+  en: {
+    nav: { home: "Home", services: "Services", solutions: "Solutions", technology: "Technology", about: "About", contact: "Contact" },
+    language: "中文",
+    eyebrow: "INTELLIGENCE · ENGINEERING · INTEGRATION",
+    title: "Engineering the next era of intelligent technology.",
+    description: "We bring intelligence, software, and connected systems together to help turn complex technology challenges into practical possibilities.",
+    primaryCta: "Explore what we do",
+    secondaryCta: "Talk to our team",
+    scroll: "SCROLL TO EXPLORE",
+    introLabel: "A connected approach to technology",
+    introTitle: "One technology partner. Multiple disciplines. A shared direction.",
+    introText: "From intelligent software to connected systems, our work sits at the intersection of emerging technology and real-world application.",
+    servicesLabel: "CAPABILITY AREAS",
+    servicesTitle: "Technology, connected by design.",
+    servicesText: "Explore the disciplines that shape our work. Specific offerings and project details will be published as they are confirmed.",
+    services: [
+      { number: "01", title: "AI & Intelligent Systems", text: "AI-enabled applications, intelligent workflows, and model/API integration." },
+      { number: "02", title: "Software & Digital Platforms", text: "Websites, web applications, and tailored software experiences." },
+      { number: "03", title: "Robotics & Automation", text: "Robotics secondary development and intelligent automation concepts." },
+      { number: "04", title: "System Integration", text: "Connecting software, services, devices, and data into coherent systems." }
+    ],
+    aboutLabel: "PISIMAI TECHNOLOGY",
+    aboutTitle: "Built around what technology can make possible.",
+    aboutText: "We bring together software development, AI, robotics, and system integration under one technology-focused direction.",
+    contactLabel: "START A CONVERSATION",
+    contactTitle: "Have a challenge worth engineering?",
+    contactText: "Tell us what you are working toward. We would be glad to hear from you.",
+    contactCta: "Contact us",
+    footerLine: "Engineering Tomorrow. Empowering Today.",
+    copyright: "All rights reserved."
+  },
+  zh: {
+    nav: { home: "首页", services: "服务领域", solutions: "解决方案", technology: "技术方向", about: "关于我们", contact: "联系我们" },
+    language: "EN",
+    eyebrow: "智能 · 工程 · 集成",
+    title: "以工程创新，开启智能科技新篇章。",
+    description: "融合人工智能、软件与互联系统，将复杂的技术挑战转化为切实可行的创新方案。",
+    primaryCta: "探索我们的业务",
+    secondaryCta: "联系团队",
+    scroll: "向下探索",
+    introLabel: "互联的技术视野",
+    introTitle: "一个技术合作伙伴，多元专业领域，共同发展方向。",
+    introText: "从智能软件到互联系统，我们专注于新兴技术与实际应用的交汇点。",
+    servicesLabel: "核心技术领域",
+    servicesTitle: "让技术彼此连接。",
+    servicesText: "了解构成我们技术方向的专业领域。具体服务与项目详情将在确认后陆续发布。",
+    services: [
+      { number: "01", title: "人工智能与智能系统", text: "人工智能应用、智能工作流程以及模型与 API 集成。" },
+      { number: "02", title: "软件与数字平台", text: "企业网站、Web 应用程序及定制软件体验。" },
+      { number: "03", title: "机器人与自动化", text: "机器人二次开发与智能自动化方案。" },
+      { number: "04", title: "系统集成", text: "连接软件、服务、设备与数据，构建协同系统。" }
+    ],
+    aboutLabel: "PISIMAI TECHNOLOGY",
+    aboutTitle: "以技术创新，拓展更多可能。",
+    aboutText: "我们围绕软件开发、人工智能、机器人技术与系统集成，构建多元化的技术服务方向。",
+    contactLabel: "开启合作交流",
+    contactTitle: "正在寻找值得深入探索的技术方案？",
+    contactText: "欢迎告诉我们您的目标与需求，我们期待与您交流。",
+    contactCta: "联系我们",
+    footerLine: "以工程创新，赋能当下。",
+    copyright: "版权所有。"
+  }
+} as const;
