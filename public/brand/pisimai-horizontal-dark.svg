@@ -1,43 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="190" viewBox="0 0 900 190" role="img" aria-label="PISIMAI TECHNOLOGY">
   <defs>
     <linearGradient id="markGradient" x1="36" y1="22" x2="176" y2="148" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#62F2F4"/>
-      <stop offset=".48" stop-color="#278EFF"/>
-      <stop offset="1" stop-color="#8A72FF"/>
-    </linearGradient>
-    <linearGradient id="signalGradient" x1="145" y1="63" x2="180" y2="63" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#61F3EF"/>
-      <stop offset="1" stop-color="#A8F8FF"/>
+      <stop offset="0" stop-color="#62F2F4"/><stop offset=".48" stop-color="#278EFF"/><stop offset="1" stop-color="#8A72FF"/>
     </linearGradient>
     <linearGradient id="wordGradient" x1="270" y1="0" x2="690" y2="0" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F7FAFF"/>
-      <stop offset="1" stop-color="#DCEBFF"/>
+      <stop stop-color="#F7FAFF"/><stop offset="1" stop-color="#DCEBFF"/>
     </linearGradient>
-    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
     <style>
-      .p-mark{fill:none;stroke:url(#markGradient);stroke-width:17;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:430;stroke-dashoffset:430;filter:drop-shadow(0 0 0 rgba(65,220,255,0));animation:p-draw 1.7s cubic-bezier(.2,.75,.25,1) .12s forwards,p-glow 5.8s ease-in-out 1.9s infinite}
+      .p-mark{fill:none;stroke:url(#markGradient);stroke-width:17;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:430;stroke-dashoffset:430;animation:p-draw 1.7s cubic-bezier(.2,.75,.25,1) .12s forwards,p-glow 5.8s ease-in-out 1.9s infinite}
       .p-highlight{fill:none;stroke:#D9FFFF;stroke-width:2;stroke-linecap:round;opacity:.48}
-      .signal-line{fill:none;stroke:url(#signalGradient);stroke-width:3;stroke-linecap:round;stroke-dasharray:8 34;animation:none}
-      .signal-node{fill:#DDFEFF;stroke:#39DDF3;stroke-width:4;transform-box:fill-box;transform-origin:center;animation:none}
-      .mark-shell{transform-origin:112px 88px;animation:none}
       .wordmark{fill:url(#wordGradient);font-family:Arial,Helvetica,sans-serif;font-size:61px;font-weight:700;letter-spacing:5px}
       .descriptor{fill:#55DCEB;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:600;letter-spacing:11px}
-      }
-      50%{opacity:1;transform:scale(1.15)}}
-      50%{transform:translateY(-1.5px)}}
-      }
-    @keyframes p-draw{to{stroke-dashoffset:0}}@keyframes p-glow{0%,100%{filter:drop-shadow(0 0 2px rgba(65,220,255,.16))}50%{filter:drop-shadow(0 0 8px rgba(65,220,255,.48))}}@media(prefers-reduced-motion:reduce){.p-mark,.mark{animation:none;stroke-dasharray:none;stroke-dashoffset:0;filter:none}}\n    </style>
+      @keyframes p-draw{to{stroke-dashoffset:0}}
+      @keyframes p-glow{0%,100%{filter:drop-shadow(0 0 2px rgba(65,220,255,.16))}50%{filter:drop-shadow(0 0 8px rgba(65,220,255,.48))}}
+      @media(prefers-reduced-motion:reduce){.p-mark{animation:none;stroke-dasharray:none;stroke-dashoffset:0;filter:none}}
+    </style>
   </defs>
   <rect width="900" height="190" fill="#070B16"/>
-  <g class="mark-shell">
-    <path class="p-mark" d="M53 145V48C53 37 62 28 73 28H113C137 28 153 44 153 66C153 88 137 104 113 104H53"/>
-    <path class="p-highlight" d="M62 137V48C62 42 67 37 74 37H112C131 37 144 49 144 66C144 83 131 95 112 95H62"/>
-    
-    
-  </g>
+  <path class="p-mark" d="M53 145V48C53 37 62 28 73 28H113C137 28 153 44 153 66C153 88 137 104 113 104H53"/>
+  <path class="p-highlight" d="M62 137V48C62 42 67 37 74 37H112C131 37 144 49 144 66C144 83 131 95 112 95H62"/>
   <path d="M220 34V156" stroke="#31445F" stroke-width="1.5"/>
   <text class="wordmark" x="263" y="91">PISIMAI</text>
   <text class="descriptor" x="267" y="130">TECHNOLOGY</text>
