@@ -47,3 +47,29 @@ Establish a secure, maintainable, bilingual application base before implementing
 
 ## Known follow-up
 The contact CTA currently uses a placeholder email address. Replace it with a verified company contact address before launch. Do not publish unverified company registration, customer, certification, project, or performance claims.
+
+
+## Phase 2 — Homepage implementation
+
+The bilingual homepage now includes:
+- Hybrid Intelligence Core art direction built from layered CSS geometry and restrained orbital motion.
+- Responsive hero copy, clear primary and secondary navigation actions, and technical micro-details.
+- Four capability areas: AI and intelligent systems, software and digital platforms, robotics and automation, and system integration.
+- A concise engineering approach section that explains how disciplines connect.
+- A company introduction and contact invitation without fabricated contact details or unverified claims.
+- Matching English and Simplified Chinese content for all core sections.
+
+### Motion and accessibility
+- Motion is CSS-only; no client animation runtime or 3D engine is shipped.
+- Animations use transforms and opacity, with will-change limited to orbital elements.
+- prefers-reduced-motion disables the decorative motion.
+- Keyboard focus is visibly indicated and anchor sections include scroll offset.
+
+### Phase 2 review checklist
+- [ ] Review hero composition and typography on desktop.
+- [ ] Review mobile navigation and vertical hero layout at narrow widths.
+- [ ] Check English and Chinese line wrapping.
+- [ ] Confirm SVG logo and favicon resolve in preview.
+- [ ] Run lint, TypeScript, and production build in GitHub Actions.
+- [ ] Test keyboard-only navigation and reduced-motion settings.
+- [ ] Confirm no horizontal overflow at 320px, 375px, 768px, and desktop widths.
