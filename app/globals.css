@@ -1621,3 +1621,10 @@ body{background:#080e1b}
  .architecture-core,.architecture-module,.visual-topline i,.network-pulse{animation:none!important}
  .service-card,.principle-item,.desktop-nav a:after{transition:none!important}
 }
+
+/* Keep the new service diagrams independent from retired decorative animations. */
+.service-visual-frame span,.service-visual-frame i,.service-visual-frame b{animation:none!important}
+.service-visual-orbit{animation:service-orbit-spin 28s linear infinite}
+.service-visual-orbit i{animation:none!important}
+@keyframes service-orbit-spin{from{rotate:0deg}to{rotate:360deg}}
+@media(prefers-reduced-motion:reduce){.service-visual-orbit{animation:none!important}}
