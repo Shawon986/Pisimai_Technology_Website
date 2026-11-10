@@ -315,7 +315,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
     <>
       <SiteHeader locale={locale} currentPath={slug.join("/")} />
       <main className="inner-page">
-        <section className="inner-page-hero">
+        <section className={"inner-page-hero" + (pageKey === "about" ? " about-page-hero" : "")}>
           <div className="inner-hero-grid" aria-hidden="true" />
           <div className="inner-hero-glow" aria-hidden="true" />
           <div className={"inner-page-visual page-visual-" + visualKind} aria-hidden="true">
