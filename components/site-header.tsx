@@ -26,7 +26,7 @@ export function SiteHeader({ locale, currentPath }: { locale: Locale; currentPat
         </div>
       </div>
       <nav className="mobile-nav" aria-label="Mobile navigation">
-        {items.map(([key, href]) => <a key={key} href={href}>{t.nav[key]}</a>)}
+        {items.map(([key, href]) => <Link key={key} href={href} scroll>{t.nav[key]}</Link>)}
       </nav>
     </header>
   );
