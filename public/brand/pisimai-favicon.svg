@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Pisimai Technology icon">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20E7F7"/><stop offset=".55" stop-color="#168BFF"/><stop offset="1" stop-color="#8B45F5"/></linearGradient></defs>
-<rect x="2" y="2" width="60" height="60" rx="15" fill="#070B16" stroke="#18375D" stroke-width="1.5"/>
-<path d="M15 14 H35 C45 14 51 20 51 29 C51 38 44 43 34 43 H27 L18 54 L22 39 H34 C40 39 43 36 43 30 C43 25 40 22 34 22 H23 Z" fill="url(#g)"/>
-<ellipse cx="33" cy="34" rx="25" ry="7" transform="rotate(-22 33 34)" fill="none" stroke="#20D9F2" stroke-width="2.2"/>
-<circle cx="55" cy="23" r="2.5" fill="#EAFBFF"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="25 10 170 155" role="img" aria-label="PISIMAI"><defs><linearGradient id="g" x1="35" y1="20" x2="176" y2="150" gradientUnits="userSpaceOnUse"><stop stop-color="#62F2F4"/><stop offset=".48" stop-color="#278EFF"/><stop offset="1" stop-color="#8A72FF"/></linearGradient><style>.mark{fill:none;stroke:url(#g);stroke-width:17;stroke-linecap:round;stroke-linejoin:round}</style></defs><rect x="25" y="10" width="170" height="155" rx="32" fill="#070B16" stroke="#24415E" stroke-width="3"/><path class="mark" d="M53 145V48C53 37 62 28 73 28H113C137 28 153 44 153 66C153 88 137 104 113 104H53"/><path d="M151 66H174" stroke="#68EAF1" stroke-width="3" stroke-linecap="round"/><circle cx="174" cy="66" r="6" fill="#DDFEFF" stroke="#39DDF3" stroke-width="4"/></svg>
