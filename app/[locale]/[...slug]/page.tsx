@@ -129,7 +129,7 @@ const pages: Record<string, PageRecord> = {
       ctaLabel: "了解我们的服务", ctaHref: "/services"
     }
   },
-  "ai-intelligent-systems": {
+  "services/ai-intelligent-systems": {
     en: {
       eyebrow: "CAPABILITY / 01",
       title: "AI & Intelligent Systems",
@@ -157,7 +157,7 @@ const pages: Record<string, PageRecord> = {
       ctaLabel: "讨论 AI 项目", ctaHref: "/contact"
     }
   },
-  "software-digital-platforms": {
+  "services/software-digital-platforms": {
     en: {
       eyebrow: "CAPABILITY / 02",
       title: "Software & Digital Platforms",
@@ -185,7 +185,7 @@ const pages: Record<string, PageRecord> = {
       ctaLabel: "讨论软件项目", ctaHref: "/contact"
     }
   },
-  "robotics-automation": {
+  "services/robotics-automation": {
     en: {
       eyebrow: "CAPABILITY / 03",
       title: "Robotics & Automation",
@@ -213,7 +213,7 @@ const pages: Record<string, PageRecord> = {
       ctaLabel: "讨论机器人项目", ctaHref: "/contact"
     }
   },
-  "system-integration": {
+  "services/system-integration": {
     en: {
       eyebrow: "CAPABILITY / 04",
       title: "System Integration",
@@ -245,7 +245,7 @@ const pages: Record<string, PageRecord> = {
 
 const slugs = Object.keys(pages);
 export function generateStaticParams() {
-  return (["en", "zh"] as const).flatMap((locale) => slugs.map((slug) => ({ locale, slug: [slug] })));
+  return (["en", "zh"] as const).flatMap((locale) => slugs.map((slug) => ({ locale, slug: slug.split("/") })));
 }
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string[] }> }): Promise<Metadata> {
   const { locale: rawLocale, slug } = await params;
@@ -262,7 +262,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
   if (!page) notFound();
   const locale: Locale = rawLocale;
   const content = page[locale];
-  const serviceSlugs = ["ai-intelligent-systems", "software-digital-platforms", "robotics-automation", "system-integration"];
+  const serviceSlugs = ["services/ai-intelligent-systems", "services/software-digital-platforms", "services/robotics-automation", "services/system-integration"];
   const isServices = slug[0] === "services";
   const labels = locale === "zh"
     ? ["人工智能与智能系统", "软件与数字平台", "机器人与自动化", "系统集成"]
@@ -300,7 +300,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
           {isServices && (
             <div className="inner-service-links">
               {serviceSlugs.map((serviceSlug, index) => (
-                <Link href={"/" + locale + "/services/" + serviceSlug} key={serviceSlug}>
+                <Link href={"/" + locale + "/" + serviceSlug} key={serviceSlug}>
                   <span>0{index + 1}</span><strong>{labels[index]}</strong><i>↗</i>
                 </Link>
               ))}
