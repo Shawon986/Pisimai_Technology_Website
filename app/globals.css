@@ -4008,7 +4008,7 @@ body { overscroll-behavior-y: contain; }
   z-index: 4;
 }
 .about-page-hero .scene-about-ecosystem {
-  inset: 12% 4% 11%;
+  inset: 12% 4% 3%;
   overflow: visible;
 }
 .about-page-hero .about-ecosystem-core {
@@ -4024,7 +4024,15 @@ body { overscroll-behavior-y: contain; }
   letter-spacing: .1em;
 }
 .about-page-hero .about-ecosystem-foot {
-  bottom: 1%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  width: 100%;
+  padding: 0 12px;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-align: center;
   font-size: 7px;
   letter-spacing: .15em;
 }
@@ -4091,7 +4099,7 @@ body { overscroll-behavior-y: contain; }
     border-radius: 20px;
   }
   .about-page-hero .scene-about-ecosystem {
-    inset: 13% 3% 12%;
+    inset: 13% 3% 5%;
   }
   .about-page-hero .about-ecosystem-core {
     width: 88px;
