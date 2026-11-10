@@ -94,7 +94,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
           <div className="service-grid">
             {t.services.map((service, index) => (
-              <article className="service-card" key={service.number}>
+              <Link
+                href={"/" + locale + "/services/" + ["ai-intelligent-systems", "software-digital-platforms", "robotics-automation", "system-integration"][index]}
+                className="service-card service-card-link"
+                key={service.number}
+                aria-label={(locale === "zh" ? "了解更多：" : "Explore: ") + service.title}
+              >
                 <div className="service-card-top"><span className="service-number">{service.number}</span><span className="service-index">{["AI","DEV","ROB","SYS"][index]}</span></div>
                 <div className={`service-visual service-visual-${index + 1}`} aria-hidden="true">
                   {index === 0 && (
@@ -150,8 +155,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   )}
                 </div>
                 <div className="service-card-copy"><h3>{service.title}</h3><p>{service.text}</p></div>
-                <a className="service-arrow" href={"/" + locale + "/services/" + ["ai-intelligent-systems", "software-digital-platforms", "robotics-automation", "system-integration"][index]} aria-label={(locale === "zh" ? "了解更多：" : "Explore: ") + service.title}>↗</a>
-              </article>
+                <span className="service-arrow" aria-hidden="true">↗</span>
+              </Link>
             ))}
           </div>
           <p className="capability-note"><span />{t.capabilityNote}</p>
