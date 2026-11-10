@@ -2459,3 +2459,120 @@ body{background:#080e1b}
   }
   .inner-content-card,.inner-service-links a,.inner-content-card::before { transition: none !important; }
 }
+
+
+/* Page-specific hero scenes — each page has its own visual metaphor and motion */
+.inner-page-visual::before,.inner-page-visual::after { content:none; }
+.inner-page-visual { filter:none; }
+.scene { position:absolute; inset:8% 3%; transform-style:preserve-3d; }
+.page-visual-caption { z-index:5; }
+.page-visual-readout { z-index:5; }
+
+/* Services overview: four disciplines orbit a shared capability hub */
+.scene-capabilities { perspective:900px; }
+.cap-hub { position:absolute; left:50%;top:48%;width:104px;height:104px;display:grid;place-items:center;border:1px solid rgba(153,237,255,.72);border-radius:50%;color:#e9fbff;font:500 34px "Space Grotesk",sans-serif;background:radial-gradient(circle at 35% 25%,#397f9a,#0b2039 66%);box-shadow:0 0 0 12px #48d9f212,0 0 0 30px #48d9f20a,0 16px 48px #0009, inset 0 0 25px #8ceaff35;transform:translate(-50%,-50%);animation:hub-throb 4.8s ease-in-out infinite;}
+.cap-orbit { position:absolute;left:50%;top:48%;width:76%;height:58%;border:1px solid #59dff43b;border-radius:50%;transform:translate(-50%,-50%) rotateX(66deg) rotate(-18deg); }
+.cap-orbit-a { animation:cap-orbit-turn 24s linear infinite; }.cap-orbit-b { width:58%;height:88%;border-color:#8e83ff45;transform:translate(-50%,-50%) rotateY(64deg) rotate(26deg);animation:cap-orbit-turn 31s linear infinite reverse; }
+.cap-node { position:absolute;width:43px;height:43px;border:1px solid #73dff477;border-radius:13px;background:linear-gradient(145deg,#193b5b,#071526);box-shadow:0 9px 24px #0007,inset 0 1px #d9faff30; }
+.cap-node::after { content:"";position:absolute;inset:13px;border:1px solid #a8f4ff;border-radius:3px;box-shadow:0 0 12px #40dfff88;transform:rotate(45deg); }
+.cap-ai { left:15%;top:22%; }.cap-software { right:14%;top:23%;border-color:#7da8ff88;animation:cap-float 5s ease-in-out infinite; }.cap-robotics { left:17%;bottom:13%;border-color:#b49bff88;animation:cap-float 5.7s -2s ease-in-out infinite; }.cap-integration { right:15%;bottom:14%;border-color:#64e8c588;animation:cap-float 5.4s -1s ease-in-out infinite; }
+.cap-link { position:absolute;left:50%;top:48%;height:1px;width:34%;transform-origin:left;background:linear-gradient(90deg,#72e7ff99,transparent); }.cap-link-a{transform:rotate(215deg)}.cap-link-b{transform:rotate(325deg)}.cap-link-c{transform:rotate(145deg)}.cap-link-d{transform:rotate(35deg)}
+
+/* Technology: precision engineering layers with a vertical energy/data transfer */
+.scene-technology { perspective:1000px; }
+.tech-stack { position:absolute;left:48%;top:48%;width:240px;height:210px;transform:translate(-50%,-50%) rotateX(58deg) rotateZ(-28deg);transform-style:preserve-3d; }
+.tech-stack i { position:absolute;left:0;width:100%;height:48px;border:1px solid #73b8ff99;background:linear-gradient(110deg,#102d50dd,#1d5c85aa 48%,#0a1a32ee);box-shadow:0 13px 24px #0008,inset 0 1px #d5f4ff44;transform:translateZ(0); }
+.tech-stack i:nth-child(1){top:0;transform:translateZ(78px);border-color:#a4d8ffb0}.tech-stack i:nth-child(2){top:54px;transform:translateZ(48px)}.tech-stack i:nth-child(3){top:108px;transform:translateZ(18px);border-color:#9c91ff99}.tech-stack i:nth-child(4){top:162px;transform:translateZ(-12px);border-color:#54e4d299}
+.tech-beam { position:absolute;left:48%;top:9%;width:2px;height:78%;background:linear-gradient(transparent,#a4eaff,#5e8dff,transparent);box-shadow:0 0 22px #60dfff;animation:tech-beam-pulse 3.6s ease-in-out infinite; }
+.tech-data { position:absolute;width:8px;height:8px;border-radius:50%;background:#d9faff;box-shadow:0 0 16px 5px #56caff99;left:48%;animation:tech-data-rise 3.4s linear infinite; }.tech-data-a{animation-delay:-.3s}.tech-data-b{animation-delay:-1.5s}.tech-data-c{animation-delay:-2.7s}
+.tech-label { position:absolute;right:4%;font:8px "JetBrains Mono",monospace;letter-spacing:.16em;color:#91b8d9; }.tech-label-a{top:18%}.tech-label-b{top:47%;color:#b7aaff}.tech-label-c{top:76%;color:#73dbc9}
+
+/* Solutions: a physical process path with four stages and travelling signal */
+.scene-workflow { display:flex;align-items:center;justify-content:center;gap:0;padding:0 4%; }
+.flow-track { position:absolute;left:7%;right:7%;top:51%;height:2px;background:linear-gradient(90deg,#6b8cff33,#9b8bff,#58dff4,#6b8cff33);box-shadow:0 0 16px #66bfff33; }
+.flow-step { position:relative;z-index:2;width:92px;height:92px;margin:0 auto;border:1px solid #8b9fff88;border-radius:16px;background:linear-gradient(145deg,#162a4b,#081426);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;box-shadow:0 18px 32px #0008,inset 0 1px #d8e7ff22;transform:translateY(-5px) rotateX(8deg);animation:flow-stage 5s ease-in-out infinite; }
+.flow-step i {font:11px "JetBrains Mono",monospace;color:#83e9ff;font-style:normal}.flow-step b{font:8px "JetBrains Mono",monospace;letter-spacing:.1em;color:#d5e4f8;font-weight:500}.flow-step-b{animation-delay:-1.2s;border-color:#a59aff88}.flow-step-c{animation-delay:-2.4s;border-color:#61d9d288}.flow-step-d{animation-delay:-3.6s}
+.flow-packet { position:absolute;top:calc(51% - 4px);left:7%;width:8px;height:8px;border-radius:50%;background:#e5fbff;box-shadow:0 0 15px 5px #71dfff;animation:flow-travel 5s linear infinite; }
+
+/* About: architectural structure, bridges and illuminated physical connections */
+.scene-architecture { perspective:1000px; }
+.arch-floor { position:absolute;left:12%;right:8%;bottom:11%;height:30%;border:1px solid #79caff44;background:linear-gradient(145deg,#16335366,#071323aa);transform:rotateX(65deg) skewX(-12deg);box-shadow:0 25px 45px #0008; }
+.arch-tower { position:absolute;bottom:25%;width:19%;border:1px solid #86c9f477;background:linear-gradient(90deg,#0b1a2c,#24496a 48%,#0b192c);box-shadow:inset 0 0 20px #6ecaff20,0 15px 32px #0008;transform:skewY(-8deg); }
+.arch-tower::after { content:"";position:absolute;inset:12px 9px;background:repeating-linear-gradient(0deg,transparent 0 15px,#8bdfff55 16px 17px);opacity:.7; }
+.arch-tower-a{left:15%;height:48%}.arch-tower-b{left:42%;height:68%;width:22%;border-color:#9b9bff88;background:linear-gradient(90deg,#111b38,#38456c 48%,#11172e);}.arch-tower-c{right:12%;height:40%;border-color:#65d9c488;background:linear-gradient(90deg,#0b252b,#1c5557 48%,#0a2028)}
+.arch-bridge {position:absolute;left:28%;top:36%;width:49%;height:2px;background:linear-gradient(90deg,transparent,#7bdfff,#a69aff,transparent);box-shadow:0 0 14px #6bdfff99;transform:rotate(-8deg);}.arch-bridge-b{top:59%;left:24%;width:54%;transform:rotate(8deg);opacity:.65}
+.arch-light {position:absolute;left:49%;top:10%;height:75%;width:2px;background:linear-gradient(transparent,#a6f1ff,#70a9ff,transparent);filter:drop-shadow(0 0 9px #71dfff);animation:architecture-light 4s ease-in-out infinite;}
+
+/* Contact: precision communication beacon with expanding transmitted wavefronts */
+.scene-signal {display:grid;place-items:center;}
+.signal-envelope {position:absolute;left:50%;top:48%;width:132px;height:88px;transform:translate(-50%,-50%);border:1px solid #75e7e6aa;border-radius:12px;background:linear-gradient(145deg,#123a4b,#081b2b);box-shadow:0 20px 50px #0008,0 0 34px #45d9d933,inset 0 1px #d8ffff33;overflow:hidden;}
+.signal-envelope span {position:absolute;left:0;top:-25px;width:92px;height:92px;border-right:1px solid #a6f8f0aa;border-bottom:1px solid #a6f8f0aa;transform:rotate(45deg) translate(-16px,-16px);background:linear-gradient(135deg,#7ce6e422,transparent);}
+.signal-envelope i,.signal-envelope b {position:absolute;left:18px;right:18px;height:1px;background:#9cece7aa;bottom:24px}.signal-envelope b{bottom:15px;right:42px;opacity:.55}
+.signal-wave {position:absolute;left:50%;top:48%;width:160px;height:160px;border:1px solid #61e3dd88;border-radius:50%;transform:translate(-50%,-50%) scale(.4);animation:signal-expand 4.2s ease-out infinite;}.signal-wave-b{animation-delay:1.4s;border-color:#72aaff77}.signal-wave-c{animation-delay:2.8s;border-color:#a28cff66}
+.signal-dot {position:absolute;left:50%;top:48%;width:7px;height:7px;border-radius:50%;background:#d8fffb;box-shadow:0 0 18px 7px #51e5d999;}.signal-status{position:absolute;bottom:8%;font:9px "JetBrains Mono",monospace;letter-spacing:.2em;color:#8de5df}
+
+/* AI: neural lattice with synaptic impulses travelling across connected nodes */
+.scene-neural {display:grid;place-items:center;}
+.neural-web {position:absolute;left:50%;top:48%;width:330px;height:250px;transform:translate(-50%,-50%);background:linear-gradient(27deg,transparent 49.7%,#5de5f055 50%,transparent 50.4%),linear-gradient(150deg,transparent 49.7%,#8a8cff55 50%,transparent 50.4%),linear-gradient(90deg,transparent 49.7%,#5de5f033 50%,transparent 50.4%);clip-path:polygon(50% 0,100% 25%,88% 82%,50% 100%,12% 82%,0 25%);}
+.neural-web i {position:absolute;width:13px;height:13px;border:1px solid #a8f8ff;border-radius:50%;background:#174b66;box-shadow:0 0 16px #58dfff99;animation:neural-fire 3s ease-in-out infinite;}
+.neural-web i:nth-child(1){left:48%;top:2%}.neural-web i:nth-child(2){left:12%;top:24%;animation-delay:-.5s}.neural-web i:nth-child(3){right:12%;top:24%;animation-delay:-1s}.neural-web i:nth-child(4){left:28%;top:47%;animation-delay:-1.5s}.neural-web i:nth-child(5){right:28%;top:47%;animation-delay:-2s}.neural-web i:nth-child(6){left:8%;bottom:15%;animation-delay:-.8s}.neural-web i:nth-child(7){right:8%;bottom:15%;animation-delay:-1.8s}.neural-web i:nth-child(8){left:48%;bottom:2%;animation-delay:-2.5s}.neural-web i:nth-child(9){left:48%;top:48%;width:28px;height:28px;background:#1d6a84;box-shadow:0 0 35px #48dcffcc}
+.neural-web span,.neural-web b,.neural-web em {position:absolute;width:6px;height:6px;border-radius:50%;background:#e4ffff;box-shadow:0 0 14px 4px #5ce7ff;animation:neural-packet 3s linear infinite;}.neural-web span{left:14%;top:25%}.neural-web b{right:14%;top:25%;animation-delay:-1s}.neural-web em{left:48%;bottom:5%;animation-delay:-2s}
+.neural-pulse {position:absolute;width:155px;height:155px;border:1px solid #61e6f455;border-radius:50%;box-shadow:0 0 55px #4acfff1c;animation:neural-pulse 4s ease-in-out infinite;}.neural-label{position:absolute;bottom:6%;font:9px "JetBrains Mono",monospace;letter-spacing:.16em;color:#8cd8ed}
+
+/* Software: a real layered product interface, with live cursor and updating data */
+.scene-software {perspective:1000px;}
+.software-window {position:absolute;left:48%;top:48%;width:310px;height:220px;transform:translate(-50%,-50%) rotateY(-13deg) rotateX(5deg);border:1px solid #82b8ff88;border-radius:12px;background:#0a1729;box-shadow:0 28px 65px #000b,0 0 40px #3c83ff22;overflow:hidden;animation:software-float 7s ease-in-out infinite;}
+.software-top {height:30px;display:flex;align-items:center;gap:5px;padding:0 11px;background:linear-gradient(90deg,#1b3454,#12233c);border-bottom:1px solid #8bbcff33}.software-top i{width:5px;height:5px;border-radius:50%;background:#80baff}.software-top span{margin-left:12px;color:#8ea9c8;font:8px "JetBrains Mono",monospace}
+.software-sidebar {position:absolute;left:0;top:30px;bottom:0;width:43px;padding:15px 13px;background:#0d2036;border-right:1px solid #8bbcff22;display:flex;flex-direction:column;gap:15px}.software-sidebar b{width:15px;height:3px;border-radius:3px;background:#5c88b5}
+.software-content {position:absolute;left:58px;top:48px;right:14px;bottom:14px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:10px 55px 1fr;gap:10px}.software-content>span{height:5px;background:#6ca9e8aa;border-radius:3px}.software-content>span:nth-child(2){width:65%;background:#7d8eea99}.software-content>span:nth-child(3){width:42%;background:#6ad8d099}.software-content>div{border:1px solid #6b9bcf44;border-radius:5px;background:linear-gradient(145deg,#173657aa,#10243a)}.software-content>div:nth-of-type(2){background:repeating-linear-gradient(90deg,#5b9cda33 0 8px,transparent 8px 13px),#11263d}.software-content i{position:absolute;left:5px;bottom:7px;width:2px;height:12px;background:#a9efff;animation:software-caret 1s steps(2) infinite}
+.software-panel {position:absolute;right:0;top:54px;width:74px;padding:10px;display:grid;gap:9px;border:1px solid #83aaff55;border-radius:7px;background:#101d36;transform:translate(35px,45px);box-shadow:0 15px 30px #0008}.software-panel b{height:4px;background:#719fdb;border-radius:4px}.software-panel b:nth-child(2){width:70%;background:#8e8bff}.software-panel b:nth-child(3){width:45%;background:#6ddacb}
+.software-cursor {position:absolute;left:72%;top:65%;width:0;height:0;border-left:7px solid #e4f7ff;border-top:10px solid transparent;border-bottom:2px solid transparent;filter:drop-shadow(0 0 5px #67caff);animation:software-cursor 5s ease-in-out infinite}
+
+/* Robotics: articulated industrial arm with physically hinged joints */
+.scene-robotics {perspective:900px;}
+.robot-floor {position:absolute;left:13%;right:8%;bottom:13%;height:24%;border:1px solid #b29aff55;background:linear-gradient(160deg,#30294a55,#0b1022);transform:rotateX(66deg);box-shadow:0 24px 45px #0009;}
+.robot-base {position:absolute;left:43%;bottom:25%;width:86px;height:48px;border:1px solid #b5a2ff99;border-radius:8px 8px 15px 15px;background:linear-gradient(100deg,#282b4b,#73708f 48%,#22243c);transform:skewY(-8deg);box-shadow:0 15px 28px #0009;}
+.robot-joint {position:absolute;width:42px;height:42px;border:4px solid #c2b6ff;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f1eaff,#6d65a0 35%,#171a31 70%);box-shadow:0 0 0 5px #9887e822,0 0 18px #9d8cff55;z-index:3;}
+.robot-joint-a {left:46%;bottom:42%;}.robot-arm {position:absolute;height:19px;border:1px solid #c3b7ff99;border-radius:7px;background:linear-gradient(180deg,#c1b6e8,#514d7d 48%,#25243f);transform-origin:9px 50%;box-shadow:0 9px 17px #0008;z-index:2;}
+.robot-arm-a {left:49%;bottom:49%;width:130px;transform:rotate(-48deg);animation:robot-upper 6s ease-in-out infinite;}
+.robot-joint-b {left:63%;bottom:68%;animation:robot-upper-joint 6s ease-in-out infinite;}
+.robot-arm-b {left:65%;bottom:72%;width:105px;transform:rotate(34deg);animation:robot-forearm 6s ease-in-out infinite;}
+.robot-joint-c {left:78%;bottom:67%;width:28px;height:28px;border-width:3px;animation:robot-tool-joint 6s ease-in-out infinite;}
+.robot-tool {position:absolute;left:83%;bottom:64%;width:34px;height:16px;border:1px solid #b8f2ff;border-radius:4px;background:linear-gradient(#8acbd9,#315c72);transform:rotate(34deg);animation:robot-tool 6s ease-in-out infinite;z-index:4;}
+.robot-tool i,.robot-tool b{position:absolute;top:12px;width:3px;height:18px;background:#9feeff;transform-origin:top;}.robot-tool i{left:8px;transform:rotate(18deg)}.robot-tool b{right:8px;transform:rotate(-18deg)}
+
+/* Integration: four distinct ports exchange packets through a shared backplane */
+.scene-integration {perspective:900px;}
+.integration-hub {position:absolute;left:50%;top:49%;width:116px;height:116px;border:1px solid #77ead2aa;border-radius:18px;background:linear-gradient(145deg,#174b4c,#0a202a);box-shadow:0 18px 44px #0009,0 0 36px #52e7c833,inset 0 1px #d8fff033;transform:translate(-50%,-50%) rotate(45deg);display:grid;grid-template-columns:1fr 1fr;place-items:center;animation:integration-hub 8s ease-in-out infinite;}
+.integration-hub i {width:19px;height:19px;border:1px solid #a0ffe5;border-radius:5px;background:#327b77;box-shadow:0 0 12px #5ce9ca55;}
+.integration-bus {position:absolute;left:12%;right:12%;top:49%;height:1px;background:linear-gradient(90deg,transparent,#6de8d6,#72aaff,#6de8d6,transparent);box-shadow:0 0 15px #63e8d477;}
+.integration-port {position:absolute;width:52px;height:52px;border:1px solid #77d9d688;border-radius:12px;background:linear-gradient(145deg,#173b48,#091b29);box-shadow:0 12px 28px #0008;display:grid;place-items:center;}
+.integration-port b {width:15px;height:15px;border:1px solid #a0f7e7;transform:rotate(45deg);box-shadow:0 0 13px #59e9d577;}
+.port-a{left:9%;top:15%}.port-b{right:9%;top:15%;border-color:#86aaff99}.port-c{left:9%;bottom:12%;border-color:#a99bff99}.port-d{right:9%;bottom:12%;border-color:#6ce3c899}
+.integration-packet {position:absolute;width:7px;height:7px;border-radius:50%;background:#e2fff8;box-shadow:0 0 14px 4px #64e9d6;left:16%;top:27%;animation:integration-flow 3.8s ease-in-out infinite;}.packet-b{left:80%;top:28%;animation-delay:-1.2s;background:#dceaff;box-shadow:0 0 14px 4px #77aaff}.packet-c{left:17%;top:74%;animation-delay:-2.4s;background:#eee6ff;box-shadow:0 0 14px 4px #a99bff}
+
+@keyframes hub-throb{0%,100%{box-shadow:0 0 0 12px #48d9f212,0 0 0 30px #48d9f20a,0 16px 48px #0009,inset 0 0 25px #8ceaff35}50%{box-shadow:0 0 0 18px #48d9f21a,0 0 0 42px #48d9f20b,0 16px 48px #0009,inset 0 0 35px #8ceaff55}}
+@keyframes cap-orbit-turn{to{rotate:360deg}} @keyframes cap-float{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes tech-beam-pulse{0%,100%{opacity:.35;scale:1 .75}50%{opacity:1;scale:1 1.12}}
+@keyframes tech-data-rise{0%{top:83%;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:12%;opacity:0}}
+@keyframes flow-stage{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes flow-travel{0%{left:7%;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:92%;opacity:0}}
+@keyframes architecture-light{0%,100%{opacity:.35;scale:1 .7}50%{opacity:1;scale:1 1.1}}
+@keyframes signal-expand{0%{opacity:.8;scale:.35}100%{opacity:0;scale:1.8}}
+@keyframes neural-fire{0%,100%{opacity:.42;scale:.8}50%{opacity:1;scale:1.25}}
+@keyframes neural-packet{0%{opacity:0;translate:0 12px}30%{opacity:1}100%{opacity:0;translate:80px 55px}}
+@keyframes neural-pulse{0%,100%{scale:.88;opacity:.3}50%{scale:1.12;opacity:.8}}
+@keyframes software-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes software-caret{50%{opacity:0}}
+@keyframes software-cursor{0%,100%{translate:0 0}50%{translate:-42px -26px}}
+@keyframes robot-upper{0%,100%{transform:rotate(-48deg)}50%{transform:rotate(-37deg)}}
+@keyframes robot-upper-joint{0%,100%{translate:0 0}50%{translate:14px 10px}}
+@keyframes robot-forearm{0%,100%{transform:rotate(34deg)}50%{transform:rotate(15deg)}}
+@keyframes robot-tool-joint{0%,100%{translate:0 0}50%{translate:8px -14px}}
+@keyframes robot-tool{0%,100%{translate:0 0;rotate:0deg}50%{translate:8px -14px;rotate:-15deg}}
+@keyframes integration-hub{0%,100%{transform:translate(-50%,-50%) rotate(45deg)}50%{transform:translate(-50%,-50%) rotate(52deg)}}
+@keyframes integration-flow{0%{translate:0 0;opacity:0}20%{opacity:1}80%{opacity:1}100%{translate:180px 70px;opacity:0}}
+
+@media(max-width:1050px){.scene{scale:.88}.software-window{scale:.88}.tech-stack{scale:.88}}
+@media(max-width:760px){.inner-page-visual{right:-175px;opacity:.36}.scene{scale:.72}.page-visual-caption,.page-visual-readout{display:none}.scene-robotics{scale:.68}.scene-software{scale:.68}}
+@media(prefers-reduced-motion:reduce){.scene *,.scene::before,.scene::after{animation:none!important;transition:none!important}}
