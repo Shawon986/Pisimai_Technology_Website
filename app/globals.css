@@ -3122,7 +3122,7 @@ html { scroll-padding-top: 0; }
 .contact-form-grid label {display:flex;min-width:0;flex-direction:column;gap:8px;color:#c8d8eb;font-size:12px;font-weight:600;letter-spacing:.025em}
 .contact-form-grid input,.contact-form-grid select,.contact-form-grid textarea {
   width:100%;min-width:0;border:1px solid #8baed02e;border-radius:7px;outline:none;
-  background:#071321c9;color:#eaf3ff;padding:12px 13px;font:400 13px/1.5 inherit;
+  background:#071321c9;color:#eaf3ff;padding:12px 13px;font:inherit;font-size:13px;line-height:1.5;
   transition:border-color .2s ease,box-shadow .2s ease,background .2s ease;
 }
 .contact-form-grid input,.contact-form-grid select {height:44px}
