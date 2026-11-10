@@ -5819,3 +5819,40 @@ body { overscroll-behavior-y: contain; }
 .header-contact .ui-arrow-icon,
 .footer-contact-link .ui-arrow-icon { width: 14px; height: 14px; }
 .blueprint-center .ui-arrow-icon { width: 20px; height: 20px; }
+
+
+/* Laptop header sizing: keep the Contact action fully visible and prevent flex shrink. */
+@media (min-width: 921px) {
+  .header-inner {
+    gap: clamp(14px, 1.8vw, 26px);
+  }
+  .desktop-nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+    gap: clamp(12px, 1.45vw, 22px);
+  }
+  .header-actions {
+    flex: 0 0 auto;
+    gap: 18px;
+  }
+  .header-contact {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 112px;
+    min-height: 42px;
+    padding: 11px 15px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .header-contact span {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+}
