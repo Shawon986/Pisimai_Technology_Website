@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
 
-const recipient = "shawonh986@pisimai.com";
 const allowedServices = new Set([
   "AI & Intelligent Systems",
   "Software & Digital Platforms",
@@ -21,12 +19,6 @@ function clean(value: unknown, max: number): string {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
 }
 
-function escapeHtml(value: string): string {
-  return value.replace(/[&<>"']/g, (character) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
-  })[character] ?? character);
-}
-
 export async function POST(request: NextRequest) {
   const contentLength = Number(request.headers.get("content-length") ?? "0");
   if (contentLength > 12000) {
@@ -39,16 +31,6 @@ export async function POST(request: NextRequest) {
   const origin = request.headers.get("origin");
   if (!origin || origin !== request.nextUrl.origin) {
     return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
-  }
-
-  const gmailUser = process.env.GMAIL_USER?.trim();
-  const gmailAppPassword = process.env.GMAIL_APP_PASSWORD?.replace(/\s/g, "");
-  if (!gmailUser || !gmailAppPassword) {
-    console.error("[contact] Gmail SMTP is not configured", {
-      hasGmailUser: Boolean(gmailUser),
-      hasGmailAppPassword: Boolean(gmailAppPassword),
-    });
-    return NextResponse.json({ error: "Email service is not configured" }, { status: 503 });
   }
 
   let payload: unknown;
@@ -67,7 +49,7 @@ export async function POST(request: NextRequest) {
   }
 
   const body = payload as Record<string, unknown>;
-  // Quietly accept bot submissions without sending an email.
+  // Quietly accept bot submissions without forwarding them.
   if (clean(body.website, 200)) return NextResponse.json({ ok: true });
 
   const name = clean(body.name, 100);
@@ -86,54 +68,45 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Please check the required fields" }, { status: 400 });
   }
 
-  const subject = `New PISIMAI project inquiry — ${service}`;
-  const text = [
-    "New project inquiry received from the PISIMAI TECHNOLOGY website.",
-    "",
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Company: ${company || "Not provided"}`,
-    `Area: ${service}`,
-    `Language: ${locale === "zh" ? "Simplified Chinese" : "English"}`,
-    "",
-    "Project details:",
-    message,
-  ].join("\n");
-  const html = `<h2>New project inquiry</h2><p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p><strong>Company:</strong> ${escapeHtml(company || "Not provided")}</p><p><strong>Area:</strong> ${escapeHtml(service)}</p><p><strong>Language:</strong> ${locale === "zh" ? "Simplified Chinese" : "English"}</p><h3>Project details</h3><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`;
-
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: gmailUser,
-      pass: gmailAppPassword,
-    },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 15000,
-  });
+  const formId = process.env.FORMSPREE_FORM_ID?.trim();
+  if (!formId || !/^[a-zA-Z0-9]+$/.test(formId)) {
+    console.error("[contact] Formspree is not configured or the form ID is invalid");
+    return NextResponse.json({ error: "Contact service is not configured" }, { status: 503 });
+  }
 
   try {
-    await transporter.sendMail({
-      from: { name: "PISIMAI TECHNOLOGY Website", address: gmailUser },
-      to: recipient,
-      replyTo: email,
-      subject,
-      text,
-      html,
+    const response = await fetch(`https://formspree.io/f/${formId}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        company: company || "Not provided",
+        service,
+        message,
+        language: locale === "zh" ? "Simplified Chinese" : "English",
+        _replyto: email,
+        _subject: `New PISIMAI project inquiry — ${service}`,
+      }),
+      signal: AbortSignal.timeout(15000),
+      cache: "no-store",
     });
+
+    if (!response.ok) {
+      console.error("[contact] Formspree rejected the inquiry", {
+        status: response.status,
+      });
+      return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
+    }
+
     return NextResponse.json({ ok: true });
   } catch (error) {
-    const mailError = error as { name?: string; code?: string; responseCode?: number; command?: string };
-    console.error("[contact] Gmail SMTP delivery failed", {
-      name: mailError.name ?? "UnknownError",
-      code: mailError.code ?? "UNKNOWN",
-      responseCode: mailError.responseCode,
-      command: mailError.command,
+    console.error("[contact] Formspree request failed", {
+      name: error instanceof Error ? error.name : "UnknownError",
     });
     return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
-  } finally {
-    transporter.close();
   }
 }
