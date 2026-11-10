@@ -97,18 +97,34 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   )}
                   {index === 1 && (
                     <div className="service-art service-art-software">
-                      <div className="software-window">
-                        <div className="software-bar"><i /><i /><i /><span>APP / INTERFACE</span></div>
-                        <div className="software-sidebar"><i /><i /><i /><i /></div>
-                        <div className="software-content"><b /><b /><b /><span /><span /><em /></div>
-                        <div className="software-cursor" />
+                      <div className="svc-software-window">
+                        <div className="svc-software-top"><span className="svc-software-brand"><i /> PISIMAI / WORKSPACE</span><span className="svc-software-dots"><i /><i /><i /></span></div>
+                        <div className="svc-software-sidebar"><b /><i /><i /><i /><i /><i /></div>
+                        <div className="svc-software-main">
+                          <div className="svc-software-heading"><b>Overview</b><span>Last 30 days⌄</span></div>
+                          <div className="svc-software-metrics"><i><b>24.8k</b><small>VISITORS</small><em /></i><i><b>86.4%</b><small>UPTIME</small><em /></i><i><b>1.28s</b><small>RESPONSE</small><em /></i></div>
+                          <div className="svc-software-chart"><span>PERFORMANCE</span><div>{[24,42,34,62,48,76,58,88,66,96,73,82].map((height,index)=><i key={index} style={{height:height+"%"}} />)}</div></div>
+                          <div className="svc-software-activity"><i /><span /><span /><span /><b>LIVE SYNC</b></div>
+                        </div>
+                        <div className="svc-software-cursor" />
                       </div>
-                      <div className="software-bracket software-bracket-one" /><div className="software-bracket software-bracket-two" />
+                      <span className="svc-software-glow" />
                     </div>
                   )}
                   {index === 2 && (
                     <div className="service-art service-art-robotics">
-                      <div className="robot-base" /><div className="robot-joint robot-joint-one" /><div className="robot-arm robot-arm-one" /><div className="robot-joint robot-joint-two" /><div className="robot-arm robot-arm-two" /><div className="robot-joint robot-joint-three" /><div className="robot-tool" /><span className="robot-spark robot-spark-one" /><span className="robot-spark robot-spark-two" />
+                      <div className="svc-robot-head">
+                        <div className="svc-robot-cranium" />
+                        <div className="svc-robot-brow" />
+                        <div className="svc-robot-eye svc-robot-eye-left"><i /></div><div className="svc-robot-eye svc-robot-eye-right"><i /></div>
+                        <div className="svc-robot-nose" />
+                        <div className="svc-robot-cheek svc-robot-cheek-left" /><div className="svc-robot-cheek svc-robot-cheek-right" />
+                        <div className="svc-robot-jaw"><i /><i /><i /><i /><i /></div>
+                        <div className="svc-robot-ear svc-robot-ear-left"><i /></div><div className="svc-robot-ear svc-robot-ear-right"><i /></div>
+                        <div className="svc-robot-neck" />
+                        <span className="svc-robot-scan" />
+                      </div>
+                      <span className="svc-robot-status">UNIT 01 / ACTIVE</span>
                     </div>
                   )}
                   {index === 3 && (
