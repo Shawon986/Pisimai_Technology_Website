@@ -936,3 +936,180 @@ section[id] { scroll-margin-top:24px; }
     animation: none !important;
   }
 }
+
+
+/* Cinematic art direction — architectural light installation */
+.intelligence-stage {
+  width:min(100%,700px);
+  aspect-ratio:1.08;
+  overflow:visible;
+  border:0;
+  background:radial-gradient(ellipse at 50% 60%,rgba(22,94,166,.17),transparent 62%);
+  box-shadow:none;
+}
+.intelligence-stage:before,.intelligence-stage:after { content:none; }
+.cinematic-art {
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:440px;
+  overflow:hidden;
+  isolation:isolate;
+  perspective:1200px;
+  background:
+    radial-gradient(ellipse at 52% 52%,rgba(21,83,144,.2),transparent 44%),
+    linear-gradient(145deg,rgba(7,16,34,.06),rgba(7,12,25,.34));
+  mask-image:radial-gradient(ellipse at center, #000 60%, transparent 100%);
+}
+.cinema-atmosphere {
+  position:absolute;inset:8% 4% 4%;
+  background:radial-gradient(ellipse at 50% 54%,rgba(22,217,245,.15),transparent 35%),radial-gradient(ellipse at 62% 46%,rgba(137,103,255,.14),transparent 58%);
+  filter:blur(28px);
+  animation:cinema-atmosphere 9s ease-in-out infinite;
+}
+.cinema-floor {
+  position:absolute;left:8%;right:5%;bottom:8%;height:34%;
+  transform:perspective(420px) rotateX(66deg);
+  transform-origin:center bottom;
+  background-image:linear-gradient(rgba(89,166,229,.19) 1px,transparent 1px),linear-gradient(90deg,rgba(89,166,229,.19) 1px,transparent 1px);
+  background-size:34px 34px;
+  mask-image:linear-gradient(to top,rgba(0,0,0,.85),transparent 92%);
+  opacity:.45;
+}
+.cinema-floor span {position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,rgba(22,217,245,.4),transparent)}
+.cinema-floor span:nth-child(2){left:25%;opacity:.45}.cinema-floor span:nth-child(3){left:75%;opacity:.45}
+.cinema-light {position:absolute;z-index:1;top:7%;height:75%;width:1px;background:linear-gradient(transparent,rgba(114,221,255,.72),transparent);filter:drop-shadow(0 0 8px rgba(22,217,245,.8));opacity:.5}
+.cinema-light-one{left:27%;transform:rotate(17deg);animation:cinema-light-pulse 5s ease-in-out infinite}
+.cinema-light-two{right:24%;transform:rotate(-15deg);background:linear-gradient(transparent,rgba(157,130,255,.7),transparent);animation:cinema-light-pulse 6s 1.2s ease-in-out infinite}
+.cinema-frame {position:absolute;z-index:2;left:50%;top:48%;width:58%;height:66%;border:1px solid rgba(100,184,235,.27);transform:translate(-50%,-50%) rotate(-24deg) skewY(8deg);clip-path:polygon(14% 0,100% 16%,86% 100%,0 82%);box-shadow:0 0 36px rgba(22,217,245,.04),inset 0 0 32px rgba(22,217,245,.035)}
+.cinema-frame-back{width:69%;height:76%;border-color:rgba(137,103,255,.22);transform:translate(-50%,-50%) rotate(28deg) skewY(-7deg);animation:cinema-frame-back 32s linear infinite}
+.cinema-frame-mid{width:54%;height:68%;border-color:rgba(111,215,255,.32);animation:cinema-frame-mid 26s linear infinite}
+.cinema-monolith {
+  position:absolute;z-index:4;left:50%;top:49%;width:32%;height:53%;
+  transform:translate(-50%,-50%) rotateY(-23deg) rotateX(5deg);
+  transform-style:preserve-3d;
+  animation:monolith-hover 7s ease-in-out infinite;
+  filter:drop-shadow(0 24px 32px rgba(0,0,0,.48));
+}
+.monolith-front {
+  position:absolute;inset:0;overflow:hidden;
+  border:1px solid rgba(174,233,255,.55);
+  background:linear-gradient(112deg,rgba(35,96,145,.82),rgba(8,24,48,.97) 44%,rgba(23,48,91,.94));
+  clip-path:polygon(17% 0,100% 12%,100% 86%,17% 100%,0 88%,0 12%);
+  box-shadow:inset 0 0 34px rgba(22,217,245,.16),inset 16px 0 32px rgba(111,207,255,.08),0 0 44px rgba(22,217,245,.16);
+}
+.monolith-side {
+  position:absolute;right:-13%;top:5%;width:15%;height:88%;
+  background:linear-gradient(180deg,rgba(107,175,224,.35),rgba(5,14,31,.94));
+  transform:skewY(-12deg);
+  border-right:1px solid rgba(146,221,255,.4);
+}
+.monolith-top {
+  position:absolute;left:5%;right:-8%;top:-5%;height:12%;
+  background:linear-gradient(90deg,rgba(139,221,255,.36),rgba(33,79,128,.75));
+  transform:skewX(-50deg);
+  border-top:1px solid rgba(195,242,255,.6);
+}
+.monolith-inset {
+  position:absolute;left:19%;top:17%;width:62%;height:62%;
+  border:1px solid rgba(103,207,255,.5);
+  background:linear-gradient(145deg,rgba(22,217,245,.08),rgba(7,17,38,.24));
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+  box-shadow:inset 0 0 26px rgba(22,217,245,.14),0 0 22px rgba(22,217,245,.1);
+}
+.monolith-seam {position:absolute;left:50%;top:12%;bottom:12%;width:1px;background:linear-gradient(transparent,rgba(190,241,255,.65),transparent);box-shadow:0 0 12px rgba(22,217,245,.7)}
+.monolith-glint {position:absolute;inset:-20%;background:linear-gradient(108deg,transparent 38%,rgba(190,246,255,.2) 49%,transparent 59%);transform:translateX(-70%);animation:monolith-glint 6s ease-in-out infinite}
+.cinema-panel {position:absolute;z-index:3;width:18%;height:25%;border:1px solid rgba(112,196,239,.36);background:linear-gradient(145deg,rgba(25,75,117,.34),rgba(8,18,39,.08));backdrop-filter:blur(2px);transform:skewY(-22deg) rotate(-8deg);box-shadow:0 0 24px rgba(22,217,245,.07)}
+.cinema-panel-left{left:14%;top:29%;animation:cinema-panel-float 8s ease-in-out infinite}
+.cinema-panel-right{right:10%;bottom:25%;transform:skewY(22deg) rotate(8deg);border-color:rgba(137,103,255,.36);animation:cinema-panel-float 9s 1s ease-in-out infinite reverse}
+.cinema-panel i{position:relative;display:block;height:1px;margin:20% 14%;background:linear-gradient(90deg,rgba(22,217,245,.7),transparent)}
+.cinema-panel i:nth-child(2){width:55%;opacity:.6}.cinema-panel i:nth-child(3){width:72%;opacity:.35}
+.cinema-ribbon {position:absolute;z-index:5;width:50%;height:23%;border-top:1px solid rgba(70,219,255,.75);border-radius:50%;filter:drop-shadow(0 0 6px rgba(22,217,245,.55));transform:rotate(-24deg);opacity:.8}
+.cinema-ribbon-one{left:4%;top:47%;animation:cinema-ribbon-flow 8s ease-in-out infinite}
+.cinema-ribbon-two{right:0;top:32%;width:42%;border-color:rgba(157,130,255,.8);transform:rotate(32deg);animation:cinema-ribbon-flow 9s 1s ease-in-out infinite reverse}
+.cinema-particle{position:absolute;z-index:6;width:4px;height:4px;border-radius:50%;background:#d7faff;box-shadow:0 0 12px 4px rgba(22,217,245,.65);animation:cinema-particle 5s ease-in-out infinite}
+.cinema-particle-one{left:23%;top:20%}.cinema-particle-two{right:19%;top:53%;animation-delay:1.4s}.cinema-particle-three{left:37%;bottom:17%;animation-delay:2.4s}
+.cinema-caption{position:absolute;z-index:7;color:rgba(162,195,226,.68);font:7px "JetBrains Mono",Consolas,monospace;letter-spacing:.16em;white-space:nowrap}
+.cinema-caption span{color:var(--cyan);margin-right:8px}.cinema-caption-left{left:2%;top:13%}.cinema-caption-right{right:1%;bottom:10%}.cinema-caption-right span{color:var(--violet)}
+.cinema-scanline{position:absolute;z-index:7;left:8%;right:8%;top:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(22,217,245,.5),transparent);box-shadow:0 0 12px rgba(22,217,245,.45);animation:cinema-scan 9s ease-in-out infinite}
+@keyframes cinema-atmosphere{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes cinema-frame-back{from{rotate:0deg}to{rotate:360deg}}
+@keyframes cinema-frame-mid{from{rotate:0deg}to{rotate:-360deg}}
+@keyframes monolith-hover{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes monolith-glint{0%,18%{transform:translateX(-70%);opacity:0}45%,65%{opacity:1}90%,100%{transform:translateX(70%);opacity:0}}
+@keyframes cinema-panel-float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+@keyframes cinema-ribbon-flow{0%,100%{translate:-5px 0;opacity:.35}50%{translate:12px -9px;opacity:.9}}
+@keyframes cinema-particle{0%,100%{translate:0 0;opacity:.35;scale:.7}50%{translate:8px -15px;opacity:1;scale:1.3}}
+@keyframes cinema-scan{0%,100%{top:15%;opacity:0}45%,55%{opacity:.7}90%{top:82%;opacity:0}}
+
+/* About: flowing intelligence signal sculpture — intentionally not spherical */
+.about-visual {
+  position:relative;justify-self:center;width:min(100%,370px);aspect-ratio:1;
+  display:grid;place-items:center;isolation:isolate;overflow:hidden;
+  background:radial-gradient(ellipse,rgba(22,217,245,.11),transparent 64%);
+}
+.signal-ribbon {position:absolute;width:86%;height:36%;border:1px solid rgba(89,206,247,.58);border-radius:50%;transform:rotate(-32deg) skewX(-20deg);filter:drop-shadow(0 0 8px rgba(22,217,245,.22))}
+.signal-ribbon-a{animation:signal-ribbon-a 14s ease-in-out infinite}
+.signal-ribbon-b{width:72%;height:55%;border-color:rgba(137,103,255,.52);transform:rotate(48deg) skewX(18deg);animation:signal-ribbon-b 17s ease-in-out infinite}
+.signal-ribbon-c{width:95%;height:24%;border-color:rgba(91,226,255,.38);transform:rotate(8deg);animation:signal-ribbon-c 19s ease-in-out infinite}
+.signal-axis{position:absolute;width:40%;height:40%;display:grid;place-items:center;transform:rotate(45deg);border:1px solid rgba(170,238,255,.42);background:linear-gradient(145deg,rgba(25,94,146,.5),rgba(8,20,45,.85));box-shadow:inset 0 0 35px rgba(22,217,245,.15),0 0 48px rgba(22,217,245,.12);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+.signal-axis:before,.signal-axis:after{content:"";position:absolute;background:rgba(125,220,255,.5)}
+.signal-axis:before{width:1px;height:130%}.signal-axis:after{height:1px;width:130%}
+.signal-axis i{position:absolute;width:6px;height:6px;border-radius:50%;background:#d5fbff;box-shadow:0 0 12px 3px rgba(22,217,245,.75)}
+.signal-axis i:nth-child(1){top:10%;left:47%}.signal-axis i:nth-child(2){right:10%;top:47%}.signal-axis i:nth-child(3){bottom:10%;left:47%}.signal-axis i:nth-child(4){left:10%;top:47%}
+.signal-bead{position:absolute;width:8px;height:8px;border-radius:50%;background:#c9f8ff;box-shadow:0 0 18px 5px rgba(22,217,245,.62)}
+.signal-bead-a{top:23%;left:20%;animation:signal-bead-a 9s linear infinite}.signal-bead-b{right:18%;bottom:21%;background:#c7baff;box-shadow:0 0 18px 5px rgba(137,103,255,.6);animation:signal-bead-b 11s linear infinite}
+.signal-caption{position:absolute;bottom:7%;color:#7189a9;font:7px "JetBrains Mono",monospace;letter-spacing:.18em}
+@keyframes signal-ribbon-a{0%,100%{transform:rotate(-32deg) skewX(-20deg) scale(.96)}50%{transform:rotate(-20deg) skewX(-12deg) scale(1.04)}}
+@keyframes signal-ribbon-b{0%,100%{transform:rotate(48deg) skewX(18deg)}50%{transform:rotate(60deg) skewX(8deg)}}
+@keyframes signal-ribbon-c{0%,100%{transform:rotate(8deg) scaleX(.94)}50%{transform:rotate(-5deg) scaleX(1.04)}}
+@keyframes signal-bead-a{from{transform:translate(0,0)}50%{transform:translate(34px,22px)}to{transform:translate(0,0)}}
+@keyframes signal-bead-b{from{transform:translate(0,0)}50%{transform:translate(-28px,-34px)}to{transform:translate(0,0)}}
+
+/* Contact: cinematic rectangular gateway — a visual invitation, not a globe */
+.contact-visual {
+  position:absolute;width:300px;height:300px;right:12%;top:50%;
+  transform:translateY(-50%);display:grid;place-items:center;isolation:isolate;pointer-events:none;
+}
+.portal-halo{position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(22,217,245,.15),rgba(57,123,255,.07) 38%,transparent 70%);filter:blur(14px);animation:portal-halo 6s ease-in-out infinite}
+.portal-frame{position:absolute;width:62%;height:72%;border:1px solid rgba(92,204,246,.48);transform:rotate(45deg) skew(-8deg,-8deg);box-shadow:0 0 22px rgba(22,217,245,.08),inset 0 0 24px rgba(22,217,245,.06)}
+.portal-frame-back{width:78%;height:84%;border-color:rgba(137,103,255,.34);transform:rotate(45deg) skew(5deg,5deg);animation:portal-frame-back 22s linear infinite}
+.portal-frame-mid{width:68%;height:76%;border-color:rgba(98,190,243,.4);animation:portal-frame-mid 18s linear infinite}
+.portal-frame-front{width:48%;height:59%;border-color:rgba(172,239,255,.75);background:linear-gradient(145deg,rgba(22,217,245,.08),rgba(8,19,41,.35));box-shadow:0 0 34px rgba(22,217,245,.17),inset 0 0 30px rgba(22,217,245,.12);animation:portal-front-breathe 5s ease-in-out infinite}
+.portal-frame-front i{position:absolute;width:5px;height:5px;border-radius:50%;background:#d7fbff;box-shadow:0 0 12px 3px rgba(22,217,245,.8)}
+.portal-frame-front i:nth-child(1){top:-3px;left:50%}.portal-frame-front i:nth-child(2){right:-3px;top:50%}.portal-frame-front i:nth-child(3){bottom:-3px;left:50%}.portal-frame-front i:nth-child(4){left:-3px;top:50%}
+.portal-core{position:absolute;width:28%;height:34%;background:linear-gradient(145deg,rgba(36,119,173,.62),rgba(8,22,49,.95));border:1px solid rgba(174,239,255,.52);clip-path:polygon(50% 0,100% 22%,100% 78%,50% 100%,0 78%,0 22%);box-shadow:inset 0 0 25px rgba(22,217,245,.18),0 0 34px rgba(22,217,245,.18);animation:portal-core 6s ease-in-out infinite}
+.portal-core span{position:absolute;left:50%;top:50%;width:9px;height:9px;background:#e2fcff;box-shadow:0 0 20px 8px rgba(22,217,245,.6);transform:translate(-50%,-50%)}
+.portal-sweep{position:absolute;width:90%;height:1px;background:linear-gradient(90deg,transparent,rgba(22,217,245,.85),transparent);box-shadow:0 0 14px rgba(22,217,245,.55);animation:portal-sweep 5.5s ease-in-out infinite}
+.portal-caption{position:absolute;bottom:0;color:#7189a9;font:7px "JetBrains Mono",monospace;letter-spacing:.15em;white-space:nowrap}
+@keyframes portal-halo{0%,100%{opacity:.55;scale:.9}50%{opacity:1;scale:1.08}}
+@keyframes portal-frame-back{from{rotate:0deg}to{rotate:360deg}}
+@keyframes portal-frame-mid{from{rotate:0deg}to{rotate:-360deg}}
+@keyframes portal-front-breathe{0%,100%{filter:brightness(.88);scale:.97}50%{filter:brightness(1.2);scale:1.03}}
+@keyframes portal-core{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes portal-sweep{0%,100%{translate:0 -105px;opacity:0}40%,60%{opacity:.8}90%{translate:0 105px;opacity:0}}
+
+@media(max-width:1100px){
+  .cinematic-art{min-height:390px}
+  .contact-visual{right:5%}
+}
+@media(max-width:760px){
+  .intelligence-stage{width:min(100%,560px);aspect-ratio:1.03}
+  .cinematic-art{min-height:0;height:100%;aspect-ratio:1.05}
+  .cinema-caption{font-size:6px;letter-spacing:.08em}
+  .cinema-panel-left{left:9%}.cinema-panel-right{right:6%}
+  .about-visual{width:min(78vw,330px)}
+  .contact-visual{width:210px;height:210px;right:-34px;top:78%;opacity:.7}
+  .portal-caption{font-size:6px}
+}
+@media(max-width:420px){
+  .cinematic-art{width:calc(100% + 8px);margin-left:-4px}
+  .cinema-caption-right{right:0}.cinema-caption-left{left:0}
+  .contact-visual{right:-82px;opacity:.55}
+}
+@media(prefers-reduced-motion:reduce){
+  .cinema-atmosphere,.cinema-light,.cinema-frame-back,.cinema-frame-mid,.cinema-monolith,
+  .monolith-glint,.cinema-panel,.cinema-ribbon,.cinema-particle,.cinema-scanline,
+  .signal-ribbon,.signal-bead,.portal-halo,.portal-frame-back,.portal-frame-mid,
+  .portal-frame-front,.portal-core,.portal-sweep{animation:none!important}
+}
