@@ -5448,3 +5448,11 @@ body { overscroll-behavior-y: contain; }
   transition: none !important;
   will-change: auto !important;
 }
+
+
+/* Mobile visual parity: keep the full desktop network field visible on small screens. */
+@media (max-width: 760px) {
+  .hero-section.tech-hero > .hero-network-canvas {
+    opacity: .9 !important;
+  }
+}
