@@ -1,26 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="190" viewBox="0 0 900 190" role="img" aria-label="Pisimai Technology logo">
-<rect width="100%" height="100%" fill="#070B16"/>
-<defs>
-  <style>
-    .brand-emblem{transform-box:fill-box;transform-origin:center;animation:emblem-hover 6s ease-in-out infinite}
-    .brand-orbit{transform-box:fill-box;transform-origin:center;stroke-dasharray:520 190;animation:orbit-flow 12s linear infinite,orbit-glow 4s ease-in-out infinite}
-    .brand-beacon{transform-box:fill-box;transform-origin:center;animation:beacon-pulse 2.8s ease-in-out infinite}
-    .brand-word{animation:word-glow 5s ease-in-out infinite}
-    @keyframes emblem-hover{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
-    @keyframes orbit-flow{to{stroke-dashoffset:-710}}
-    @keyframes orbit-glow{0%,100%{filter:drop-shadow(0 0 2px #20d9f2);opacity:.82}50%{filter:drop-shadow(0 0 7px #168bff);opacity:1}}
-    @keyframes beacon-pulse{0%,100%{transform:scale(.92);opacity:.82}50%{transform:scale(1.18);opacity:1}}
-    @keyframes word-glow{0%,100%{filter:drop-shadow(0 0 0 rgba(32,217,242,0))}50%{filter:drop-shadow(0 0 3px rgba(32,217,242,.2))}}
-    @media(prefers-reduced-motion:reduce){.brand-emblem,.brand-orbit,.brand-beacon,.brand-word{animation:none}}
-  </style>
-  <linearGradient id="pgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20E7F7"/><stop offset="0.48" stop-color="#168BFF"/><stop offset="1" stop-color="#8B45F5"/></linearGradient>
-  <linearGradient id="orbitgrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#20E7F7"/><stop offset="0.58" stop-color="#168BFF"/><stop offset="1" stop-color="#9B62FF"/></linearGradient>
-</defs>
-<path class="brand-emblem" d="M82 18 H158 C194 18 216 39 216 70 C216 103 192 125 157 125 H124 L91 166 L105 111 H157 C180 111 193 98 193 78 C193 59 180 47 157 47 H112 L82 18 Z" fill="url(#pgrad)"/>
-<path class="brand-emblem" d="M119 78 H157 C169 78 177 73 181 64 C185 77 179 91 165 99 C157 104 147 107 133 107 H119 L91 166 L105 111 Z" fill="#176BFF" opacity=".72"/>
-<ellipse class="brand-orbit" cx="147" cy="91" rx="112" ry="28" transform="rotate(-20 147 91)" fill="none" stroke="url(#orbitgrad)" stroke-width="5.5" stroke-linecap="round"/>
-<circle class="brand-beacon" cx="246" cy="53" r="8" fill="#EAFBFF" stroke="#24DDF8" stroke-width="4"/>
-<path d="M286 25 V165" stroke="#52627C" stroke-width="1.5"/>
-<text class="brand-word" x="320" y="91" fill="#F4F7FF" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" letter-spacing="4">PISIMAI</text>
-<text x="323" y="132" fill="#20D9F2" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="500" letter-spacing="12">TECHNOLOGY</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="190" viewBox="0 0 900 190" role="img" aria-label="PISIMAI TECHNOLOGY">
+  <defs>
+    <linearGradient id="markGradient" x1="36" y1="22" x2="176" y2="148" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#62F2F4"/>
+      <stop offset=".48" stop-color="#278EFF"/>
+      <stop offset="1" stop-color="#8A72FF"/>
+    </linearGradient>
+    <linearGradient id="signalGradient" x1="145" y1="63" x2="180" y2="63" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#61F3EF"/>
+      <stop offset="1" stop-color="#A8F8FF"/>
+    </linearGradient>
+    <linearGradient id="wordGradient" x1="270" y1="0" x2="690" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FAFF"/>
+      <stop offset="1" stop-color="#DCEBFF"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .p-mark{fill:none;stroke:url(#markGradient);stroke-width:17;stroke-linecap:round;stroke-linejoin:round}
+      .p-highlight{fill:none;stroke:#D9FFFF;stroke-width:2;stroke-linecap:round;opacity:.48}
+      .signal-line{fill:none;stroke:url(#signalGradient);stroke-width:3;stroke-linecap:round;stroke-dasharray:8 34;animation:signalTravel 3.2s linear infinite}
+      .signal-node{fill:#DDFEFF;stroke:#39DDF3;stroke-width:4;transform-box:fill-box;transform-origin:center;animation:nodePulse 2.4s ease-in-out infinite}
+      .mark-shell{transform-origin:112px 88px;animation:markFloat 7s ease-in-out infinite}
+      .wordmark{fill:url(#wordGradient);font-family:Arial,Helvetica,sans-serif;font-size:61px;font-weight:700;letter-spacing:5px}
+      .descriptor{fill:#55DCEB;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:600;letter-spacing:11px}
+      @keyframes signalTravel{to{stroke-dashoffset:-84}}
+      @keyframes nodePulse{0%,100%{opacity:.76;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+      @keyframes markFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+      @media(prefers-reduced-motion:reduce){.signal-line,.signal-node,.mark-shell{animation:none}}
+    </style>
+  </defs>
+  <rect width="900" height="190" fill="#070B16"/>
+  <g class="mark-shell">
+    <path class="p-mark" d="M53 145V48C53 37 62 28 73 28H113C137 28 153 44 153 66C153 88 137 104 113 104H53"/>
+    <path class="p-highlight" d="M62 137V48C62 42 67 37 74 37H112C131 37 144 49 144 66C144 83 131 95 112 95H62"/>
+    <path class="signal-line" d="M151 66H174"/>
+    <circle class="signal-node" cx="174" cy="66" r="6"/>
+  </g>
+  <path d="M220 34V156" stroke="#31445F" stroke-width="1.5"/>
+  <text class="wordmark" x="263" y="91">PISIMAI</text>
+  <text class="descriptor" x="267" y="130">TECHNOLOGY</text>
+  <path d="M265 148H680" stroke="#29415D" stroke-width="1" opacity=".7"/>
+  <path d="M265 148H332" stroke="#39CFE8" stroke-width="1.5" opacity=".8"/>
 </svg>
