@@ -45,18 +45,28 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="stage-corner stage-corner-tl" aria-hidden="true" />
             <div className="stage-corner stage-corner-br" aria-hidden="true" />
             <div className="stage-coordinate coordinate-top">PST / INTELLIGENCE CORE</div>
-            <div className="intelligence-art" role="img" aria-label={locale === "zh" ? "抽象智能核心与轨道结构视觉" : "Abstract intelligence core with orbital structures"}>
-              <div className="art-halo art-halo-one" />
-              <div className="art-halo art-halo-two" />
-              <div className="art-orbit orbit-one"><i /></div>
-              <div className="art-orbit orbit-two"><i /></div>
-              <div className="art-orbit orbit-three"><i /></div>
-              <div className="art-orbit orbit-four" />
-              <div className="art-core"><div className="core-inner" /><span /></div>
-              <div className="art-node node-one" /><div className="art-node node-two" /><div className="art-node node-three" />
-              <div className="art-label label-one">{locale === "zh" ? "智能核心 / 01" : "INTELLIGENCE / 01"}</div>
-              <div className="art-label label-two">{locale === "zh" ? "系统互联" : "SYSTEMS CONNECTED"}</div>
-              <div className="art-signal signal-one" /><div className="art-signal signal-two" />
+            <div className="architecture-art" role="img" aria-label={locale === "zh" ? "由智能网络、精密结构与互联系统构成的抽象工程视觉" : "Abstract engineering architecture combining neural networks, precision structures and connected systems"}>
+              <div className="architecture-aura" />
+              <div className="architecture-grid" />
+              <div className="architecture-backplate" />
+              <div className="architecture-frame architecture-frame-one" />
+              <div className="architecture-frame architecture-frame-two" />
+              <div className="architecture-spine"><span /><span /><span /></div>
+              <div className="architecture-core">
+                <div className="architecture-core-face" />
+                <div className="architecture-core-side" />
+                <div className="architecture-core-light" />
+                <div className="architecture-core-line" />
+              </div>
+              <div className="architecture-path architecture-path-one"><i /><i /><i /></div>
+              <div className="architecture-path architecture-path-two"><i /><i /><i /></div>
+              <div className="architecture-node architecture-node-one" />
+              <div className="architecture-node architecture-node-two" />
+              <div className="architecture-node architecture-node-three" />
+              <div className="architecture-node architecture-node-four" />
+              <div className="architecture-label architecture-label-one"><span>01 / INTELLIGENCE</span><i /></div>
+              <div className="architecture-label architecture-label-two"><span>02 / SYSTEMS</span><i /></div>
+              <div className="architecture-readout"><span>CORE ACTIVE</span><b /><span>∞ CONNECTED</span></div>
             </div>
             <div className="stage-coordinate coordinate-bottom"><span>AI</span><i /> <span>SOFTWARE</span><i /> <span>INTEGRATION</span></div>
           </div>
