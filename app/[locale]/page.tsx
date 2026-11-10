@@ -36,7 +36,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <>
       <SiteHeader locale={locale} />
       <main>
-        <section className="hero-section tech-hero" id="home">\n          <NetworkBackground />
+        <section className="hero-section tech-hero" id="home">
+          <NetworkBackground />
 
           <div className="hero-copy">
             <p className="eyebrow"><span />{t.eyebrow}</p>
