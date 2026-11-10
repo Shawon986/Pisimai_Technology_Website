@@ -81,8 +81,9 @@ export function NetworkBackground() {
       const rect = canvas.getBoundingClientRect();
       width = rect.width;
       height = rect.height;
-      // A 1x backing store prevents high-DPI overdraw across the full hero.
-      pixelRatio = 1;
+      // Render at 0.8x resolution: keeps every particle and its speed,
+      // while reducing the full-hero canvas pixel workload by 36%.
+      pixelRatio = 0.8;
       canvas.width = Math.max(1, Math.round(width * pixelRatio));
       canvas.height = Math.max(1, Math.round(height * pixelRatio));
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
@@ -98,9 +99,8 @@ export function NetworkBackground() {
       for (const link of links) {
         const a = points[link.from];
         const b = points[link.to];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        if (dx * dx + dy * dy > maxDistanceSquared) continue;
+        // Link membership is precomputed during resize; avoid per-frame
+        // distance checks so animation work stays focused on drawing.
         context.moveTo(a.x, a.y);
         context.lineTo(b.x, b.y);
       }
