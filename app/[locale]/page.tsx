@@ -66,9 +66,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <g className="architecture-network-lines">
                 <path d="M40 95 155 45 275 105 390 42 555 100 M40 345 155 285 275 350 390 285 555 350 M155 45 155 285 M275 105 275 350 M390 42 390 285 M40 95 155 285 275 105 390 285 555 100 M40 345 155 45 275 350 390 42 555 350" />
               </g>
+              <g className="architecture-network-joints">
+                <circle cx="155" cy="45" r="8" /><circle cx="275" cy="105" r="8" /><circle cx="390" cy="42" r="8" />
+                <circle cx="155" cy="285" r="8" /><circle cx="275" cy="350" r="8" /><circle cx="390" cy="285" r="8" />
+              </g>
               <g className="architecture-network-nodes">
                 <circle cx="40" cy="95" r="3" /><circle cx="155" cy="45" r="3.5" /><circle cx="275" cy="105" r="3" /><circle cx="390" cy="42" r="3.5" /><circle cx="555" cy="100" r="3" />
-                <circle cx="40" cy="345" r="3" /><circle cx="155" cy="285" r="3.5" /><circle cx="275" cy="350" r="3" /><circle cx="390" cy="285" r="3.5" /><circle cx="555" cy="350" r="3" />
+                <circle cx="40" cy="345" r="2.5" /><circle cx="155" cy="285" r="3.5" /><circle cx="275" cy="350" r="3" /><circle cx="390" cy="285" r="3.5" /><circle cx="555" cy="350" r="3" />
               </g>
             </svg>
             <div className="architecture-connectors" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
