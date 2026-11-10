@@ -15,7 +15,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} PISIMAI TECHNOLOGY. {t.copyright}</span>
-        <span className="footer-status"><i /> Built for what comes next</span>
+        <span className="footer-status"><i /> {locale === "zh" ? "面向未来而构建" : "Built for what comes next"}</span>
       </div>
     </footer>
   );
