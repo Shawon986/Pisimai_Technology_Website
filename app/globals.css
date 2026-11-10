@@ -5651,3 +5651,26 @@ body { overscroll-behavior-y: contain; }
     gap: 8px;
   }
 }
+
+/* Keep the header wordmark identical to the footer wordmark on desktop.
+   Mobile sizing remains fluid so the full logo stays visible on narrow screens. */
+.site-header .brand-logo-wrap.footer-brand-logo-wrap {
+  width: 190px;
+  aspect-ratio: 900 / 190;
+  flex: 0 0 auto;
+}
+.site-header .brand-logo-wrap.footer-brand-logo-wrap .brand-logo {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+@media (max-width: 760px) {
+  .site-header .brand-logo-wrap.footer-brand-logo-wrap {
+    width: clamp(138px, 43vw, 164px);
+  }
+}
+@media (max-width: 420px) {
+  .site-header .brand-logo-wrap.footer-brand-logo-wrap {
+    width: clamp(132px, 42vw, 145px);
+  }
+}
