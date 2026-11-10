@@ -4884,3 +4884,37 @@ body { overscroll-behavior-y: contain; }
     will-change:auto;
   }
 }
+
+
+/* Golden joint lights: soft halos at network intersections, pulsing out of phase. */
+.tech-hero-visual .architecture-network-joints {
+  fill:rgba(232,196,111,.12);
+  stroke:rgba(244,205,119,.78);
+  stroke-width:1;
+  vector-effect:non-scaling-stroke;
+}
+.tech-hero-visual .architecture-network-joints circle {
+  opacity:.2;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:gold-joint-glow 4.6s ease-in-out infinite;
+}
+.tech-hero-visual .architecture-network-joints circle:nth-child(2) { animation-delay:-.75s; }
+.tech-hero-visual .architecture-network-joints circle:nth-child(3) { animation-delay:-1.5s; }
+.tech-hero-visual .architecture-network-joints circle:nth-child(4) { animation-delay:-2.25s; }
+.tech-hero-visual .architecture-network-joints circle:nth-child(5) { animation-delay:-3s; }
+.tech-hero-visual .architecture-network-joints circle:nth-child(6) { animation-delay:-3.75s; }
+@keyframes gold-joint-glow {
+  0%,100% { opacity:.12; transform:scale(.72); }
+  42%,58% { opacity:.9; transform:scale(1.16); }
+}
+@media (max-width:760px) {
+  .tech-hero-visual .architecture-network-joints circle { animation-duration:5.6s; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .tech-hero-visual .architecture-network-joints circle {
+    animation:none !important;
+    opacity:.5;
+    transform:none;
+  }
+}
