@@ -45,28 +45,32 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="stage-corner stage-corner-tl" aria-hidden="true" />
             <div className="stage-corner stage-corner-br" aria-hidden="true" />
             <div className="stage-coordinate coordinate-top">PST / INTELLIGENCE CORE</div>
-            <div className="architecture-art" role="img" aria-label={locale === "zh" ? "由智能网络、精密结构与互联系统构成的抽象工程视觉" : "Abstract engineering architecture combining neural networks, precision structures and connected systems"}>
-              <div className="architecture-aura" />
-              <div className="architecture-grid" />
-              <div className="architecture-backplate" />
-              <div className="architecture-frame architecture-frame-one" />
-              <div className="architecture-frame architecture-frame-two" />
-              <div className="architecture-spine"><span /><span /><span /></div>
-              <div className="architecture-core">
-                <div className="architecture-core-face" />
-                <div className="architecture-core-side" />
-                <div className="architecture-core-light" />
-                <div className="architecture-core-line" />
+            <div className="cinematic-art" role="img" aria-label={locale === "zh" ? "抽象未来工程建筑与智能光流艺术" : "Cinematic abstract engineering architecture with intelligent light flows"}>
+              <div className="cinema-atmosphere" />
+              <div className="cinema-floor"><span /><span /><span /></div>
+              <div className="cinema-light cinema-light-one" />
+              <div className="cinema-light cinema-light-two" />
+              <div className="cinema-frame cinema-frame-back" />
+              <div className="cinema-frame cinema-frame-mid" />
+              <div className="cinema-monolith">
+                <div className="monolith-side" />
+                <div className="monolith-front">
+                  <span className="monolith-inset" />
+                  <span className="monolith-seam" />
+                  <span className="monolith-glint" />
+                </div>
+                <div className="monolith-top" />
               </div>
-              <div className="architecture-path architecture-path-one"><i /><i /><i /></div>
-              <div className="architecture-path architecture-path-two"><i /><i /><i /></div>
-              <div className="architecture-node architecture-node-one" />
-              <div className="architecture-node architecture-node-two" />
-              <div className="architecture-node architecture-node-three" />
-              <div className="architecture-node architecture-node-four" />
-              <div className="architecture-label architecture-label-one"><span>01 / INTELLIGENCE</span><i /></div>
-              <div className="architecture-label architecture-label-two"><span>02 / SYSTEMS</span><i /></div>
-              <div className="architecture-readout"><span>CORE ACTIVE</span><b /><span>∞ CONNECTED</span></div>
+              <div className="cinema-panel cinema-panel-left"><i /><i /><i /></div>
+              <div className="cinema-panel cinema-panel-right"><i /><i /><i /></div>
+              <div className="cinema-ribbon cinema-ribbon-one" />
+              <div className="cinema-ribbon cinema-ribbon-two" />
+              <div className="cinema-particle cinema-particle-one" />
+              <div className="cinema-particle cinema-particle-two" />
+              <div className="cinema-particle cinema-particle-three" />
+              <div className="cinema-caption cinema-caption-left"><span>01</span> INTELLIGENCE SYSTEMS</div>
+              <div className="cinema-caption cinema-caption-right">PISIMAI <span> / </span> FUTURE ENGINEERED</div>
+              <div className="cinema-scanline" />
             </div>
             <div className="stage-coordinate coordinate-bottom"><span>AI</span><i /> <span>SOFTWARE</span><i /> <span>INTEGRATION</span></div>
           </div>
@@ -130,7 +134,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         <section className="about-section section-wrap" id="about">
-          <div className="about-orbit" aria-hidden="true"><div /><span /></div>
+          <div className="about-visual" aria-hidden="true">
+            <div className="signal-ribbon signal-ribbon-a" /><div className="signal-ribbon signal-ribbon-b" /><div className="signal-ribbon signal-ribbon-c" />
+            <div className="signal-axis"><i /><i /><i /><i /></div>
+            <div className="signal-bead signal-bead-a" /><div className="signal-bead signal-bead-b" />
+            <span className="signal-caption">INTELLIGENCE IN MOTION</span>
+          </div>
           <div className="about-copy">
             <p className="section-kicker">{t.aboutLabel}</p>
             <h2>{t.aboutTitle}</h2>
@@ -140,7 +149,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         <section className="contact-section section-wrap" id="contact">
-          <div className="contact-orbit" aria-hidden="true"><span /><i /></div>
+          <div className="contact-visual" aria-hidden="true">
+          <div className="portal-halo" />
+          <div className="portal-frame portal-frame-back" />
+          <div className="portal-frame portal-frame-mid" />
+          <div className="portal-frame portal-frame-front"><i /><i /><i /><i /></div>
+          <div className="portal-core"><span /></div>
+          <div className="portal-sweep" />
+          <span className="portal-caption">CONNECT / CREATE / ADVANCE</span>
+        </div>
           <div className="contact-copy">
             <p className="section-kicker">{t.contactLabel}</p>
             <h2>{t.contactTitle}</h2>
