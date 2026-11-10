@@ -5456,3 +5456,198 @@ body { overscroll-behavior-y: contain; }
     opacity: .9 !important;
   }
 }
+
+/* Final responsive reliability pass: preserve the approved visual design while
+   preventing narrow-screen overflow and keeping the mobile wordmark sweep visible. */
+@keyframes mobile-wordmark-sweep {
+  0%, 100% { transform: translateX(-220%) skewX(-18deg); }
+  50% { transform: translateX(500%) skewX(-18deg); }
+}
+
+@media (max-width: 920px) {
+  .header-inner {
+    min-width: 0;
+    gap: 14px;
+  }
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-nav {
+    display: flex !important;
+    width: 100%;
+    max-width: 100%;
+    gap: clamp(16px, 3vw, 24px);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  .brand,
+  .header-actions {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  main,
+  section,
+  .inner-page,
+  .section-wrap,
+  .inner-page-hero,
+  .inner-content-section,
+  .inner-content-grid,
+  .inner-content-card,
+  .inner-page-cta,
+  .site-footer,
+  .footer-main,
+  .footer-bottom {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  .site-header {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .header-inner {
+    min-height: 68px;
+    padding-left: 18px;
+    padding-right: 18px;
+    gap: 10px;
+  }
+
+  .brand-logo-wrap {
+    width: clamp(138px, 43vw, 164px);
+    flex: 0 1 auto;
+    overflow: hidden;
+  }
+
+  .brand-logo {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Keep the sweep visible even when the phone requests reduced motion.
+     Only the small logo highlight moves; all other site motion stays disabled. */
+  .site-header .brand-logo-wrap::after {
+    content: "" !important;
+    display: block !important;
+    left: 12% !important;
+    top: 15% !important;
+    width: 18% !important;
+    height: 70% !important;
+    opacity: .78 !important;
+    animation: mobile-wordmark-sweep 5.2s ease-in-out .35s infinite !important;
+  }
+
+  .header-actions {
+    flex: 0 0 auto;
+    gap: 12px;
+  }
+
+  .mobile-nav {
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+  }
+
+  .inner-page-hero:not(.about-page-hero) {
+    min-height: 0;
+    padding-top: 140px;
+    padding-bottom: 76px;
+  }
+
+  .inner-page-hero-content,
+  .inner-page-hero h1,
+  .inner-page-intro,
+  .inner-breadcrumb,
+  .inner-page-cta > div {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .inner-content-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .inner-page-cta {
+    align-items: stretch;
+  }
+
+  .inner-page-cta .button,
+  .contact-section > .button {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .tech-about-visual,
+  .tech-contact-visual,
+  .contact-form,
+  .contact-form-wrap {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  pre,
+  code {
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand-logo-wrap {
+    width: clamp(132px, 42vw, 145px);
+  }
+
+  .mobile-nav {
+    gap: 17px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mobile-nav a {
+    font-size: 11px;
+  }
+
+  .inner-content-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .inner-service-links a {
+    grid-template-columns: 28px minmax(0, 1fr) 18px;
+    gap: 8px;
+  }
+}
