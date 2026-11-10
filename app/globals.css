@@ -4256,3 +4256,35 @@ body { overscroll-behavior-y: contain; }
     gap: 24px;
   }
 }
+
+/* Contact hero visual: slightly larger signal beacon */
+.inner-page-visual.page-visual-signal {
+  width: min(48vw, 660px);
+  height: min(39vw, 460px);
+  min-height: 330px;
+  right: 1.5%;
+}
+@media (max-width: 1050px) and (min-width: 761px) {
+  .inner-page-visual.page-visual-signal {
+    width: 49vw;
+    height: 390px;
+    right: -2%;
+  }
+}
+@media (max-width: 760px) {
+  .inner-page-visual.page-visual-signal {
+    width: 420px;
+    height: 320px;
+    min-height: 0;
+    right: -178px;
+    opacity: .32;
+  }
+}
+@media (max-width: 420px) {
+  .inner-page-visual.page-visual-signal {
+    width: 400px;
+    height: 305px;
+    right: -190px;
+    opacity: .3;
+  }
+}
