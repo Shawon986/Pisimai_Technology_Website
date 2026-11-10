@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
   }
 
   const origin = request.headers.get("origin");
-  if (origin && origin !== request.nextUrl.origin) {
+  if (!origin || origin !== request.nextUrl.origin) {
     return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
   }
 
@@ -46,7 +46,11 @@ export async function POST(request: NextRequest) {
 
   let payload: unknown;
   try {
-    payload = await request.json();
+    const rawBody = await request.text();
+    if (rawBody.length > 12000) {
+      return NextResponse.json({ error: "Request is too large" }, { status: 413 });
+    }
+    payload = JSON.parse(rawBody);
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
