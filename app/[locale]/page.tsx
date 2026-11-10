@@ -10,7 +10,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: locale === "zh" ? "智能科技与工程创新" : "PISIMAI TECHNOLOGY | Intelligent Systems & Engineering",
     description: copy[locale].description,
-    alternates: { languages: { en: "/en", "zh-CN": "/zh" } }
+    alternates: {
+      canonical: locale === "zh" ? "/zh" : "/en",
+      languages: { en: "/en", "zh-CN": "/zh" }
+    },
+    openGraph: {
+      type: "website",
+      locale: locale === "zh" ? "zh_CN" : "en_US",
+      url: locale === "zh" ? "/zh" : "/en",
+      title: locale === "zh" ? "PISIMAI TECHNOLOGY｜智能科技与工程创新" : "PISIMAI TECHNOLOGY | Intelligent Systems & Engineering",
+      description: copy[locale].description
+    }
   };
 }
 
