@@ -2414,7 +2414,7 @@ body{background:#080e1b}
 .inner-card-index i { transform-origin: left; animation: card-index-line 3.8s ease-in-out infinite; }
 .inner-content-card:nth-child(2) .inner-card-index i { animation-delay: -.9s; }.inner-content-card:nth-child(3) .inner-card-index i { animation-delay: -1.8s; }.inner-content-card:nth-child(4) .inner-card-index i { animation-delay: -2.7s; }
 .inner-service-links a { position: relative; overflow: hidden; }
-.inner-service-links a::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 0; background: linear-gradient(90deg,rgb(var(--cyan)),rgba(115,133,255,.8)); transition: width .45s ease; }
+.inner-service-links a::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 0; background: linear-gradient(90deg,var(--cyan),rgba(115,133,255,.8)); transition: width .45s ease; }
 .inner-service-links a:hover::before { width: 100%; }
 .inner-page-cta { position: relative; overflow: hidden; }
 .inner-page-cta::after { content: ""; position: absolute; width: 380px; height: 380px; right: 8%; top: -72%; border: 1px solid rgba(68,187,231,.12); border-radius: 50%; box-shadow: 0 0 0 24px rgba(68,187,231,.025),0 0 0 52px rgba(68,187,231,.018); animation: cta-orbit-drift 26s linear infinite; pointer-events: none; }
