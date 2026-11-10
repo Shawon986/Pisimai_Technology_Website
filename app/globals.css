@@ -4257,34 +4257,34 @@ body { overscroll-behavior-y: contain; }
   }
 }
 
-/* Contact hero visual: slightly larger signal beacon */
+/* Contact hero visual: modestly enlarge the signal illustration frame */
 .inner-page-visual.page-visual-signal {
-  width: min(48vw, 660px);
-  height: min(39vw, 460px);
-  min-height: 330px;
-  right: 1.5%;
+  width: min(52vw, 700px);
+  height: min(42vw, 490px);
+  min-height: 350px;
+  right: 0.5%;
 }
 @media (max-width: 1050px) and (min-width: 761px) {
   .inner-page-visual.page-visual-signal {
-    width: 49vw;
-    height: 390px;
-    right: -2%;
+    width: 52vw;
+    height: 420px;
+    right: -3%;
   }
 }
 @media (max-width: 760px) {
   .inner-page-visual.page-visual-signal {
-    width: 420px;
-    height: 320px;
+    width: 440px;
+    height: 335px;
     min-height: 0;
-    right: -178px;
-    opacity: .32;
+    right: -190px;
+    opacity: .34;
   }
 }
 @media (max-width: 420px) {
   .inner-page-visual.page-visual-signal {
-    width: 400px;
-    height: 305px;
-    right: -190px;
-    opacity: .3;
+    width: 420px;
+    height: 320px;
+    right: -200px;
+    opacity: .32;
   }
 }
