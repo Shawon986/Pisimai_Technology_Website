@@ -2664,3 +2664,74 @@ html { scroll-padding-top: 0; }
     animation:none!important;transition:none!important;
   }
 }
+
+
+/* Meaningful service motion: each illustration communicates its discipline. */
+.service-visual { position:relative; }
+.service-visual::before {
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(112deg,transparent 28%,rgba(170,231,255,.075) 48%,transparent 66%);
+  transform:translateX(-115%);animation:service-glass-sweep 8s ease-in-out infinite;
+}
+.service-card:hover .service-visual::before { animation-duration:3.2s; }
+.service-art { z-index:1; }
+.service-art-ai .ai-core { animation:ai-core-breathe 3.8s ease-in-out infinite,service-core-turn 12s ease-in-out infinite; }
+.service-art-ai .ai-link { box-shadow:0 0 8px rgba(89,225,245,.2); }
+.service-art-software .software-cursor { animation:service-cursor-work 5.5s ease-in-out infinite; }
+.service-art-software .software-window { transform-style:preserve-3d; }
+.service-art-robotics .robot-joint { animation:service-joint-glint 4.2s ease-in-out infinite; }
+.service-art-robotics .robot-joint-two { animation-delay:-1.4s; }
+.service-art-robotics .robot-joint-three { animation-delay:-2.8s; }
+.service-art-integration .integration-line { transform-origin:left center;animation:service-bus-signal 3.6s ease-in-out infinite; }
+.service-art-integration .integration-line-two { animation-delay:-.9s; }
+.service-art-integration .integration-line-three { animation-delay:-1.8s; }
+.service-art-integration .integration-line-four { animation-delay:-2.7s; }
+.service-art-integration .integration-hub { animation:service-hub-ready 4.8s ease-in-out infinite; }
+
+/* About: show the company as a coordinated system, not a static node diagram. */
+.tech-about-visual { background:
+  radial-gradient(ellipse at 50% 50%,rgba(24,130,166,.24),transparent 42%),
+  radial-gradient(ellipse at 50% 50%,rgba(39,83,154,.16),transparent 70%),#081426; }
+.about-network::before,.about-network::after {
+  content:"";position:absolute;left:50%;top:50%;border:1px solid rgba(77,205,237,.18);
+  border-radius:50%;transform:translate(-50%,-50%) rotate(-24deg);pointer-events:none;
+}
+.about-network::before { width:190px;height:110px;animation:about-orbit-a 18s linear infinite; }
+.about-network::after { width:130px;height:205px;border-color:rgba(137,103,255,.2);animation:about-orbit-b 23s linear infinite; }
+.about-network .network-line {
+  height:2px;background:linear-gradient(90deg,rgba(54,217,242,.04),rgba(54,217,242,.9),rgba(137,103,255,.62),rgba(54,217,242,.04));
+  box-shadow:0 0 10px rgba(54,217,242,.18);
+}
+.about-network .network-node { transition:border-color .35s ease,box-shadow .35s ease; }
+.about-network .node-center { z-index:4;background:radial-gradient(circle at 35% 30%,#1e5570,#0b1b31 72%); }
+.about-network .network-pulse {
+  width:7px;height:7px;box-shadow:0 0 0 4px rgba(54,217,242,.1),0 0 16px 5px rgba(54,217,242,.8);
+}
+.about-network .pulse-one { left:50%;top:20%;animation:about-route-top 3.8s ease-in-out infinite; }
+.about-network .pulse-two { left:22%;top:50%;animation:about-route-left 3.8s -1.25s ease-in-out infinite; }
+.about-network .pulse-three { left:50%;top:78%;animation:about-route-bottom 3.8s -2.5s ease-in-out infinite; }
+.tech-about-visual .about-visual-header span:first-child { color:#9dbbd7; }
+
+@keyframes service-glass-sweep { 0%,18%{transform:translateX(-115%);opacity:0}35%{opacity:1}62%,100%{transform:translateX(115%);opacity:0} }
+@keyframes service-core-turn { 0%,100%{rotate:0deg}50%{rotate:45deg} }
+@keyframes service-cursor-work { 0%,100%{translate:0 0}24%{translate:-34px -22px}48%{translate:-58px 12px}72%{translate:-12px 28px} }
+@keyframes service-joint-glint { 0%,100%{filter:brightness(.9)}50%{filter:brightness(1.5) drop-shadow(0 0 8px rgba(170,160,255,.55))} }
+@keyframes service-bus-signal { 0%,100%{opacity:.28;filter:brightness(.8)}50%{opacity:1;filter:brightness(1.7)} }
+@keyframes service-hub-ready { 0%,100%{box-shadow:0 18px 44px #0009,0 0 22px #52e7c822,inset 0 1px #d8fff033}50%{box-shadow:0 18px 44px #0009,0 0 42px #52e7c866,inset 0 1px #d8fff066} }
+@keyframes about-orbit-a { to{transform:translate(-50%,-50%) rotate(336deg)} }
+@keyframes about-orbit-b { to{transform:translate(-50%,-50%) rotate(-336deg)} }
+@keyframes about-route-top { 0%{translate:0 0;opacity:0}12%{opacity:1}50%{translate:0 95px;opacity:1}100%{translate:0 110px;opacity:0} }
+@keyframes about-route-left { 0%{translate:0 0;opacity:0}12%{opacity:1}50%{translate:112px 0;opacity:1}100%{translate:126px 0;opacity:0} }
+@keyframes about-route-bottom { 0%{translate:0 0;opacity:0}12%{opacity:1}50%{translate:0 -92px;opacity:1}100%{translate:0 -106px;opacity:0} }
+
+@media(max-width:760px) {
+  .about-network::before { width:160px;height:92px; }
+  .about-network::after { width:112px;height:174px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .service-visual::before,.service-art-ai .ai-core,.service-art-software .software-cursor,
+  .service-art-robotics .robot-joint,.service-art-integration .integration-line,
+  .service-art-integration .integration-hub,.about-network::before,.about-network::after {
+    animation:none!important;
+  }
+}
