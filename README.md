@@ -76,3 +76,14 @@ The bilingual contact form submits inquiries through a server-side route to Form
 The Form ID is kept in a server-only environment variable and is not exposed through a `NEXT_PUBLIC_*` variable. The API route validates the request, checks its origin and size, filters supported service categories, and uses a honeypot field before forwarding submissions. Formspree's free-plan submission limits and verification requirements apply. Test the form after setup and confirm the notification arrives in the configured inbox.
 
 Never commit `.env.local` or account credentials to Git.
+
+## Production URL and SEO
+
+Set `NEXT_PUBLIC_SITE_URL` to the exact public HTTPS origin used by the deployed website (for example, your Vercel production URL). This value is used for canonical metadata, Open Graph URLs, the XML sitemap, and the robots file. Vercel deployments can fall back to Vercel's deployment host when this variable is not set; local development falls back to `http://localhost:3000`.
+
+The generated SEO endpoints are:
+
+- `/sitemap.xml` — English and Simplified Chinese public pages.
+- `/robots.txt` — permits public page crawling and excludes `/api/`.
+
+GitHub Actions runs linting, TypeScript checks, a production dependency audit, and a production build on pushes and pull requests to `master`.
