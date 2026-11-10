@@ -5798,3 +5798,24 @@ body { overscroll-behavior-y: contain; }
   38%, 76% { stroke-dashoffset: 0; filter: drop-shadow(0 0 7px rgba(65,220,255,.42)); }
   88%, 100% { stroke-dashoffset: 430; filter: drop-shadow(0 0 1px rgba(65,220,255,.12)); }
 }
+
+
+/* Use one vector arrow everywhere so glyphs never vary by device font. */
+.ui-arrow-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.button-primary .ui-arrow-icon { width: 16px; height: 16px; }
+.service-arrow .ui-arrow-icon,
+.principle-arrow .ui-arrow-icon { width: 18px; height: 18px; }
+.header-contact .ui-arrow-icon,
+.footer-contact-link .ui-arrow-icon { width: 14px; height: 14px; }
+.blueprint-center .ui-arrow-icon { width: 20px; height: 20px; }
