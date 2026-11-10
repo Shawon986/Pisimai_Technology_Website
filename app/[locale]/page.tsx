@@ -42,35 +42,40 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           <div className="intelligence-stage">
-            <div className="stage-corner stage-corner-tl" aria-hidden="true" />
-            <div className="stage-corner stage-corner-br" aria-hidden="true" />
-            <div className="stage-coordinate coordinate-top">PST / INTELLIGENCE CORE</div>
-            <div className="cinematic-art" role="img" aria-label={locale === "zh" ? "抽象未来工程建筑与智能光流艺术" : "Cinematic abstract engineering architecture with intelligent light flows"}>
-              <div className="cinema-atmosphere" />
-              <div className="cinema-floor"><span /><span /><span /></div>
-              <div className="cinema-light cinema-light-one" />
-              <div className="cinema-light cinema-light-two" />
-              <div className="cinema-frame cinema-frame-back" />
-              <div className="cinema-frame cinema-frame-mid" />
-              <div className="cinema-monolith">
-                <div className="monolith-side" />
-                <div className="monolith-front">
-                  <span className="monolith-inset" />
-                  <span className="monolith-seam" />
-                  <span className="monolith-glint" />
+            <div className="hero-scene" role="img" aria-label={locale === "zh" ? "精密钛金属与光学晶体构成的沉浸式智能工程装置" : "A cinematic 3D precision-engineered intelligence installation in titanium, glass and optical crystal"}>
+              <div className="scene-backdrop" />
+              <div className="scene-lightbeam scene-lightbeam-a" />
+              <div className="scene-lightbeam scene-lightbeam-b" />
+              <div className="scene-floor" />
+              <div className="scene-floor-reflection" />
+              <div className="installation-shadow" />
+              <div className="installation">
+                <div className="installation-ring ring-outer"><i /><i /><i /><i /></div>
+                <div className="installation-ring ring-inner" />
+                <div className="installation-bridge bridge-left" />
+                <div className="installation-bridge bridge-right" />
+                <div className="installation-spine" />
+                <div className="crystal-housing">
+                  <div className="crystal-side crystal-side-left" />
+                  <div className="crystal-side crystal-side-right" />
+                  <div className="crystal-face crystal-face-front" />
+                  <div className="crystal-core" />
+                  <div className="crystal-highlight" />
                 </div>
-                <div className="monolith-top" />
+                <div className="precision-collar collar-top" />
+                <div className="precision-collar collar-bottom" />
+                <div className="installation-base">
+                  <span /><span /><span />
+                </div>
+                <div className="fiber-trail fiber-trail-a" />
+                <div className="fiber-trail fiber-trail-b" />
+                <div className="scene-spark spark-a" />
+                <div className="scene-spark spark-b" />
+                <div className="scene-spark spark-c" />
               </div>
-              <div className="cinema-panel cinema-panel-left"><i /><i /><i /></div>
-              <div className="cinema-panel cinema-panel-right"><i /><i /><i /></div>
-              <div className="cinema-ribbon cinema-ribbon-one" />
-              <div className="cinema-ribbon cinema-ribbon-two" />
-              <div className="cinema-particle cinema-particle-one" />
-              <div className="cinema-particle cinema-particle-two" />
-              <div className="cinema-particle cinema-particle-three" />
-              <div className="cinema-caption cinema-caption-left"><span>01</span> INTELLIGENCE SYSTEMS</div>
-              <div className="cinema-caption cinema-caption-right">PISIMAI <span> / </span> FUTURE ENGINEERED</div>
-              <div className="cinema-scanline" />
+              <div className="scene-readout readout-a"><span>01 / CORE</span><i />OPTICAL ENGINE</div>
+              <div className="scene-readout readout-b">PST <i /> INTELLIGENCE SYSTEMS</div>
+              <div className="scene-scan" />
             </div>
             <div className="stage-coordinate coordinate-bottom"><span>AI</span><i /> <span>SOFTWARE</span><i /> <span>INTEGRATION</span></div>
           </div>
