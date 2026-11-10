@@ -3201,3 +3201,243 @@ html { scroll-padding-top: 0; }
   animation-play-state: paused !important;
 }
 
+
+
+/* Mobile refinement: preserve the approved visual system while reducing expensive paint work. */
+@media (max-width: 760px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .hero-atmosphere {
+    filter: none;
+    animation: none;
+    opacity: .34;
+  }
+  .hero-atmosphere i {
+    filter: none;
+    box-shadow: none !important;
+  }
+  .hero-atmosphere i:nth-child(2),
+  .hero-atmosphere i:nth-child(3) {
+    animation: none !important;
+  }
+  .hero-lightfield i {
+    filter: none;
+    animation: none !important;
+    opacity: .12;
+  }
+  .hero-particle-field i {
+    box-shadow: none;
+    animation-duration: 13s;
+  }
+  .hero-particle-field i:nth-child(n+5) {
+    display: none;
+  }
+  .hero-floor,
+  .hero-grid,
+  .tech-hero-visual:before,
+  .architecture-grid {
+    animation: none !important;
+  }
+  .hero-floor {
+    background-position: 0 0, 0 0;
+  }
+  .tech-hero-visual {
+    animation: none !important;
+    box-shadow: 0 18px 42px rgba(0,0,0,.2), inset 0 1px rgba(231,247,255,.06);
+  }
+  .architecture-orbit {
+    animation-duration: 52s;
+  }
+  .architecture-orbit.orbit-b {
+    animation-duration: 64s;
+  }
+  .architecture-core {
+    animation: none !important;
+    box-shadow: 0 0 0 10px rgba(54,217,242,.035), 0 0 38px rgba(36,167,220,.13), inset 0 0 28px rgba(57,174,218,.1);
+  }
+  .architecture-module {
+    animation: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    background: linear-gradient(110deg, rgba(19,40,64,.98), rgba(9,21,38,.98));
+    box-shadow: 0 7px 16px rgba(0,0,0,.18), inset 0 1px rgba(227,246,255,.06);
+  }
+  .architecture-connectors i {
+    animation: none !important;
+    filter: none !important;
+    box-shadow: none;
+  }
+  .visual-topline i {
+    animation-duration: 4s;
+  }
+
+  /* Keep the complete wordmark inside its mobile wrapper so the light sweep is visible. */
+  .brand-logo-wrap {
+    width: clamp(145px, 43vw, 174px);
+    aspect-ratio: 900 / 190;
+    overflow: hidden;
+  }
+  .brand-logo {
+    display: block;
+    width: 100% !important;
+    height: auto;
+  }
+  .brand-logo-wrap::after {
+    left: 12%;
+    top: 15%;
+    width: 18%;
+    height: 70%;
+    opacity: 0;
+    mix-blend-mode: screen;
+    animation: wordmark-sheen-mobile 5.2s ease-in-out .35s infinite;
+  }
+
+  /* Give every secondary page a predictable, non-overlapping mobile hero. */
+  .inner-page-hero {
+    min-height: 0;
+    padding: 142px var(--gutter) 82px;
+    align-items: flex-start;
+  }
+  .inner-page-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .inner-page-hero h1,
+  .inner-page-intro {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .inner-page-visual {
+    right: -205px;
+    top: 54%;
+    opacity: .15;
+    pointer-events: none;
+  }
+  .inner-breadcrumb {
+    max-width: 100%;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    overflow-wrap: anywhere;
+    letter-spacing: .055em;
+  }
+  .inner-content-section,
+  .inner-content-grid,
+  .inner-content-card,
+  .inner-page-cta {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .inner-content-card {
+    overflow-wrap: anywhere;
+  }
+  .inner-content-card li {
+    padding-left: 21px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .inner-content-card li::before {
+    top: .58em;
+    width: 8px;
+    height: 5px;
+    border: 0;
+    border-left: 2px solid var(--cyan);
+    border-bottom: 2px solid var(--cyan);
+    border-radius: 0;
+    transform: rotate(-45deg);
+  }
+  .inner-service-links a {
+    min-width: 0;
+    grid-template-columns: 32px minmax(0, 1fr) 18px;
+    gap: 9px;
+  }
+  .inner-service-links strong {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+  }
+  .inner-page-cta > div {
+    min-width: 0;
+    width: 100%;
+  }
+  .inner-page-cta h2,
+  .inner-page-cta p:not(.section-kicker) {
+    overflow-wrap: anywhere;
+  }
+
+  .tech-about-visual,
+  .tech-contact-visual {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-logo-wrap {
+    width: 145px;
+  }
+  .tech-hero-visual {
+    aspect-ratio: 1 / 1.12;
+  }
+  .architecture-module {
+    width: 46%;
+    min-width: 0;
+    min-height: 46px;
+    gap: 6px;
+    padding: 6px;
+  }
+  .architecture-module b {
+    font-size: 6px;
+    letter-spacing: .04em;
+  }
+  .architecture-module small {
+    font-size: 5.5px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+  .module-icon {
+    width: 19px;
+    height: 19px;
+    flex-basis: 19px;
+  }
+  .architecture-core {
+    width: 104px;
+    height: 104px;
+  }
+  .core-symbol {
+    width: 32px;
+    height: 32px;
+  }
+  .architecture-data {
+    display: none;
+  }
+  .visual-topline,
+  .visual-bottomline {
+    left: 9px;
+    right: 9px;
+    font-size: 5px;
+    letter-spacing: .06em;
+  }
+  .inner-page-hero {
+    padding-top: 132px;
+    padding-bottom: 72px;
+  }
+  .inner-page-hero h1 {
+    font-size: clamp(36px, 10.5vw, 48px);
+  }
+  .inner-page-visual {
+    right: -230px;
+    opacity: .12;
+  }
+}
+
+@keyframes wordmark-sheen-mobile {
+  0%, 14% { opacity: 0; transform: translateX(-220%) skewX(-18deg); }
+  22% { opacity: .95; }
+  48% { opacity: .65; transform: translateX(500%) skewX(-18deg); }
+  54%, 100% { opacity: 0; transform: translateX(500%) skewX(-18deg); }
+}
