@@ -36,12 +36,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <SiteHeader locale={locale} />
       <main>
         <section className="hero-section tech-hero" id="home">
-          <div className="hero-grid" aria-hidden="true" />
-          <div className="hero-atmosphere" aria-hidden="true"><i /><i /><i /></div>
-          <div className="hero-lightfield" aria-hidden="true"><i /><i /><i /></div>
-          <div className="hero-particle-field" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
-          <div className="hero-floor" aria-hidden="true" />
-          <div className="hero-vignette" aria-hidden="true" />
           <div className="hero-copy">
             <p className="eyebrow"><span />{t.eyebrow}</p>
             <h1>{t.title}</h1>
