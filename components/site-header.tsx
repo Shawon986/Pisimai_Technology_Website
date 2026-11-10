@@ -6,7 +6,7 @@ import { copy } from "@/lib/i18n";
 export function SiteHeader({ locale, currentPath }: { locale: Locale; currentPath?: string }) {
   const t = copy[locale];
   const otherLocale = locale === "en" ? "zh" : "en";
-  const activePath = (currentPath ?? "").replace(/^\\/+|\\/+$/g, "");
+  const activePath = (currentPath ?? "").replace(/^\/+|\/+$/g, "");
   const items = [
     ["home", "/" + locale], ["services", "/" + locale + "/services"], ["solutions", "/" + locale + "/solutions"],
     ["technology", "/" + locale + "/technology"], ["about", "/" + locale + "/about"], ["contact", "/" + locale + "/contact"]
