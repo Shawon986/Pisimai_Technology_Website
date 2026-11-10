@@ -3203,6 +3203,26 @@ html { scroll-padding-top: 0; }
 
 
 
+/* Keep the cinematic hero responsive by removing paint-heavy animation work on every device. */
+.hero-lightfield i { filter: none; }
+.hero-floor,
+.hero-grid,
+.tech-hero-visual:before {
+  animation: none !important;
+}
+.architecture-core {
+  animation: none !important;
+}
+.architecture-module {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.architecture-connectors i {
+  animation: none !important;
+  filter: none !important;
+  box-shadow: none;
+}
+
 /* Mobile refinement: preserve the approved visual system while reducing expensive paint work. */
 @media (max-width: 760px) {
   html, body {
