@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { InteractiveSpiderWeb } from "@/components/interactive-spider-web";
 import { copy, isLocale } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -62,23 +63,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="tech-hero-visual" role="img" aria-label={locale === "zh" ? "人工智能、软件、自动化与系统集成的互联技术架构示意" : "An interconnected technology architecture showing AI, software, automation and system integration"}>
             <div className="visual-topline"><span> PISIMAI / SYSTEMS LAB</span><span><i /> {locale === "zh" ? "系统在线" : "SYSTEMS ONLINE"}</span></div>
             <div className="architecture-grid" aria-hidden="true" />
-            <svg className="architecture-network" viewBox="0 0 600 440" preserveAspectRatio="none" aria-hidden="true">
-              <g className="architecture-network-lines">
-                <path d="M40 95 155 45 275 105 390 42 555 100 M40 345 155 285 275 350 390 285 555 350 M155 45 155 285 M275 105 275 350 M390 42 390 285 M40 95 155 285 275 105 390 285 555 100 M40 345 155 45 275 350 390 42 555 350" />
-              </g>
-              <g className="architecture-network-joints">
-                <circle cx="155" cy="45" r="8" /><circle cx="275" cy="105" r="8" /><circle cx="390" cy="42" r="8" />
-                <circle cx="155" cy="285" r="8" /><circle cx="275" cy="350" r="8" /><circle cx="390" cy="285" r="8" />
-              </g>
-              <g className="architecture-network-joint-cores">
-                <circle cx="155" cy="45" r="2.8" /><circle cx="275" cy="105" r="2.8" /><circle cx="390" cy="42" r="2.8" />
-                <circle cx="155" cy="285" r="2.8" /><circle cx="275" cy="350" r="2.8" /><circle cx="390" cy="285" r="2.8" />
-              </g>
-              <g className="architecture-network-nodes">
-                <circle cx="40" cy="95" r="3" /><circle cx="155" cy="45" r="3.5" /><circle cx="275" cy="105" r="3" /><circle cx="390" cy="42" r="3.5" /><circle cx="555" cy="100" r="3" />
-                <circle cx="40" cy="345" r="2.5" /><circle cx="155" cy="285" r="3.5" /><circle cx="275" cy="350" r="3" /><circle cx="390" cy="285" r="3.5" /><circle cx="555" cy="350" r="3" />
-              </g>
-            </svg>
+            <InteractiveSpiderWeb />      </svg>
             <div className="architecture-connectors" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
             <div className="architecture-core">
               <div className="core-bracket bracket-a" /><div className="core-bracket bracket-b" />
