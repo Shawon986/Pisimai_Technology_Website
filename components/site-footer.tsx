@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 import type { Locale } from "@/lib/i18n";
 import { copy } from "@/lib/i18n";
 
@@ -24,7 +24,7 @@ export function SiteFooter({ locale, currentPath }: { locale: Locale; currentPat
       <div className="footer-main">
         <div className="footer-brand-block">
           <Link href={"/" + locale} aria-label="PISIMAI TECHNOLOGY home">
-            <span className="brand-logo-wrap footer-brand-logo-wrap"><Image src="/brand/pisimai-horizontal-dark.svg" alt="PISIMAI TECHNOLOGY" width={270} height={58} suppressHydrationWarning /></span>
+            <span className="brand-logo-wrap footer-brand-logo-wrap"><BrandLogo /></span>
           </Link>
           <p>{t.footerLine}</p>
           <span className="footer-brand-caption">{locale === "zh" ? "面向未来的技术合作伙伴" : "A technology partner for what comes next."}</span>
