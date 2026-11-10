@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { copy } from "@/lib/i18n";
 
-export function SiteHeader({ locale }: { locale: Locale }) {
+export function SiteHeader({ locale, currentPath }: { locale: Locale; currentPath?: string }) {
   const t = copy[locale];
   const otherLocale = locale === "en" ? "zh" : "en";
   const items = [
@@ -21,7 +21,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           {items.map(([key, href]) => <Link key={key} href={href}>{t.nav[key]}</Link>)}
         </nav>
         <div className="header-actions">
-          <Link className="language-switch" href={"/" + otherLocale} hrefLang={otherLocale}>{t.language}</Link>
+          <Link className="language-switch" href={"/" + otherLocale + (currentPath ? "/" + currentPath : "")} hrefLang={otherLocale}>{t.language}</Link>
           <Link className="header-contact" href={"/" + locale + "/contact"}>{t.nav.contact}<span aria-hidden="true">↗</span></Link>
         </div>
       </div>
