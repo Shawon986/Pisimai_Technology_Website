@@ -26,11 +26,9 @@ export function NetworkBackground() {
     });
     if (!canvas || !context) return;
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // Keep the same animated network on phones and desktop; only honor the OS reduced-motion preference.
-    const animateEnabled = !reducedMotion;
-    const lowPowerDevice = (navigator.hardwareConcurrency || 8) <= 4;
-    const maxPoints = lowPowerDevice ? 32 : 44;
+    // Use the same network motion and particle budget on phones and desktop.
+    const animateEnabled = true;
+    const maxPoints = 44;
     const maxDistance = 154;
     const maxDistanceSquared = maxDistance * maxDistance;
 
@@ -45,7 +43,7 @@ export function NetworkBackground() {
     let pixelRatio = 1;
 
     const createPoints = () => {
-      const count = Math.max(22, Math.min(maxPoints, Math.round(width / 28)));
+      const count = maxPoints;
       points = Array.from({ length: count }, (_, index) => {
         const angle = Math.random() * Math.PI * 2;
         // Faster visible drift without adding more particles or expensive effects.
