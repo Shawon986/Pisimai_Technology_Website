@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="25 10 170 155" role="img" aria-label="PISIMAI"><defs><linearGradient id="g" x1="35" y1="20" x2="176" y2="150" gradientUnits="userSpaceOnUse"><stop stop-color="#62F2F4"/><stop offset=".48" stop-color="#278EFF"/><stop offset="1" stop-color="#8A72FF"/></linearGradient><style>.mark{fill:none;stroke:url(#g);stroke-width:17;stroke-linecap:round;stroke-linejoin:round}</style></defs><rect x="25" y="10" width="170" height="155" rx="32" fill="#070B16" stroke="#24415E" stroke-width="3"/><path class="mark" d="M53 145V48C53 37 62 28 73 28H113C137 28 153 44 153 66C153 88 137 104 113 104H53"/><path d="M151 66H174" stroke="#68EAF1" stroke-width="3" stroke-linecap="round"/><circle cx="174" cy="66" r="6" fill="#DDFEFF" stroke="#39DDF3" stroke-width="4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="25 10 156 155" role="img" aria-label="PISIMAI">
+  <defs>
+    <linearGradient id="markGradient" x1="36" y1="22" x2="176" y2="148" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#62F2F4"/>
+      <stop offset=".48" stop-color="#278EFF"/>
+      <stop offset="1" stop-color="#8A72FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="25" y="10" width="156" height="155" rx="30" fill="#070B16"/>
+  <path d="M53 145V48C53 37 62 28 73 28H113C137 28 153 44 153 66C153 88 137 104 113 104H53" fill="none" stroke="url(#markGradient)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62 137V48C62 42 67 37 74 37H112C131 37 144 49 144 66C144 83 131 95 112 95H62" fill="none" stroke="#D9FFFF" stroke-width="2" stroke-linecap="round" opacity=".48"/>
+</svg>
