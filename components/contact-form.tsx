@@ -70,7 +70,7 @@ export function ContactForm({ locale }: Props) {
   }
 
   return (
-    <section className="contact-form-section" aria-labelledby="contact-form-title">
+    <section id="contact-form" className="contact-form-section" aria-labelledby="contact-form-title">
       <div className="contact-form-heading">
         <p className="section-kicker"><span className="kicker-dot" />{t.eyebrow}</p>
         <h2 id="contact-form-title">{t.title}</h2>
