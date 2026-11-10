@@ -203,12 +203,12 @@ a { color: inherit; text-decoration: none; }
 .service-card-top { position:relative; z-index:1; display:flex; justify-content:space-between; align-items:center; }
 .service-index { color:rgba(119,157,211,.54); font:9px "JetBrains Mono",monospace; letter-spacing:.12em; }
 .service-visual { position:relative; height:112px; width:100%; display:flex; justify-content:center; align-items:center; margin:8px 0 12px; }
-.service-visual span { position:absolute; display:block; border:1px solid rgba(22,217,245,.48); border-radius:50%; }
-.service-visual span:nth-child(1) { width:66px; height:66px; }
-.service-visual span:nth-child(2) { width:92px; height:40px; transform:rotate(42deg); border-color:rgba(137,103,255,.5); }
-.service-visual span:nth-child(3) { width:92px; height:40px; transform:rotate(-42deg); border-color:rgba(57,123,255,.55); }
-.service-visual span:nth-child(4) { width:9px; height:9px; background:var(--cyan); box-shadow:0 0 18px 5px rgba(22,217,245,.45); border:0; }
-.service-visual i { position:absolute; width:3px; height:3px; top:22%; right:33%; border-radius:50%; background:#d5faff; box-shadow:0 0 10px 3px rgba(22,217,245,.6); }
+.service-visual > span { position:absolute; display:block; border:1px solid rgba(22,217,245,.48); border-radius:50%; }
+.service-visual > span:nth-child(1) { width:66px; height:66px; }
+.service-visual > span:nth-child(2) { width:92px; height:40px; transform:rotate(42deg); border-color:rgba(137,103,255,.5); }
+.service-visual > span:nth-child(3) { width:92px; height:40px; transform:rotate(-42deg); border-color:rgba(57,123,255,.55); }
+.service-visual > span:nth-child(4) { width:9px; height:9px; background:var(--cyan); box-shadow:0 0 18px 5px rgba(22,217,245,.45); border:0; }
+.service-visual > i { position:absolute; width:3px; height:3px; top:22%; right:33%; border-radius:50%; background:#d5faff; box-shadow:0 0 10px 3px rgba(22,217,245,.6); }
 .service-visual-2 span:nth-child(1) { width:80px; height:54px; border-radius:8px; transform:perspective(100px) rotateY(-22deg); }
 .service-visual-2 span:nth-child(2) { width:48px; height:48px; border-radius:4px; transform:rotate(45deg); border-color:rgba(137,103,255,.55); }
 .service-visual-3 span:nth-child(1) { width:74px; height:74px; border-radius:14px; transform:rotate(45deg); }
@@ -328,11 +328,11 @@ section[id] { scroll-margin-top:24px; }
 .service-card:nth-child(2) { animation-delay: .1s; }
 .service-card:nth-child(3) { animation-delay: .2s; }
 .service-card:nth-child(4) { animation-delay: .3s; }
-.service-visual span:nth-child(1) { animation: visual-orbit 12s linear infinite; }
-.service-visual span:nth-child(2) { animation: visual-orbit-reverse 16s linear infinite; }
-.service-visual span:nth-child(3) { animation: visual-orbit 20s linear infinite; }
-.service-visual span:nth-child(4) { animation: visual-pulse 3.2s ease-in-out infinite; }
-.service-visual i { animation: visual-spark 4.8s ease-in-out infinite; }
+.service-visual > span:nth-child(1) { animation: visual-orbit 12s linear infinite; }
+.service-visual > span:nth-child(2) { animation: visual-orbit-reverse 16s linear infinite; }
+.service-visual > span:nth-child(3) { animation: visual-orbit 20s linear infinite; }
+.service-visual > span:nth-child(4) { animation: visual-pulse 3.2s ease-in-out infinite; }
+.service-visual > i { animation: visual-spark 4.8s ease-in-out infinite; }
 .service-visual-2 span:nth-child(1) { animation: visual-float 5s ease-in-out infinite; }
 .service-visual-3 span:nth-child(1) { animation: visual-orbit 18s linear infinite; }
 .service-visual-4 span:nth-child(2) { animation: visual-float 6s ease-in-out infinite reverse; }
@@ -378,7 +378,7 @@ section[id] { scroll-margin-top:24px; }
 @media (prefers-reduced-motion: reduce) {
   .intro-section .intro-content, .intro-section .intro-aside, .section-heading,
   .capability-note, .approach-heading, .principle-item, .about-copy, .contact-copy,
-  .service-card, .service-visual span, .service-visual i, .tech-band-lines span,
+  .service-card, .service-visual > span, .service-visual > i, .tech-band-lines span,
   .tech-band-inner > p i, .about-orbit, .about-orbit > div, .about-orbit > span,
   .contact-orbit, .contact-orbit:before, .contact-orbit:after,
   .contact-orbit span, .contact-orbit i {
@@ -3037,4 +3037,72 @@ html { scroll-padding-top: 0; }
 }
 @media(prefers-reduced-motion:reduce) {
   .svc-software-window,.svc-software-chart i,.svc-software-cursor,.svc-robot-head,.svc-robot-eye i,.svc-robot-scan {animation:none!important}
+}
+
+
+/* Fix legacy illustration selectors: only direct decoration layers may inherit them. */
+.service-art-software span,.service-art-software i {
+  position:relative;
+}
+.service-art-software .svc-software-window {width:min(194px,90%);height:108px;transform:none;animation:svc-software-window-safe 7s ease-in-out infinite}
+.service-art-software .svc-software-window span,
+.service-art-software .svc-software-window i {position:relative;inset:auto;transform:none}
+.service-art-software .svc-software-top {position:relative;height:16px}
+.service-art-software .svc-software-sidebar {position:absolute;top:16px;left:0;bottom:0;width:23px;padding-top:8px}
+.service-art-software .svc-software-main {position:absolute;top:22px;left:30px;right:7px;bottom:5px}
+.service-art-software .svc-software-heading {height:10px}
+.service-art-software .svc-software-metrics {margin-top:4px}
+.service-art-software .svc-software-chart {margin-top:4px}
+.service-art-software .svc-software-chart>div {height:21px}
+.service-art-software .svc-software-chart i {position:relative;flex:1;min-width:2px;height:var(--bar-height,50%);border:0;border-radius:2px 2px 0 0;background:linear-gradient(0deg,#3474d7,#6edff2);box-shadow:none;animation:svc-software-bar-glow 3.8s ease-in-out infinite}
+.service-art-software .svc-software-activity {margin-top:3px}
+.service-art-software .svc-software-cursor {position:absolute;left:73%;top:61%}
+@keyframes svc-software-window-safe {0%,100%{translate:0 1px}50%{translate:0 -3px}}
+@keyframes svc-software-bar-glow {0%,100%{filter:brightness(.8)}50%{filter:brightness(1.35)}}
+
+/* System integration: cloud, application, devices and data connected through a central switch. */
+.service-art-integration {isolation:isolate}
+.service-art-integration .svc-integration-switch {
+  position:absolute;z-index:4;left:50%;top:50%;width:82px;height:56px;translate:-50% -50%;
+  border:1px solid #83e8d4aa;border-radius:7px;
+  background:linear-gradient(145deg,#1b5555,#0a202b 72%);
+  box-shadow:0 12px 24px #0009,0 0 24px #54e6d52b,inset 0 1px #e4fff044;
+  animation:svc-switch-activity 5.4s ease-in-out infinite;
+}
+.svc-integration-switch-top {height:18px;display:flex;align-items:center;gap:3px;padding:0 6px;border-bottom:1px solid #9df6e52c;background:#ffffff08}
+.svc-integration-switch-top i {position:relative;width:3px;height:3px;border-radius:50%;background:#b7d9d6;box-shadow:none}
+.svc-integration-switch-top span {position:relative;margin-left:auto;color:#b9eee4;font:5px "JetBrains Mono",monospace;letter-spacing:.05em}
+.svc-integration-ports {display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:8px 7px 3px}
+.svc-integration-ports i {position:relative;height:7px;border:1px solid #8debd5;border-radius:2px;background:#0a252e;box-shadow:inset 0 0 5px #50dfc344}
+.svc-integration-switch small {display:block;padding:1px 7px;color:#71e7d1;font:4px "JetBrains Mono",monospace;letter-spacing:.14em;text-align:right}
+.svc-integration-endpoint {position:absolute;z-index:3;width:55px;height:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:1px solid #83dfd477;border-radius:5px;background:linear-gradient(145deg,#143846,#091b28);box-shadow:0 6px 13px #0008}
+.svc-integration-endpoint i {position:relative;width:9px;height:7px;border:1px solid #a8f4e3;border-radius:2px;background:#28756e;box-shadow:0 0 7px #58e4cf44}
+.svc-integration-endpoint b {position:relative;color:#c0e9e4;font:4px "JetBrains Mono",monospace;letter-spacing:.05em;white-space:nowrap}
+.svc-integration-cloud {left:calc(50% - 27px);top:2px}
+.svc-integration-app {right:4px;top:calc(50% - 16px);border-color:#83b6ff77}
+.svc-integration-app i {border-color:#a8caff;background:#315b9b}
+.svc-integration-device {left:calc(50% - 27px);bottom:2px;border-color:#b4a2ff77}
+.svc-integration-device i {border-color:#d0c6ff;background:#554b91}
+.svc-integration-data {left:4px;top:calc(50% - 16px);border-color:#80d8e877}
+.svc-integration-data i {border-color:#a8ecff;background:#276a80}
+.svc-integration-path {position:absolute;z-index:1;background:linear-gradient(90deg,transparent,#69e5d0aa,#b7fff0,transparent);box-shadow:0 0 7px #57e5d04d}
+.svc-integration-path-top,.svc-integration-path-bottom {left:50%;width:1px;height:27px;transform:translateX(-50%)}
+.svc-integration-path-top {top:27px}.svc-integration-path-bottom {bottom:27px}
+.svc-integration-path-left,.svc-integration-path-right {top:50%;height:1px;width:calc(50% - 48px)}
+.svc-integration-path-left {left:calc(4px + 55px)}.svc-integration-path-right {right:calc(4px + 55px)}
+.svc-integration-packet {position:absolute;z-index:5;width:4px;height:4px;border-radius:50%;background:#d8fff7;box-shadow:0 0 8px 2px #5de8d4;opacity:0}
+.svc-integration-packet-a {left:50%;top:28px;animation:svc-packet-in 5.4s ease-in-out infinite}
+.svc-integration-packet-b {right:59px;top:50%;animation:svc-packet-out 5.4s -1.35s ease-in-out infinite}
+.svc-integration-packet-c {left:50%;bottom:28px;animation:svc-packet-in 5.4s -2.7s ease-in-out infinite;filter:hue-rotate(55deg)}
+.svc-integration-packet-d {left:59px;top:50%;animation:svc-packet-out 5.4s -4.05s ease-in-out infinite;filter:hue-rotate(35deg)}
+@keyframes svc-switch-activity {0%,14%,86%,100%{filter:brightness(.92);box-shadow:0 12px 24px #0009,0 0 16px #54e6d51c,inset 0 1px #e4fff044}35%,58%{filter:brightness(1.22);box-shadow:0 12px 24px #0009,0 0 31px #54e6d566,inset 0 1px #e4fff077}}
+@keyframes svc-packet-in {0%,12%{translate:0 0;opacity:0}25%{opacity:1}52%{translate:0 24px;opacity:1}62%,100%{translate:0 24px;opacity:0}}
+@keyframes svc-packet-out {0%,48%{translate:0 0;opacity:0}58%{opacity:1}84%{translate:0 0;opacity:1}100%{translate:0 0;opacity:0}}
+@media(max-width:760px) {
+  .service-art-integration .svc-integration-switch {scale:.92}
+  .service-art-integration .svc-integration-endpoint {scale:.92}
+}
+@media(prefers-reduced-motion:reduce) {
+  .svc-software-window,.svc-software-chart i,.svc-software-cursor,
+  .svc-integration-switch,.svc-integration-packet {animation:none!important}
 }
