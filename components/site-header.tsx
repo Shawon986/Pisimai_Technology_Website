@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 import type { Locale } from "@/lib/i18n";
 import { copy } from "@/lib/i18n";
 
@@ -16,7 +16,7 @@ export function SiteHeader({ locale, currentPath }: { locale: Locale; currentPat
     <header className="site-header">
       <div className="header-inner">
         <Link className="brand" href={"/" + locale} aria-label="PISIMAI TECHNOLOGY home">
-          <span className="brand-logo-wrap footer-brand-logo-wrap"><Image src="/brand/pisimai-horizontal-dark.svg" alt="PISIMAI TECHNOLOGY" width={270} height={58} priority className="brand-logo" suppressHydrationWarning /></span>
+          <span className="brand-logo-wrap footer-brand-logo-wrap"><BrandLogo /></span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {items.map(([key, href]) => {
