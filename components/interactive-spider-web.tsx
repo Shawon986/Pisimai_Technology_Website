@@ -25,7 +25,8 @@ const rings = [0.18, 0.31, 0.44, 0.57, 0.70, 0.83, 0.96].map((scale) =>
     const next = spokes[(index + 1) % SPOKE_COUNT];
     const start = point(spoke.angle, scale);
     const end = point(next.angle, scale);
-    const middleAngle = (spoke.angle + next.angle) / 2;
+    const nextAngle = index === SPOKE_COUNT - 1 ? next.angle + Math.PI * 2 : next.angle;
+    const middleAngle = (spoke.angle + nextAngle) / 2;
     const control = point(middleAngle, scale * 0.88);
     return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} Q ${control.x.toFixed(1)} ${control.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
   })
