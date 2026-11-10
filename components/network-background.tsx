@@ -21,6 +21,8 @@ export function NetworkBackground() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const touchLayout = window.matchMedia("(hover: none), (max-width: 760px)").matches;
     const animateEnabled = !reducedMotion && !touchLayout;
+    const lowPowerDevice = (navigator.hardwareConcurrency || 8) <= 4;
+    const maxPoints = lowPowerDevice ? 40 : 52;
     let points: NetworkPoint[] = [];
     let width = 0;
     let height = 0;
@@ -31,10 +33,10 @@ export function NetworkBackground() {
     let pixelRatio = 1;
 
     const createPoints = () => {
-      const count = Math.max(26, Math.min(56, Math.round(width / 22)));
+      const count = Math.max(24, Math.min(maxPoints, Math.round(width / 24)));
       points = Array.from({ length: count }, (_, index) => {
         const angle = Math.random() * Math.PI * 2;
-        const speed = 0.1 + Math.random() * 0.14;
+        const speed = (0.1 + Math.random() * 0.14) * 1.28;
         return {
           x: Math.random() * width,
           y: Math.random() * height,
@@ -49,7 +51,8 @@ export function NetworkBackground() {
       const rect = canvas.getBoundingClientRect();
       width = rect.width;
       height = rect.height;
-      pixelRatio = Math.min(window.devicePixelRatio || 1, touchLayout ? 1 : 1.15);
+      // A 1x backing store avoids expensive high-DPI canvas overdraw in this large hero.
+      pixelRatio = 1;
       canvas.width = Math.max(1, Math.round(width * pixelRatio));
       canvas.height = Math.max(1, Math.round(height * pixelRatio));
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
@@ -122,7 +125,7 @@ export function NetworkBackground() {
     const animate = (time: number) => {
       if (!running) return;
 
-      // A steady 40fps cadence keeps motion fluid without repainting at full display refresh.
+      // Keep a steady 40fps ceiling while allowing the particles to travel slightly faster.
       if (lastFrame && time - lastFrame < 25) {
         frame = window.requestAnimationFrame(animate);
         return;
