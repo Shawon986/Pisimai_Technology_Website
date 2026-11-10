@@ -183,7 +183,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <div className="blueprint-node blueprint-node-a"><i /><span>IDEA</span></div>
               <div className="blueprint-node blueprint-node-b"><i /><span>ENGINEERING</span></div>
               <div className="blueprint-node blueprint-node-c"><i /><span>OUTCOME</span></div>
-              <div className="blueprint-center"><span>LET'S BUILD</span><b>↗</b></div>
+              <div className="blueprint-center"><span>LET&apos;S BUILD</span><b>↗</b></div>
             </div>
             <div className="contact-visual-bottom"><span>FROM CHALLENGE TO POSSIBILITY</span><span>PST / 04</span></div>
           </div>
