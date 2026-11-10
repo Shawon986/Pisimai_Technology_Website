@@ -284,7 +284,25 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const page = pages[slug.join("/")];
   if (!page) return {};
   const content = page[rawLocale];
-  return { title: content.title, description: content.intro, alternates: { languages: { en: "/en/" + slug.join("/"), "zh-CN": "/zh/" + slug.join("/") } } };
+  const localizedPath = "/" + rawLocale + "/" + slug.join("/");
+  return {
+    title: content.title,
+    description: content.intro,
+    alternates: {
+      canonical: localizedPath,
+      languages: {
+        en: "/en/" + slug.join("/"),
+        "zh-CN": "/zh/" + slug.join("/")
+      }
+    },
+    openGraph: {
+      type: "website",
+      locale: rawLocale === "zh" ? "zh_CN" : "en_US",
+      url: localizedPath,
+      title: content.title,
+      description: content.intro
+    }
+  };
 }
 export default async function ContentPage({ params }: { params: Promise<{ locale: string; slug: string[] }> }) {
   const { locale: rawLocale, slug } = await params;
