@@ -49,7 +49,7 @@ export function NetworkBackground() {
       points = Array.from({ length: count }, (_, index) => {
         const angle = Math.random() * Math.PI * 2;
         // Faster visible drift without adding more particles or expensive effects.
-        const speed = 0.24 + Math.random() * 0.2;
+        const speed = 0.55 + Math.random() * 0.4;
         return {
           x: Math.random() * width,
           y: Math.random() * height,
