@@ -5365,3 +5365,26 @@ body { overscroll-behavior-y: contain; }
     box-shadow: none !important;
   }
 }
+
+
+/* Hard-remove any remaining rectangular shadow or clipped panel treatment on the hero visual. */
+.hero-section.tech-hero > .tech-hero-visual,
+.hero-section.tech-hero > .tech-hero-visual::before,
+.hero-section.tech-hero > .tech-hero-visual::after {
+  box-shadow: none !important;
+}
+.hero-section.tech-hero > .tech-hero-visual {
+  filter: none !important;
+  outline: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+.hero-section.tech-hero > .tech-hero-visual::after {
+  display: none !important;
+}
+.hero-section.tech-hero > .tech-hero-visual::before {
+  background: radial-gradient(ellipse at 52% 48%, rgba(22, 137, 205, .12), transparent 62%) !important;
+}
