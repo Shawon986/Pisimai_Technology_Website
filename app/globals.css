@@ -3191,3 +3191,13 @@ html { scroll-padding-top: 0; }
   }
 }
 
+/* Pause decorative motion only while its containing section is well outside the viewport. */
+[data-motion-paused],
+[data-motion-paused] *,
+[data-motion-paused]::before,
+[data-motion-paused]::after,
+[data-motion-paused] *::before,
+[data-motion-paused] *::after {
+  animation-play-state: paused !important;
+}
+
