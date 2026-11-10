@@ -38,7 +38,7 @@ export function SiteFooter({ locale, currentPath }: { locale: Locale; currentPat
         <div className="footer-connect-block">
           <span className="footer-column-label">{locale === "zh" ? "开启交流" : "LET'S CONNECT"}</span>
           <h2>{locale === "zh" ? "让我们探讨下一步。" : "Let's explore what's possible."}</h2>
-          <Link className="footer-contact-link" href={"/" + locale + "/contact"}>
+          <Link className="footer-contact-link" href={"/" + locale + "/contact#contact-form"}>
             {t.nav.contact}<span aria-hidden="true">↗</span>
           </Link>
         </div>
