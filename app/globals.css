@@ -2967,3 +2967,74 @@ html { scroll-padding-top: 0; }
 @keyframes integration-packet-old{0%,100%{translate:0 0;opacity:0}18%{opacity:1}78%{translate:28px 18px;opacity:1}90%{opacity:0}}
 @media(max-width:760px){.scene-service-lab{inset:17% 0 12%;transform:scale(.9)}.lab-module{width:39%;height:32%;min-height:76px}.lab-module-cap{font-size:6px;left:7px;top:6px}.lab-module small{font-size:5px;left:7px;bottom:9px}.lab-chip{scale:.8}.scene-about-campus{inset:12% -2% 7%;transform:scale(.88)}.campus-building span{height:5px;margin:7px 8px 0}.campus-lift{width:10px}}
 @media(prefers-reduced-motion:reduce){.lab-chip b,.lab-data-stream,.campus-building span,.campus-skyline-light,.campus-lift,.campus-signal,.service-art-software .software-window,.service-art-software .software-content b,.service-art-software .software-cursor,.service-art-integration .integration-line,.service-art-integration .integration-hub,.service-art-integration .integration-node,.service-art-integration .integration-packet{animation:none!important;transition:none!important}}
+
+
+/* Homepage service illustration refresh: a real product dashboard and a humanoid robotics head. */
+.service-art-software { --art-accent:#76aaff; }
+.svc-software-window {
+  position:relative;z-index:2;width:min(194px,86%);height:116px;overflow:hidden;
+  border:1px solid #8dbbff80;border-radius:8px;
+  background:linear-gradient(145deg,#10223b,#071321 78%);
+  box-shadow:0 16px 35px #0009,0 0 28px #438dff25,inset 0 1px #e3f3ff26;
+  transform:perspective(650px) rotateY(-9deg) rotateX(3deg);
+  animation:svc-software-float 6.8s ease-in-out infinite;
+}
+.svc-software-top {height:17px;display:flex;align-items:center;justify-content:space-between;padding:0 7px;background:linear-gradient(90deg,#1b3b61,#122640);border-bottom:1px solid #9bcaff26}
+.svc-software-brand {display:flex;align-items:center;gap:4px;color:#b9d4f1;font:5px "JetBrains Mono",monospace;letter-spacing:.06em}
+.svc-software-brand i {width:5px;height:5px;border-radius:2px;background:#48dff1;box-shadow:0 0 7px #48dff1}
+.svc-software-dots {display:flex;gap:3px}.svc-software-dots i{width:3px;height:3px;border-radius:50%;background:#729bc6}
+.svc-software-sidebar {position:absolute;top:17px;bottom:0;left:0;width:25px;display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:10px;background:#0a1a2d;border-right:1px solid #82b9f522}
+.svc-software-sidebar b {width:10px;height:10px;border-radius:3px;background:#397bff;box-shadow:0 0 9px #397bff66}
+.svc-software-sidebar i {width:8px;height:2px;border-radius:2px;background:#6486aa}
+.svc-software-main {position:absolute;left:33px;right:8px;top:24px;bottom:6px}
+.svc-software-heading {display:flex;align-items:center;justify-content:space-between;color:#e0efff}
+.svc-software-heading b {font-size:7px;font-weight:600}.svc-software-heading span{color:#8faac9;font:5px "JetBrains Mono",monospace}
+.svc-software-metrics {display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:6px}
+.svc-software-metrics i {position:relative;display:flex;flex-direction:column;gap:2px;padding:4px 4px 3px;border:1px solid #81b5ed25;border-radius:3px;background:linear-gradient(145deg,#1a3858aa,#102139)}
+.svc-software-metrics b {color:#e5f4ff;font:600 8px "JetBrains Mono",monospace}.svc-software-metrics small{color:#7f9fbe;font:4px "JetBrains Mono",monospace;letter-spacing:.06em}
+.svc-software-metrics em {position:absolute;right:4px;top:5px;width:3px;height:3px;border-radius:50%;background:#54e3d0;box-shadow:0 0 6px #54e3d0}
+.svc-software-chart {margin-top:5px;padding:4px 5px 3px;border:1px solid #81b5ed24;border-radius:3px;background:#0b1b2d}
+.svc-software-chart>span {display:block;color:#8baaca;font:4px "JetBrains Mono",monospace;letter-spacing:.1em}
+.svc-software-chart>div {height:24px;display:flex;align-items:end;gap:4px;padding:3px 2px 0;border-bottom:1px solid #7da8d526;background:repeating-linear-gradient(0deg,transparent 0 7px,#83baff0b 8px 8.5px)}
+.svc-software-chart i {flex:1;min-width:3px;border-radius:2px 2px 0 0;background:linear-gradient(0deg,#3474d7,#6edff2);opacity:.8;transform-origin:bottom;animation:svc-software-chart-update 4.8s ease-in-out infinite}
+.svc-software-chart i:nth-child(3n){animation-delay:-1.2s}.svc-software-chart i:nth-child(3n + 1){animation-delay:-2.4s}
+.svc-software-activity {display:flex;align-items:center;gap:4px;margin-top:4px;height:5px}
+.svc-software-activity i {width:4px;height:4px;border-radius:50%;background:#54e3d0;box-shadow:0 0 5px #54e3d0}
+.svc-software-activity span {height:2px;width:19px;border-radius:2px;background:#5e80a5}.svc-software-activity span:nth-of-type(2){width:12px}.svc-software-activity span:nth-of-type(3){width:16px}
+.svc-software-activity b {margin-left:auto;color:#65dfce;font:4px "JetBrains Mono",monospace;letter-spacing:.08em}
+.svc-software-cursor {position:absolute;z-index:4;left:73%;top:61%;width:0;height:0;border-left:6px solid #effaff;border-top:9px solid transparent;border-bottom:1px solid transparent;filter:drop-shadow(0 0 4px #5adcf5);animation:svc-software-pointer 5.6s ease-in-out infinite}
+.svc-software-glow {position:absolute;z-index:1;width:150px;height:70px;border-radius:50%;background:#397bff25;filter:blur(22px);pointer-events:none}
+
+/* Robotics visual: a front-facing machined humanoid head with optical sensors and articulated jaw. */
+.service-art-robotics {--robot-metal:#667d9c;--robot-edge:#b9cce0;isolation:isolate}
+.svc-robot-head {position:relative;z-index:2;width:104px;height:112px;filter:drop-shadow(0 13px 15px #0009);transform:perspective(520px) rotateY(-8deg);animation:svc-robot-idle 7s ease-in-out infinite}
+.svc-robot-cranium {position:absolute;left:18px;top:4px;width:68px;height:75px;border:1px solid #c4d8e9;border-radius:47% 47% 35% 35% / 43% 43% 30% 30%;background:linear-gradient(110deg,#25364c 0%,#a8b8ca 18%,#425975 36%,#17283d 61%,#8297b0 82%,#24374e 100%);box-shadow:inset 5px 2px 8px #e4f4ff50,inset -7px -6px 12px #020b18a8,0 0 0 3px #7894b326}
+.svc-robot-cranium:before {content:"";position:absolute;left:10px;right:10px;top:8px;height:28px;border-radius:50%;border-top:1px solid #e3f5ff9c;background:linear-gradient(110deg,#ffffff12,transparent 55%);transform:rotate(-7deg)}
+.svc-robot-brow {position:absolute;z-index:4;left:20px;top:40px;width:64px;height:14px;border-top:3px solid #d0e0ed;border-bottom:1px solid #17263a;border-radius:50% 50% 22% 22%;background:linear-gradient(180deg,#8195ac,#283d55);clip-path:polygon(0 0,100% 0,88% 100%,58% 65%,50% 100%,42% 65%,12% 100%)}
+.svc-robot-eye {position:absolute;z-index:5;top:48px;width:23px;height:12px;border:1px solid #a9c7df;border-radius:55% 45% 50% 50%;background:linear-gradient(180deg,#071727,#142d43);box-shadow:inset 0 2px 4px #000b,0 1px 0 #d4e6f455;overflow:hidden}
+.svc-robot-eye-left {left:23px;transform:skewY(5deg)}.svc-robot-eye-right{right:23px;transform:skewY(-5deg)}
+.svc-robot-eye i {position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:#73efff;transform:translate(-50%,-50%);box-shadow:0 0 5px 2px #49dff5,0 0 12px #49dff5;animation:svc-robot-eye-scan 4.2s ease-in-out infinite}
+.svc-robot-nose {position:absolute;z-index:5;left:48px;top:58px;width:9px;height:17px;border-left:2px solid #c0d0df;border-right:2px solid #344d66;background:linear-gradient(90deg,#1a2c40,#91a6bc,#263a50);clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 78%)}
+.svc-robot-cheek {position:absolute;z-index:4;top:61px;width:18px;height:21px;border:1px solid #a9bed2;border-radius:5px 9px 7px 5px;background:linear-gradient(135deg,#9baec2,#344a62 55%,#17283c);box-shadow:inset 0 1px 3px #effaff55}
+.svc-robot-cheek-left {left:15px;transform:skewY(10deg)}.svc-robot-cheek-right{right:15px;transform:skewY(-10deg) scaleX(-1)}
+.svc-robot-jaw {position:absolute;z-index:6;left:28px;top:72px;width:48px;height:26px;border:1px solid #bdcfe0;border-radius:5px 5px 17px 17px;background:linear-gradient(100deg,#263a50,#9aadc0 42%,#263a50);box-shadow:inset 0 2px 5px #effaff38,0 4px 7px #0007;display:flex;justify-content:center;align-items:center;gap:3px;overflow:hidden}
+.svc-robot-jaw i {width:2px;height:10px;border-radius:2px;background:#17283b;box-shadow:1px 0 #d4e5f2}
+.svc-robot-ear {position:absolute;z-index:3;top:43px;width:12px;height:28px;border:1px solid #c0d2e2;border-radius:5px;background:linear-gradient(90deg,#1c3045,#8ea4ba,#283e56);box-shadow:0 0 8px #8cb8d42b}
+.svc-robot-ear-left {left:9px}.svc-robot-ear-right{right:9px}
+.svc-robot-ear i {position:absolute;left:3px;top:7px;width:4px;height:12px;border:1px solid #b9efff;border-radius:3px;background:#183e55;box-shadow:0 0 5px #5bdff4}
+.svc-robot-neck {position:absolute;z-index:1;left:37px;bottom:0;width:30px;height:17px;border:1px solid #8298b0;border-radius:2px 2px 7px 7px;background:repeating-linear-gradient(180deg,#8195a9 0 2px,#263b52 3px 5px);box-shadow:0 5px 8px #0008}
+.svc-robot-scan {position:absolute;z-index:7;left:17px;right:17px;top:45px;height:1px;background:#8ff6ff;box-shadow:0 0 8px 2px #52dff4;opacity:0;animation:svc-robot-scan 5.5s ease-in-out infinite}
+.svc-robot-status {position:absolute;z-index:1;right:5%;bottom:13px;color:#a7b9d2;font:5px "JetBrains Mono",monospace;letter-spacing:.13em}
+@keyframes svc-software-float {0%,100%{transform:perspective(650px) rotateY(-9deg) rotateX(3deg) translateY(2px)}50%{transform:perspective(650px) rotateY(-9deg) rotateX(3deg) translateY(-3px)}}
+@keyframes svc-software-chart-update {0%,100%{filter:brightness(.8);scale:1 .82}48%,62%{filter:brightness(1.35);scale:1 1.06}}
+@keyframes svc-software-pointer {0%,12%,100%{translate:0 0;opacity:0}20%{opacity:1}42%{translate:-26px -12px}65%{translate:-45px 8px}82%{translate:-12px 15px;opacity:1}92%{opacity:0}}
+@keyframes svc-robot-idle {0%,100%{transform:perspective(520px) rotateY(-8deg) rotateZ(-.5deg) translateY(1px)}50%{transform:perspective(520px) rotateY(5deg) rotateZ(.5deg) translateY(-2px)}}
+@keyframes svc-robot-eye-scan {0%,100%{translate:-2px 0;opacity:.8}50%{translate:2px 0;opacity:1}}
+@keyframes svc-robot-scan {0%,16%,100%{top:43px;opacity:0}25%{opacity:.8}72%{top:84px;opacity:.35}82%{opacity:0}}
+@media(max-width:760px) {
+  .svc-software-window {width:min(184px,92%);height:110px}
+  .svc-robot-head {scale:.92}
+}
+@media(prefers-reduced-motion:reduce) {
+  .svc-software-window,.svc-software-chart i,.svc-software-cursor,.svc-robot-head,.svc-robot-eye i,.svc-robot-scan {animation:none!important}
+}
