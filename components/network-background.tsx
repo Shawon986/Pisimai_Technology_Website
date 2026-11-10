@@ -27,8 +27,8 @@ export function NetworkBackground() {
     if (!canvas || !context) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const touchLayout = window.matchMedia("(hover: none), (max-width: 760px)").matches;
-    const animateEnabled = !reducedMotion && !touchLayout;
+    // Keep the same animated network on phones and desktop; only honor the OS reduced-motion preference.
+    const animateEnabled = !reducedMotion;
     const lowPowerDevice = (navigator.hardwareConcurrency || 8) <= 4;
     const maxPoints = lowPowerDevice ? 32 : 44;
     const maxDistance = 154;
