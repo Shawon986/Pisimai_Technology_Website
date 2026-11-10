@@ -1813,3 +1813,123 @@ body{background:#080e1b}
 @media (prefers-reduced-motion: reduce) {
   .service-visual-orbit { animation: none !important; }
 }
+
+
+/* Four capability illustrations: each visual tells the story of its title. */
+.service-visual {
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 52%, rgba(29, 113, 157, .15), transparent 66%),
+    linear-gradient(135deg, rgba(14, 31, 52, .55), rgba(7, 16, 29, .3));
+}
+.service-art {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 112px;
+  display: grid;
+  place-items: center;
+  perspective: 600px;
+}
+.service-art-ai { --art-accent: #62e8f4; }
+.service-art-software { --art-accent: #7ca8ff; }
+.service-art-robotics { --art-accent: #a895ff; }
+.service-art-integration { --art-accent: #63e4d0; }
+
+/* 01 — AI: neural intelligence core with connected, active nodes. */
+.ai-core {
+  position: absolute;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border: 1px solid rgba(104, 235, 247, .85);
+  border-radius: 13px;
+  transform: rotate(45deg);
+  background: radial-gradient(circle, rgba(61, 210, 235, .28), rgba(10, 34, 57, .94) 72%);
+  box-shadow: 0 0 24px rgba(54, 217, 242, .28), inset 0 0 16px rgba(54, 217, 242, .16);
+  animation: ai-core-breathe 3.8s ease-in-out infinite;
+}
+.ai-core i { width: 4px; height: 4px; border-radius: 50%; background: #d8fcff; box-shadow: 0 0 8px #55e8f7; }
+.ai-orbit { position: absolute; width: 116px; height: 52px; border: 1px solid rgba(87, 218, 240, .46); border-radius: 50%; transform: rotate(-28deg); }
+.ai-orbit-two { width: 84px; height: 92px; border-color: rgba(91, 145, 255, .42); transform: rotate(42deg); }
+.ai-node { position: absolute; z-index: 4; width: 7px; height: 7px; border: 1px solid #b9f8ff; border-radius: 50%; background: #4bdff0; box-shadow: 0 0 12px rgba(75, 223, 240, .8); }
+.ai-node-one { top: 22%; left: 35%; }.ai-node-two { top: 34%; right: 27%; }.ai-node-three { bottom: 21%; left: 31%; }.ai-node-four { bottom: 25%; right: 34%; }
+.ai-link { position: absolute; z-index: 1; height: 1px; width: 34px; background: linear-gradient(90deg, transparent, rgba(99, 226, 244, .8), transparent); transform-origin: left center; }
+.ai-link-one { top: 33%; left: 37%; transform: rotate(26deg); }.ai-link-two { top: 57%; left: 34%; transform: rotate(-34deg); }.ai-link-three { top: 39%; right: 28%; transform: rotate(128deg); }
+
+/* 02 — Software: a product interface with code, layout and live cursor. */
+.software-window {
+  position: relative;
+  width: 154px;
+  height: 82px;
+  overflow: hidden;
+  border: 1px solid rgba(120, 166, 255, .62);
+  border-radius: 7px;
+  background: linear-gradient(145deg, rgba(19, 39, 68, .98), rgba(7, 17, 32, .98));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .28), 0 0 22px rgba(75, 126, 255, .13);
+  transform: rotateX(8deg) rotateY(-10deg);
+  animation: software-window-float 6s ease-in-out infinite;
+}
+.software-bar { height: 17px; display: flex; align-items: center; gap: 4px; padding: 0 7px; border-bottom: 1px solid rgba(120, 166, 255, .22); background: rgba(70, 113, 182, .13); }
+.software-bar i { width: 4px; height: 4px; border-radius: 50%; background: #81aaff; }
+.software-bar span { margin-left: auto; color: rgba(191, 211, 255, .58); font: 5px/1 ui-monospace, monospace; letter-spacing: .12em; }
+.software-sidebar { position: absolute; top: 17px; bottom: 0; left: 0; width: 25px; display: flex; flex-direction: column; gap: 8px; align-items: center; padding-top: 10px; border-right: 1px solid rgba(120, 166, 255, .17); background: rgba(56, 91, 147, .1); }
+.software-sidebar i { width: 9px; height: 2px; border-radius: 2px; background: rgba(120, 166, 255, .55); }
+.software-content { position: absolute; top: 29px; left: 37px; right: 10px; height: 45px; }
+.software-content b { display: block; width: 45%; height: 3px; margin-bottom: 5px; border-radius: 2px; background: #7baaff; opacity: .8; }
+.software-content b:nth-child(2) { width: 68%; opacity: .42; }.software-content b:nth-child(3) { width: 34%; opacity: .3; }
+.software-content span { display: inline-block; width: 23px; height: 13px; margin: 2px 5px 0 0; border: 1px solid rgba(105, 161, 255, .5); border-radius: 2px; background: rgba(64, 119, 218, .13); }
+.software-content em { position: absolute; right: 3px; bottom: 1px; width: 23px; height: 15px; border: 1px solid rgba(112, 228, 246, .55); border-radius: 2px; background: linear-gradient(135deg, rgba(76, 208, 234, .2), transparent); }
+.software-cursor { position: absolute; right: 24px; bottom: 15px; width: 7px; height: 10px; border-left: 1px solid #d4f8ff; border-bottom: 1px solid #d4f8ff; transform: skew(-22deg) rotate(-45deg); filter: drop-shadow(0 0 4px #71dff4); animation: software-cursor-blink 1.8s steps(2, start) infinite; }
+.software-bracket { position: absolute; width: 14px; height: 14px; border-color: rgba(112, 228, 246, .7); border-style: solid; }
+.software-bracket-one { top: 18px; left: calc(50% - 88px); border-width: 1px 0 0 1px; }.software-bracket-two { right: calc(50% - 88px); bottom: 16px; border-width: 0 1px 1px 0; }
+
+/* 03 — Robotics: articulated industrial arm, joints and end effector. */
+.service-art-robotics { transform: translateY(3px); }
+.robot-base { position: absolute; bottom: 17px; left: calc(50% - 42px); width: 84px; height: 10px; border: 1px solid rgba(164, 148, 255, .65); border-radius: 3px; background: linear-gradient(180deg, rgba(125, 111, 220, .4), rgba(20, 25, 52, .95)); box-shadow: 0 5px 12px rgba(0,0,0,.28); }
+.robot-base:after { content: ""; position: absolute; left: 8px; right: 8px; bottom: -4px; height: 3px; background: rgba(133, 117, 240, .32); }
+.robot-arm { position: absolute; z-index: 2; height: 11px; border: 1px solid rgba(187, 174, 255, .8); border-radius: 4px; background: linear-gradient(180deg, #6663a2, #252b50 55%, #111a32); transform-origin: 5px 50%; box-shadow: 0 0 12px rgba(142, 124, 255, .18); }
+.robot-arm-one { width: 47px; left: calc(50% - 5px); top: 46px; transform: rotate(-132deg); animation: robot-arm-lower 5s ease-in-out infinite; }
+.robot-arm-two { width: 38px; left: calc(50% - 39px); top: 18px; transform: rotate(43deg); animation: robot-arm-upper 5s ease-in-out infinite; }
+.robot-joint { position: absolute; z-index: 4; width: 18px; height: 18px; border: 2px solid #aaa0ff; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d7d0ff, #6159aa 38%, #151c37 72%); box-shadow: 0 0 12px rgba(158, 140, 255, .3); }
+.robot-joint-one { left: calc(50% - 9px); top: 49px; }.robot-joint-two { left: calc(50% - 45px); top: 16px; }.robot-joint-three { left: calc(50% - 59px); top: 31px; width: 12px; height: 12px; }
+.robot-tool { position: absolute; z-index: 5; left: calc(50% - 63px); top: 31px; width: 17px; height: 7px; border: 1px solid #c4baff; border-radius: 2px; background: #4a477b; transform: rotate(43deg); transform-origin: right center; animation: robot-tool-adjust 5s ease-in-out infinite; }
+.robot-tool:after { content: ""; position: absolute; right: -5px; top: -3px; width: 5px; height: 11px; border-right: 1px solid #b5f5ff; border-left: 1px solid #b5f5ff; }
+.robot-spark { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #a9f4ff; box-shadow: 0 0 8px #8eeeff; animation: robot-spark-pulse 2.2s ease-in-out infinite; }
+.robot-spark-one { top: 22px; right: 28%; }.robot-spark-two { bottom: 31px; left: 27%; animation-delay: 1.1s; }
+
+/* 04 — Integration: independent systems connected through one hub. */
+.integration-hub { position: absolute; z-index: 3; width: 39px; height: 39px; display: grid; grid-template-columns: repeat(2, 5px); place-content: center; gap: 4px; border: 1px solid rgba(99, 228, 208, .85); border-radius: 9px; background: radial-gradient(circle, rgba(54, 217, 190, .25), rgba(9, 38, 45, .96)); box-shadow: 0 0 22px rgba(54, 217, 190, .22); transform: rotate(45deg); animation: integration-hub-pulse 4s ease-in-out infinite; }
+.integration-hub i { width: 5px; height: 5px; border-radius: 1px; background: #9df7e9; box-shadow: 0 0 6px rgba(99, 228, 208, .8); }
+.integration-node { position: absolute; z-index: 2; width: 22px; height: 22px; display: grid; place-items: center; border: 1px solid rgba(99, 228, 208, .55); border-radius: 5px; background: rgba(10, 36, 45, .94); box-shadow: 0 0 12px rgba(54, 217, 190, .1); }
+.integration-node i { width: 6px; height: 6px; border-radius: 50%; background: #72ead7; box-shadow: 0 0 7px #72ead7; }
+.integration-node-one { top: 15%; left: calc(50% - 11px); }.integration-node-two { right: 19%; top: calc(50% - 11px); }.integration-node-three { bottom: 15%; left: calc(50% - 11px); }.integration-node-four { left: 19%; top: calc(50% - 11px); }
+.integration-line { position: absolute; z-index: 1; background: rgba(99, 228, 208, .48); transform-origin: center; }
+.integration-line-one,.integration-line-three { width: 1px; height: 30px; left: 50%; }.integration-line-one { top: 20%; }.integration-line-three { bottom: 20%; }
+.integration-line-two,.integration-line-four { width: 34px; height: 1px; top: 50%; }.integration-line-two { right: 24%; }.integration-line-four { left: 24%; }
+.integration-packet { position: absolute; z-index: 4; width: 4px; height: 4px; border-radius: 50%; background: #c2fff5; box-shadow: 0 0 9px #72ead7; }
+.integration-packet-one { left: 50%; top: 22%; animation: integration-flow-vertical 2.8s linear infinite; }.integration-packet-two { left: 24%; top: 50%; animation: integration-flow-horizontal 3.2s linear infinite; }
+
+@keyframes ai-core-breathe { 0%,100% { transform: rotate(45deg) scale(.96); box-shadow: 0 0 16px rgba(54,217,242,.2), inset 0 0 12px rgba(54,217,242,.12); } 50% { transform: rotate(45deg) scale(1.06); box-shadow: 0 0 30px rgba(54,217,242,.42), inset 0 0 18px rgba(54,217,242,.24); } }
+@keyframes software-window-float { 0%,100% { transform: rotateX(8deg) rotateY(-10deg) translateY(1px); } 50% { transform: rotateX(8deg) rotateY(-10deg) translateY(-4px); } }
+@keyframes software-cursor-blink { 0%,45% { opacity: 1; } 46%,100% { opacity: .18; } }
+@keyframes robot-arm-lower { 0%,100% { transform: rotate(-132deg); } 50% { transform: rotate(-119deg); } }
+@keyframes robot-arm-upper { 0%,100% { transform: rotate(43deg); } 50% { transform: rotate(57deg); } }
+@keyframes robot-tool-adjust { 0%,100% { rotate: 0deg; } 50% { rotate: -12deg; } }
+@keyframes robot-spark-pulse { 0%,100% { opacity: .25; scale: .7; } 50% { opacity: 1; scale: 1.5; } }
+@keyframes integration-hub-pulse { 0%,100% { scale: .96; box-shadow: 0 0 15px rgba(54,217,190,.16); } 50% { scale: 1.06; box-shadow: 0 0 27px rgba(54,217,190,.34); } }
+@keyframes integration-flow-vertical { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(42px); opacity: 0; } }
+@keyframes integration-flow-horizontal { 0% { transform: translateX(0); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateX(45px); opacity: 0; } }
+
+@media (max-width: 760px) {
+  .service-art { min-height: 104px; }
+  .software-window { transform: scale(.92) rotateX(8deg) rotateY(-10deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-art *, .service-art *::before, .service-art *::after { animation: none !important; }
+}
