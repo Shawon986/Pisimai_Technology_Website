@@ -67,6 +67,14 @@ export function InteractiveSpiderWeb() {
           <stop offset="100%" stopColor="#72eaff" stopOpacity="0" />
         </radialGradient>
       </defs>
+      <rect
+        className="spider-web-cursor-glow"
+        x="0"
+        y="0"
+        width="600"
+        height="440"
+        fill="url(#spider-web-cursor-glow)"
+      />
       <g className="spider-web-reactive">
         <g className="spider-web-strands">
           {spokes.map((spoke, index) => (
@@ -89,14 +97,6 @@ export function InteractiveSpiderWeb() {
           <circle className="spider-web-center" cx={CENTER_X} cy={CENTER_Y} r="4" />
         </g>
       </g>
-      <rect
-        className="spider-web-cursor-glow"
-        x="0"
-        y="0"
-        width="600"
-        height="440"
-        fill="url(#spider-web-cursor-glow)"
-      />
     </svg>
   );
 }
