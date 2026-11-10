@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return {
-    title: locale === "zh" ? "智能科技与工程创新" : "Intelligent Technology & Engineering",
+    title: locale === "zh" ? "智能科技与工程创新" : "PISIMAI TECHNOLOGY | Intelligent Systems & Engineering",
     description: copy[locale].description,
     alternates: { languages: { en: "/en", "zh-CN": "/zh" } }
   };
@@ -24,7 +24,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <>
       <SiteHeader locale={locale} />
       <main>
-        <section className="hero-section" id="home">
+        <section className="hero-section tech-hero" id="home">
           <div className="hero-grid" aria-hidden="true" />
           <div className="hero-vignette" aria-hidden="true" />
           <div className="hero-copy">
@@ -41,43 +41,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </div>
 
-          <div className="intelligence-stage">
-            <div className="hero-scene" role="img" aria-label={locale === "zh" ? "精密钛金属与光学晶体构成的沉浸式智能工程装置" : "A cinematic 3D precision-engineered intelligence installation in titanium, glass and optical crystal"}>
-              <div className="scene-backdrop" />
-              <div className="scene-lightbeam scene-lightbeam-a" />
-              <div className="scene-lightbeam scene-lightbeam-b" />
-              <div className="scene-floor" />
-              <div className="scene-floor-reflection" />
-              <div className="installation-shadow" />
-              <div className="installation">
-                <div className="installation-ring ring-outer"><i /><i /><i /><i /></div>
-                <div className="installation-ring ring-inner" />
-                <div className="installation-bridge bridge-left" />
-                <div className="installation-bridge bridge-right" />
-                <div className="installation-spine" />
-                <div className="crystal-housing">
-                  <div className="crystal-side crystal-side-left" />
-                  <div className="crystal-side crystal-side-right" />
-                  <div className="crystal-face crystal-face-front" />
-                  <div className="crystal-core" />
-                  <div className="crystal-highlight" />
-                </div>
-                <div className="precision-collar collar-top" />
-                <div className="precision-collar collar-bottom" />
-                <div className="installation-base">
-                  <span /><span /><span />
-                </div>
-                <div className="fiber-trail fiber-trail-a" />
-                <div className="fiber-trail fiber-trail-b" />
-                <div className="scene-spark spark-a" />
-                <div className="scene-spark spark-b" />
-                <div className="scene-spark spark-c" />
-              </div>
-              <div className="scene-readout readout-a"><span>01 / CORE</span><i />OPTICAL ENGINE</div>
-              <div className="scene-readout readout-b">PST <i /> INTELLIGENCE SYSTEMS</div>
-              <div className="scene-scan" />
+          <div className="tech-hero-visual" role="img" aria-label={locale === "zh" ? "人工智能、软件、自动化与系统集成的互联技术架构示意" : "An interconnected technology architecture showing AI, software, automation and system integration"}>
+            <div className="visual-topline"><span> PISIMAI / SYSTEMS LAB</span><span><i /> {locale === "zh" ? "系统在线" : "SYSTEMS ONLINE"}</span></div>
+            <div className="architecture-grid" aria-hidden="true" />
+            <div className="architecture-orbit orbit-a" aria-hidden="true" />
+            <div className="architecture-orbit orbit-b" aria-hidden="true" />
+            <div className="architecture-connectors" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+            <div className="architecture-core">
+              <div className="core-bracket bracket-a" /><div className="core-bracket bracket-b" />
+              <div className="core-symbol"><span /><span /><span /><span /></div>
+              <strong>INTELLIGENCE</strong><small>CORE / 01</small>
             </div>
-            <div className="stage-coordinate coordinate-bottom"><span>AI</span><i /> <span>SOFTWARE</span><i /> <span>INTEGRATION</span></div>
+            <div className="architecture-module module-ai"><span className="module-icon ai-icon">AI</span><div><b>AI SYSTEMS</b><small>Models · APIs · Agents</small></div><i className="module-status" /></div>
+            <div className="architecture-module module-software"><span className="module-icon software-icon"><i /><i /><i /></span><div><b>SOFTWARE</b><small>Web · Platforms · Apps</small></div><i className="module-status" /></div>
+            <div className="architecture-module module-robotics"><span className="module-icon robotics-icon"><i /><i /></span><div><b>ROBOTICS</b><small>Control · Automation</small></div><i className="module-status" /></div>
+            <div className="architecture-module module-integration"><span className="module-icon integration-icon"><i /><i /><i /><i /></span><div><b>INTEGRATION</b><small>Devices · Data · Systems</small></div><i className="module-status" /></div>
+            <div className="architecture-data data-a"><span>01</span><i /> INPUT STREAM</div>
+            <div className="architecture-data data-b"><span>04</span><i /> CONNECTED LAYERS</div>
+            <div className="visual-bottomline"><span>ENGINEERED TO WORK TOGETHER</span><span> PST — 001</span></div>
           </div>
           <div className="hero-index"><span>01</span><i />04</div>
           <div className="hero-side-label">{locale === "zh" ? "智能 · 工程 · 集成" : "INTELLIGENCE / ENGINEERING / INTEGRATION"}</div>
@@ -102,7 +83,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <article className="service-card" key={service.number}>
                 <div className="service-card-top"><span className="service-number">{service.number}</span><span className="service-index">{["AI","DEV","ROB","SYS"][index]}</span></div>
                 <div className={`service-visual service-visual-${index + 1}`} aria-hidden="true">
-                  <span /><span /><span /><span /><i />
+                  <div className="service-visual-frame"><span /><span /><span /><i /><b /></div>
+                  <div className="service-visual-orbit"><i /><i /><i /></div>
                 </div>
                 <div className="service-card-copy"><h3>{service.title}</h3><p>{service.text}</p></div>
                 <span className="service-arrow" aria-hidden="true">↗</span>
@@ -139,11 +121,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         <section className="about-section section-wrap" id="about">
-          <div className="about-visual" aria-hidden="true">
-            <div className="signal-ribbon signal-ribbon-a" /><div className="signal-ribbon signal-ribbon-b" /><div className="signal-ribbon signal-ribbon-c" />
-            <div className="signal-axis"><i /><i /><i /><i /></div>
-            <div className="signal-bead signal-bead-a" /><div className="signal-bead signal-bead-b" />
-            <span className="signal-caption">INTELLIGENCE IN MOTION</span>
+          <div className="about-visual tech-about-visual" aria-hidden="true">
+            <div className="about-visual-header"><span>CONNECTED ARCHITECTURE</span><span>FIG. 02</span></div>
+            <div className="about-network">
+              <div className="network-line line-one" /><div className="network-line line-two" /><div className="network-line line-three" /><div className="network-line line-four" />
+              <div className="network-node node-center"><span>P</span><small>CORE</small></div>
+              <div className="network-node node-top"><span>AI</span><small>INTELLIGENCE</small></div>
+              <div className="network-node node-left"><span>DEV</span><small>SOFTWARE</small></div>
+              <div className="network-node node-right"><span>SYS</span><small>SYSTEMS</small></div>
+              <div className="network-node node-bottom"><span>IO</span><small>INTEGRATION</small></div>
+              <i className="network-pulse pulse-one" /><i className="network-pulse pulse-two" /><i className="network-pulse pulse-three" />
+            </div>
+            <div className="about-visual-footer"><span>MODULAR BY DESIGN</span><span>CONNECTED BY ENGINEERING</span></div>
           </div>
           <div className="about-copy">
             <p className="section-kicker">{t.aboutLabel}</p>
@@ -154,19 +143,22 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
 
         <section className="contact-section section-wrap" id="contact">
-          <div className="contact-visual" aria-hidden="true">
-          <div className="portal-halo" />
-          <div className="portal-frame portal-frame-back" />
-          <div className="portal-frame portal-frame-mid" />
-          <div className="portal-frame portal-frame-front"><i /><i /><i /><i /></div>
-          <div className="portal-core"><span /></div>
-          <div className="portal-sweep" />
-          <span className="portal-caption">CONNECT / CREATE / ADVANCE</span>
-        </div>
+          <div className="contact-visual tech-contact-visual" aria-hidden="true">
+            <div className="contact-visual-top"><span>PROJECT INTERFACE</span><span>READY / 04</span></div>
+            <div className="contact-blueprint">
+              <div className="blueprint-track track-one" /><div className="blueprint-track track-two" /><div className="blueprint-track track-three" />
+              <div className="blueprint-node blueprint-node-a"><i /><span>IDEA</span></div>
+              <div className="blueprint-node blueprint-node-b"><i /><span>ENGINEERING</span></div>
+              <div className="blueprint-node blueprint-node-c"><i /><span>OUTCOME</span></div>
+              <div className="blueprint-center"><span>LET'S BUILD</span><b>↗</b></div>
+            </div>
+            <div className="contact-visual-bottom"><span>FROM CHALLENGE TO POSSIBILITY</span><span>PST / 04</span></div>
+          </div>
           <div className="contact-copy">
             <p className="section-kicker">{t.contactLabel}</p>
             <h2>{t.contactTitle}</h2>
             <p>{t.contactText}</p>
+            <a className="contact-inline-link" href="mailto:">{t.contactCta}<span aria-hidden="true">↗</span></a>
             <span className="contact-footnote">{t.contactFootnote}</span>
           </div>
           <span className="contact-index">PST / 04</span>
