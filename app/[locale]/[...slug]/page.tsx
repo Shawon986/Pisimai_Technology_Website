@@ -343,7 +343,39 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
             {visualKind === "workflow" && <div className="scene scene-workflow"><div className="flow-track" /><div className="flow-step flow-step-a"><i>01</i><b>DISCOVER</b></div><div className="flow-step flow-step-b"><i>02</i><b>DESIGN</b></div><div className="flow-step flow-step-c"><i>03</i><b>CONNECT</b></div><div className="flow-step flow-step-d"><i>04</i><b>DELIVER</b></div><span className="flow-packet" /></div>}
             {visualKind === "architecture" && <div className="scene scene-about-ecosystem"><div className="about-ecosystem-orbit orbit-a" /><div className="about-ecosystem-orbit orbit-b" /><div className="about-ecosystem-core"><span>P</span><small>PISIMAI</small></div><div className="about-ecosystem-node node-ai"><b>AI</b><span>INTELLIGENCE</span></div><div className="about-ecosystem-node node-software"><b>SW</b><span>SOFTWARE</span></div><div className="about-ecosystem-node node-robotics"><b>RO</b><span>ROBOTICS</span></div><div className="about-ecosystem-node node-integration"><b>SI</b><span>INTEGRATION</span></div><i className="about-ecosystem-link link-a" /><i className="about-ecosystem-link link-b" /><i className="about-ecosystem-link link-c" /><i className="about-ecosystem-link link-d" /><div className="about-ecosystem-foot">ONE CONNECTED TECHNOLOGY PARTNER</div></div>}
             {visualKind === "signal" && <div className="scene scene-signal"><div className="signal-envelope"><span /><i /><b /></div><div className="signal-wave signal-wave-a" /><div className="signal-wave signal-wave-b" /><div className="signal-wave signal-wave-c" /><div className="signal-dot" /><span className="signal-status">CHANNEL READY</span></div>}
-            {visualKind === "neural" && <div className="scene scene-neural"><div className="neural-web"><i /><i /><i /><i /><i /><i /><i /><i /><i /><span /><b /><em /></div><div className="neural-pulse" /><span className="neural-label">INFERENCE / ACTIVE</span></div>}
+            {visualKind === "neural" && (
+              <div className="scene scene-neural">
+                <div className="ai-lab-backdrop"><span>MODEL INFERENCE /  GPU CLUSTER</span><i /><i /><i /></div>
+                <div className="ai-server-rack">
+                  <div className="ai-rack-top"><span>PISIMAI</span><b>AI COMPUTE / 01</b></div>
+                  <div className="ai-rack-unit ai-rack-unit-main">
+                    <div className="ai-rack-brand"><i /> INFERENCE NODE <small>H100 / GPU</small></div>
+                    <div className="ai-rack-vents"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
+                    <div className="ai-rack-lights"><i /><i /><i /><i /></div>
+                  </div>
+                  <div className="ai-rack-unit">
+                    <div className="ai-rack-drive"><i /><i /><i /><i /></div>
+                    <div className="ai-rack-vents"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
+                    <div className="ai-rack-lights"><i /><i /><i /></div>
+                  </div>
+                  <div className="ai-rack-unit">
+                    <div className="ai-rack-drive"><i /><i /><i /><i /></div>
+                    <div className="ai-rack-vents"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
+                    <div className="ai-rack-lights"><i /><i /></div>
+                  </div>
+                  <div className="ai-rack-base"><span>COMPUTE</span><span>NETWORK</span><span>STORAGE</span></div>
+                </div>
+                <div className="ai-hologram">
+                  <div className="ai-holo-ring ai-holo-ring-a" /><div className="ai-holo-ring ai-holo-ring-b" />
+                  <div className="ai-holo-core"><span>AI</span><small>MODEL</small></div>
+                  <i className="ai-holo-node ai-holo-node-a" /><i className="ai-holo-node ai-holo-node-b" /><i className="ai-holo-node ai-holo-node-c" /><i className="ai-holo-node ai-holo-node-d" />
+                  <b className="ai-holo-link ai-holo-link-a" /><b className="ai-holo-link ai-holo-link-b" /><b className="ai-holo-link ai-holo-link-c" />
+                </div>
+                <div className="ai-lab-readout ai-lab-readout-a"><span>01</span> LANGUAGE MODELS <i /></div>
+                <div className="ai-lab-readout ai-lab-readout-b"><span>02</span> VISION / API <i /></div>
+                <span className="neural-label">INTELLIGENCE / INFERENCE ACTIVE</span>
+              </div>
+            )}
             {visualKind === "software" && <div className="scene scene-software"><div className="software-window"><div className="software-top"><i /><i /><i /><span>workspace.app</span></div><div className="software-sidebar"><b /><b /><b /><b /></div><div className="software-content"><span /><span /><span /><div /><div /><i /></div></div><div className="software-panel"><b /><b /><b /></div><span className="software-cursor" /></div>}
             {visualKind === "robotics" && <div className="scene scene-robotics"><div className="robot-base" /><div className="robot-joint robot-joint-a" /><div className="robot-arm robot-arm-a" /><div className="robot-joint robot-joint-b" /><div className="robot-arm robot-arm-b" /><div className="robot-joint robot-joint-c" /><div className="robot-tool"><i /><b /></div><div className="robot-floor" /></div>}
             {visualKind === "integration" && <div className="scene scene-integration"><div className="integration-bus" /><div className="integration-hub"><i /><i /><i /><i /></div><div className="integration-port port-a"><b /></div><div className="integration-port port-b"><b /></div><div className="integration-port port-c"><b /></div><div className="integration-port port-d"><b /></div><span className="integration-packet packet-a" /><span className="integration-packet packet-b" /><span className="integration-packet packet-c" /></div>}
