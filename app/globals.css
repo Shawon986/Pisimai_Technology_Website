@@ -4339,3 +4339,28 @@ body { overscroll-behavior-y: contain; }
     height: 182px;
   }
 }
+
+/* Make each homepage capability card a clear, keyboard-accessible link. */
+.service-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.service-card-link:focus-visible {
+  z-index: 2;
+  outline: 2px solid var(--cyan);
+  outline-offset: -4px;
+}
+.service-card-link .service-arrow {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease;
+}
+.service-card-link:hover .service-arrow,
+.service-card-link:focus-visible .service-arrow {
+  transform: translate(3px, -3px);
+}
