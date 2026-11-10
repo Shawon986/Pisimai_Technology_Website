@@ -2194,10 +2194,6 @@ body{background:#080e1b}
 }
 
 
-/* Animate the logo in the HTML layer: SVGs loaded through img are static in many browsers. */
-  50% { opacity: 1; scale: 1.28; }
-}
-
 
 /* Premium wordmark shimmer: the P monogram remains completely still. */
 .brand-logo-wrap::after {
