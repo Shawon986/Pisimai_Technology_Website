@@ -9,7 +9,11 @@ export const metadata: Metadata = {
   title: { default: "PISIMAI TECHNOLOGY | Engineering Tomorrow", template: "%s | PISIMAI TECHNOLOGY" },
   description: "PISIMAI TECHNOLOGY — an international technology partner across AI, software, intelligent automation, and system integration.",
   applicationName: "PISIMAI TECHNOLOGY",
-  icons: { icon: "/brand/pisimai-favicon.svg" },
+  icons: {
+    icon: [{ url: "/brand/pisimai-favicon.svg", type: "image/svg+xml" }],
+    shortcut: ["/brand/pisimai-favicon.svg"],
+    apple: [{ url: "/brand/pisimai-favicon.svg", type: "image/svg+xml" }]
+  },
   openGraph: { type: "website", siteName: "PISIMAI TECHNOLOGY", title: "PISIMAI TECHNOLOGY", description: "Engineering Tomorrow. Empowering Today." },
   robots: { index: true, follow: true }
 };
