@@ -1628,3 +1628,11 @@ body{background:#080e1b}
 .service-visual-orbit i{animation:none!important}
 @keyframes service-orbit-spin{from{rotate:0deg}to{rotate:360deg}}
 @media(prefers-reduced-motion:reduce){.service-visual-orbit{animation:none!important}}
+
+/* Layout resets for the former absolute-positioned contact artwork. */
+.contact-section{display:grid}
+.tech-contact-visual{position:relative;top:auto;right:auto;transform:none;opacity:1;display:block}
+@media(max-width:760px){
+  .contact-section{display:grid}
+  .tech-contact-visual{top:auto;right:auto;transform:none;opacity:1}
+}
