@@ -43,6 +43,36 @@ const pages: Record<string, PageRecord> = {
       ctaLabel: "开启交流", ctaHref: "/contact"
     }
   },
+  technology: {
+    en: {
+      eyebrow: "TECHNOLOGY / ENGINEERING PRINCIPLES",
+      title: "The right technology is the one that works together.",
+      intro: "Our technology perspective is built around interoperability, thoughtful architecture, and practical application. Tools matter—but how they connect matters just as much.",
+      sections: [
+        { title: "Intelligence with purpose", text: "Use AI and intelligent capabilities where they solve a real problem, improve an experience, or make a workflow more useful." },
+        { title: "Software as the connective layer", text: "Build digital platforms and application logic that help people, services, and devices interact clearly." },
+        { title: "Connected systems", text: "Design interfaces and integration paths that allow different technologies to exchange information and coordinate their work." },
+        { title: "Engineering for the environment", text: "Consider security, reliability, performance, maintainability, and the practical conditions in which a solution will operate." }
+      ],
+      ctaTitle: "Explore how the pieces can work together.",
+      ctaText: "Tell us about the environment and the outcome you want to create.",
+      ctaLabel: "Explore our capabilities", ctaHref: "/services"
+    },
+    zh: {
+      eyebrow: "技术 / 工程原则",
+      title: "真正合适的技术，应当彼此协同。",
+      intro: "我们的技术理念围绕互操作性、合理架构与实际应用展开。工具固然重要，但技术之间如何连接同样重要。",
+      sections: [
+        { title: "让智能发挥实际价值", text: "在 AI 能够解决真实问题、改善体验或提升工作流程价值时，合理引入智能能力。" },
+        { title: "软件作为连接层", text: "构建数字平台与应用逻辑，让用户、服务与设备能够清晰地交互。" },
+        { title: "构建互联系统", text: "设计接口与集成路径，让不同技术能够交换信息并协调工作。" },
+        { title: "面向真实环境的工程", text: "综合考虑安全性、可靠性、性能、可维护性以及方案实际运行的环境条件。" }
+      ],
+      ctaTitle: "探索技术如何协同发挥作用。",
+      ctaText: "欢迎介绍您的应用环境与希望实现的成果。",
+      ctaLabel: "探索我们的能力", ctaHref: "/services"
+    }
+  },
   solutions: {
     en: {
       eyebrow: "SOLUTIONS / CONNECTED THINKING",
