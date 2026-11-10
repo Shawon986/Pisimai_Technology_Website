@@ -5780,3 +5780,21 @@ body { overscroll-behavior-y: contain; }
     transform: scale(.9);
   }
 }
+
+/* Shared inline P mark animation — works consistently in mobile browsers. */
+.brand-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.brand-logo-mark {
+  stroke-dasharray: 430;
+  stroke-dashoffset: 430;
+  animation: brand-p-mark-draw 5.2s cubic-bezier(.35,.05,.25,1) .2s infinite !important;
+}
+@keyframes brand-p-mark-draw {
+  0%, 8% { stroke-dashoffset: 430; filter: drop-shadow(0 0 1px rgba(65,220,255,.12)); }
+  38%, 76% { stroke-dashoffset: 0; filter: drop-shadow(0 0 7px rgba(65,220,255,.42)); }
+  88%, 100% { stroke-dashoffset: 430; filter: drop-shadow(0 0 1px rgba(65,220,255,.12)); }
+}
