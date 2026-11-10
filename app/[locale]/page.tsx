@@ -158,7 +158,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="section-kicker">{t.contactLabel}</p>
             <h2>{t.contactTitle}</h2>
             <p>{t.contactText}</p>
-            <a className="contact-inline-link" href="mailto:">{t.contactCta}<span aria-hidden="true">↗</span></a>
             <span className="contact-footnote">{t.contactFootnote}</span>
           </div>
           <span className="contact-index">PST / 04</span>
