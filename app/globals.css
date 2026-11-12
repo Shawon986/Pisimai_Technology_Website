@@ -7055,3 +7055,57 @@ html {
 @media(prefers-reduced-motion:reduce){
  .page-experience-robotics .px-robot-machine *,.page-experience-robotics .px-robot-scan-beam,.page-experience-robotics .px-robot-camera,.page-experience-robotics .px-robot-task-route i,.page-experience-robotics .px-robot-telemetry-bars i{animation:none!important}
 }
+
+
+/* Robotics motion reliability: keep the articulated arm visibly alive in every mode. */
+.page-experience-robotics .px-robot-visual .px-robot-upper-arm{
+  animation:px-arm-idle-shoulder 5.2s ease-in-out infinite;
+  will-change:transform;
+}
+.page-experience-robotics .px-robot-visual .px-robot-forearm{
+  animation:px-arm-idle-elbow 5.2s ease-in-out infinite;
+  will-change:transform;
+}
+.page-experience-robotics .px-robot-visual .px-robot-wrist{
+  animation:px-arm-idle-wrist 5.2s ease-in-out infinite;
+  will-change:transform;
+}
+.page-experience-robotics .px-robot-visual .px-robot-gripper{
+  animation:px-arm-idle-grip 3.6s ease-in-out infinite;
+  transform-origin:8px 12px;
+}
+.page-experience-robotics .px-robot-visual .px-robot-pedestal b{
+  animation:px-robot-live 1.5s ease-in-out infinite;
+}
+@keyframes px-arm-idle-shoulder{
+  0%,100%{transform:rotate(-28deg)}
+  50%{transform:rotate(-8deg)}
+}
+@keyframes px-arm-idle-elbow{
+  0%,100%{transform:rotate(10deg)}
+  50%{transform:rotate(-18deg)}
+}
+@keyframes px-arm-idle-wrist{
+  0%,100%{transform:rotate(-12deg)}
+  50%{transform:rotate(12deg)}
+}
+@keyframes px-arm-idle-grip{
+  0%,100%{transform:rotate(8deg)}
+  50%{transform:rotate(-7deg)}
+}
+/* The requested robotics demo remains animated even when the OS asks for reduced motion,
+   but uses slower, smaller movements rather than abruptly freezing the entire scene. */
+@media(prefers-reduced-motion:reduce){
+  .page-experience-robotics .px-robot-visual .px-robot-upper-arm{animation:px-arm-reduced-shoulder 8s ease-in-out infinite!important}
+  .page-experience-robotics .px-robot-visual .px-robot-forearm{animation:px-arm-reduced-elbow 8s ease-in-out infinite!important}
+  .page-experience-robotics .px-robot-visual .px-robot-wrist{animation:px-arm-reduced-wrist 8s ease-in-out infinite!important}
+  .page-experience-robotics .px-robot-visual .px-robot-gripper{animation:px-arm-idle-grip 7s ease-in-out infinite!important}
+  .page-experience-robotics .px-robot-visual .px-robot-camera,
+  .page-experience-robotics .px-robot-visual .px-robot-scan-beam,
+  .page-experience-robotics .px-robot-visual .px-robot-detection,
+  .page-experience-robotics .px-robot-visual .px-robot-telemetry-bars i,
+  .page-experience-robotics .px-robot-visual .px-robot-task-route i{animation-duration:7s!important}
+}
+@keyframes px-arm-reduced-shoulder{0%,100%{transform:rotate(-28deg)}50%{transform:rotate(-22deg)}}
+@keyframes px-arm-reduced-elbow{0%,100%{transform:rotate(10deg)}50%{transform:rotate(2deg)}}
+@keyframes px-arm-reduced-wrist{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(-6deg)}}
