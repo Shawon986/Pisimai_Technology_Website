@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { NetworkBackground } from "@/components/network-background";
 import { ExhibitionSection } from "@/components/exhibition-section";
+import { CapabilityShowcase } from "@/components/capability-showcase";
 import { copy, isLocale } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -174,6 +175,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="tech-band-lines" aria-hidden="true"><span /><span /><span /><span /><span /></div>
           </div>
         </section>
+
+        <CapabilityShowcase locale={locale} />
 
         <ExhibitionSection locale={locale} />
 
