@@ -6855,3 +6855,115 @@ html {
 @media(prefers-reduced-motion:reduce){
  .px-robot-visual *,.px-robot-modules button,.px-robot-ring-inner{animation:none!important;transition:none!important}
 }
+
+
+/* Robotics control deck — dedicated scene primitives and clear module-specific motion */
+.page-experience-robotics .px-robot-console{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(260px,.88fr);gap:16px;align-items:stretch}
+.page-experience-robotics .px-robot-visual{position:relative;display:block;min-width:0;min-height:410px;overflow:hidden;isolation:isolate;border:1px solid rgba(100,171,207,.24);border-radius:5px;background:radial-gradient(ellipse at 50% 46%,rgba(26,119,153,.25),transparent 46%),linear-gradient(145deg,#0a2035 0%,#071629 65%,#061321 100%)}
+.page-experience-robotics .px-robot-visual:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(120deg,rgba(91,200,222,.035),transparent 38%,rgba(74,142,188,.035));}
+.page-experience-robotics .px-robot-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(92,155,192,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(92,155,192,.09) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at center,#000 12%,transparent 82%)}
+.page-experience-robotics .px-robot-hud{position:absolute;z-index:6;top:15px;left:17px;right:17px;display:flex;align-items:center;gap:12px;padding-bottom:10px;border-bottom:1px solid rgba(113,170,201,.2)}
+.page-experience-robotics .px-robot-hud>span,.page-experience-robotics .px-robot-hud>em{font:8px "JetBrains Mono",monospace;letter-spacing:.12em;color:#90aec4;font-style:normal}
+.page-experience-robotics .px-robot-hud>b{display:flex;align-items:center;gap:6px;margin-left:auto;font:8px "JetBrains Mono",monospace;letter-spacing:.1em;color:#69e0c9;font-weight:500}
+.page-experience-robotics .px-robot-hud>b i{width:5px;height:5px;border-radius:50%;background:#69e0c9;box-shadow:0 0 9px #69e0c9;animation:px-robot-live 1.8s ease-in-out infinite}
+.page-experience-robotics .px-robot-stage{position:absolute;left:50%;top:51%;width:min(76%,340px);height:260px;transform:translate(-50%,-50%);z-index:2}
+.page-experience-robotics .px-robot-orbit{position:absolute;left:50%;top:50%;width:218px;height:218px;border:1px solid rgba(81,196,221,.25);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 17px rgba(67,171,203,.035),0 0 0 42px rgba(67,171,203,.025)}
+.page-experience-robotics .px-robot-orbit-b{width:152px;height:152px;border-style:dashed;border-color:rgba(99,207,222,.22);animation:px-robot-orbit-spin 28s linear infinite}
+.page-experience-robotics .px-robot-camera{position:absolute;z-index:4;left:50%;top:10px;width:64px;height:39px;transform:translateX(-50%);border:1px solid #7cb4c9;border-radius:5px;background:linear-gradient(145deg,#284e68,#102b43);box-shadow:0 0 20px rgba(69,191,218,.18)}
+.page-experience-robotics .px-robot-camera:before{content:"";position:absolute;left:50%;top:-8px;width:25px;height:8px;transform:translateX(-50%);border:1px solid #6ca7bd;border-bottom:0;border-radius:4px 4px 0 0;background:#173750}
+.page-experience-robotics .px-robot-camera i{position:absolute;left:50%;top:50%;width:20px;height:20px;transform:translate(-50%,-50%);border:3px solid #78dce6;border-radius:50%;background:#061827;box-shadow:0 0 0 4px rgba(96,215,228,.1),inset 0 0 7px #55c8dc}
+.page-experience-robotics .px-robot-camera b{position:absolute;right:5px;top:5px;width:4px;height:4px;border-radius:50%;background:#7ce8c9;box-shadow:0 0 6px #7ce8c9}
+.page-experience-robotics .px-robot-camera em{position:absolute;left:50%;bottom:-11px;width:1px;height:10px;background:#6da8be}
+.page-experience-robotics .px-robot-scan-beam{position:absolute;z-index:3;left:12%;right:12%;top:62px;height:1px;opacity:0;background:#75e8ee;box-shadow:0 0 12px 2px rgba(101,223,235,.7);transform:translateY(0)}
+.page-experience-robotics .px-robot-detection{position:absolute;z-index:3;left:65%;top:42%;width:48px;height:48px;opacity:0;border:1px solid #7de9df;box-shadow:0 0 0 7px rgba(86,220,220,.06),inset 0 0 12px rgba(86,220,220,.1)}
+.page-experience-robotics .px-robot-detection:before,.page-experience-robotics .px-robot-detection:after{content:"";position:absolute;background:#7de9df}
+.page-experience-robotics .px-robot-detection:before{left:50%;top:-6px;width:1px;height:60px}.px-robot-detection:after{top:50%;left:-6px;width:60px;height:1px}
+.page-experience-robotics .px-robot-detection i{position:absolute;left:50%;top:50%;width:5px;height:5px;transform:translate(-50%,-50%);border-radius:50%;background:#8df2e6;box-shadow:0 0 10px #8df2e6}
+.page-experience-robotics .px-robot-detection b{position:absolute;left:-1px;top:-14px;white-space:nowrap;font:7px "JetBrains Mono",monospace;color:#8ce8e3;letter-spacing:.08em}
+.page-experience-robotics .px-robot-detection em{position:absolute;right:-32px;bottom:-13px;width:30px;height:1px;background:#69cbd9}
+.page-experience-robotics .px-robot-detection span{position:absolute;right:-38px;bottom:-23px;font:6px "JetBrains Mono",monospace;color:#7fb6c8;white-space:nowrap}
+.page-experience-robotics .px-robot-arm-base{position:absolute;z-index:2;left:50%;bottom:15px;width:100px;height:18px;transform:translateX(-50%);border:1px solid #4b809a;border-radius:4px;background:linear-gradient(#315e78,#102d45);box-shadow:0 8px 18px rgba(0,0,0,.28)}
+.page-experience-robotics .px-robot-arm-base i{position:absolute;left:50%;top:-9px;width:34px;height:12px;transform:translateX(-50%);border-radius:5px 5px 0 0;background:#507e96}
+.page-experience-robotics .px-robot-arm-base b{position:absolute;left:50%;top:-16px;width:16px;height:16px;transform:translateX(-50%);border:3px solid #80d2df;border-radius:50%;background:#15354d}
+.page-experience-robotics .px-robot-joint-arm{position:absolute;z-index:3;left:50%;top:108px;width:15px;height:94px;transform:translateX(-50%);transform-origin:50% 95%;border-radius:8px;background:linear-gradient(90deg,#244b66,#b7d9df 45%,#3d718b);box-shadow:0 0 14px rgba(67,184,211,.17)}
+.page-experience-robotics .px-robot-joint-arm:before{content:"";position:absolute;left:-3px;top:20px;width:21px;height:52px;border-radius:8px;background:linear-gradient(90deg,#2b5874,#8db9c8,#2a526d)}
+.page-experience-robotics .px-robot-joint-arm i,.page-experience-robotics .px-robot-joint-arm b{position:absolute;z-index:2;left:50%;width:23px;height:23px;transform:translateX(-50%);border:4px solid #79c8d9;border-radius:50%;background:#102c45;box-shadow:0 0 0 4px rgba(79,187,211,.08)}
+.page-experience-robotics .px-robot-joint-arm i{top:-8px}.page-experience-robotics .px-robot-joint-arm b{bottom:12px}
+.page-experience-robotics .px-robot-joint-arm em{position:absolute;left:50%;top:-20px;width:6px;height:17px;transform:translateX(-50%);background:#8de5e6;clip-path:polygon(0 0,100% 0,100% 80%,50% 100%,0 80%)}
+.page-experience-robotics .px-robot-task-route{position:absolute;z-index:3;left:10%;right:10%;top:48%;display:flex;align-items:center;justify-content:space-between;opacity:0}
+.page-experience-robotics .px-robot-task-route:before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent,#65dce5,transparent)}
+.page-experience-robotics .px-robot-task-route i{position:relative;width:13px;height:13px;border:1px solid #7be3e8;border-radius:50%;background:#0a2237;box-shadow:0 0 0 5px rgba(82,205,222,.08)}
+.page-experience-robotics .px-robot-telemetry-bars{position:absolute;z-index:3;left:50%;bottom:24px;height:50px;display:flex;align-items:end;gap:5px;transform:translateX(-50%);opacity:0}
+.page-experience-robotics .px-robot-telemetry-bars i{display:block;width:7px;height:25%;background:linear-gradient(180deg,#8aeee0,#328eac);box-shadow:0 0 8px rgba(89,211,218,.24);transform-origin:bottom;animation:px-robot-bar 1s ease-in-out infinite alternate}
+.page-experience-robotics .px-robot-telemetry-bars i:nth-child(2n){animation-delay:.2s}.page-experience-robotics .px-robot-telemetry-bars i:nth-child(3n){animation-delay:.4s}.page-experience-robotics .px-robot-telemetry-bars i:nth-child(4n){animation-delay:.6s}
+.page-experience-robotics .px-robot-data-packets{position:absolute;z-index:4;left:50%;top:50%;width:220px;height:130px;transform:translate(-50%,-50%);opacity:0}
+.page-experience-robotics .px-robot-data-packets i{position:absolute;width:5px;height:5px;border-radius:50%;background:#80e6df;box-shadow:0 0 9px #80e6df;animation:px-robot-packet 2.4s linear infinite}
+.page-experience-robotics .px-robot-data-packets i:nth-child(1){left:0;top:20%}.page-experience-robotics .px-robot-data-packets i:nth-child(2){left:45%;top:90%;animation-delay:.8s}.page-experience-robotics .px-robot-data-packets i:nth-child(3){right:0;top:45%;animation-delay:1.6s}
+.page-experience-robotics .px-robot-readout{position:absolute;z-index:6;left:17px;right:17px;bottom:39px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;border:1px solid rgba(100,174,203,.2);background:rgba(5,19,33,.76)}
+.page-experience-robotics .px-robot-readout span,.page-experience-robotics .px-robot-readout b{font:7px "JetBrains Mono",monospace;letter-spacing:.1em;color:#8daec4}
+.page-experience-robotics .px-robot-readout b{color:#74dfd5;font-weight:500}
+.page-experience-robotics .px-robot-visual>small{position:absolute;z-index:6;left:17px;bottom:15px;font:7px "JetBrains Mono",monospace;letter-spacing:.12em;color:#779bb5}
+.page-experience-robotics .px-robot-modules{display:grid;grid-template-columns:1fr;gap:9px;min-width:0}
+.page-experience-robotics .px-robot-modules button{position:relative;min-width:0;min-height:91px;padding:14px 15px 12px 55px;overflow:hidden;text-align:left;border:1px solid rgba(112,153,198,.2);border-radius:4px;background:linear-gradient(110deg,rgba(11,34,55,.95),rgba(7,21,37,.96));color:#d8e7f6;cursor:pointer;transition:border-color .25s ease,background .25s ease,transform .25s ease,box-shadow .25s ease}
+.page-experience-robotics .px-robot-modules button:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:rgba(90,179,207,.22)}
+.page-experience-robotics .px-robot-modules button:after{content:"";position:absolute;left:17px;top:50%;width:19px;height:19px;transform:translateY(-50%);border:1px solid rgba(91,190,213,.42);border-radius:50%;box-shadow:inset 0 0 0 4px rgba(70,171,197,.06)}
+.page-experience-robotics .px-robot-modules button.active{border-color:rgba(86,217,232,.78);background:linear-gradient(110deg,rgba(18,67,91,.76),rgba(8,27,46,.98));box-shadow:inset 0 0 24px rgba(50,181,210,.07),0 8px 22px rgba(0,0,0,.12)}
+.page-experience-robotics .px-robot-modules button.active:before{background:#63dfe8;box-shadow:0 0 12px #63dfe8}
+.page-experience-robotics .px-robot-modules button.active:after{border-color:#68e0e8;box-shadow:0 0 0 5px rgba(87,211,226,.1),inset 0 0 0 5px rgba(87,211,226,.12)}
+.page-experience-robotics .px-robot-modules button>span{position:absolute;left:17px;top:12px;font:7px "JetBrains Mono",monospace;color:#75c8d7}
+.page-experience-robotics .px-robot-modules button>b{display:block;margin:0 0 6px;font:11px "JetBrains Mono",monospace;letter-spacing:.1em}
+.page-experience-robotics .px-robot-modules button>p{max-width:95%;margin:0;font-size:10px;line-height:1.45;color:#91a5bf}
+.page-experience-robotics .px-robot-modules button>i{position:absolute;right:12px;top:12px;font:7px "JetBrains Mono",monospace;font-style:normal;letter-spacing:.06em;color:#6bdacb}
+.page-experience-robotics .px-robot-visual-0 .px-robot-camera{animation:px-robot-camera-focus 3.8s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-0 .px-robot-scan-beam{opacity:1;animation:px-robot-scan 2.6s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-0 .px-robot-detection{opacity:1;animation:px-robot-detect 2.8s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-0 .px-robot-orbit-a{animation:px-robot-radar 8s linear infinite}
+.page-experience-robotics .px-robot-visual-1 .px-robot-joint-arm{animation:px-robot-joint-move 3.4s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-1 .px-robot-arm-base b{animation:px-robot-joint-glow 1.7s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-1 .px-robot-orbit-a{animation:px-robot-motion-pulse 2.3s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-2 .px-robot-joint-arm{opacity:.22;filter:blur(1px)}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route{opacity:1}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i{animation:px-robot-task-step 2.8s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i:nth-child(2){animation-delay:.7s}.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i:nth-child(3){animation-delay:1.4s}.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i:nth-child(4){animation-delay:2.1s}
+.page-experience-robotics .px-robot-visual-3 .px-robot-joint-arm{opacity:.12;filter:blur(2px)}
+.page-experience-robotics .px-robot-visual-3 .px-robot-telemetry-bars{opacity:1}
+.page-experience-robotics .px-robot-visual-3 .px-robot-data-packets{opacity:1}
+.page-experience-robotics .px-robot-visual-3 .px-robot-orbit-a{animation:px-robot-motion-pulse 2.1s ease-in-out infinite}
+@keyframes px-robot-live{50%{opacity:.35;box-shadow:0 0 2px #69e0c9}}
+@keyframes px-robot-orbit-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes px-robot-radar{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes px-robot-scan{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(145px);opacity:1}}
+@keyframes px-robot-detect{0%,100%{transform:translate(0,0) scale(.88);opacity:.5}50%{transform:translate(-28px,14px) scale(1.06);opacity:1}}
+@keyframes px-robot-camera-focus{0%,100%{filter:brightness(.9)}50%{filter:brightness(1.25);box-shadow:0 0 25px rgba(76,215,231,.45)}}
+@keyframes px-robot-joint-move{0%,100%{transform:translateX(-50%) rotate(-34deg)}50%{transform:translateX(-50%) rotate(38deg)}}
+@keyframes px-robot-joint-glow{50%{box-shadow:0 0 0 6px rgba(79,187,211,.15),0 0 17px rgba(79,187,211,.7)}}
+@keyframes px-robot-motion-pulse{50%{box-shadow:0 0 0 22px rgba(67,171,203,.07),0 0 0 50px rgba(67,171,203,.04)}}
+@keyframes px-robot-task-step{0%,100%{background:#0a2237;box-shadow:0 0 0 4px rgba(82,205,222,.06)}35%,55%{background:#70e4e5;box-shadow:0 0 0 8px rgba(82,205,222,.18),0 0 13px rgba(82,205,222,.8)}}
+@keyframes px-robot-bar{from{height:15%}to{height:100%}}
+@keyframes px-robot-packet{0%{transform:translate(0,0);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translate(45px,-34px);opacity:0}}
+@media(max-width:700px){
+ .page-experience-robotics .px-robot-console{grid-template-columns:1fr;gap:10px}
+ .page-experience-robotics .px-robot-visual{min-height:340px}
+ .page-experience-robotics .px-robot-stage{width:min(82%,310px);height:230px}
+ .page-experience-robotics .px-robot-orbit{width:188px;height:188px}
+ .page-experience-robotics .px-robot-orbit-b{width:132px;height:132px}
+ .page-experience-robotics .px-robot-modules{grid-template-columns:1fr 1fr;gap:7px}
+ .page-experience-robotics .px-robot-modules button{min-height:116px;padding:32px 10px 12px 12px}
+ .page-experience-robotics .px-robot-modules button:after{left:auto;right:10px;top:14px;width:14px;height:14px;transform:none}
+ .page-experience-robotics .px-robot-modules button>span{left:12px;top:11px}
+ .page-experience-robotics .px-robot-modules button>b{font-size:10px}
+ .page-experience-robotics .px-robot-modules button>p{font-size:9px}
+ .page-experience-robotics .px-robot-modules button>i{left:12px;right:auto;top:auto;bottom:10px}
+ .page-experience-robotics .px-robot-readout{left:10px;right:10px;bottom:36px;padding:8px}
+ .page-experience-robotics .px-robot-readout span,.page-experience-robotics .px-robot-readout b{font-size:6px}
+}
+@media(max-width:370px){
+ .page-experience-robotics .px-robot-visual{min-height:310px}
+ .page-experience-robotics .px-robot-stage{width:90%;transform:translate(-50%,-52%) scale(.9)}
+ .page-experience-robotics .px-robot-hud{left:10px;right:10px}
+ .page-experience-robotics .px-robot-hud>span,.page-experience-robotics .px-robot-hud>em{font-size:7px}
+ .page-experience-robotics .px-robot-modules button{min-height:124px}
+}
+@media(prefers-reduced-motion:reduce){
+ .page-experience-robotics .px-robot-visual *, .page-experience-robotics .px-robot-modules button{animation:none!important;transition:none!important}
+}
