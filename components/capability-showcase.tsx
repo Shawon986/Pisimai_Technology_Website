@@ -1,19 +1,16 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
-
-const asset = (name: string) =>
-  "https://raw.githubusercontent.com/Shawon986/Pisimai_Technology_Website/master/Exhibition%20assets/" + name;
 
 const content = {
   en: {
     actionLabel: "PISIMAI / TECHNOLOGY IN ACTION",
-    actionTitle: "Technology is best understood when you can experience it.",
-    actionText: "Explore selected demonstrations and exhibition work that bring intelligent systems and robotics into a real-world setting.",
-    aiTitle: "AI Photobooth",
-    aiText: "An interactive imaging experience that gives visitors a hands-on introduction to creative AI applications.",
-    robotTitle: "Qiyuan T1 Pro",
-    robotText: "A humanoid robotics showcase exploring physical design, transformable structure, and the possibilities of human–robot interaction.",
+    actionTitle: "Technology capabilities, connected to real-world needs.",
+    actionText: "Explore the specialist technologies and engineering services we work with—from AI infrastructure to software extension and network access.",
+    capabilities: [
+      ["01", "AI Token Solutions", "AI token access and usage solutions designed to help teams connect applications with the AI capabilities they need.", "AI TOKEN", "token"],
+      ["02", "AI Aggregation", "A unified integration approach for working with multiple AI models and providers through a more consistent application layer.", "MODEL ROUTING", "aggregation"],
+      ["03", "Secondary Development", "Extend and customize existing software, platforms, devices, and SDK-based systems to fit specific workflows and product requirements.", "CUSTOM BUILD", "development"],
+      ["04", "Residential Proxy IP", "Residential IP solutions for permitted location-aware testing, localization checks, and region-specific connectivity workflows.", "NETWORK ACCESS", "proxy"]
+    ],
     labLabel: "PISIMAI / INNOVATION & DEVELOPMENT",
     labTitle: "Connect ideas with engineering.",
     labText: "Our work brings together software, intelligent systems, robotics, and integration. Each discipline can contribute to a practical solution, depending on the challenge and its environment.",
@@ -28,34 +25,29 @@ const content = {
       ["04", "Connected environments", "Software and device integration that helps information move between systems."]
     ],
     processLabel: "PISIMAI / FROM CONCEPT TO REALITY",
-    processTitle: "A considered path from challenge to implementation.",
-    processText: "A clear engineering process helps keep the solution aligned with the actual need—not technology for its own sake.",
+    processTitle: "A clear route from first idea to working solution.",
+    processText: "Every project moves through connected stages. The visual below shows how a challenge is shaped, engineered, built, and checked before it is ready to move forward.",
     steps: [
-      ["01", "Discover", "Understand the objective, users, constraints, and operating context."],
-      ["02", "Design", "Map the experience, architecture, and technologies required."],
-      ["03", "Develop", "Build the software, integrations, and prototype components."],
-      ["04", "Validate", "Review behavior, usability, and readiness against agreed requirements."]
+      ["01", "Discover", "Define the challenge, intended users, goals, and real operating constraints.", "BRIEF"],
+      ["02", "Architect", "Shape the experience, technical structure, and components into a workable plan.", "BLUEPRINT"],
+      ["03", "Engineer", "Develop the software, integrations, and prototype into a connected solution.", "BUILD"],
+      ["04", "Verify", "Test the result against its requirements, usability, and intended environment.", "REVIEW"]
     ],
     ecosystemLabel: "PISIMAI / CONNECTED TECHNOLOGY",
     ecosystemTitle: "Different disciplines. One connected system.",
     ecosystemText: "A solution can combine the layers that make sense for its requirements—from intelligent models and applications to devices, data, and integration.",
-    layers: [["AI", "Intelligence"], ["DEV", "Software"], ["ROB", "Robotics"], ["DATA", "Information"], ["SYS", "Integration"]],
-    globalLabel: "PISIMAI / GLOBAL ENGAGEMENT",
-    globalTitle: "Taking technology into the world.",
-    globalText: "Our November 2026 exhibition activity brought the AI Photobooth and Qiyuan T1 Pro showcase to audiences in two Indonesian cities.",
-    manado: "Manado, North Sulawesi",
-    jakarta: "Jakarta, Java",
-    exhibitionNote: "Explore the exhibition gallery and event details",
-    contact: "Discuss a project"
+    layers: [["AI", "Intelligence"], ["DEV", "Software"], ["ROB", "Robotics"], ["DATA", "Information"], ["SYS", "Integration"]]
   },
   zh: {
     actionLabel: "PISIMAI / 科技实践",
-    actionTitle: "让技术在真实体验中展现价值。",
-    actionText: "通过精选展示与展会记录，了解智能系统和机器人技术如何走进真实场景。",
-    aiTitle: "AI 智能拍照亭",
-    aiText: "通过互动影像体验，让参观者亲身了解人工智能在创意应用中的可能性。",
-    robotTitle: "启元 T1 Pro",
-    robotText: "人形机器人展示，探索其结构设计、可变形形态以及人机交互的更多可能。",
+    actionTitle: "连接技术能力，回应真实需求。",
+    actionText: "了解我们所涉及的专业技术与工程服务，从人工智能基础能力到软件二次开发及网络连接方案。",
+    capabilities: [
+      ["01", "AI Token 解决方案", "提供 AI Token 接入与使用相关方案，帮助团队将应用程序连接至所需的人工智能能力。", "AI TOKEN", "token"],
+      ["02", "AI 聚合服务", "通过更统一的应用接入层，整合不同 AI 模型与服务提供方，简化多模型协同接入。", "模型路由", "aggregation"],
+      ["03", "二次开发", "基于现有软件、平台、设备及 SDK 系统进行扩展与定制，以适配具体业务流程和产品需求。", "定制开发", "development"],
+      ["04", "住宅代理 IP", "提供住宅 IP 相关方案，用于合规的地区访问测试、本地化检查及区域网络连接场景。", "网络连接", "proxy"]
+    ],
     labLabel: "PISIMAI / 创新与开发",
     labTitle: "让创意与工程相连接。",
     labText: "我们的技术方向涵盖软件、智能系统、机器人与系统集成。根据实际挑战与应用环境，选择合适的专业领域共同构建方案。",
@@ -70,31 +62,23 @@ const content = {
       ["04", "互联环境", "连接软件与设备，促进不同系统之间的信息协同。"]
     ],
     processLabel: "PISIMAI / 从构想到落地",
-    processTitle: "从实际挑战出发，稳步推进工程实现。",
-    processText: "清晰的工程流程有助于让技术方案始终围绕真实需求，而不是为了技术而堆叠技术。",
+    processTitle: "从最初构想到可运行方案的清晰路径。",
+    processText: "每个项目都由多个相互衔接的阶段组成。下方展示如何将实际挑战逐步转化为经过验证的工程方案。",
     steps: [
-      ["01", "需求探索", "理解目标、用户、限制条件与实际环境。"],
-      ["02", "方案设计", "规划体验、系统架构与所需技术。"],
-      ["03", "开发构建", "开发软件、系统集成与原型组件。"],
-      ["04", "测试验证", "依据约定需求检查功能、易用性与实施准备情况。"]
+      ["01", "需求探索", "明确实际挑战、目标用户、项目目标与运行环境限制。", "需求"],
+      ["02", "架构设计", "规划用户体验、技术架构与所需组件，形成可执行方案。", "蓝图"],
+      ["03", "工程开发", "开发软件、系统集成与原型，构建完整的解决方案。", "构建"],
+      ["04", "测试验证", "围绕项目需求、易用性及实际环境检查最终结果。", "验证"]
     ],
     ecosystemLabel: "PISIMAI / 互联技术",
     ecosystemTitle: "多元专业领域，协同构建完整系统。",
     ecosystemText: "根据项目需求，将智能模型、应用软件、设备、数据与系统集成等技术层有机连接。",
-    layers: [["AI", "人工智能"], ["DEV", "软件开发"], ["ROB", "机器人"], ["DATA", "数据"], ["SYS", "系统集成"]],
-    globalLabel: "PISIMAI / 全球交流",
-    globalTitle: "让技术走向更广阔的世界。",
-    globalText: "2026年11月，我们在印度尼西亚的两座城市展示了 AI 智能拍照亭与启元 T1 Pro 机器人。",
-    manado: "北苏拉威西 · 万鸦老",
-    jakarta: "爪哇岛 · 雅加达",
-    exhibitionNote: "查看展会照片与活动详情",
-    contact: "洽谈项目合作"
+    layers: [["AI", "人工智能"], ["DEV", "软件开发"], ["ROB", "机器人"], ["DATA", "数据"], ["SYS", "系统集成"]]
   }
 } as const;
 
 export function CapabilityShowcase({ locale }: { locale: Locale }) {
   const t = content[locale];
-  const zh = locale === "zh";
   return (
     <div className="capability-showcase">
       <section className="action-showcase section-wrap" id="technology-in-action">
@@ -103,21 +87,18 @@ export function CapabilityShowcase({ locale }: { locale: Locale }) {
           <h2>{t.actionTitle}</h2>
           <p>{t.actionText}</p>
         </div>
-        <div className="action-grid">
-          <article className="action-card action-card-ai">
-            <div className="action-image">
-              <Image src={asset("Weixin%20Image_20261111094919_155_65.jpg")} alt={zh ? "展会现场的 AI 智能拍照亭" : "AI Photobooth at the exhibition"} fill sizes="(max-width: 760px) 100vw, 50vw" quality={76} />
-              <span className="action-image-index">DEMO / 01</span>
-            </div>
-            <div className="action-copy"><span>ARTIFICIAL INTELLIGENCE</span><h3>{t.aiTitle}</h3><p>{t.aiText}</p></div>
-          </article>
-          <article className="action-card action-card-robot">
-            <div className="action-image">
-              <Image src={asset("Weixin%20Image_20261111094927_162_65.jpg")} alt={zh ? "展会现场的启元 T1 Pro 人形机器人" : "Qiyuan T1 Pro humanoid robot at the exhibition"} fill sizes="(max-width: 760px) 100vw, 50vw" quality={76} />
-              <span className="action-image-index">SHOWCASE / 02</span>
-            </div>
-            <div className="action-copy"><span>HUMANOID ROBOTICS</span><h3>{t.robotTitle}</h3><p>{t.robotText}</p></div>
-          </article>
+        <div className="capability-grid">
+          {t.capabilities.map(([number, title, description, tag, visual]) => (
+            <article className="capability-card" key={number} tabIndex={0}>
+              <div className={"capability-art capability-art-" + visual} aria-hidden="true">
+                {visual === "token" && <><div className="token-orbit token-orbit-a" /><div className="token-orbit token-orbit-b" /><div className="token-core"><b>AI</b><span>TOKEN</span></div><i className="token-particle token-particle-a" /><i className="token-particle token-particle-b" /><i className="token-particle token-particle-c" /></>}
+                {visual === "aggregation" && <><div className="aggregation-lines"><i /><i /><i /><i /></div><div className="aggregation-hub"><b>AI</b><span>HUB</span></div><div className="aggregation-node aggregation-node-a">01</div><div className="aggregation-node aggregation-node-b">02</div><div className="aggregation-node aggregation-node-c">03</div><div className="aggregation-node aggregation-node-d">04</div></>}
+                {visual === "development" && <><div className="dev-window"><div className="dev-window-top"><i /><i /><i /><span>BUILD / EXTEND</span></div><div className="dev-code"><b /><b /><b /><b /><b /><b /></div><div className="dev-layer dev-layer-a">EXISTING SYSTEM</div><div className="dev-layer dev-layer-b">CUSTOM MODULE</div><div className="dev-layer dev-layer-c">NEW CAPABILITY</div></div><span className="dev-plus">+</span></>}
+                {visual === "proxy" && <><div className="proxy-globe"><i className="proxy-latitude proxy-latitude-a" /><i className="proxy-latitude proxy-latitude-b" /><i className="proxy-longitude" /><b /></div><span className="proxy-point proxy-point-a" /><span className="proxy-point proxy-point-b" /><span className="proxy-point proxy-point-c" /><div className="proxy-route proxy-route-a" /><div className="proxy-route proxy-route-b" /><div className="proxy-route proxy-route-c" /></>}
+              </div>
+              <div className="capability-card-copy"><div className="capability-card-meta"><span>{number} / CAPABILITY</span><span>{tag}</span></div><h3>{title}</h3><p>{description}</p><span className="capability-card-arrow" aria-hidden="true">↗</span></div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -133,18 +114,15 @@ export function CapabilityShowcase({ locale }: { locale: Locale }) {
 
       <section className="process-section section-wrap" id="development-process">
         <div className="showcase-heading"><p className="section-kicker">{t.processLabel}</p><h2>{t.processTitle}</h2><p>{t.processText}</p></div>
-        <div className="process-grid">{t.steps.map(([number, title, text]) => <article className="process-step" key={number}><span>{number}</span><div className="process-mark"><i /><i /><i /></div><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <div className="process-journey">
+          <div className="process-journey-line" aria-hidden="true"><span /></div>
+          <div className="process-grid">{t.steps.map(([number, title, description, tag], index) => <article className={"process-step process-step-" + (index + 1)} key={number}><div className="process-step-top"><span>{number}</span><small>{tag}</small></div><div className="process-stage-visual" aria-hidden="true"><i /><i /><i /><b>{["01","02","03","04"][index]}</b></div><h3>{title}</h3><p>{description}</p></article>)}</div>
+        </div>
       </section>
 
       <section className="ecosystem-section section-wrap" id="technology-ecosystem">
         <div className="ecosystem-copy"><p className="section-kicker">{t.ecosystemLabel}</p><h2>{t.ecosystemTitle}</h2><p>{t.ecosystemText}</p></div>
         <div className="ecosystem-visual"><div className="ecosystem-core"><span>PISIMAI</span><small>CONNECTED CORE</small></div>{t.layers.map(([short, label], i) => <div className={"ecosystem-node ecosystem-node-" + (i + 1)} key={short}><b>{short}</b><span>{label}</span></div>)}<div className="ecosystem-orbit ecosystem-orbit-a" /><div className="ecosystem-orbit ecosystem-orbit-b" /></div>
-      </section>
-
-      <section className="global-section section-wrap" id="global-engagement">
-        <div className="global-heading"><p className="section-kicker">{t.globalLabel}</p><h2>{t.globalTitle}</h2><p>{t.globalText}</p></div>
-        <div className="global-stops"><article><span>04 / NOV / 2026</span><h3>{t.manado}</h3><small>INDONESIA</small></article><article><span>08 / NOV / 2026</span><h3>{t.jakarta}</h3><small>INDONESIA</small></article></div>
-        <div className="global-footer"><Link href={"/" + locale + "#exhibitions"}>{t.exhibitionNote}<b aria-hidden="true">↗</b></Link><Link className="global-contact" href={"/" + locale + "/contact"}>{t.contact}<b aria-hidden="true">↗</b></Link></div>
       </section>
     </div>
   );
