@@ -92,9 +92,9 @@ export function ExhibitionSection({ locale }: { locale: Locale }) {
             <span className="exhibition-index">02 / HUMANOID ROBOTICS</span>
             <h3>{zh ? "Qiyuan T1 Pro" : "Qiyuan T1 Pro"}</h3>
             <p>{zh
-              ? "近距离探索可变形人形机器人的未来。Qiyuan T1 Pro 是本次展出的核心亮点之一，展示了机器人形态创新与智能交互的可能性。"
-              : "A closer look at the future of transformable humanoid robotics. The Qiyuan T1 Pro was one of our exhibition highlights, showcasing a new approach to robotic form and intelligent interaction."}</p>
-            <span className="exhibition-tag">{zh ? "可变形人形机器人" : "TRANSFORMABLE HUMANOID ROBOT"}</span>
+              ? "近距离体验全球首款全球首款可变形人形机器人。Qiyuan T1 Pro 是本次展出的核心亮点之一，展现了机器人形态创新与智能交互的全新可能。"
+              : "Meet the world’s first transformable humanoid robot. The Qiyuan T1 Pro was one of our exhibition highlights, bringing an extraordinary new form of robotics and intelligent interaction to the exhibition floor."}</p>
+            <span className="exhibition-tag">{zh ? "可变形人形机器人" : "THE WORLD’S FIRST TRANSFORMABLE HUMANOID ROBOT"}</span>
           </div>
         </div>
 
@@ -114,7 +114,7 @@ export function ExhibitionSection({ locale }: { locale: Locale }) {
 
         <div className="exhibition-footer-line">
           <span>{zh ? "技术创新 · 真实体验 · 全球连接" : "ENGINEERED WITH PURPOSE. SHARED WITH THE WORLD."}</span>
-          <a href="#contact">{zh ? "与我们交流" : "LET'S BUILD WHAT'S NEXT"} <span aria-hidden="true">↗</span></a>
+          <a href="#contact">{zh ? "与我们交流" : "LET'S BUILD WHAT'S NEXT"} <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a>
         </div>
       </div>
     </section>
