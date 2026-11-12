@@ -32,6 +32,14 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "PISIMAI TECHNOLOGY",
+  legalName: "匹思麦(深圳)科技有限公司",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "淘景商务大厦 1212",
+    addressLocality: "Shenzhen",
+    addressRegion: "Guangdong",
+    addressCountry: "CN"
+  },
   url: siteUrl,
   logo: siteUrl + "/brand/pisimai-favicon.svg",
   description: "An international technology partner across AI, software, intelligent automation, and system integration.",
