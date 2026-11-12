@@ -5932,3 +5932,11 @@ html {
     scroll-padding-top: 116px;
   }
 }
+
+
+/* Verified legal company identity and office address in the global footer. */
+.footer-company-details { display: grid; gap: 5px; margin-top: 17px; max-width: 290px; font-size: 10px; line-height: 1.65; }
+.footer-company-details strong { color: #b7c7de; font-size: 11px; font-weight: 500; letter-spacing: .01em; }
+.footer-company-details > span { margin-top: 3px; color: #71819d; font: 8px "JetBrains Mono", Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
+.footer-company-details address { color: #8798b3; font-style: normal; overflow-wrap: anywhere; }
+@media (max-width: 760px) { .footer-company-details { max-width: 100%; margin-top: 14px; } }
