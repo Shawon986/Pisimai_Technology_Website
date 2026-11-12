@@ -60,8 +60,8 @@ export function ExhibitionSection({ locale }: { locale: Locale }) {
             <h2>{zh ? <>让创新走出实验室，<span>走向真实世界。</span></> : <>Innovation, <span>experienced in the real world.</span></>}</h2>
           </div>
           <p>{zh
-            ? "从沉浸式人工智能体验到新一代人形机器人，我们将技术带到展会现场，与行业伙伴和参观者面对面交流。"
-            : "From immersive AI experiences to next-generation humanoid robotics, we bring our work beyond the lab and into the hands of people, partners and curious minds."}</p>
+            ? "从沉浸式人工智能体验到新一代人形机器人，2026年11月4日万鸦老、11月8日雅加达的展会现场记录了我们与行业伙伴和参观者的面对面交流。"
+            : "From immersive AI experiences to next-generation humanoid robotics, our November 4 showcase in Manado and November 8 showcase in Jakarta brought our work beyond the lab and into direct conversations with people and industry partners."}</p>
         </div>
 
         <div className="exhibition-feature exhibition-feature-ai">
@@ -102,8 +102,12 @@ export function ExhibitionSection({ locale }: { locale: Locale }) {
           <div className="exhibition-location-heading">
             <span className="exhibition-index">03 / THE EXHIBITION FLOOR</span>
             <h3>{zh ? "相聚印度尼西亚" : "Meeting the world in Indonesia."}</h3>
-            <p>{zh ? "来自雅加达与万鸦老的展会现场。" : "A look at the exhibition spaces and the people and places behind the experience in Jakarta and Manado."}</p>
-            <div className="exhibition-location-places"><span>JAKARTA</span><i /><span>MANADO</span><i /><span>INDONESIA</span></div>
+            <p>{zh ? "2026年11月，我们先后于万鸦老和雅加达展示创新技术，与当地观众及行业伙伴面对面交流。" : "A look at the exhibition spaces behind our November 4 showcase in Manado and November 8 showcase in Jakarta."}</p>
+            <div className="exhibition-location-places"><span>MANADO</span><i /><span>JAKARTA</span><i /><span>INDONESIA</span></div>
+            <div className="exhibition-event-dates" aria-label={zh ? "展会日期" : "Exhibition dates"}>
+              <div><span>{zh ? "万鸦老" : "MANADO"}</span><strong>04 NOV 2026</strong></div>
+              <div><span>{zh ? "雅加达" : "JAKARTA"}</span><strong>08 NOV 2026</strong></div>
+            </div>
           </div>
           <div className="exhibition-venue-gallery">
             {venuePhotos.map((photo, index) => (
