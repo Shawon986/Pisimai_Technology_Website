@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { NetworkBackground } from "@/components/network-background";
+import { ExhibitionSection } from "@/components/exhibition-section";
 import { copy, isLocale } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -173,6 +174,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="tech-band-lines" aria-hidden="true"><span /><span /><span /><span /><span /></div>
           </div>
         </section>
+
+        <ExhibitionSection locale={locale} />
 
         <section className="approach-section section-wrap">
           <div className="approach-heading">
