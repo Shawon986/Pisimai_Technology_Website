@@ -82,7 +82,7 @@ export function EngineeringExplorer({ locale, pageKey }: Props) {
       </div>
       <div className="explorer-shell">
         <div className="explorer-stage-list" role="tablist" aria-label={locale === "zh" ? "工程阶段" : "Engineering stages"}>
-          {stage.items.map((_, index) => (
+          {t.stages.map((_, index) => (
             <button key={index} type="button" role="tab" aria-selected={active === index} aria-controls="explorer-panel" id={`explorer-tab-${index}`} className={active === index ? "explorer-stage is-active" : "explorer-stage"} onClick={() => setActive(index)}>
               <span className="explorer-stage-number">0{index + 1}</span>
               <span className="explorer-stage-label">{t.modes[mode][index]}</span>
