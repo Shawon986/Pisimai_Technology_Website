@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { RouteScrollReset } from "@/components/route-scroll-reset";
+import { ConversionTracking } from "@/components/conversion-tracking";
 
 import { siteUrl } from "@/lib/site-url";
 
@@ -50,6 +51,7 @@ export default async function RootLayout({
       <body suppressHydrationWarning>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: organizationJsonLd }} />
         <RouteScrollReset />
+        <ConversionTracking />
         {children}
         <Analytics />
         <SpeedInsights />
