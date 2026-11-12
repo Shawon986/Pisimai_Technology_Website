@@ -14,6 +14,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Allow the phone on the local network to connect to the Next.js dev server.
   allowedDevOrigins: ["192.168.0.19"],
+  images: { remotePatterns: [{ protocol: "https", hostname: "raw.githubusercontent.com", pathname: "/Shawon986/Pisimai_Technology_Website/**" }] },
   poweredByHeader: false,
   reactStrictMode: true,
   async headers() {
