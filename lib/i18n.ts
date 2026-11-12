@@ -32,7 +32,7 @@ export const copy = {
     introText: "From intelligent software to connected systems, our work sits at the intersection of emerging technology and real-world application.",
     servicesLabel: "CAPABILITY AREAS",
     servicesTitle: "Technology, connected by design.",
-    servicesText: "Explore the disciplines that shape our work. Specific offerings and project details will be published as they are confirmed.",
+    servicesText: "Explore how AI, software, robotics, and system integration can work together to solve practical challenges across products, operations, and connected environments.",
     services: [
       { number: "01", title: "AI & Intelligent Systems", text: "AI-enabled applications, intelligent workflows, and model/API integration." },
       { number: "02", title: "Software & Digital Platforms", text: "Websites, web applications, and tailored software experiences." },
@@ -75,7 +75,7 @@ export const copy = {
     introText: "从智能软件到互联系统，我们专注于新兴技术与实际应用的交汇点。",
     servicesLabel: "核心技术领域",
     servicesTitle: "让技术彼此连接。",
-    servicesText: "了解构成我们技术方向的专业领域。具体服务与项目详情将在确认后陆续发布。",
+    servicesText: "了解人工智能、软件、机器人与系统集成如何协同，为产品、业务流程与互联场景构建切实可行的技术方案。",
     services: [
       { number: "01", title: "人工智能与智能系统", text: "人工智能应用、智能工作流程以及模型与 API 集成。" },
       { number: "02", title: "软件与数字平台", text: "企业网站、Web 应用程序及定制软件体验。" },
