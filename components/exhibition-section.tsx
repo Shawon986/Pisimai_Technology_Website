@@ -64,13 +64,41 @@ export function ExhibitionSection({ locale }: { locale: Locale }) {
             : "From immersive AI experiences to next-generation humanoid robotics, our November 4 showcase in Manado and November 8 showcase in Jakarta brought our work beyond the lab and into direct conversations with people and industry partners."}</p>
         </div>
 
+        <div className="exhibition-tour" aria-label={zh ? "印度尼西亚展会行程" : "Indonesia exhibition schedule"}>
+          <div className="exhibition-tour-intro">
+            <span className="exhibition-index">NOVEMBER 2026 / INDONESIA</span>
+            <h3>{zh ? "两座城市，连接真实体验。" : "Two cities. One shared vision."}</h3>
+            <p>{zh
+              ? "PISIMAI 将互动人工智能与人形机器人带到印度尼西亚的线下展会现场。两场展示让参观者能够近距离了解不同形态的技术创新。"
+              : "PISIMAI brought interactive artificial intelligence and humanoid robotics into in-person exhibition settings in Indonesia, creating opportunities to explore both technologies beyond a screen."}</p>
+          </div>
+          <div className="exhibition-tour-stops">
+            <article className="exhibition-tour-stop">
+              <span className="exhibition-tour-number">01</span>
+              <div><span className="exhibition-tour-city">{zh ? "印度尼西亚 · 北苏拉威西" : "NORTH SULAWESI · INDONESIA"}</span>
+                <h4>{zh ? "万鸦老" : "Manado"}</h4>
+                <time dateTime="2026-11-04">04 NOVEMBER 2026</time>
+                <p>{zh ? "11月4日，PISIMAI 在万鸦老展示互动 AI 体验与机器人技术。" : "On 4 November, PISIMAI presented its interactive AI experience and robotics showcase in Manado."}</p>
+              </div>
+            </article>
+            <article className="exhibition-tour-stop">
+              <span className="exhibition-tour-number">02</span>
+              <div><span className="exhibition-tour-city">{zh ? "印度尼西亚 · 爪哇岛" : "JAVA · INDONESIA"}</span>
+                <h4>{zh ? "雅加达" : "Jakarta"}</h4>
+                <time dateTime="2026-11-08">08 NOVEMBER 2026</time>
+                <p>{zh ? "11月8日，展示继续在雅加达举行，让更多现场观众近距离了解相关技术。" : "The showcase continued in Jakarta on 8 November, bringing the same technology themes to another in-person audience."}</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
         <div className="exhibition-feature exhibition-feature-ai">
           <div className="exhibition-feature-copy">
             <span className="exhibition-index">01 / INTERACTIVE AI</span>
             <h3>{zh ? "AI Photobooth" : "AI Photobooth"}</h3>
             <p>{zh
-              ? "让人工智能成为可亲身体验的创意时刻。我们的 AI Photobooth 展示了智能影像体验如何吸引观众、激发互动并创造难忘回忆。"
-              : "Turning artificial intelligence into an experience people can step into. Our AI Photobooth brought interactive, creative moments to the exhibition floor—inviting visitors to engage with AI first-hand."}</p>
+              ? "让人工智能成为可亲身体验的创意时刻。AI Photobooth 将智能影像技术转化为直观的现场互动：参观者可以参与拍摄体验，感受 AI 如何为日常影像加入新的创意表达。它也让复杂的人工智能能力以更亲切、更容易理解的方式呈现在观众面前。"
+              : "Turning artificial intelligence into an experience people can step into. The AI Photobooth translated intelligent imaging into an approachable, hands-on moment: visitors could take part in the photo experience and explore how AI can add a creative layer to everyday imagery. It made an advanced technology theme tangible and easy to engage with on the exhibition floor."}</p>
             <span className="exhibition-tag">{zh ? "人工智能 · 互动体验" : "ARTIFICIAL INTELLIGENCE · INTERACTIVE EXPERIENCE"}</span>
           </div>
           <div className="exhibition-ai-gallery">
@@ -92,8 +120,8 @@ export function ExhibitionSection({ locale }: { locale: Locale }) {
             <span className="exhibition-index">02 / HUMANOID ROBOTICS</span>
             <h3>{zh ? "Qiyuan T1 Pro" : "Qiyuan T1 Pro"}</h3>
             <p>{zh
-              ? "近距离体验全球首款可变形人形机器人。Qiyuan T1 Pro 是本次展出的核心亮点之一，展现了机器人形态创新与智能交互的全新可能。"
-              : "Meet the world’s first transformable humanoid robot. The Qiyuan T1 Pro was one of our exhibition highlights, bringing an extraordinary new form of robotics and intelligent interaction to the exhibition floor."}</p>
+              ? "近距离了解全球首款可变形人形机器人。Qiyuan T1 Pro 将人形机器人与可变形结构结合，成为本次展出的重要亮点。它让观众从真实产品的外观与结构出发，直观认识机器人形态创新，也为智能机器人在不同场景中的发展带来更多想象空间。"
+              : "Meet the world’s first transformable humanoid robot. The Qiyuan T1 Pro combines humanoid robotics with a transformable structure, making it a standout part of the showcase. Seeing the robot in person gave visitors a closer look at its physical design and engineering concept, and opened up conversations about how new robotic forms may evolve for different real-world settings."}</p>
             <span className="exhibition-tag">{zh ? "全球首款可变形人形机器人" : "THE WORLD’S FIRST TRANSFORMABLE HUMANOID ROBOT"}</span>
           </div>
         </div>
@@ -102,7 +130,7 @@ export function ExhibitionSection({ locale }: { locale: Locale }) {
           <div className="exhibition-location-heading">
             <span className="exhibition-index">03 / THE EXHIBITION FLOOR</span>
             <h3>{zh ? "相聚印度尼西亚" : "Meeting the world in Indonesia."}</h3>
-            <p>{zh ? "2026年11月，我们先后于万鸦老和雅加达展示创新技术，与当地观众及行业伙伴面对面交流。" : "A look at the exhibition spaces behind our November 4 showcase in Manado and November 8 showcase in Jakarta."}</p>
+            <p>{zh ? "从展位环境到现场产品展示，这些影像记录了 PISIMAI 于 2026 年 11 月在印度尼西亚开展的两场线下展示。11月4日万鸦老，11月8日雅加达。我们将互动 AI 与人形机器人带到现场，让技术通过真实产品和体验被看见、被了解。" : "From the exhibition spaces to the technology on display, this photo record captures PISIMAI’s two in-person showcases in Indonesia in November 2026. Manado on 4 November, followed by Jakarta on 8 November. Interactive AI and humanoid robotics were brought into the exhibition environment so people could discover the work through real products and experiences."}</p>
             <div className="exhibition-location-places"><span>MANADO</span><i /><span>JAKARTA</span><i /><span>INDONESIA</span></div>
             <div className="exhibition-event-dates" aria-label={zh ? "展会日期" : "Exhibition dates"}>
               <div><span>{zh ? "万鸦老" : "MANADO"}</span><strong>04 NOV 2026</strong></div>
