@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return {
-    title: locale === "zh" ? "智能科技与工程创新" : "Intelligent Systems & Engineering",
+    title: locale === "zh" ? "智能科技与工程创新 | PISIMAI TECHNOLOGY" : "Intelligent Systems & Engineering | PISIMAI TECHNOLOGY",
     description: copy[locale].description,
     alternates: {
       canonical: locale === "zh" ? "/zh" : "/en",
