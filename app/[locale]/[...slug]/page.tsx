@@ -421,7 +421,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
             <div className="inner-service-links">
               {serviceSlugs.map((serviceSlug, index) => (
                 <Link href={"/" + locale + "/" + serviceSlug} key={serviceSlug}>
-                  <span>0{index + 1}</span><strong>{labels[index]}</strong><i><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></i>
+                  <span>0{index + 1}</span><strong>{labels[index]}</strong><span className="ui-arrow-shell" aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></span>
                 </Link>
               ))}
             </div>

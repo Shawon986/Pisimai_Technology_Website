@@ -160,7 +160,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   )}
                 </div>
                 <div className="service-card-copy"><h3>{service.title}</h3><p>{service.text}</p></div>
-                <span className="service-arrow" aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></span>
+                <span className="ui-arrow-shell service-arrow" aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" /></svg></span>
               </Link>
             ))}
           </div>

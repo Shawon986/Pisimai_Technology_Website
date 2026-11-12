@@ -7588,3 +7588,97 @@ html {
   border-right:2px solid #a7f4fa;
   transform:translate(5px,0) rotate(45deg);
 }
+
+/* One identical arrow element and SVG treatment on homepage cards and service index links. */
+.ui-arrow-shell {
+  position:relative;
+  display:inline-grid!important;
+  place-items:center;
+  width:28px!important;
+  height:28px!important;
+  min-width:28px;
+  flex:0 0 28px;
+  padding:0!important;
+  margin:0;
+  box-sizing:border-box;
+  line-height:0!important;
+  text-align:center;
+  vertical-align:middle;
+  color:#69dff0;
+}
+.ui-arrow-shell .ui-arrow-icon {
+  display:block!important;
+  width:17px!important;
+  height:17px!important;
+  min-width:17px;
+  flex:0 0 17px;
+  margin:0;
+  padding:0;
+  overflow:visible;
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:1.65!important;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.service-arrow.ui-arrow-shell {
+  position:absolute;
+  right:24px;
+  bottom:24px;
+  z-index:2;
+  transition:transform .2s ease;
+}
+.service-card:hover .service-arrow.ui-arrow-shell { transform:translate(3px,-3px); }
+.inner-service-links .ui-arrow-shell { justify-self:end; }
+@media(max-width:760px) {
+  .inner-service-links a { grid-template-columns:38px minmax(0,1fr) 28px; }
+  .service-arrow.ui-arrow-shell { right:18px; bottom:18px; }
+}
+
+/* VALIDATE uses the same 34px circular marker as the other delivery stages.
+   Draw the tick from the true center, independent of font metrics or device. */
+.px-delivery-step > i.px-delivery-check {
+  position:relative!important;
+  display:inline-grid!important;
+  place-items:center!important;
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  flex:0 0 34px!important;
+  padding:0!important;
+  margin:0!important;
+  box-sizing:border-box!important;
+  border:1px solid rgba(91,220,192,.62)!important;
+  border-radius:50%!important;
+  background:rgba(39,132,163,.09)!important;
+  font-size:0!important;
+  line-height:0!important;
+  color:transparent!important;
+}
+.px-delivery-step > i.px-delivery-check::after {
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  display:block!important;
+  width:9px!important;
+  height:5px!important;
+  margin:0!important;
+  border-left:1.8px solid #78efd0!important;
+  border-bottom:1.8px solid #78efd0!important;
+  border-top:0!important;
+  border-right:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  transform:translate(-50%,-62%) rotate(-45deg)!important;
+  transform-origin:center!important;
+  box-sizing:border-box!important;
+}
+@media(max-width:620px) {
+  .px-delivery-step > i.px-delivery-check {
+    width:29px!important;
+    height:29px!important;
+    min-width:29px!important;
+    flex-basis:29px!important;
+  }
+}
