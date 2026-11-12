@@ -6967,3 +6967,91 @@ html {
 @media(prefers-reduced-motion:reduce){
  .page-experience-robotics .px-robot-visual *, .page-experience-robotics .px-robot-modules button{animation:none!important;transition:none!important}
 }
+
+
+/* Industrial robotics scene: recognizable articulated six-axis arm with animated task modes */
+.page-experience-robotics .px-robot-visual{min-height:440px;background:radial-gradient(ellipse at 54% 48%,rgba(30,94,128,.28),transparent 48%),linear-gradient(180deg,#081a2b 0%,#071421 68%,#0a1b2b 100%)}
+.page-experience-robotics .px-robot-stage{width:min(92%,520px);height:330px;top:52%;overflow:visible}
+.page-experience-robotics .px-robot-floor{position:absolute;left:-18%;right:-18%;bottom:-8px;height:112px;transform:perspective(250px) rotateX(58deg);transform-origin:center bottom;background:linear-gradient(rgba(83,143,174,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(83,143,174,.14) 1px,transparent 1px);background-size:26px 26px;border-top:1px solid rgba(101,172,198,.2);mask-image:linear-gradient(transparent,#000 22%)}
+.page-experience-robotics .px-robot-floor i{position:absolute;bottom:10px;width:18%;height:1px;background:#58bed0;opacity:.22}
+.page-experience-robotics .px-robot-floor i:nth-child(1){left:8%}.page-experience-robotics .px-robot-floor i:nth-child(2){left:41%}.page-experience-robotics .px-robot-floor i:nth-child(3){right:8%}
+.page-experience-robotics .px-robot-conveyor{position:absolute;right:0;bottom:35px;width:35%;height:34px;border:1px solid #537b91;border-radius:4px;background:linear-gradient(180deg,#29485c,#102b40);box-shadow:0 13px 18px rgba(0,0,0,.28);transform:skewY(-7deg)}
+.page-experience-robotics .px-robot-conveyor:before{content:"";position:absolute;left:0;right:0;top:-7px;height:7px;border:1px solid #6b91a4;background:#7896a2;transform:skewY(7deg)}
+.page-experience-robotics .px-robot-conveyor i{position:absolute;top:4px;bottom:4px;width:5px;border-radius:5px;background:#0a1b2a;box-shadow:inset 0 0 0 1px #527589}
+.page-experience-robotics .px-robot-conveyor i:nth-child(1){left:22%}.page-experience-robotics .px-robot-conveyor i:nth-child(2){left:52%}.page-experience-robotics .px-robot-conveyor i:nth-child(3){left:82%}
+.page-experience-robotics .px-robot-conveyor b{position:absolute;right:7px;top:-3px;width:7px;height:7px;border-radius:50%;background:#65e3c2;box-shadow:0 0 8px #65e3c2}
+.page-experience-robotics .px-robot-workpiece{position:absolute;right:17%;bottom:71px;width:31px;height:27px;z-index:2;transform:skewY(-7deg);background:linear-gradient(135deg,#f0b75d,#9a622b 65%,#694421);border:1px solid #f5cc83;box-shadow:0 0 14px rgba(240,177,87,.17)}
+.page-experience-robotics .px-robot-workpiece:before{content:"";position:absolute;left:0;right:0;top:-7px;height:7px;transform:skewX(-35deg);transform-origin:left bottom;background:#f5d08b;border:1px solid #f4c77c}
+.page-experience-robotics .px-robot-workpiece i{position:absolute;inset:5px;border:1px solid rgba(255,236,192,.45)}
+.page-experience-robotics .px-robot-workpiece b{position:absolute;right:-5px;top:5px;width:4px;height:14px;background:#f2c879}
+.page-experience-robotics .px-robot-machine{position:absolute;left:34%;bottom:28px;width:170px;height:270px;z-index:4;filter:drop-shadow(0 14px 12px rgba(0,0,0,.38))}
+.page-experience-robotics .px-robot-plinth{position:absolute;left:22px;bottom:0;width:126px;height:23px;border:1px solid #9aadb4;border-radius:5px;background:linear-gradient(180deg,#e2e8e7,#687e89 50%,#263d4e);box-shadow:inset 0 2px 3px rgba(255,255,255,.45)}
+.page-experience-robotics .px-robot-plinth:before{content:"";position:absolute;left:9px;right:9px;top:4px;height:2px;background:rgba(255,255,255,.55)}
+.page-experience-robotics .px-robot-plinth i{position:absolute;left:14px;right:14px;bottom:-4px;height:5px;border-radius:50%;background:#020b12;filter:blur(2px)}
+.page-experience-robotics .px-robot-pedestal{position:absolute;left:53px;bottom:18px;width:64px;height:55px;border:1px solid #d0d8d5;border-radius:10px 10px 7px 7px;background:linear-gradient(90deg,#647d89 0%,#e2e9e6 24%,#9fb0b1 55%,#4c6574 100%);box-shadow:inset 0 0 0 5px rgba(26,53,69,.18)}
+.page-experience-robotics .px-robot-pedestal:before{content:"";position:absolute;left:-5px;right:-5px;top:7px;height:9px;border-radius:50%;background:linear-gradient(#f4f7f2,#718994);border:1px solid #829ba5}
+.page-experience-robotics .px-robot-pedestal i{position:absolute;left:8px;right:8px;bottom:9px;height:2px;background:#425d6b}
+.page-experience-robotics .px-robot-pedestal b{position:absolute;right:8px;top:19px;width:5px;height:5px;border-radius:50%;background:#ffb45c;box-shadow:0 0 7px #ff9f46}
+.page-experience-robotics .px-robot-turret{position:absolute;left:84px;bottom:65px;width:1px;height:1px;transform:rotate(-18deg);transform-origin:center}
+.page-experience-robotics .px-robot-upper-arm{position:absolute;left:-13px;bottom:0;width:27px;height:111px;transform:rotate(-28deg);transform-origin:50% 92%;border:1px solid #cbd7d4;border-radius:11px;background:linear-gradient(90deg,#536d7b 0%,#e5ece7 24%,#aabbb9 55%,#516a78 100%);box-shadow:inset 0 0 0 3px rgba(30,54,69,.16),0 0 12px rgba(135,191,207,.12)}
+.page-experience-robotics .px-robot-upper-arm:before{content:"";position:absolute;left:5px;right:5px;top:14px;bottom:14px;border-left:2px solid rgba(255,255,255,.46);border-right:2px solid rgba(32,61,77,.35)}
+.page-experience-robotics .px-robot-upper-arm>i,.page-experience-robotics .px-robot-upper-arm> b,.page-experience-robotics .px-robot-elbow>i,.page-experience-robotics .px-robot-elbow>b,.page-experience-robotics .px-robot-forearm>i,.page-experience-robotics .px-robot-forearm>b,.page-experience-robotics .px-robot-wrist>i{position:absolute;display:block;border-radius:50%;background:radial-gradient(circle at 34% 28%,#f0f4ec 0 10%,#9baeb0 23%,#3e596b 58%,#142b3e 72%);border:2px solid #d3dfda;box-shadow:0 1px 5px rgba(0,0,0,.45),inset 0 0 0 3px rgba(19,43,61,.5)}
+.page-experience-robotics .px-robot-upper-arm>i{width:34px;height:34px;left:-5px;bottom:-13px}
+.page-experience-robotics .px-robot-upper-arm>b{width:29px;height:29px;left:-2px;top:-13px}
+.page-experience-robotics .px-robot-elbow{position:absolute;left:50%;top:-2px;width:1px;height:1px;transform:rotate(54deg);transform-origin:center}
+.page-experience-robotics .px-robot-forearm{position:absolute;left:-10px;bottom:0;width:21px;height:91px;transform:rotate(10deg);transform-origin:50% 92%;border:1px solid #c5d4d1;border-radius:9px;background:linear-gradient(90deg,#526d7d,#e1e9e4 30%,#8fa5aa 66%,#344f63);box-shadow:inset 0 0 0 3px rgba(20,48,65,.18)}
+.page-experience-robotics .px-robot-forearm:after{content:"";position:absolute;left:4px;right:4px;top:12px;bottom:12px;border-left:2px solid rgba(255,255,255,.45)}
+.page-experience-robotics .px-robot-elbow>i{width:36px;height:36px;left:-17px;top:-16px}
+.page-experience-robotics .px-robot-elbow>b{width:10px;height:10px;left:-5px;top:-3px;border:0;background:#5bd4dc;box-shadow:0 0 9px #5bd4dc}
+.page-experience-robotics .px-robot-forearm>i{width:27px;height:27px;left:-3px;bottom:-10px}
+.page-experience-robotics .px-robot-forearm>b{width:23px;height:23px;left:-1px;top:-10px}
+.page-experience-robotics .px-robot-wrist{position:absolute;left:50%;top:-1px;width:1px;height:1px;transform:rotate(-12deg);transform-origin:center}
+.page-experience-robotics .px-robot-wrist>i{width:25px;height:25px;left:-12px;top:-12px}
+.page-experience-robotics .px-robot-gripper{position:absolute;left:-4px;top:-4px;width:42px;height:25px;transform:rotate(8deg)}
+.page-experience-robotics .px-robot-gripper:before{content:"";position:absolute;left:0;top:7px;width:22px;height:10px;border-radius:4px;background:linear-gradient(#dfe8e3,#647e8b);border:1px solid #d0dbd6}
+.page-experience-robotics .px-robot-gripper b,.page-experience-robotics .px-robot-gripper i{position:absolute;top:3px;width:4px;height:19px;border-radius:2px;background:linear-gradient(90deg,#e5ece7,#718995);border:1px solid #d1dcd8;transform-origin:top}
+.page-experience-robotics .px-robot-gripper b{right:3px;transform:rotate(-22deg)}.page-experience-robotics .px-robot-gripper i{right:12px;transform:rotate(22deg)}
+.page-experience-robotics .px-robot-gripper em{position:absolute;right:0;top:10px;width:14px;height:2px;background:#79dce2;box-shadow:0 0 8px #79dce2}
+.page-experience-robotics .px-robot-camera{left:13%;top:45px;width:49px;height:30px;border-radius:5px}
+.page-experience-robotics .px-robot-camera i{width:15px;height:15px;border-width:2px}
+.page-experience-robotics .px-robot-scan-beam{left:7%;right:7%;top:83px;opacity:0}
+.page-experience-robotics .px-robot-detection{left:66%;top:45%;width:42px;height:42px}
+.page-experience-robotics .px-robot-task-route{left:8%;right:8%;top:66%}
+.page-experience-robotics .px-robot-telemetry-bars{left:80%;bottom:33px;transform:none;gap:3px}
+.page-experience-robotics .px-robot-telemetry-bars i{width:4px}
+.page-experience-robotics .px-robot-data-packets{left:72%;top:52%;width:120px;height:110px}
+.page-experience-robotics .px-robot-visual-0 .px-robot-camera{animation:px-robot-camera-focus 3s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-0 .px-robot-scan-beam{animation:px-robot-scan 2.4s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-0 .px-robot-detection{animation:px-robot-detect 2.4s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-1 .px-robot-upper-arm{animation:px-arm-shoulder 3.8s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-1 .px-robot-forearm{animation:px-arm-elbow 3.8s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-1 .px-robot-wrist{animation:px-arm-wrist 3.8s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-2 .px-robot-upper-arm{animation:px-arm-pick-shoulder 4.4s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-2 .px-robot-forearm{animation:px-arm-pick-elbow 4.4s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-2 .px-robot-gripper{animation:px-arm-grip 4.4s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route{opacity:1}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i{animation:px-robot-task-step 2.8s ease-in-out infinite}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i:nth-child(2){animation-delay:.7s}.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i:nth-child(3){animation-delay:1.4s}.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i:nth-child(4){animation-delay:2.1s}
+.page-experience-robotics .px-robot-visual-3 .px-robot-telemetry-bars{opacity:1}
+.page-experience-robotics .px-robot-visual-3 .px-robot-data-packets{opacity:1}
+.page-experience-robotics .px-robot-visual-3 .px-robot-pedestal b{animation:px-robot-live 1s ease-in-out infinite}
+@keyframes px-arm-shoulder{0%,100%{transform:rotate(-28deg)}50%{transform:rotate(18deg)}}
+@keyframes px-arm-elbow{0%,100%{transform:rotate(10deg)}50%{transform:rotate(-48deg)}}
+@keyframes px-arm-wrist{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(24deg)}}
+@keyframes px-arm-pick-shoulder{0%,15%,100%{transform:rotate(-28deg)}40%,70%{transform:rotate(8deg)}}
+@keyframes px-arm-pick-elbow{0%,15%,100%{transform:rotate(10deg)}40%,70%{transform:rotate(-46deg)}}
+@keyframes px-arm-grip{0%,28%,62%,100%{transform:rotate(8deg)}35%,55%{transform:rotate(-8deg)}}
+@media(max-width:700px){
+ .page-experience-robotics .px-robot-visual{min-height:360px}
+ .page-experience-robotics .px-robot-stage{width:96%;height:280px;top:52%}
+ .page-experience-robotics .px-robot-machine{left:30%;transform:scale(.88);transform-origin:bottom left}
+ .page-experience-robotics .px-robot-conveyor{right:-2%;width:36%}
+ .page-experience-robotics .px-robot-readout{bottom:35px}
+}
+@media(max-width:370px){
+ .page-experience-robotics .px-robot-machine{left:25%;transform:scale(.76);transform-origin:bottom left}
+ .page-experience-robotics .px-robot-stage{width:100%;transform:translate(-50%,-52%)}
+}
+@media(prefers-reduced-motion:reduce){
+ .page-experience-robotics .px-robot-machine *,.page-experience-robotics .px-robot-scan-beam,.page-experience-robotics .px-robot-camera,.page-experience-robotics .px-robot-task-route i,.page-experience-robotics .px-robot-telemetry-bars i{animation:none!important}
+}

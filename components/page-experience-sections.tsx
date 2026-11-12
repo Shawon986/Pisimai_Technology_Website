@@ -75,22 +75,37 @@ export function PageExperienceSections({locale,pageKey}:Props){
   {mode==="ai"&&<div className="px-ai-pipeline">{d.steps.map((x:any,i:number)=><button key={x[0]} className={active===i?"active":""} onClick={()=>setActive(i)}><span>STAGE / 0{i+1}</span><i className={"px-ai-symbol px-ai-"+i}>{["◉","⌘","","↗"][i]}</i><b>{x[0]}</b><p>{x[1]}</p>{i<3&&<em aria-hidden="true">→</em>}</button>)}</div>}
   {mode==="software"&&<div className="px-product-lab"><aside><span>PRODUCT / LAYERS</span>{d.tabs.map((x:string,i:number)=><button key={x} className={active===i?"on":""} onClick={()=>setActive(i)}><i>0{i+1}</i>{x} <b>↗</b></button>)}</aside><div className="px-product-screen"><div className="px-screen-bar"><i/><i/><i/><span>pisimai / product-system</span></div><div className="px-screen-body"><div className="px-screen-sidebar"><b/><b/><b/><b/></div><div className="px-screen-content"><span>0{active+1} / {d.tabs[active]}</span><h3>{d.details[active][0]}</h3><p>{d.details[active][1]}</p><div className="px-screen-widgets"><i/><i/><i/></div><div className="px-screen-lines"><b/><b/><b/></div></div></div></div></div>}
    {mode==="robotics"&&<div className="px-robot-console">
-    <div className={"px-robot-visual px-robot-visual-"+active} aria-label={["Vision perception visual","Motion control visual","Task sequence visual","Telemetry diagnostics visual"][active]}>
+    <div className={"px-robot-visual px-robot-visual-"+active} aria-label={["Industrial robot vision scene","Industrial robot motion scene","Industrial robot pick and place task","Industrial robot telemetry scene"][active]}>
      <div className="px-robot-grid"/>
-     <div className="px-robot-hud"><span>ROBOTICS / SYS-01</span><b><i/> LIVE SYSTEM</b><em>0{active+1} / 04</em></div>
+     <div className="px-robot-hud"><span>ROBOTICS / CELL-01</span><b><i/> LIVE SYSTEM</b><em>0{active+1} / 04</em></div>
      <div className="px-robot-stage">
-      <div className="px-robot-orbit px-robot-orbit-a"/><div className="px-robot-orbit px-robot-orbit-b"/>
+      <div className="px-robot-floor"><i/><i/><i/></div>
+      <div className="px-robot-conveyor"><i/><i/><i/><b/></div>
+      <div className="px-robot-workpiece"><i/><b/></div>
+      <div className="px-robot-machine">
+       <div className="px-robot-plinth"><i/></div>
+       <div className="px-robot-pedestal"><i/><b/></div>
+       <div className="px-robot-turret">
+        <div className="px-robot-upper-arm"><i/><b/>
+         <div className="px-robot-elbow"><i/><b/>
+          <div className="px-robot-forearm"><i/><b/>
+           <div className="px-robot-wrist"><i/>
+            <div className="px-robot-gripper"><b/><i/><em/></div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
       <div className="px-robot-camera"><i/><b/><em/></div>
       <div className="px-robot-scan-beam"/>
       <div className="px-robot-detection"><i/><b/><em/><span/></div>
-      <div className="px-robot-arm-base"><i/><b/></div>
-      <div className="px-robot-joint-arm"><i/><b/><em/></div>
       <div className="px-robot-task-route"><i/><i/><i/><i/></div>
       <div className="px-robot-telemetry-bars"><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/></div>
       <div className="px-robot-data-packets"><i/><i/><i/></div>
      </div>
-     <div className="px-robot-readout"><span>{["OBJECT TRACKING","JOINT CONTROL","SEQUENCE RUNNING","SYSTEM HEALTH"][active]}</span><b>{["TARGET LOCKED","TRAJECTORY ACTIVE","STEP 03 / 04","ALL CHANNELS OK"][active]}</b></div>
-     <small>{["VISION / PERCEPTION","MOTION / CONTROL","TASK / SEQUENCE","TELEMETRY / STATUS"][active]}</small>
+     <div className="px-robot-readout"><span>{["VISION / OBJECT RECOGNITION","MOTION / JOINT TRAJECTORY","TASK / PICK & PLACE","TELEMETRY / SERVO STATUS"][active]}</span><b>{["TARGET ACQUIRED","6 AXES / MOVING","CYCLE 03 / 04","ALL SYSTEMS NOMINAL"][active]}</b></div>
+     <small>INDUSTRIAL ROBOT CELL / APPLICATION SIMULATION</small>
     </div>
     <div className="px-robot-modules">{d.modules.map((x:any,i:number)=><button type="button" key={x[0]} className={active===i?"active":""} aria-pressed={active===i} onClick={()=>setActive(i)}><span>0{i+1}</span><b>{x[0]}</b><p>{x[1]}</p><i>{active===i?"ACTIVE":"STANDBY"}</i></button>)}</div>
    </div>}
