@@ -5948,3 +5948,18 @@ html {
 .exhibition-event-dates span{color:#8ca6c2;font-size:8px;letter-spacing:.16em}
 .exhibition-event-dates strong{color:#e4f5ff;font:500 11px "JetBrains Mono",Consolas,monospace;letter-spacing:.08em}
 @media(max-width:760px){.exhibition-event-dates{max-width:100%;gap:8px}.exhibition-event-dates>div{padding:11px 10px}.exhibition-event-dates strong{font-size:10px}}
+
+
+/* Exhibition editorial timeline and expanded project context. */
+.exhibition-tour{display:grid;grid-template-columns:minmax(230px,.72fr) minmax(0,1.28fr);gap:clamp(28px,5vw,72px);padding:clamp(28px,4vw,48px) 0 clamp(38px,5vw,62px);border-top:1px solid rgba(133,173,211,.2)}
+.exhibition-tour-intro h3{margin:17px 0 13px;color:#edf6ff;font-size:clamp(25px,3vw,38px);line-height:1.08;letter-spacing:-.04em;font-weight:540}
+.exhibition-tour-intro p{max-width:390px;margin:0;color:#9aacc1;font-size:12px;line-height:1.9}
+.exhibition-tour-stops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.exhibition-tour-stop{display:grid;grid-template-columns:30px minmax(0,1fr);gap:13px;padding:20px 17px;border:1px solid rgba(133,173,211,.19);background:linear-gradient(145deg,rgba(17,34,57,.7),rgba(8,17,31,.48))}
+.exhibition-tour-number{color:#49d5ed;font:11px "JetBrains Mono",Consolas,monospace;letter-spacing:.1em}
+.exhibition-tour-city{color:#7f9ab7;font-size:8px;letter-spacing:.13em;line-height:1.6}
+.exhibition-tour-stop h4{margin:9px 0 5px;color:#eff7ff;font-size:24px;font-weight:520;letter-spacing:-.035em}
+.exhibition-tour-stop time{color:#55d7ed;font:9px "JetBrains Mono",Consolas,monospace;letter-spacing:.08em}
+.exhibition-tour-stop p{margin:13px 0 0;color:#98abc1;font-size:11px;line-height:1.8}
+@media(max-width:900px){.exhibition-tour{grid-template-columns:minmax(0,1fr);gap:22px}.exhibition-tour-intro p{max-width:620px}}
+@media(max-width:600px){.exhibition-tour{padding:28px 0 34px;gap:20px}.exhibition-tour-stops{grid-template-columns:minmax(0,1fr);gap:9px}.exhibition-tour-stop{padding:16px 14px}.exhibition-tour-stop h4{font-size:22px}}
