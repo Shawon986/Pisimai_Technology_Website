@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/contact-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { EngineeringExplorer } from "@/components/engineering-explorer";
+import { PageExperienceSections } from "@/components/page-experience-sections";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 type PageCopy = {
@@ -416,7 +416,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
             </div>
           )}
         </section>
-        <EngineeringExplorer locale={locale} pageKey={pageKey} />
+        <PageExperienceSections locale={locale} pageKey={pageKey} />
         {pageKey === "contact" && <ContactForm locale={locale} />}
         <section className="inner-page-cta">
           <div><p className="section-kicker">{locale === "zh" ? "下一步" : "WHAT'S NEXT"}</p><h2>{content.ctaTitle}</h2><p>{content.ctaText}</p></div>
