@@ -56,7 +56,8 @@ export async function POST(request: NextRequest) {
   if (contentLength > 12000) {
     return jsonResponse({ error: "Request is too large" }, 413);
   }
-  if (!request.headers.get("content-type")?.includes("application/json")) {
+  const contentType = request.headers.get("content-type")?.split(";", 1)[0].trim().toLowerCase();
+  if (contentType !== "application/json") {
     return jsonResponse({ error: "Unsupported content type" }, 415);
   }
 
