@@ -1,4 +1,6 @@
-export default function RedirectRootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+import type { ReactNode } from "react";
+
+export default function RedirectRootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <body>{children}</body>
