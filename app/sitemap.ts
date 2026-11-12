@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: zh,
         changeFrequency: "monthly" as const,
         priority: path === "" ? 1 : path === "/contact" ? 0.8 : 0.7,
-        alternates: { languages: { en, "zh-CN": zh } }
+        alternates: { languages: { en, "zh-CN": zh, "x-default": en } }
       }
     ];
   });

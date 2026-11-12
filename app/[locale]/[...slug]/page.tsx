@@ -292,7 +292,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       canonical: localizedPath,
       languages: {
         en: "/en/" + slug.join("/"),
-        "zh-CN": "/zh/" + slug.join("/")
+        "zh-CN": "/zh/" + slug.join("/"),
+        "x-default": "/en/" + slug.join("/")
       }
     },
     openGraph: {
