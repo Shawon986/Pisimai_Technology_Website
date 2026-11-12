@@ -28,6 +28,11 @@ export function SiteFooter({ locale, currentPath }: { locale: Locale; currentPat
           </Link>
           <p>{t.footerLine}</p>
           <span className="footer-brand-caption">{locale === "zh" ? "面向未来的技术合作伙伴" : "A technology partner for what comes next."}</span>
+          <div className="footer-company-details">
+            <strong>{t.legalCompanyName}</strong>
+            <span>{t.companyAddressLabel}</span>
+            <address>{t.companyAddress}</address>
+          </div>
         </div>
         <div className="footer-links-block">
           <span className="footer-column-label">{locale === "zh" ? "快速导航" : "EXPLORE"}</span>
