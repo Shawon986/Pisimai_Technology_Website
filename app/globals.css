@@ -5940,3 +5940,11 @@ html {
 .footer-company-details > span { margin-top: 3px; color: #71819d; font: 8px "JetBrains Mono", Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
 .footer-company-details address { color: #8798b3; font-style: normal; overflow-wrap: anywhere; }
 @media (max-width: 760px) { .footer-company-details { max-width: 100%; margin-top: 14px; } }
+
+
+/* Exhibition event dates: factual timeline, with the existing visual system intact. */
+.exhibition-event-dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px;max-width:390px}
+.exhibition-event-dates>div{display:grid;gap:6px;padding:12px 14px;border:1px solid rgba(133,173,211,.2);background:rgba(12,25,44,.42)}
+.exhibition-event-dates span{color:#8ca6c2;font-size:8px;letter-spacing:.16em}
+.exhibition-event-dates strong{color:#e4f5ff;font:500 11px "JetBrains Mono",Consolas,monospace;letter-spacing:.08em}
+@media(max-width:760px){.exhibition-event-dates{max-width:100%;gap:8px}.exhibition-event-dates>div{padding:11px 10px}.exhibition-event-dates strong{font-size:10px}}
