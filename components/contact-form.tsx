@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import type { Locale } from "@/lib/i18n";
+import { track } from "@vercel/analytics";
 
 type Props = { locale: Locale };
 
@@ -62,6 +63,11 @@ export function ContactForm({ locale }: Props) {
         }),
       });
       if (!response.ok) throw new Error("Inquiry submission failed");
+      // Track completed inquiries without transmitting personal form values.
+      track("contact_inquiry_submitted", {
+        locale,
+        service_category: String(data.get("service") ?? "unspecified")
+      });
       form.reset();
       setStatus("success");
     } catch {
