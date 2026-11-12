@@ -7109,3 +7109,37 @@ html {
 @keyframes px-arm-reduced-shoulder{0%,100%{transform:rotate(-28deg)}50%{transform:rotate(-22deg)}}
 @keyframes px-arm-reduced-elbow{0%,100%{transform:rotate(10deg)}50%{transform:rotate(2deg)}}
 @keyframes px-arm-reduced-wrist{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(-6deg)}}
+
+/* Robotics control deck — high-visibility motion override.
+   Keep the robot visibly moving even when a browser globally reduces animation duration. */
+.page-experience-robotics .px-robot-visual .px-robot-upper-arm{animation:px-arm-visible-shoulder 4.6s ease-in-out infinite!important;animation-duration:4.6s!important;animation-iteration-count:infinite!important;will-change:transform}
+.page-experience-robotics .px-robot-visual .px-robot-forearm{animation:px-arm-visible-elbow 4.6s ease-in-out infinite!important;animation-duration:4.6s!important;animation-iteration-count:infinite!important;will-change:transform}
+.page-experience-robotics .px-robot-visual .px-robot-wrist{animation:px-arm-visible-wrist 3.8s ease-in-out infinite!important;animation-duration:3.8s!important;animation-iteration-count:infinite!important;will-change:transform}
+.page-experience-robotics .px-robot-visual .px-robot-gripper b{animation:px-gripper-finger-a 2.8s ease-in-out infinite!important;animation-duration:2.8s!important;animation-iteration-count:infinite!important;transform-origin:top center}
+.page-experience-robotics .px-robot-visual .px-robot-gripper i{animation:px-gripper-finger-b 2.8s ease-in-out infinite!important;animation-duration:2.8s!important;animation-iteration-count:infinite!important;transform-origin:top center}
+.page-experience-robotics .px-robot-visual .px-robot-pedestal b{animation:px-robot-live 1.25s ease-in-out infinite!important;animation-duration:1.25s!important;animation-iteration-count:infinite!important}
+.page-experience-robotics .px-robot-visual .px-robot-scan-beam{animation:px-visible-scan 2.6s ease-in-out infinite!important;animation-duration:2.6s!important;animation-iteration-count:infinite!important}
+.page-experience-robotics .px-robot-visual .px-robot-task-route i{animation:px-visible-route 2.4s ease-in-out infinite!important;animation-duration:2.4s!important;animation-iteration-count:infinite!important}
+.page-experience-robotics .px-robot-visual .px-robot-task-route i:nth-child(2){animation-delay:.6s!important}
+.page-experience-robotics .px-robot-visual .px-robot-task-route i:nth-child(3){animation-delay:1.2s!important}
+.page-experience-robotics .px-robot-visual .px-robot-task-route i:nth-child(4){animation-delay:1.8s!important}
+.page-experience-robotics .px-robot-visual .px-robot-telemetry-bars i{animation:px-visible-telemetry 1.1s ease-in-out infinite alternate!important;animation-duration:1.1s!important;animation-iteration-count:infinite!important;transform-origin:bottom center}
+.page-experience-robotics .px-robot-visual .px-robot-telemetry-bars i:nth-child(2n){animation-delay:.25s!important}
+.page-experience-robotics .px-robot-visual .px-robot-telemetry-bars i:nth-child(3n){animation-delay:.5s!important}
+.page-experience-robotics .px-robot-visual .px-robot-data-packets i{animation:px-visible-packet 2.2s ease-in-out infinite!important;animation-duration:2.2s!important;animation-iteration-count:infinite!important}
+.page-experience-robotics .px-robot-visual .px-robot-data-packets i:nth-child(2){animation-delay:.7s!important}
+.page-experience-robotics .px-robot-visual .px-robot-data-packets i:nth-child(3){animation-delay:1.4s!important}
+@keyframes px-arm-visible-shoulder{0%,100%{transform:rotate(-30deg)}50%{transform:rotate(8deg)}}
+@keyframes px-arm-visible-elbow{0%,100%{transform:rotate(10deg)}50%{transform:rotate(-34deg)}}
+@keyframes px-arm-visible-wrist{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(22deg)}}
+@keyframes px-gripper-finger-a{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(-4deg)}}
+@keyframes px-gripper-finger-b{0%,100%{transform:rotate(22deg)}50%{transform:rotate(4deg)}}
+@keyframes px-visible-scan{0%{top:18%;opacity:.15}50%{top:72%;opacity:1}100%{top:18%;opacity:.15}}
+@keyframes px-visible-route{0%,100%{opacity:.25;transform:scale(.78);box-shadow:0 0 0 3px rgba(91,215,232,.05)}50%{opacity:1;transform:scale(1.2);box-shadow:0 0 0 8px rgba(91,215,232,.18)}}
+@keyframes px-visible-telemetry{from{transform:scaleY(.35);opacity:.45}to{transform:scaleY(1);opacity:1}}
+@keyframes px-visible-packet{0%{transform:translate(0,10px);opacity:0}25%{opacity:1}75%{opacity:1}100%{transform:translate(32px,-24px);opacity:0}}
+@media(prefers-reduced-motion:reduce){
+ .page-experience-robotics .px-robot-visual .px-robot-upper-arm,.page-experience-robotics .px-robot-visual .px-robot-forearm,.page-experience-robotics .px-robot-visual .px-robot-wrist{animation-duration:7s!important;animation-iteration-count:infinite!important}
+ .page-experience-robotics .px-robot-visual .px-robot-gripper b,.page-experience-robotics .px-robot-visual .px-robot-gripper i{animation-duration:5s!important;animation-iteration-count:infinite!important}
+ .page-experience-robotics .px-robot-visual .px-robot-pedestal b,.page-experience-robotics .px-robot-visual .px-robot-scan-beam,.page-experience-robotics .px-robot-visual .px-robot-task-route i,.page-experience-robotics .px-robot-visual .px-robot-telemetry-bars i,.page-experience-robotics .px-robot-visual .px-robot-data-packets i{animation-duration:5s!important;animation-iteration-count:infinite!important}
+}
