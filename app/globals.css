@@ -3155,8 +3155,9 @@ html { scroll-padding-top: 0; }
   .contact-form-grid input,.contact-form-grid select,.contact-form-grid textarea {transition:none}
 }
 
-/* Rendering performance: skip painting off-screen sections without changing
-   their layout, visual styling, or animation definitions. */
+/* Keep document geometry stable while scrolling.
+   Avoid content-visibility intrinsic-size placeholders: translated sections can
+   have very different real heights, which may shift the scroll position on reveal. */
 @supports (content-visibility: auto) {
   .intro-section,
   .services-section,
@@ -3167,27 +3168,8 @@ html { scroll-padding-top: 0; }
   .inner-content-section,
   .inner-page-cta,
   .site-footer {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 640px;
-  }
-
-  .intro-section { contain-intrinsic-size: auto 390px; }
-  .services-section { contain-intrinsic-size: auto 760px; }
-  .technology-band { contain-intrinsic-size: auto 220px; }
-  .approach-section { contain-intrinsic-size: auto 560px; }
-  .about-section { contain-intrinsic-size: auto 560px; }
-  .contact-section { contain-intrinsic-size: auto 500px; }
-  .inner-content-section { contain-intrinsic-size: auto 760px; }
-  .inner-page-cta { contain-intrinsic-size: auto 340px; }
-  .site-footer { contain-intrinsic-size: auto 420px; }
-
-  @media (max-width: 760px) {
-    .services-section { contain-intrinsic-size: auto 1180px; }
-    .approach-section { contain-intrinsic-size: auto 760px; }
-    .about-section { contain-intrinsic-size: auto 620px; }
-    .contact-section { contain-intrinsic-size: auto 620px; }
-    .inner-content-section { contain-intrinsic-size: auto 1050px; }
-    .site-footer { contain-intrinsic-size: auto 520px; }
+    content-visibility: visible;
+    contain-intrinsic-size: none;
   }
 }
 
@@ -5920,3 +5902,33 @@ body { overscroll-behavior-y: contain; }
 }
 @media(max-width:380px){.exhibition-section{padding-left:16px;padding-right:16px}.exhibition-heading h2{font-size:34px}.exhibition-ai-gallery,.exhibition-robot-gallery{grid-auto-rows:118px}}
 @media(prefers-reduced-motion:reduce){.exhibition-photo img,.exhibition-photo-open{transition:none}}
+
+
+/* Fixed, persistent navigation on desktop and mobile. The hero's existing
+   top spacing is retained, so this does not alter the approved page layout. */
+.site-header {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(7, 13, 26, .96) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Keep the browser in charge of a single, continuous document scroll chain. */
+html,
+body {
+  overscroll-behavior-y: auto !important;
+  overflow-anchor: auto;
+}
+html {
+  scroll-padding-top: 104px;
+}
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 116px;
+  }
+}
