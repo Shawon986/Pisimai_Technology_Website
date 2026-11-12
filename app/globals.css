@@ -7463,3 +7463,128 @@ html {
   transform: translate(-50%, -65%) rotate(-45deg) !important;
   transform-origin: center;
 }
+
+/* Unified service arrows: identical SVG geometry and touch-sized alignment on home and inner pages. */
+.service-arrow,
+.inner-service-links i {
+  display:inline-flex;
+  width:28px;
+  height:28px;
+  min-width:28px;
+  flex:0 0 28px;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  line-height:0;
+  vertical-align:middle;
+}
+.service-arrow .ui-arrow-icon,
+.inner-service-links i .ui-arrow-icon {
+  display:block;
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* Center the VALIDATE tick optically and geometrically inside its status circle. */
+.capability-showcase .stage-test-row i.stage-check-icon {
+  position:relative;
+  display:inline-grid!important;
+  place-items:center;
+  width:14px!important;
+  height:14px!important;
+  min-width:14px;
+  flex:0 0 14px;
+  box-sizing:border-box;
+  border-radius:50%;
+}
+.capability-showcase .stage-test-row i.stage-check-icon::after {
+  content:""!important;
+  position:absolute;
+  left:50%!important;
+  top:50%!important;
+  width:6px!important;
+  height:3px!important;
+  border-left:1.6px solid #78efd0;
+  border-bottom:1.6px solid #78efd0;
+  transform:translate(-50%,-58%) rotate(-45deg)!important;
+  transform-origin:center;
+  box-sizing:border-box;
+}
+
+/* Draw all four AI pipeline stage marks consistently; never depend on platform glyph fonts. */
+.px-ai-symbol {
+  position:relative;
+  display:grid;
+  place-items:center;
+  overflow:visible;
+  font-size:0!important;
+  line-height:0;
+}
+.px-ai-0::before {
+  content:"";
+  width:17px;
+  height:17px;
+  border:1.6px solid #63deeb;
+  border-radius:50%;
+  box-shadow:0 0 0 4px rgba(99,222,235,.08),inset 0 0 0 4px rgba(99,222,235,.08);
+}
+.px-ai-0::after {
+  content:"";
+  position:absolute;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#bafaff;
+  box-shadow:0 0 9px rgba(99,222,235,.8);
+}
+.px-ai-1::before {
+  content:"";
+  width:15px;
+  height:15px;
+  border:2px solid #63deeb;
+  border-radius:50%;
+  transform:translate(-2px,-2px);
+}
+.px-ai-1::after {
+  content:"";
+  position:absolute;
+  width:9px;
+  height:2px;
+  border-radius:2px;
+  background:#a7f4fa;
+  transform:translate(8px,8px) rotate(45deg);
+  transform-origin:left center;
+  box-shadow:0 0 7px rgba(99,222,235,.45);
+}
+.px-ai-2::before {
+  content:"";
+  display:block;
+  width:22px;
+  height:22px;
+  background:#63deeb;
+  clip-path:polygon(50% 0,61% 35%,100% 50%,61% 65%,50% 100%,39% 65%,0 50%,39% 35%);
+  filter:drop-shadow(0 0 7px rgba(99,222,235,.45));
+}
+.px-ai-3::before {
+  content:"";
+  width:21px;
+  height:2px;
+  border-radius:2px;
+  background:#63deeb;
+  box-shadow:0 0 8px rgba(99,222,235,.4);
+}
+.px-ai-3::after {
+  content:"";
+  position:absolute;
+  width:10px;
+  height:10px;
+  border-top:2px solid #a7f4fa;
+  border-right:2px solid #a7f4fa;
+  transform:translate(5px,0) rotate(45deg);
+}
