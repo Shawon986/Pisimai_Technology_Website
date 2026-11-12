@@ -6298,3 +6298,206 @@ html {
  .capability-showcase .process-stage-visual { height:100px; }
  .capability-showcase .stage-arch-node { width:48px;height:34px; }
 }
+
+
+/* Final polish: consistent project-stage panels and a true five-point ecosystem ring. */
+.capability-showcase .process-grid {
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(120,167,218,.24);
+  border-radius: 12px;
+  background: linear-gradient(145deg,rgba(9,22,40,.86),rgba(5,14,28,.72));
+  box-shadow: 0 22px 60px rgba(0,0,0,.18), inset 0 1px 0 rgba(196,231,255,.035);
+}
+.capability-showcase .process-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 352px;
+  padding: clamp(18px,2.15vw,28px);
+  background: linear-gradient(180deg,rgba(25,48,73,.24),rgba(7,18,33,.08) 56%,rgba(5,14,27,.2));
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+.capability-showcase .process-step:not(:last-child) {
+  border-right: 1px solid rgba(120,167,218,.18);
+}
+.capability-showcase .process-step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,rgba(56,211,235,.72),transparent);
+  opacity: .72;
+}
+.capability-showcase .process-step-top {
+  min-height: 22px;
+}
+.capability-showcase .process-step-top > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 24px;
+  padding: 0 7px;
+  border: 1px solid rgba(67,208,231,.3);
+  border-radius: 5px;
+  background: rgba(24,133,164,.12);
+}
+.capability-showcase .process-step-top small {
+  padding: 5px 7px;
+  border: 1px solid rgba(120,167,218,.16);
+  border-radius: 4px;
+  background: rgba(113,153,189,.06);
+}
+.capability-showcase .process-stage-visual {
+  flex: 0 0 146px;
+  height: 146px;
+  margin: 18px 0 20px;
+  border: 1px solid rgba(106,170,207,.17);
+  border-radius: 9px;
+  background:
+    linear-gradient(rgba(75,143,183,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(75,143,183,.045) 1px,transparent 1px),
+    radial-gradient(ellipse at 50% 55%,rgba(25,135,171,.2),rgba(7,17,33,.12) 72%);
+  background-size: 18px 18px,18px 18px,auto;
+  box-shadow: inset 0 1px 18px rgba(0,0,0,.16),0 8px 22px rgba(0,0,0,.12);
+}
+.capability-showcase .stage-brief-board,
+.capability-showcase .stage-editor,
+.capability-showcase .stage-test-report {
+  width: 84%;
+  max-width: 230px;
+  border-color: rgba(111,190,219,.5);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.32),0 0 26px rgba(39,181,212,.1),inset 0 1px 0 rgba(222,245,255,.045);
+}
+.capability-showcase .stage-architecture {
+  width: 90%;
+  height: 118px;
+  max-width: 236px;
+}
+.capability-showcase .stage-arch-node {
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.28),inset 0 1px 0 rgba(216,248,255,.05);
+}
+.capability-showcase .stage-arch-core {
+  box-shadow: 0 0 24px rgba(54,211,232,.16),0 6px 16px rgba(0,0,0,.24);
+}
+.capability-showcase .process-step h3 {
+  margin: 0 0 9px;
+  font-size: clamp(17px,1.55vw,21px);
+  letter-spacing: -.02em;
+}
+.capability-showcase .process-step p {
+  max-width: 290px;
+  font-size: 12px;
+  line-height: 1.75;
+}
+.capability-showcase .ecosystem-visual {
+  width: min(100%,500px);
+  max-width: 500px;
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
+}
+.capability-showcase .ecosystem-orbit {
+  width: 80%;
+  height: 80%;
+  border-color: rgba(78,151,219,.32);
+  transform: translate(-50%,-50%);
+}
+.capability-showcase .ecosystem-orbit-b {
+  width: 96%;
+  height: 96%;
+  border-color: rgba(22,217,245,.18);
+  transform: translate(-50%,-50%);
+}
+.capability-showcase .ecosystem-node {
+  width: 116px;
+  min-height: 60px;
+  padding: 9px 8px;
+  border-radius: 8px;
+  background: linear-gradient(145deg,rgba(13,31,53,.98),rgba(5,15,29,.98));
+  box-shadow: 0 10px 26px rgba(0,0,0,.28),0 0 20px rgba(33,178,210,.07),inset 0 1px 0 rgba(213,242,255,.06);
+}
+.capability-showcase .ecosystem-node b {
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+.capability-showcase .ecosystem-node span {
+  font-size: 9px;
+}
+.capability-showcase .ecosystem-node-1 { top:10%;left:50%;right:auto;bottom:auto;transform:translate(-50%,-50%); }
+.capability-showcase .ecosystem-node-2 { top:38%;left:88%;right:auto;bottom:auto;transform:translate(-50%,-50%); }
+.capability-showcase .ecosystem-node-3 { top:82%;left:74%;right:auto;bottom:auto;transform:translate(-50%,-50%); }
+.capability-showcase .ecosystem-node-4 { top:82%;left:26%;right:auto;bottom:auto;transform:translate(-50%,-50%); }
+.capability-showcase .ecosystem-node-5 { top:38%;left:12%;right:auto;bottom:auto;transform:translate(-50%,-50%); }
+.capability-showcase .ecosystem-link-1 { height:35%;transform:rotate(180deg); }
+.capability-showcase .ecosystem-link-2 { height:35%;transform:rotate(108deg); }
+.capability-showcase .ecosystem-link-3 { height:35%;transform:rotate(36deg); }
+.capability-showcase .ecosystem-link-4 { height:35%;transform:rotate(324deg); }
+.capability-showcase .ecosystem-link-5 { height:35%;transform:rotate(252deg); }
+
+@media (hover:hover) and (min-width:901px) {
+  .capability-showcase .process-step:hover {
+    background: linear-gradient(180deg,rgba(31,75,104,.3),rgba(7,18,33,.12) 62%,rgba(5,14,27,.24));
+    box-shadow: inset 0 0 34px rgba(32,190,219,.045);
+  }
+}
+@media(max-width:900px) {
+  .capability-showcase .process-step { min-height: 330px; }
+  .capability-showcase .ecosystem-visual { width:min(100%,500px); }
+}
+@media(max-width:640px) {
+  .capability-showcase .process-grid { border-radius:10px; }
+  .capability-showcase .process-step {
+    min-height: 304px;
+    padding: 16px 13px;
+  }
+  .capability-showcase .process-step:nth-child(2) { border-right:0; }
+  .capability-showcase .process-step:nth-child(3) { border-right:1px solid rgba(120,167,218,.18); }
+  .capability-showcase .process-step:nth-child(3),
+  .capability-showcase .process-step:nth-child(4) { border-bottom:0; }
+  .capability-showcase .process-stage-visual {
+    flex-basis: 124px;
+    height:124px;
+    margin:14px 0 16px;
+    border-radius:7px;
+    background-size:14px 14px,14px 14px,auto;
+  }
+  .capability-showcase .process-step h3 { font-size:17px; }
+  .capability-showcase .process-step p { font-size:10px;line-height:1.65; }
+  .capability-showcase .ecosystem-visual {
+    width:min(100%,440px);
+    min-height:0;
+    aspect-ratio:1 / 1;
+  }
+  .capability-showcase .ecosystem-node {
+    width:94px;
+    min-height:54px;
+    padding:7px 5px;
+  }
+  .capability-showcase .ecosystem-node-1 { top:10%;left:50%; }
+  .capability-showcase .ecosystem-node-2 { top:38%;left:88%; }
+  .capability-showcase .ecosystem-node-3 { top:82%;left:74%; }
+  .capability-showcase .ecosystem-node-4 { top:82%;left:26%; }
+  .capability-showcase .ecosystem-node-5 { top:38%;left:12%; }
+  .capability-showcase .ecosystem-link-1,
+  .capability-showcase .ecosystem-link-2,
+  .capability-showcase .ecosystem-link-3,
+  .capability-showcase .ecosystem-link-4,
+  .capability-showcase .ecosystem-link-5 { height:34%; }
+}
+@media(max-width:380px) {
+  .capability-showcase .process-step { min-height:290px;padding:13px 10px; }
+  .capability-showcase .process-stage-visual { flex-basis:112px;height:112px; }
+  .capability-showcase .ecosystem-node { width:82px;min-height:49px;padding:6px 4px; }
+  .capability-showcase .ecosystem-node span { font-size:7px; }
+  .capability-showcase .ecosystem-node b { font-size:10px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .capability-showcase .process-step { transition:none; }
+}
