@@ -29,9 +29,9 @@ const venuePhotos = [
 ];
 
 function PhotoTile({
-  file, alt, className, priority = false
+  file, alt, className
 }: {
-  file: string; alt: string; className?: string; priority?: boolean;
+  file: string; alt: string; className?: string;
 }) {
   const src = asset(file);
   return (
@@ -42,7 +42,6 @@ function PhotoTile({
         fill
         sizes="(max-width: 760px) 48vw, (max-width: 1100px) 32vw, 25vw"
         quality={72}
-        priority={priority}
       />
       <span className="exhibition-photo-open" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" /></svg></span>
     </a>
@@ -103,7 +102,7 @@ export function ExhibitionSection({ locale }: { locale: Locale }) {
           </div>
           <div className="exhibition-ai-gallery">
             {aiPhotos.map((photo, index) => (
-              <PhotoTile key={photo.file} file={photo.file} alt={photo.alt} className={`exhibition-ai-photo exhibition-ai-photo-${index + 1}`} priority={index === 0} />
+              <PhotoTile key={photo.file} file={photo.file} alt={photo.alt} className={`exhibition-ai-photo exhibition-ai-photo-${index + 1}`} />
             ))}
             <span className="exhibition-gallery-count">07 <i /> AI PHOTOBOOTH</span>
           </div>
