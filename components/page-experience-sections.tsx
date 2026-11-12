@@ -2,6 +2,22 @@
 import { useState } from "react";
 
 type Props={locale:"en"|"zh";pageKey:string};
+type Pair = readonly [string, string];
+type Triple = readonly [string, string, string];
+type Quad = readonly [string, string, string, string];
+type PageContent = {
+ k: string; h: string; p: string; foot: string;
+ phases?: readonly Triple[];
+ scenarios?: readonly (readonly Pair[])[];
+ tabs?: readonly string[];
+ layers?: readonly Quad[];
+ principles?: readonly Triple[];
+ choices?: readonly string[];
+ steps?: readonly Pair[];
+ details?: readonly Pair[];
+ modules?: readonly Pair[];
+ nodes?: readonly Pair[];
+};
 const data={
  en:{
   services:{k:"HOW WE DELIVER / FROM BRIEF TO OUTCOME",h:"A considered process. Built around your challenge.",p:"Our work moves through clear engineering stages so that the solution is shaped by real requirements, tested in context, and ready to evolve.",phases:[["01","DISCOVER","Understand the people, environment and operational challenge before selecting a technical direction."],["02","DESIGN","Map the experience, system architecture, integrations and delivery priorities."],["03","ENGINEER","Build the application, intelligence and connected components as one coherent solution."],["04","VALIDATE","Test real workflows, refine performance and prepare a maintainable handover."]],foot:"A flexible delivery framework — the sequence adapts to each project's scope."},
@@ -26,19 +42,19 @@ const data={
   integration:{k:"系统集成 / 连接图谱",h:"让独立系统协同成为整体。",p:"选择节点，了解其在集成环境中的作用。",nodes:[["设备","传感器、机器人与互联设备。"],["平台","现有应用程序与业务系统。"],["服务","API、模型与外部服务。"],["数据","事件、存储与共享信息。"]],foot:"集成方案以已知接口与系统限制为基础。"}
  }
 };
-function modeFor(key:string){if(key==="services"||key==="solutions"||key==="technology"||key==="about"||key==="contact")return key;if(key.endsWith("ai-intelligent-systems"))return"ai";if(key.endsWith("software-digital-platforms"))return"software";if(key.endsWith("robotics-automation"))return"robotics";return"integration";}
+function modeFor(key:string): keyof typeof data.en {if(key==="services"||key==="solutions"||key==="technology"||key==="about"||key==="contact")return key;if(key.endsWith("ai-intelligent-systems"))return"ai";if(key.endsWith("software-digital-platforms"))return"software";if(key.endsWith("robotics-automation"))return"robotics";return"integration";}
 export function PageExperienceSections({locale,pageKey}:Props){
- const mode=modeFor(pageKey) as keyof typeof data.en;const d=data[locale][mode] as any;const [active,setActive]=useState(0);
+ const mode=modeFor(pageKey);const d: PageContent=data[locale][mode];const [active,setActive]=useState(0);
  return <section className={"page-experience page-experience-"+mode}>
   <header className="px-heading"><p className="section-kicker">{d.k}</p><h2>{d.h}</h2><p>{d.p}</p></header>
-  {mode==="services"&&<div className="px-delivery-path">{d.phases.map((x:any,i:number)=><article key={x[0]}><div className="px-delivery-step"><span>{x[0]}</span><i aria-hidden="true" className={i===3?"px-delivery-check":""}>{i===3?null:["◉","⌘","↗"][i]}</i></div><b>{x[1]}</b><p>{x[2]}</p>{i<3&&<span className="px-delivery-connector" aria-hidden="true">→</span>}</article>)}</div>}
-  {mode==="solutions"&&<div className="px-scenario"><nav>{d.tabs.map((x:string,i:number)=><button className={active===i?"selected":""} aria-pressed={active===i} onClick={()=>setActive(i)} key={x}>{x}</button>)}</nav><div className={"px-solution-visual px-solution-visual-"+active} key={"visual-"+active} aria-hidden="true">
+  {mode==="services"&&<div className="px-delivery-path">{d.phases!.map((x,i)=><article key={x[0]}><div className="px-delivery-step"><span>{x[0]}</span><i aria-hidden="true" className={i===3?"px-delivery-check":""}>{i===3?null:["◉","⌘","↗"][i]}</i></div><b>{x[1]}</b><p>{x[2]}</p>{i<3&&<span className="px-delivery-connector" aria-hidden="true">→</span>}</article>)}</div>}
+  {mode==="solutions"&&<div className="px-scenario"><nav>{d.tabs!.map((x,i)=><button className={active===i?"selected":""} aria-pressed={active===i} onClick={()=>setActive(i)} key={x}>{x}</button>)}</nav><div className={"px-solution-visual px-solution-visual-"+active} key={"visual-"+active} aria-hidden="true">
     <div className="px-solution-visual-top"><span>{active===0?"OPERATIONS / LIVE OVERVIEW":active===1?"DIGITAL PRODUCT / EXPERIENCE":"CONNECTED ENVIRONMENT / DEVICE STATUS"}</span><i><b/> SYSTEM ONLINE</i></div>
     {active===0&&<div className="px-ops-visual"><div className="px-ops-metrics"><div><span>ACTIVE ASSETS</span><b>128</b><i>+12.8%</i></div><div><span>WORKFLOWS</span><b>24</b><i>RUNNING</i></div><div><span>ALERTS</span><b>03</b><i>REVIEW</i></div></div><div className="px-ops-chart"><div className="px-ops-chart-label"><b>Operational activity</b><span>LAST 24 HOURS</span></div><div className="px-ops-bars">{[38,56,45,72,61,88,66,94,73,82,58,96].map((v,i)=><i key={i} style={{height:v+"%"}}/>)}</div></div><div className="px-ops-status"><span><i/> Equipment status</span><b>All systems connected</b><em>98.6%</em></div></div>}
     {active===1&&<div className="px-product-visual"><div className="px-product-browser"><div className="px-product-browser-bar"><i/><i/><i/><span>PRODUCT / WORKSPACE</span></div><div className="px-product-browser-body"><aside><b/><i/><i/><i/><i/></aside><div className="px-product-canvas"><span>OVERVIEW / DASHBOARD</span><b>Make every interaction count.</b><p>A connected digital experience, from interface to data.</p><div className="px-product-widgets"><i/><i/><i/></div><div className="px-product-table"><b/><b/><b/><b/></div></div></div></div><div className="px-product-float"><span>API</span><b>CONNECTED</b><i>↗</i></div></div>}
     {active===2&&<div className="px-device-visual"><div className="px-device-hub"><b>PISIMAI</b><span>DEVICE GATEWAY</span><i/></div><div className="px-device-node px-device-node-a"><i>◉</i><b>SENSOR</b><span>ONLINE</span></div><div className="px-device-node px-device-node-b"><i>⌘</i><b>ROBOT</b><span>ACTIVE</span></div><div className="px-device-node px-device-node-c"><i>▦</i><b>PLATFORM</b><span>SYNCED</span></div><div className="px-device-node px-device-node-d"><i>▤</i><b>DATA</b><span>STREAMING</span></div><div className="px-device-link px-device-link-a"/><div className="px-device-link px-device-link-b"/><div className="px-device-link px-device-link-c"/><div className="px-device-link px-device-link-d"/></div>}
   </div>
-  <div className="px-scenario-flow" key={active}>{d.scenarios[active].map((x:any,i:number)=><article key={x[0]}><span>0{i+1}</span><b>{x[0]}</b><p>{x[1]}</p><i>{i===0?"◉":i===1?"⌘":"↗"}</i></article>)}</div><div className="px-scenario-foot">SCENARIO / 0{active+1}<span>{d.tabs[active]}</span></div></div>}
+  <div className="px-scenario-flow" key={active}>{d.scenarios![active].map((x,i)=><article key={x[0]}><span>0{i+1}</span><b>{x[0]}</b><p>{x[1]}</p><i>{i===0?"◉":i===1?"⌘":"↗"}</i></article>)}</div><div className="px-scenario-foot">SCENARIO / 0{active+1}<span>{d.tabs![active]}</span></div></div>}
   {mode==="technology"&&<div className="px-tech-architecture" aria-label={locale==="zh"?"从体验层到基础设施的技术架构":"Technology architecture from experience to infrastructure"}>
     <div className="px-tech-architecture-head"><span>PISIMAI / SYSTEM ARCHITECTURE</span><b>4 CONNECTED LAYERS</b></div>
     <div className="px-tech-stack-visual">
@@ -50,7 +66,7 @@ export function PageExperienceSections({locale,pageKey}:Props){
     </div>
     <div className="px-tech-architecture-foot"><span>MODULAR BY DESIGN</span><span>BUILT AROUND THE USE CASE</span></div>
   </div>}
-  {mode==="technology"&&<div className="px-stack">{d.layers.map((x:any,i:number)=><button key={x[0]} className={active===i?"open":""} onClick={()=>setActive(i)}><span>{x[0]}</span><b>{x[1]}</b><p>{x[2]}</p><small>{x[3]}</small><i>{active===i?"−":"+"}</i>{active===i&&<em>ACTIVE LAYER / EXPLORE COMPONENTS</em>}</button>)}</div>}
+  {mode==="technology"&&<div className="px-stack">{d.layers!.map((x)=><button key={x[0]} className={active===i?"open":""} onClick={()=>setActive(i)}><span>{x[0]}</span><b>{x[1]}</b><p>{x[2]}</p><small>{x[3]}</small><i>{active===i?"−":"+"}</i>{active===i&&<em>ACTIVE LAYER / EXPLORE COMPONENTS</em>}</button>)}</div>}
   {mode==="about"&&<div className="px-about-system-visual" aria-label={locale==="zh"?"PISIMAI 工程理念示意":"PISIMAI engineering principles"}>
     <div className="px-about-visual-head"><span>PISIMAI / ENGINEERING DNA</span><b>ONE CONNECTED MINDSET</b></div>
     <div className="px-about-orbit-scene"><div className="px-about-orbit-ring px-about-orbit-ring-a"/><div className="px-about-orbit-ring px-about-orbit-ring-b"/><div className="px-about-orbit-core"><b>P</b><span>PISIMAI</span><small>ENGINEERING</small></div>
@@ -61,7 +77,7 @@ export function PageExperienceSections({locale,pageKey}:Props){
     </div>
     <div className="px-about-visual-foot"><span>PEOPLE</span><i/><span>TECHNOLOGY</span><i/><span>REAL-WORLD IMPACT</span></div>
   </div>}
-  {mode==="about"&&<div className="px-principles">{d.principles.map((x:any,i:number)=><article key={x[0]}><span>{x[0]}</span><div><b>{x[1]}</b><p>{x[2]}</p></div><i className="px-principle-mark" aria-hidden="true" /></article>)}</div>}
+  {mode==="about"&&<div className="px-principles">{d.principles!.map((x)=><article key={x[0]}><span>{x[0]}</span><div><b>{x[1]}</b><p>{x[2]}</p></div><i className="px-principle-mark" aria-hidden="true" /></article>)}</div>}
   {mode==="contact"&&<div className="px-contact-journey-visual" aria-label={locale==="zh"?"项目沟通流程":"Project conversation workflow"}>
     <div className="px-contact-journey-head"><span>PROJECT INTAKE / FIRST CONVERSATION</span><b>FROM IDEA TO CLEAR NEXT STEP</b></div>
     <div className="px-contact-journey-track">
@@ -71,9 +87,9 @@ export function PageExperienceSections({locale,pageKey}:Props){
     </div>
     <div className="px-contact-journey-foot"><i/><span>START WITH THE PROBLEM. FIND THE RIGHT TECHNOLOGY.</span></div>
   </div>}
-  {mode==="contact"&&<div className="px-contact-picker"><div className="px-contact-options">{d.choices.map((x:string,i:number)=><button key={x} className={active===i?"chosen":""} onClick={()=>setActive(i)}><span>0{i+1}</span>{x}<i>{active===i?"●":"○"}</i></button>)}</div><div className="px-contact-result"><span>PROJECT FOCUS / 0{active+1}</span><b>{d.choices[active]}</b><p>{locale==="zh"?"已选择。您可以在下方联系表单中补充项目背景与目标。":"Selected. Add your project context and goals in the contact form below."}</p></div></div>}
-  {mode==="ai"&&<div className="px-ai-pipeline">{d.steps.map((x:any,i:number)=><button key={x[0]} className={active===i?"active":""} onClick={()=>setActive(i)}><span>STAGE / 0{i+1}</span><i className={"px-ai-symbol px-ai-"+i} aria-hidden="true"></i><b>{x[0]}</b><p>{x[1]}</p>{i<3&&<em aria-hidden="true">→</em>}</button>)}</div>}
-  {mode==="software"&&<div className="px-product-lab"><aside><span>PRODUCT / LAYERS</span>{d.tabs.map((x:string,i:number)=><button key={x} className={active===i?"on":""} onClick={()=>setActive(i)}><i>0{i+1}</i>{x} <b>↗</b></button>)}</aside><div className="px-product-screen"><div className="px-screen-bar"><i/><i/><i/><span>pisimai / product-system</span></div><div className="px-screen-body"><div className="px-screen-sidebar"><b/><b/><b/><b/></div><div className="px-screen-content"><span>0{active+1} / {d.tabs[active]}</span><h3>{d.details[active][0]}</h3><p>{d.details[active][1]}</p><div className="px-screen-widgets"><i/><i/><i/></div><div className="px-screen-lines"><b/><b/><b/></div></div></div></div></div>}
+  {mode==="contact"&&<div className="px-contact-picker"><div className="px-contact-options">{d.choices!.map((x,i)=><button key={x} className={active===i?"chosen":""} onClick={()=>setActive(i)}><span>0{i+1}</span>{x}<i>{active===i?"●":"○"}</i></button>)}</div><div className="px-contact-result"><span>PROJECT FOCUS / 0{active+1}</span><b>{d.choices![active]}</b><p>{locale==="zh"?"已选择。您可以在下方联系表单中补充项目背景与目标。":"Selected. Add your project context and goals in the contact form below."}</p></div></div>}
+  {mode==="ai"&&<div className="px-ai-pipeline">{d.steps!.map((x,i)=><button key={x[0]} className={active===i?"active":""} onClick={()=>setActive(i)}><span>STAGE / 0{i+1}</span><i className={"px-ai-symbol px-ai-"+i} aria-hidden="true"></i><b>{x[0]}</b><p>{x[1]}</p>{i<3&&<em aria-hidden="true">→</em>}</button>)}</div>}
+  {mode==="software"&&<div className="px-product-lab"><aside><span>PRODUCT / LAYERS</span>{d.tabs.map((x:string,i:number)=><button key={x} className={active===i?"on":""} onClick={()=>setActive(i)}><i>0{i+1}</i>{x} <b>↗</b></button>)}</aside><div className="px-product-screen"><div className="px-screen-bar"><i/><i/><i/><span>pisimai / product-system</span></div><div className="px-screen-body"><div className="px-screen-sidebar"><b/><b/><b/><b/></div><div className="px-screen-content"><span>0{active+1} / {d.tabs[active]}</span><h3>{d.details![active][0]}</h3><p>{d.details![active][1]}</p><div className="px-screen-widgets"><i/><i/><i/></div><div className="px-screen-lines"><b/><b/><b/></div></div></div></div></div>}
    {mode==="robotics"&&<div className="px-robot-console">
     <div className={"px-robot-visual px-robot-visual-"+active} aria-label={["Industrial robot vision scene","Industrial robot motion scene","Industrial robot pick and place task","Industrial robot telemetry scene"][active]}>
      <div className="px-robot-grid"/>
@@ -107,9 +123,9 @@ export function PageExperienceSections({locale,pageKey}:Props){
      <div className="px-robot-readout"><span>{["VISION / OBJECT RECOGNITION","MOTION / JOINT TRAJECTORY","TASK / PICK & PLACE","TELEMETRY / SERVO STATUS"][active]}</span><b>{["TARGET ACQUIRED","6 AXES / MOVING","CYCLE 03 / 04","ALL SYSTEMS NOMINAL"][active]}</b></div>
      <small>INDUSTRIAL ROBOT CELL / APPLICATION SIMULATION</small>
     </div>
-    <div className="px-robot-modules">{d.modules.map((x:any,i:number)=><button type="button" key={x[0]} className={active===i?"active":""} aria-pressed={active===i} onClick={()=>setActive(i)}><span>0{i+1}</span><b>{x[0]}</b><p>{x[1]}</p><i>{active===i?"ACTIVE":"STANDBY"}</i></button>)}</div>
+    <div className="px-robot-modules">{d.modules!.map((x,i)=><button type="button" key={x[0]} className={active===i?"active":""} aria-pressed={active===i} onClick={()=>setActive(i)}><span>0{i+1}</span><b>{x[0]}</b><p>{x[1]}</p><i>{active===i?"ACTIVE":"STANDBY"}</i></button>)}</div>
    </div>}
-  {mode==="integration"&&<div className="px-integration-map"><div className="px-map-center"><b>PISIMAI</b><span>INTEGRATION CORE</span></div>{d.nodes.map((x:any,i:number)=><button key={x[0]} className={"px-map-node node-"+i+(active===i?" active":"")} onClick={()=>setActive(i)}><i>{["◈","▦","⌘","▤"][i]}</i><b>{x[0]}</b><span>0{i+1}</span></button>)}<div className="px-map-detail"><span>NODE / 0{active+1}</span><b>{d.nodes[active][0]}</b><p>{d.nodes[active][1]}</p></div></div>}
+  {mode==="integration"&&<div className="px-integration-map"><div className="px-map-center"><b>PISIMAI</b><span>INTEGRATION CORE</span></div>{d.nodes!.map((x,i)=><button key={x[0]} className={"px-map-node node-"+i+(active===i?" active":"")} onClick={()=>setActive(i)}><i>{["◈","▦","⌘","▤"][i]}</i><b>{x[0]}</b><span>0{i+1}</span></button>)}<div className="px-map-detail"><span>NODE / 0{active+1}</span><b>{d.nodes![active][0]}</b><p>{d.nodes[active][1]}</p></div></div>}
   <p className="px-footnote"><i/>{d.foot}</p>
  </section>;
 }
