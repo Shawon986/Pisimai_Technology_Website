@@ -7423,3 +7423,43 @@ html {
   84%{transform:skewY(-7deg) translate(-106px,-10px);opacity:0}
   100%{transform:skewY(-7deg) translate(0,0);opacity:1}
 }
+
+/* Shared arrow alignment for homepage service cards and service-page links. */
+.inner-service-links i {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.inner-service-links .ui-arrow-icon {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 760px) {
+  .inner-service-links a {
+    grid-template-columns: 38px minmax(0, 1fr) 28px;
+    gap: 10px;
+  }
+}
+
+/* Center the VALIDATE check inside its circular status marker at every size. */
+.capability-showcase .stage-test-row i.stage-check-icon {
+  position: relative;
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.capability-showcase .stage-test-row i.stage-check-icon::after {
+  left: 50% !important;
+  top: 50% !important;
+  width: 6px !important;
+  height: 3px !important;
+  transform: translate(-50%, -65%) rotate(-45deg) !important;
+  transform-origin: center;
+}
