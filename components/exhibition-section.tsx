@@ -92,9 +92,9 @@ export function ExhibitionSection({ locale }: { locale: Locale }) {
             <span className="exhibition-index">02 / HUMANOID ROBOTICS</span>
             <h3>{zh ? "Qiyuan T1 Pro" : "Qiyuan T1 Pro"}</h3>
             <p>{zh
-              ? "近距离体验全球首款全球首款可变形人形机器人。Qiyuan T1 Pro 是本次展出的核心亮点之一，展现了机器人形态创新与智能交互的全新可能。"
+              ? "近距离体验全球首款可变形人形机器人。Qiyuan T1 Pro 是本次展出的核心亮点之一，展现了机器人形态创新与智能交互的全新可能。"
               : "Meet the world’s first transformable humanoid robot. The Qiyuan T1 Pro was one of our exhibition highlights, bringing an extraordinary new form of robotics and intelligent interaction to the exhibition floor."}</p>
-            <span className="exhibition-tag">{zh ? "可变形人形机器人" : "THE WORLD’S FIRST TRANSFORMABLE HUMANOID ROBOT"}</span>
+            <span className="exhibition-tag">{zh ? "全球首款可变形人形机器人" : "THE WORLD’S FIRST TRANSFORMABLE HUMANOID ROBOT"}</span>
           </div>
         </div>
 
