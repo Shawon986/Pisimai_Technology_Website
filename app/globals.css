@@ -7143,3 +7143,227 @@ html {
  .page-experience-robotics .px-robot-visual .px-robot-gripper b,.page-experience-robotics .px-robot-visual .px-robot-gripper i{animation-duration:5s!important;animation-iteration-count:infinite!important}
  .page-experience-robotics .px-robot-visual .px-robot-pedestal b,.page-experience-robotics .px-robot-visual .px-robot-scan-beam,.page-experience-robotics .px-robot-visual .px-robot-task-route i,.page-experience-robotics .px-robot-visual .px-robot-telemetry-bars i,.page-experience-robotics .px-robot-visual .px-robot-data-packets i{animation-duration:5s!important;animation-iteration-count:infinite!important}
 }
+
+/* Robotics modules: each selected subsystem owns a distinct, purposeful simulation.
+   The robot is intentionally still outside MOTION and TASK so the selected module reads clearly. */
+.page-experience-robotics .px-robot-visual .px-robot-upper-arm,
+.page-experience-robotics .px-robot-visual .px-robot-forearm,
+.page-experience-robotics .px-robot-visual .px-robot-wrist,
+.page-experience-robotics .px-robot-visual .px-robot-gripper,
+.page-experience-robotics .px-robot-visual .px-robot-gripper b,
+.page-experience-robotics .px-robot-visual .px-robot-gripper i,
+.page-experience-robotics .px-robot-visual .px-robot-camera,
+.page-experience-robotics .px-robot-visual .px-robot-scan-beam,
+.page-experience-robotics .px-robot-visual .px-robot-detection,
+.page-experience-robotics .px-robot-visual .px-robot-task-route,
+.page-experience-robotics .px-robot-visual .px-robot-task-route i,
+.page-experience-robotics .px-robot-visual .px-robot-telemetry-bars,
+.page-experience-robotics .px-robot-visual .px-robot-telemetry-bars i,
+.page-experience-robotics .px-robot-visual .px-robot-data-packets,
+.page-experience-robotics .px-robot-visual .px-robot-data-packets i,
+.page-experience-robotics .px-robot-visual .px-robot-workpiece {
+  animation:none!important;
+}
+
+/* 01 — VISION: hold the arm still; the camera scans, locks and tracks the workpiece. */
+.page-experience-robotics .px-robot-visual-0 .px-robot-camera {
+  animation:px-vision-camera-track 3.2s ease-in-out infinite!important;
+  transform-origin:50% 50%;
+}
+.page-experience-robotics .px-robot-visual-0 .px-robot-scan-beam {
+  opacity:1;
+  animation:px-vision-field-sweep 2.8s ease-in-out infinite!important;
+}
+.page-experience-robotics .px-robot-visual-0 .px-robot-detection {
+  opacity:1;
+  animation:px-vision-target-lock 2.8s ease-in-out infinite!important;
+}
+.page-experience-robotics .px-robot-visual-0 .px-robot-workpiece {
+  animation:px-vision-object-highlight 2.8s ease-in-out infinite!important;
+}
+@keyframes px-vision-camera-track {
+  0%,100%{transform:translateX(-3px) rotate(-5deg);filter:brightness(.9)}
+  45%,65%{transform:translateX(5px) rotate(6deg);filter:brightness(1.25)}
+}
+@keyframes px-vision-field-sweep {
+  0%{top:18%;opacity:.12}
+  48%{top:72%;opacity:.95}
+  100%{top:18%;opacity:.12}
+}
+@keyframes px-vision-target-lock {
+  0%,12%{transform:scale(.72);opacity:.25;box-shadow:0 0 0 0 rgba(94,225,236,0)}
+  38%,68%{transform:scale(1.08);opacity:1;box-shadow:0 0 0 9px rgba(94,225,236,.12)}
+  100%{transform:scale(.72);opacity:.25;box-shadow:0 0 0 0 rgba(94,225,236,0)}
+}
+@keyframes px-vision-object-highlight {
+  0%,100%{filter:brightness(1) drop-shadow(0 0 0 rgba(94,225,236,0))}
+  50%{filter:brightness(1.35) drop-shadow(0 0 10px rgba(94,225,236,.7))}
+}
+
+/* 02 — MOTION: demonstrate coordinated, repeatable joint articulation only. */
+.page-experience-robotics .px-robot-visual-1 .px-robot-upper-arm {
+  animation:px-motion-shoulder-cycle 4.8s cubic-bezier(.45,0,.25,1) infinite!important;
+}
+.page-experience-robotics .px-robot-visual-1 .px-robot-forearm {
+  animation:px-motion-elbow-cycle 4.8s cubic-bezier(.45,0,.25,1) infinite!important;
+}
+.page-experience-robotics .px-robot-visual-1 .px-robot-wrist {
+  animation:px-motion-wrist-cycle 4.8s cubic-bezier(.45,0,.25,1) infinite!important;
+}
+.page-experience-robotics .px-robot-visual-1 .px-robot-gripper b {
+  animation:px-motion-finger-a 4.8s ease-in-out infinite!important;
+  transform-origin:top center;
+}
+.page-experience-robotics .px-robot-visual-1 .px-robot-gripper i {
+  animation:px-motion-finger-b 4.8s ease-in-out infinite!important;
+  transform-origin:top center;
+}
+@keyframes px-motion-shoulder-cycle {
+  0%,100%{transform:rotate(-28deg)}
+  24%{transform:rotate(2deg)}
+  52%{transform:rotate(18deg)}
+  78%{transform:rotate(-8deg)}
+}
+@keyframes px-motion-elbow-cycle {
+  0%,100%{transform:rotate(10deg)}
+  24%{transform:rotate(-24deg)}
+  52%{transform:rotate(-48deg)}
+  78%{transform:rotate(-12deg)}
+}
+@keyframes px-motion-wrist-cycle {
+  0%,100%{transform:rotate(-12deg)}
+  24%{transform:rotate(10deg)}
+  52%{transform:rotate(25deg)}
+  78%{transform:rotate(-2deg)}
+}
+@keyframes px-motion-finger-a {0%,100%{transform:rotate(-22deg)}45%,65%{transform:rotate(-8deg)}}
+@keyframes px-motion-finger-b {0%,100%{transform:rotate(22deg)}45%,65%{transform:rotate(8deg)}}
+
+/* 03 — TASK: a complete pick / grip / lift / transfer / release cycle. */
+.page-experience-robotics .px-robot-visual-2 .px-robot-upper-arm {
+  animation:px-task-shoulder-cycle 5.6s ease-in-out infinite!important;
+}
+.page-experience-robotics .px-robot-visual-2 .px-robot-forearm {
+  animation:px-task-elbow-cycle 5.6s ease-in-out infinite!important;
+}
+.page-experience-robotics .px-robot-visual-2 .px-robot-wrist {
+  animation:px-task-wrist-cycle 5.6s ease-in-out infinite!important;
+}
+.page-experience-robotics .px-robot-visual-2 .px-robot-gripper b {
+  animation:px-task-grip-a 5.6s ease-in-out infinite!important;
+  transform-origin:top center;
+}
+.page-experience-robotics .px-robot-visual-2 .px-robot-gripper i {
+  animation:px-task-grip-b 5.6s ease-in-out infinite!important;
+  transform-origin:top center;
+}
+.page-experience-robotics .px-robot-visual-2 .px-robot-workpiece {
+  animation:px-task-workpiece-transfer 5.6s ease-in-out infinite!important;
+  transform-origin:center;
+}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route {
+  opacity:1;
+}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i {
+  animation:px-task-waypoint 5.6s ease-in-out infinite!important;
+}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i:nth-child(2){animation-delay:0s!important}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i:nth-child(3){animation-delay:0s!important}
+.page-experience-robotics .px-robot-visual-2 .px-robot-task-route i:nth-child(4){animation-delay:0s!important}
+@keyframes px-task-shoulder-cycle {
+  0%,100%{transform:rotate(-28deg)}
+  18%{transform:rotate(-17deg)}
+  34%,58%{transform:rotate(7deg)}
+  78%{transform:rotate(-4deg)}
+}
+@keyframes px-task-elbow-cycle {
+  0%,100%{transform:rotate(10deg)}
+  18%{transform:rotate(-5deg)}
+  34%,58%{transform:rotate(-46deg)}
+  78%{transform:rotate(-20deg)}
+}
+@keyframes px-task-wrist-cycle {
+  0%,100%{transform:rotate(-12deg)}
+  34%,58%{transform:rotate(12deg)}
+  78%{transform:rotate(-4deg)}
+}
+@keyframes px-task-grip-a {
+  0%,20%,78%,100%{transform:rotate(-24deg)}
+  30%,64%{transform:rotate(-3deg)}
+}
+@keyframes px-task-grip-b {
+  0%,20%,78%,100%{transform:rotate(24deg)}
+  30%,64%{transform:rotate(3deg)}
+}
+@keyframes px-task-workpiece-transfer {
+  0%,18%,100%{transform:skewY(-7deg) translate(0,0);filter:brightness(1)}
+  30%{transform:skewY(-7deg) translate(-28px,-18px);filter:brightness(1.15)}
+  42%,58%{transform:skewY(-7deg) translate(-102px,-83px);filter:brightness(1.35) drop-shadow(0 0 8px rgba(240,190,100,.55))}
+  72%{transform:skewY(-7deg) translate(-35px,-22px);filter:brightness(1.12)}
+  84%{transform:skewY(-7deg) translate(0,0);filter:brightness(1)}
+}
+@keyframes px-task-waypoint {
+  0%,12%,100%{opacity:.22;transform:scale(.72);background:#0b263f;box-shadow:0 0 0 3px rgba(91,215,232,.04)}
+  24%,42%{opacity:1;transform:scale(1.18);background:#62e0d1;box-shadow:0 0 0 8px rgba(91,215,232,.2)}
+  55%,75%{opacity:.45;transform:scale(.88);background:#0b263f}
+}
+
+/* 04 — TELEMETRY: freeze all robot joints and animate diagnostics / data only. */
+.page-experience-robotics .px-robot-visual-3 .px-robot-telemetry-bars {
+  opacity:1;
+}
+.page-experience-robotics .px-robot-visual-3 .px-robot-telemetry-bars i {
+  animation:px-telemetry-joint-signal 1.25s ease-in-out infinite alternate!important;
+  transform-origin:bottom center;
+}
+.page-experience-robotics .px-robot-visual-3 .px-robot-telemetry-bars i:nth-child(2n){animation-delay:.22s!important}
+.page-experience-robotics .px-robot-visual-3 .px-robot-telemetry-bars i:nth-child(3n){animation-delay:.44s!important}
+.page-experience-robotics .px-robot-visual-3 .px-robot-data-packets {
+  opacity:1;
+}
+.page-experience-robotics .px-robot-visual-3 .px-robot-data-packets i {
+  animation:px-telemetry-packet-flow 2.1s linear infinite!important;
+}
+.page-experience-robotics .px-robot-visual-3 .px-robot-data-packets i:nth-child(2){animation-delay:.7s!important}
+.page-experience-robotics .px-robot-visual-3 .px-robot-data-packets i:nth-child(3){animation-delay:1.4s!important}
+.page-experience-robotics .px-robot-visual-3 .px-robot-pedestal b,
+.page-experience-robotics .px-robot-visual-3 .px-robot-elbow>b {
+  animation:px-telemetry-heartbeat 1.4s ease-in-out infinite!important;
+}
+.page-experience-robotics .px-robot-visual-3 .px-robot-upper-arm>i,
+.page-experience-robotics .px-robot-visual-3 .px-robot-elbow>i,
+.page-experience-robotics .px-robot-visual-3 .px-robot-forearm>i,
+.page-experience-robotics .px-robot-visual-3 .px-robot-wrist>i {
+  animation:px-telemetry-joint-health 2s ease-in-out infinite!important;
+}
+@keyframes px-telemetry-joint-signal {from{transform:scaleY(.22);opacity:.35}to{transform:scaleY(1);opacity:1}}
+@keyframes px-telemetry-packet-flow {0%{transform:translate(0,12px);opacity:0}20%,75%{opacity:1}100%{transform:translate(42px,-30px);opacity:0}}
+@keyframes px-telemetry-heartbeat {0%,100%{filter:brightness(.85);box-shadow:0 0 3px rgba(101,227,194,.2)}45%{filter:brightness(1.65);box-shadow:0 0 12px rgba(101,227,194,.85)}}
+@keyframes px-telemetry-joint-health {0%,100%{filter:brightness(.92)}50%{filter:brightness(1.35) drop-shadow(0 0 5px rgba(101,227,194,.65))}}
+
+/* Reduced-motion preference: preserve the selected module's meaning with gentler cycles. */
+@media(prefers-reduced-motion:reduce){
+ .page-experience-robotics .px-robot-visual-0 .px-robot-camera,
+ .page-experience-robotics .px-robot-visual-0 .px-robot-scan-beam,
+ .page-experience-robotics .px-robot-visual-0 .px-robot-detection,
+ .page-experience-robotics .px-robot-visual-0 .px-robot-workpiece,
+ .page-experience-robotics .px-robot-visual-1 .px-robot-upper-arm,
+ .page-experience-robotics .px-robot-visual-1 .px-robot-forearm,
+ .page-experience-robotics .px-robot-visual-1 .px-robot-wrist,
+ .page-experience-robotics .px-robot-visual-1 .px-robot-gripper b,
+ .page-experience-robotics .px-robot-visual-1 .px-robot-gripper i,
+ .page-experience-robotics .px-robot-visual-2 .px-robot-upper-arm,
+ .page-experience-robotics .px-robot-visual-2 .px-robot-forearm,
+ .page-experience-robotics .px-robot-visual-2 .px-robot-wrist,
+ .page-experience-robotics .px-robot-visual-2 .px-robot-gripper b,
+ .page-experience-robotics .px-robot-visual-2 .px-robot-gripper i,
+ .page-experience-robotics .px-robot-visual-2 .px-robot-workpiece,
+ .page-experience-robotics .px-robot-visual-2 .px-robot-task-route i,
+ .page-experience-robotics .px-robot-visual-3 .px-robot-telemetry-bars i,
+ .page-experience-robotics .px-robot-visual-3 .px-robot-data-packets i,
+ .page-experience-robotics .px-robot-visual-3 .px-robot-pedestal b,
+ .page-experience-robotics .px-robot-visual-3 .px-robot-elbow>b {
+   animation-duration:7s!important;
+   animation-iteration-count:infinite!important;
+ }
+}
