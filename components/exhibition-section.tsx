@@ -44,7 +44,7 @@ function PhotoTile({
         quality={72}
         priority={priority}
       />
-      <span className="exhibition-photo-open" aria-hidden="true">↗</span>
+      <span className="exhibition-photo-open" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" /></svg></span>
     </a>
   );
 }
