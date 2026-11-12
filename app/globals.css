@@ -5856,3 +5856,67 @@ body { overscroll-behavior-y: contain; }
     margin: 0;
   }
 }
+
+/* Exhibition showcase — image-led editorial layout, optimized for touch and desktop. */
+.exhibition-section{position:relative;isolation:isolate;overflow:hidden;padding:clamp(76px,9vw,132px) var(--gutter);background:radial-gradient(ellipse at 12% 12%,rgba(22,217,245,.075),transparent 34%),radial-gradient(ellipse at 88% 58%,rgba(57,123,255,.07),transparent 36%),#080e1b;border-block:1px solid rgba(117,166,211,.13)}
+.exhibition-inner{width:100%;max-width:1440px;margin:0 auto}
+.exhibition-heading{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.65fr);align-items:end;gap:clamp(28px,6vw,90px);margin-bottom:clamp(42px,6vw,82px)}
+.exhibition-heading h2{max-width:850px;margin:18px 0 0;color:#edf6ff;font-size:clamp(38px,5.6vw,76px);line-height:1.02;letter-spacing:-.055em;font-weight:560}
+.exhibition-heading h2 span{color:#8faecb}
+.exhibition-heading>p{max-width:450px;margin:0 0 5px;color:#9aacc1;font-size:14px;line-height:1.9}
+.exhibition-feature{display:grid;grid-template-columns:minmax(250px,.62fr) minmax(0,1.38fr);align-items:start;gap:clamp(30px,5vw,76px);padding:clamp(26px,4vw,54px) 0;border-top:1px solid rgba(133,173,211,.2)}
+.exhibition-feature-copy{padding-top:8px}
+.exhibition-index{display:inline-flex;align-items:center;gap:10px;color:#5fdcf0;font-size:9px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+.exhibition-feature-copy h3,.exhibition-location-heading h3{margin:19px 0 16px;color:#eff7ff;font-size:clamp(30px,3.7vw,48px);line-height:1.06;letter-spacing:-.045em;font-weight:550}
+.exhibition-feature-copy p,.exhibition-location-heading p{max-width:410px;margin:0;color:#9aacc1;font-size:13px;line-height:1.9}
+.exhibition-tag{display:inline-block;margin-top:28px;padding:9px 11px;border:1px solid rgba(83,183,220,.25);color:#b4d4e7;font-size:8px;letter-spacing:.12em;line-height:1.5}
+.exhibition-ai-gallery,.exhibition-robot-gallery{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(100px,11vw,156px);gap:10px;padding-bottom:36px}
+.exhibition-photo{position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:#111e30;border:1px solid rgba(149,190,222,.17);border-radius:5px;isolation:isolate}
+.exhibition-photo img{object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .35s ease}
+.exhibition-photo:hover img,.exhibition-photo:focus-visible img{transform:scale(1.045)}
+.exhibition-photo:focus-visible{outline:2px solid #36d7ef;outline-offset:3px}
+.exhibition-ai-photo-1{grid-column:span 2;grid-row:span 2}
+.exhibition-ai-photo-2,.exhibition-ai-photo-6{grid-column:span 2}
+.exhibition-photo-open{position:absolute;z-index:2;right:10px;bottom:10px;display:grid;width:28px;height:28px;place-items:center;color:#e8f8ff;background:rgba(5,13,25,.72);border:1px solid rgba(190,224,244,.3);border-radius:50%;opacity:0;transition:opacity .2s ease}
+.exhibition-photo-open svg,.exhibition-footer-line a svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.exhibition-photo:hover .exhibition-photo-open,.exhibition-photo:focus-visible .exhibition-photo-open{opacity:1}
+.exhibition-gallery-count{position:absolute;left:0;bottom:0;display:inline-flex;align-items:center;gap:10px;color:#8099b4;font-size:8px;letter-spacing:.15em}
+.exhibition-gallery-count i,.exhibition-location-places i{display:inline-block;width:20px;height:1px;background:#28c8e6}
+.exhibition-feature-robot{grid-template-columns:minmax(0,1.38fr) minmax(250px,.62fr);align-items:center}
+.exhibition-robot-gallery{grid-template-columns:repeat(6,minmax(0,1fr))}
+.exhibition-robot-photo-1{grid-column:span 3;grid-row:span 2}
+.exhibition-robot-photo-2{grid-column:span 3}
+.exhibition-robot-photo-3,.exhibition-robot-photo-4,.exhibition-robot-photo-5{grid-column:span 2}
+.exhibition-robot-copy{padding-left:clamp(0px,1vw,16px)}
+.exhibition-location{display:grid;grid-template-columns:minmax(240px,.62fr) minmax(0,1.38fr);align-items:center;gap:clamp(30px,5vw,76px);padding:clamp(32px,5vw,62px) 0;border-top:1px solid rgba(133,173,211,.2)}
+.exhibition-location-heading h3{font-size:clamp(26px,3vw,38px)}
+.exhibition-location-heading p{font-size:12px}
+.exhibition-location-places{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:25px;color:#b8cde0;font-size:8px;letter-spacing:.15em}
+.exhibition-location-places i{width:13px}
+.exhibition-venue-gallery{display:grid;grid-template-columns:1.1fr .9fr .9fr;grid-auto-rows:clamp(120px,15vw,205px);gap:10px}
+.exhibition-footer-line{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:23px;border-top:1px solid rgba(133,173,211,.2);color:#8299b3;font-size:8px;letter-spacing:.15em}
+.exhibition-footer-line a{display:inline-flex;align-items:center;gap:10px;color:#d9efff;text-decoration:none;white-space:nowrap}
+.exhibition-footer-line a:hover{color:#4bdcf2}
+@media(max-width:900px){.exhibition-feature,.exhibition-feature-robot,.exhibition-location{grid-template-columns:minmax(0,1fr);gap:28px}.exhibition-feature-copy{max-width:650px}.exhibition-robot-copy{grid-row:1}.exhibition-robot-gallery{grid-row:2}}
+@media(max-width:760px){
+.exhibition-section{padding:76px 20px}
+.exhibition-heading{grid-template-columns:minmax(0,1fr);gap:18px;margin-bottom:38px}
+.exhibition-heading h2{font-size:clamp(36px,9vw,56px)}
+.exhibition-heading>p{max-width:600px;font-size:13px}
+.exhibition-feature{padding:30px 0;gap:24px}
+.exhibition-feature-copy h3{margin:14px 0 12px;font-size:34px}
+.exhibition-tag{margin-top:18px}
+.exhibition-ai-gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(118px,31vw,190px);gap:8px}
+.exhibition-ai-photo-1{grid-column:span 2;grid-row:span 1}
+.exhibition-ai-photo-2,.exhibition-ai-photo-6{grid-column:span 1}
+.exhibition-robot-gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(118px,31vw,190px);gap:8px}
+.exhibition-robot-photo-1{grid-column:span 2;grid-row:span 1}
+.exhibition-robot-photo-2,.exhibition-robot-photo-3,.exhibition-robot-photo-4,.exhibition-robot-photo-5{grid-column:span 1}
+.exhibition-location{padding:30px 0;gap:22px}
+.exhibition-location-heading h3{margin:13px 0 10px;font-size:30px}
+.exhibition-venue-gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(125px,34vw,190px);gap:8px}
+.exhibition-venue-photo-1{grid-column:span 2}
+.exhibition-footer-line{align-items:flex-start;flex-direction:column;gap:16px;line-height:1.7}
+}
+@media(max-width:380px){.exhibition-section{padding-left:16px;padding-right:16px}.exhibition-heading h2{font-size:34px}.exhibition-ai-gallery,.exhibition-robot-gallery{grid-auto-rows:118px}}
+@media(prefers-reduced-motion:reduce){.exhibition-photo img,.exhibition-photo-open{transition:none}}
