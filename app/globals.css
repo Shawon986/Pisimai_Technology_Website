@@ -6673,3 +6673,93 @@ html {
 .solution-map-outcomes>span{font:7px "JetBrains Mono",monospace;color:#7192b1;letter-spacing:.08em}.solution-map-outcomes>b{font:7px "JetBrains Mono",monospace;color:#b9d9eb;letter-spacing:.07em}
 @media(max-width:620px){.scene-solution-map{min-height:320px}.solution-map-orbit{width:180px;height:180px}.solution-map-hub{width:92px;height:92px}.solution-map-hub>span{font-size:11px}.solution-map-node{width:120px;padding:9px}.solution-map-node>span{font-size:6px}.solution-map-node>b{font-size:8px}.solution-map-node>small{font-size:7px}.solution-map-ai{left:1%;top:15%}.solution-map-software{right:1%;top:15%}.solution-map-devices{bottom:14%;width:140px}.solution-map-link{width:24%}.solution-map-link-c{width:15%;top:53%}.solution-map-outcomes{gap:7px;flex-wrap:wrap;padding:8px 4px}.solution-map-outcomes>span,.solution-map-outcomes>b{font-size:6px}}
 @media(prefers-reduced-motion:reduce){.scene-solution-map *{animation:none!important;transition:none!important}}
+
+/* Normalize decorative check and star marks with CSS geometry across mobile fonts */
+.px-delivery-check{position:relative;display:inline-block!important;width:15px;height:15px;border:1px solid rgba(91,220,192,.62);border-radius:50%;font-size:0!important}
+.px-delivery-check:after,.stage-check-icon:after,.stage-check-inline:after{content:"";position:absolute;width:6px;height:3px;border-left:1.5px solid #78efd0;border-bottom:1.5px solid #78efd0;transform:rotate(-45deg);left:3px;top:4px}
+.stage-check-icon{position:relative;display:inline-block!important;width:12px;height:12px;border-radius:50%;background:rgba(54,196,158,.16)}
+.stage-check-icon:after{left:3px;top:3px}
+.stage-check-inline{position:relative;display:inline-block;width:8px;height:8px;margin-right:3px;vertical-align:middle}
+.stage-check-inline:after{width:5px;height:2.5px;left:1px;top:1px}
+.px-principles .px-principle-mark{position:relative;font-size:0!important}
+.px-principles .px-principle-mark:before{content:"";width:15px;height:15px;background:#5dd8e8;clip-path:polygon(50% 0,62% 35%,100% 50%,62% 65%,50% 100%,38% 65%,0 50%,38% 35%);filter:drop-shadow(0 0 5px rgba(93,216,232,.3))}
+/* Robotics control deck: each selected subsystem drives a distinct continuous visual */
+.px-robot-visual{isolation:isolate}
+.px-robot-visual:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 52%,rgba(69,193,220,.07),transparent 48%);z-index:0}
+.px-robot-visual-0 .px-robot-ring{animation:px-vision-radar 3.8s linear infinite}
+.px-robot-scan{position:absolute;z-index:2;left:8%;right:8%;top:24%;height:1px;opacity:0;background:linear-gradient(90deg,transparent,#67e4ef,transparent);box-shadow:0 0 12px rgba(87,220,235,.8)}
+.px-robot-visual-0 .px-robot-scan{opacity:1;animation:px-vision-scan 2.4s ease-in-out infinite}
+.px-robot-target{position:absolute;z-index:3;width:54px;height:54px;left:calc(50% + 55px);top:calc(50% - 65px);border:1px solid rgba(94,225,236,.7);opacity:0}
+.px-robot-target:before,.px-robot-target:after{content:"";position:absolute;background:#6de2ed}
+.px-robot-target:before{width:10px;height:1px;left:-5px;top:50%}.px-robot-target:after{height:10px;width:1px;left:50%;top:-5px}
+.px-robot-visual-0 .px-robot-target{opacity:.8;animation:px-target-lock 2.4s ease-in-out infinite}
+.px-robot-visual-1 .px-robot-arm{transform-origin:50% 94%;animation:px-motion-sweep 3.2s ease-in-out infinite}
+.px-robot-visual-1 .px-robot-ring{animation:px-motion-pulse 2s ease-in-out infinite}
+.px-robot-task-flow{position:absolute;z-index:3;left:50%;top:50%;width:220px;transform:translate(-50%,-50%);display:flex;justify-content:space-between;opacity:0}
+.px-robot-task-flow i{width:11px;height:11px;border:1px solid rgba(91,215,232,.7);border-radius:50%;background:#0b263f;box-shadow:0 0 0 5px rgba(64,179,207,.08)}
+.px-robot-visual-2 .px-robot-task-flow{opacity:1}
+.px-robot-visual-2 .px-robot-task-flow i{animation:px-task-sequence 2.8s ease-in-out infinite}
+.px-robot-visual-2 .px-robot-task-flow i:nth-child(2){animation-delay:.7s}.px-robot-visual-2 .px-robot-task-flow i:nth-child(3){animation-delay:1.4s}.px-robot-visual-2 .px-robot-task-flow i:nth-child(4){animation-delay:2.1s}
+.px-robot-telemetry{position:absolute;z-index:4;right:14px;bottom:45px;width:105px;display:grid;grid-template-columns:1fr;gap:5px;opacity:0;padding:8px;border:1px solid rgba(86,177,205,.24);background:rgba(5,19,34,.88)}
+.px-robot-telemetry span{font:6px "JetBrains Mono",monospace;color:#7fa9c5;letter-spacing:.06em}
+.px-robot-telemetry i{height:3px;background:linear-gradient(90deg,#55d9c8 65%,rgba(82,151,184,.2) 65%);transform-origin:left;animation:px-telemetry-data 1.8s ease-in-out infinite alternate}
+.px-robot-telemetry i:nth-of-type(2){animation-delay:.35s}.px-robot-telemetry i:nth-of-type(3){animation-delay:.7s}
+.px-robot-visual-3 .px-robot-telemetry{opacity:1}
+.px-robot-visual-3 .px-robot-ring{animation:px-telemetry-pulse 2.2s ease-in-out infinite}
+@keyframes px-vision-scan{0%,100%{top:24%;opacity:.25}50%{top:76%;opacity:1}}
+@keyframes px-vision-radar{to{transform:rotate(360deg)}}
+@keyframes px-target-lock{0%,100%{transform:scale(.88);opacity:.4}50%{transform:scale(1.08);opacity:1}}
+@keyframes px-motion-sweep{0%,100%{transform:rotate(18deg)}50%{transform:rotate(65deg)}}
+@keyframes px-motion-pulse{0%,100%{box-shadow:0 0 0 rgba(65,192,220,0)}50%{box-shadow:0 0 22px rgba(65,192,220,.18)}}
+@keyframes px-task-sequence{0%,10%{background:#0b263f;box-shadow:0 0 0 5px rgba(64,179,207,.08)}22%,35%{background:#62e0d1;box-shadow:0 0 0 8px rgba(64,210,207,.16)}50%,100%{background:#0b263f;box-shadow:0 0 0 5px rgba(64,179,207,.08)}}
+@keyframes px-telemetry-pulse{0%,100%{border-color:rgba(70,203,225,.25)}50%{border-color:rgba(70,203,225,.8);box-shadow:0 0 22px rgba(58,193,218,.15)}}
+@keyframes px-telemetry-data{from{transform:scaleX(.48)}to{transform:scaleX(1)}}
+/* Keep the integration map's device nodes clear of the detail panel on phones */
+@media(max-width:620px){.px-integration-map{min-height:610px}.px-map-center{top:39%}.px-map-node.node-2,.px-map-node.node-3{bottom:29%}.px-map-detail{top:auto;bottom:5%;width:calc(100% - 28px);padding:12px 10px}.px-map-node.node-0,.px-map-node.node-1{top:7%}}
+/* Technology page: readable layered architecture visual */
+.px-tech-architecture,.px-about-system-visual,.px-contact-journey-visual{position:relative;overflow:hidden;margin:0 0 22px;padding:20px;border:1px solid rgba(94,155,198,.24);background:radial-gradient(ellipse at 50% 0%,rgba(39,137,176,.16),transparent 58%),linear-gradient(145deg,#0b2037,#071426);color:#d8eaf8}
+.px-tech-architecture-head,.px-about-visual-head,.px-contact-journey-head{display:flex;justify-content:space-between;gap:12px;align-items:center;padding-bottom:13px;border-bottom:1px solid rgba(107,157,198,.2);font:8px "JetBrains Mono",monospace;letter-spacing:.09em;color:#7fa0bd}
+.px-tech-architecture-head b,.px-about-visual-head b,.px-contact-journey-head b{font-size:7px;color:#5bd9e8;font-weight:500;text-align:right}
+.px-tech-stack-visual{position:relative;display:grid;gap:8px;max-width:760px;margin:18px auto 12px}
+.px-tech-stack-layer{position:relative;display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:10px;min-height:58px;padding:9px 13px;border:1px solid rgba(105,161,204,.24);background:linear-gradient(90deg,rgba(22,68,99,.65),rgba(9,28,47,.86));box-shadow:0 7px 18px rgba(0,0,0,.12)}
+.px-tech-stack-layer>i{font:10px "JetBrains Mono",monospace;color:#5bd9e8;font-style:normal}.px-tech-stack-layer>span{font:10px "JetBrains Mono",monospace;color:#e1f2ff;letter-spacing:.06em}.px-tech-stack-layer>b{font:7px "JetBrains Mono",monospace;color:#a2bed2;font-weight:400}.px-tech-stack-layer>em{display:none}
+.px-tech-layer-experience{margin:0 0 0 13%}.px-tech-layer-intelligence{margin:0 7%}.px-tech-layer-connectivity{margin:0 7%}.px-tech-layer-foundation{margin:0 13%}
+.px-tech-stack-flow{position:absolute;z-index:2;right:10%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,rgba(89,216,230,.5),transparent)}
+.px-tech-stack-flow i{position:absolute;left:-2px;width:5px;height:5px;border-radius:50%;background:#65e0e8;box-shadow:0 0 8px #65e0e8;animation:px-flow-down 2.8s linear infinite}
+.px-tech-stack-flow i:nth-child(2){animation-delay:.9s}.px-tech-stack-flow i:nth-child(3){animation-delay:1.8s}
+@keyframes px-flow-down{from{top:0;opacity:0}15%,85%{opacity:1}to{top:100%;opacity:0}}
+.px-tech-architecture-foot,.px-about-visual-foot,.px-contact-journey-foot{display:flex;justify-content:center;align-items:center;gap:18px;padding-top:12px;border-top:1px solid rgba(107,157,198,.16);font:7px "JetBrains Mono",monospace;color:#7394b2;letter-spacing:.08em}
+.px-about-orbit-scene{position:relative;height:280px;max-width:650px;margin:12px auto}
+.px-about-orbit-ring{position:absolute;left:50%;top:50%;border:1px dashed rgba(89,204,222,.27);border-radius:50%;transform:translate(-50%,-50%)}
+.px-about-orbit-ring-a{width:225px;height:225px;animation:px-orbit-spin 28s linear infinite}.px-about-orbit-ring-b{width:155px;height:155px;border-style:solid;border-color:rgba(89,204,222,.12)}
+@keyframes px-orbit-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.px-about-orbit-core{position:absolute;left:50%;top:50%;width:100px;height:100px;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1px solid rgba(90,214,231,.65);border-radius:50%;background:radial-gradient(circle,#174b68,#081a2d 72%);box-shadow:0 0 32px rgba(60,177,207,.17)}
+.px-about-orbit-core>b{font:22px "JetBrains Mono",monospace;color:#e3faff}.px-about-orbit-core>span{font:8px "JetBrains Mono",monospace;color:#62dce7}.px-about-orbit-core>small{font:6px "JetBrains Mono",monospace;color:#7c9bb6}
+.px-about-orbit-node{position:absolute;z-index:2;width:130px;padding:9px 10px;border:1px solid rgba(102,158,201,.3);background:rgba(9,29,49,.96);display:grid;grid-template-columns:24px 1fr;gap:2px 6px}
+.px-about-orbit-node>b{grid-row:span 2;font:8px "JetBrains Mono",monospace;color:#5bd9e8}.px-about-orbit-node>span{font:8px "JetBrains Mono",monospace;color:#d6eaf8}.px-about-orbit-node>small{font-size:7px;color:#88a6c0}
+.px-about-node-a{left:50%;top:0;transform:translateX(-50%)}.px-about-node-b{right:0;top:50%;transform:translateY(-50%)}.px-about-node-c{left:50%;bottom:0;transform:translateX(-50%)}.px-about-node-d{left:0;top:50%;transform:translateY(-50%)}
+.px-about-visual-foot{gap:12px;flex-wrap:wrap}.px-about-visual-foot i{width:20px;height:1px;background:#4ebfd1}
+.px-contact-journey-track{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 0 20px}
+.px-contact-stage{position:relative;min-height:150px;padding:15px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(102,158,201,.25);background:rgba(9,29,49,.78);text-align:center}
+.px-contact-stage:not(:last-child):after{content:"→";position:absolute;right:-13px;top:50%;z-index:2;transform:translate(50%,-50%);color:#5bd9e8;font-size:15px}
+.px-contact-stage>span{position:absolute;top:8px;left:9px;font:8px "JetBrains Mono",monospace;color:#5bd9e8}
+.px-contact-stage>strong{font:9px "JetBrains Mono",monospace;color:#dceefa}.px-contact-stage>small{font-size:7px;color:#89a8c2}
+.px-contact-stage>i{width:38px;height:32px;position:relative;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:6px;border:1px solid rgba(86,196,216,.4);border-radius:4px;background:rgba(36,128,156,.14)}
+.px-contact-icon-brief>b{height:2px;background:#70dbe5;width:90%}.px-contact-icon-brief>b:nth-child(2){width:68%}.px-contact-icon-brief>b:nth-child(3){width:82%}
+.px-contact-icon-scope{display:grid!important;grid-template-columns:repeat(2,1fr);gap:3px!important}.px-contact-icon-scope>b{height:8px;border:1px solid #70dbe5;border-radius:1px}
+.px-contact-icon-plan{display:grid!important;grid-template-columns:repeat(3,1fr);align-items:end;gap:3px!important}.px-contact-icon-plan>b{height:10px;background:linear-gradient(180deg,#70dbe5,rgba(66,145,180,.2));border-radius:2px}.px-contact-icon-plan>b:nth-child(2){height:17px}
+.px-contact-journey-foot{justify-content:center}.px-contact-journey-foot>i{width:6px;height:6px;border-radius:50%;background:#5bd9c1;box-shadow:0 0 8px #5bd9c1}
+@media(max-width:620px){
+ .px-tech-architecture,.px-about-system-visual,.px-contact-journey-visual{padding:14px;margin-bottom:18px}
+ .px-tech-architecture-head,.px-about-visual-head,.px-contact-journey-head{align-items:flex-start;flex-direction:column;gap:6px}
+ .px-tech-architecture-head b,.px-about-visual-head b,.px-contact-journey-head b{text-align:left}
+ .px-tech-stack-layer{grid-template-columns:25px 1fr;gap:6px;padding:9px}.px-tech-stack-layer>span{font-size:8px}.px-tech-stack-layer>b{grid-column:2;font-size:6px}.px-tech-layer-experience,.px-tech-layer-foundation{margin:0 3%}.px-tech-layer-intelligence,.px-tech-layer-connectivity{margin:0}
+ .px-tech-stack-flow{right:5%}
+ .px-about-orbit-scene{height:310px;margin:15px auto}.px-about-orbit-ring-a{width:175px;height:175px}.px-about-orbit-ring-b{width:125px;height:125px}.px-about-orbit-core{width:76px;height:76px}.px-about-orbit-core>b{font-size:18px}.px-about-orbit-node{width:112px;padding:8px 7px}.px-about-orbit-node>span{font-size:7px}.px-about-orbit-node>small{font-size:6px}.px-about-node-a{top:0}.px-about-node-c{bottom:0}.px-about-node-b{right:-2px}.px-about-node-d{left:-2px}
+ .px-contact-journey-track{grid-template-columns:1fr;gap:10px;padding:18px 0 14px}.px-contact-stage{min-height:112px}.px-contact-stage:not(:last-child):after{content:"↓";right:50%;top:auto;bottom:-13px;transform:translate(50%,50%)}
+ .px-contact-journey-foot{font-size:6px;gap:6px;text-align:center}
+ .px-robot-task-flow{width:170px}.px-robot-telemetry{right:8px;bottom:38px;width:96px}
+}
+@media(prefers-reduced-motion:reduce){
+ .px-robot-visual *,.px-tech-stack-flow i,.px-about-orbit-ring-a{animation:none!important}
+}
