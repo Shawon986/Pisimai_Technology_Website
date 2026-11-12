@@ -47,7 +47,10 @@ export const copy = {
     contactText: "Tell us what you are working toward. We would be glad to hear from you.",
     contactCta: "Contact us",
     footerLine: "Engineering Tomorrow. Empowering Today.",
-    copyright: "All rights reserved."
+    copyright: "All rights reserved.",
+    legalCompanyName: "匹思麦(深圳)科技有限公司",
+    companyAddressLabel: "Company address",
+    companyAddress: "Room 1212, Taojing Business Building, Shenzhen, Guangdong, China"
   },
   zh: {
     nav: { home: "首页", services: "服务领域", solutions: "解决方案", technology: "技术方向", about: "关于我们", contact: "联系我们" },
@@ -90,6 +93,9 @@ export const copy = {
     contactText: "欢迎告诉我们您的目标与需求，我们期待与您交流。",
     contactCta: "联系我们",
     footerLine: "以工程创新，赋能当下。",
-    copyright: "版权所有。"
+    copyright: "版权所有。",
+    legalCompanyName: "匹思麦(深圳)科技有限公司",
+    companyAddressLabel: "公司地址",
+    companyAddress: "中国广东省深圳市，淘景商务大厦 1212"
   }
 } as const;
