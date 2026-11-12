@@ -6155,3 +6155,51 @@ html {
  .capability-showcase .ecosystem-visual{min-height:330px}.capability-showcase .ecosystem-node{width:82px;min-height:48px}.capability-showcase .ecosystem-node span{font-size:7px}.capability-showcase .ecosystem-core{width:106px}
 }
 @media(prefers-reduced-motion:reduce){.token-orbit{animation:none}}
+
+
+/* Meaningful engineering-stage diagrams and connected ecosystem links. */
+.capability-showcase .process-stage-visual {
+  height:128px;
+  margin:18px 0 22px;
+  background:radial-gradient(ellipse at center,rgba(23,119,164,.2),rgba(7,17,33,0) 72%);
+}
+.capability-showcase .process-stage-visual::before,
+.capability-showcase .process-stage-visual::after { content:""; position:absolute; pointer-events:none; }
+.capability-showcase .process-stage-visual-1::before { inset:12% 25%; border:1px solid rgba(75,199,229,.22); border-radius:50%; }
+.capability-showcase .stage-radar-ring { position:absolute; left:50%; top:50%; aspect-ratio:1; border:1px solid rgba(74,202,230,.52); border-radius:50%; transform:translate(-50%,-50%); }
+.capability-showcase .stage-radar-ring-a { width:42px; }.capability-showcase .stage-radar-ring-b { width:82px; border-style:dashed; opacity:.65; }
+.capability-showcase .stage-radar-sweep { position:absolute; width:82px; height:82px; left:50%; top:50%; border-radius:50%; background:conic-gradient(from 0deg,rgba(42,215,238,.28),transparent 72%); transform:translate(-50%,-50%); }
+.capability-showcase .stage-radar-target { position:absolute; z-index:2; left:50%; top:50%; width:9px; height:9px; border:2px solid #b9f6ff; border-radius:50%; background:#25cce8; box-shadow:0 0 18px #25cce8; transform:translate(-50%,-50%); }
+.capability-showcase .stage-radar-point { position:absolute; width:5px; height:5px; border-radius:50%; background:#70eaff; box-shadow:0 0 12px #35d7f2; }
+.capability-showcase .stage-radar-point-a { left:29%; top:34%; }.capability-showcase .stage-radar-point-b { right:27%; top:29%; }.capability-showcase .stage-radar-point-c { right:32%; bottom:23%; }
+.capability-showcase .process-stage-visual-2 { background:linear-gradient(rgba(66,154,203,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(66,154,203,.06) 1px,transparent 1px),radial-gradient(ellipse,rgba(23,119,164,.16),transparent 72%); background-size:14px 14px,14px 14px,auto; }
+.capability-showcase .stage-blueprint-frame { position:absolute; width:100px; height:72px; border:1px solid rgba(84,190,224,.65); transform:skewY(-8deg); }
+.capability-showcase .stage-blueprint-block { position:absolute; z-index:1; width:24px; height:20px; border:1px solid #5bd9ed; background:rgba(24,130,169,.25); box-shadow:0 0 12px rgba(38,203,230,.12); }
+.capability-showcase .stage-blueprint-block-a { left:calc(50% - 48px); top:calc(50% - 25px); }.capability-showcase .stage-blueprint-block-b { left:calc(50% - 12px); top:calc(50% - 25px); width:38px; }.capability-showcase .stage-blueprint-block-c { left:calc(50% - 12px); top:calc(50% + 5px); width:38px; height:16px; }
+.capability-showcase .stage-blueprint-link { position:absolute; z-index:2; width:1px; height:18px; background:#65dff0; }.capability-showcase .stage-blueprint-link-a { left:50%; top:calc(50% - 5px); }.capability-showcase .stage-blueprint-link-b { left:calc(50% + 25px); top:calc(50% - 5px); }
+.capability-showcase .process-stage-visual-3 { perspective:500px; }
+.capability-showcase .stage-build-stack { position:absolute; width:88px; height:19px; border:1px solid rgba(72,210,235,.75); background:linear-gradient(90deg,rgba(22,113,154,.5),rgba(10,31,55,.8)); transform:skewY(-22deg) rotateX(35deg); box-shadow:0 7px 0 rgba(17,87,124,.35),0 0 18px rgba(35,194,223,.12); }
+.capability-showcase .stage-build-stack-a { top:24%; left:calc(50% - 44px); }.capability-showcase .stage-build-stack-b { top:42%; left:calc(50% - 44px); opacity:.8; }.capability-showcase .stage-build-stack-c { top:60%; left:calc(50% - 44px); opacity:.65; }
+.capability-showcase .stage-build-bracket { position:relative; z-index:2; color:#d5fbff; font:20px "JetBrains Mono",monospace; text-shadow:0 0 16px rgba(35,220,240,.8); }
+.capability-showcase .stage-build-cursor { position:absolute; z-index:3; width:2px; height:25px; top:39%; left:calc(50% + 29px); background:#6deaff; box-shadow:0 0 12px #35d7f2; }
+.capability-showcase .process-stage-visual-4 { background:radial-gradient(circle,rgba(25,151,139,.18),transparent 70%); }
+.capability-showcase .stage-verify-shield { position:absolute; width:66px; height:78px; display:flex; align-items:center; justify-content:center; gap:4px; border:1px solid rgba(94,222,198,.75); background:linear-gradient(145deg,rgba(18,124,122,.25),rgba(7,27,42,.85)); clip-path:polygon(50% 0,94% 18%,86% 70%,50% 100%,14% 70%,6% 18%); box-shadow:0 0 24px rgba(49,220,190,.16); }
+.capability-showcase .stage-verify-shield i { width:4px; height:18px; border-radius:4px; background:#8df4d7; transform:rotate(45deg); }.capability-showcase .stage-verify-shield i:last-child { height:29px; transform:rotate(-45deg); }
+.capability-showcase .stage-verify-check { position:relative; z-index:2; color:#e0fff6; font-size:18px; text-shadow:0 0 16px #4de3bf; }
+.capability-showcase .stage-verify-spark { position:absolute; width:4px; height:4px; border-radius:50%; background:#7bf1d3; box-shadow:0 0 12px #45d8b5; }.capability-showcase .stage-verify-spark-a { top:22%; left:29%; }.capability-showcase .stage-verify-spark-b { right:25%; bottom:24%; }
+.capability-showcase .ecosystem-visual { overflow:visible; }
+.capability-showcase .ecosystem-link { position:absolute; z-index:1; left:50%; top:50%; width:1px; height:0; transform-origin:top center; border-left:1px dashed rgba(58,205,231,.65); filter:drop-shadow(0 0 4px rgba(35,201,232,.35)); }
+.capability-showcase .ecosystem-link::after { content:""; position:absolute; top:100%; left:-3px; width:6px; height:6px; border-radius:50%; background:#58e2f2; box-shadow:0 0 12px #35d7f2; }
+.capability-showcase .ecosystem-link-1 { height:22%; transform:rotate(0deg); }
+.capability-showcase .ecosystem-link-2 { height:25%; transform:rotate(90deg); }
+.capability-showcase .ecosystem-link-3 { height:23%; transform:rotate(145deg); }
+.capability-showcase .ecosystem-link-4 { height:25%; transform:rotate(270deg); }
+.capability-showcase .ecosystem-link-5 { height:23%; transform:rotate(215deg); }
+.capability-showcase .ecosystem-core { z-index:3; }
+.capability-showcase .ecosystem-node { z-index:4; }
+@media(max-width:640px) {
+ .capability-showcase .process-stage-visual { height:96px; margin:14px 0 16px; }
+ .capability-showcase .ecosystem-link-1 { height:21%; }
+ .capability-showcase .ecosystem-link-2,.capability-showcase .ecosystem-link-4 { height:22%; }
+ .capability-showcase .ecosystem-link-3,.capability-showcase .ecosystem-link-5 { height:20%; }
+}

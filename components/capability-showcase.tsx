@@ -116,13 +116,18 @@ export function CapabilityShowcase({ locale }: { locale: Locale }) {
         <div className="showcase-heading"><p className="section-kicker">{t.processLabel}</p><h2>{t.processTitle}</h2><p>{t.processText}</p></div>
         <div className="process-journey">
           <div className="process-journey-line" aria-hidden="true"><span /></div>
-          <div className="process-grid">{t.steps.map(([number, title, description, tag], index) => <article className={"process-step process-step-" + (index + 1)} key={number}><div className="process-step-top"><span>{number}</span><small>{tag}</small></div><div className="process-stage-visual" aria-hidden="true"><i /><i /><i /><b>{["01","02","03","04"][index]}</b></div><h3>{title}</h3><p>{description}</p></article>)}</div>
+          <div className="process-grid">{t.steps.map(([number, title, description, tag], index) => <article className={"process-step process-step-" + (index + 1)} key={number}><div className="process-step-top"><span>{number}</span><small>{tag}</small></div><div className={"process-stage-visual process-stage-visual-" + (index + 1)} aria-hidden="true">
+                {index === 0 && <><span className="stage-radar-ring stage-radar-ring-a" /><span className="stage-radar-ring stage-radar-ring-b" /><span className="stage-radar-sweep" /><span className="stage-radar-target" /><i className="stage-radar-point stage-radar-point-a" /><i className="stage-radar-point stage-radar-point-b" /><i className="stage-radar-point stage-radar-point-c" /></>}
+                {index === 1 && <><span className="stage-blueprint-grid" /><span className="stage-blueprint-frame" /><i className="stage-blueprint-block stage-blueprint-block-a" /><i className="stage-blueprint-block stage-blueprint-block-b" /><i className="stage-blueprint-block stage-blueprint-block-c" /><i className="stage-blueprint-link stage-blueprint-link-a" /><i className="stage-blueprint-link stage-blueprint-link-b" /></>}
+                {index === 2 && <><span className="stage-build-stack stage-build-stack-a" /><span className="stage-build-stack stage-build-stack-b" /><span className="stage-build-stack stage-build-stack-c" /><i className="stage-build-cursor" /><b className="stage-build-bracket">&lt;/&gt;</b></>}
+                {index === 3 && <><span className="stage-verify-shield"><i /><i /></span><span className="stage-verify-check">✓</span><i className="stage-verify-spark stage-verify-spark-a" /><i className="stage-verify-spark stage-verify-spark-b" /></>}
+              </div><h3>{title}</h3><p>{description}</p></article>)}</div>
         </div>
       </section>
 
       <section className="ecosystem-section section-wrap" id="technology-ecosystem">
         <div className="ecosystem-copy"><p className="section-kicker">{t.ecosystemLabel}</p><h2>{t.ecosystemTitle}</h2><p>{t.ecosystemText}</p></div>
-        <div className="ecosystem-visual"><div className="ecosystem-core"><span>PISIMAI</span><small>CONNECTED CORE</small></div>{t.layers.map(([short, label], i) => <div className={"ecosystem-node ecosystem-node-" + (i + 1)} key={short}><b>{short}</b><span>{label}</span></div>)}<div className="ecosystem-orbit ecosystem-orbit-a" /><div className="ecosystem-orbit ecosystem-orbit-b" /></div>
+        <div className="ecosystem-visual"><span className="ecosystem-link ecosystem-link-1" aria-hidden="true" /><span className="ecosystem-link ecosystem-link-2" aria-hidden="true" /><span className="ecosystem-link ecosystem-link-3" aria-hidden="true" /><span className="ecosystem-link ecosystem-link-4" aria-hidden="true" /><span className="ecosystem-link ecosystem-link-5" aria-hidden="true" /><div className="ecosystem-core"><span>PISIMAI</span><small>CONNECTED CORE</small></div>{t.layers.map(([short, label], i) => <div className={"ecosystem-node ecosystem-node-" + (i + 1)} key={short}><b>{short}</b><span>{label}</span></div>)}<div className="ecosystem-orbit ecosystem-orbit-a" /><div className="ecosystem-orbit ecosystem-orbit-b" /></div>
       </section>
     </div>
   );
