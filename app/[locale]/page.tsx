@@ -163,6 +163,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <circle cx="532" cy="397" r="9" fill="#1c5676"/>
                   {/* Shoulder link: the upper shell pivots around its real shoulder bearing. */}
                   <g className="dt-robot-shoulder-link">
+                      <animateTransform attributeName="transform" type="rotate"
+                        values="0 532 397;0 532 397;-48 532 397;-48 532 397;0 532 397;0 532 397"
+                        keyTimes="0;0.18;0.42;0.68;0.9;1" dur="6.4s" repeatCount="indefinite"
+                        calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+
                     
                     <path d="M520 387L568 365Q582 359 596 370L603 379L598 393Q590 402 578 396L536 415Q522 418 515 406Z" fill="url(#dt-arm)" stroke="#a4edf5" strokeWidth="3" strokeLinejoin="round"/>
                     <path d="M527 397L565 374L590 374L596 384L578 400L541 416Z" fill="url(#dt-panel-brush)" opacity=".55"/>
@@ -179,6 +184,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                     </g>
                     {/* Elbow link is nested at the elbow pivot: it cannot drift away from the upper arm. */}
                     <g className="dt-robot-forearm">
+                        <animateTransform attributeName="transform" type="rotate"
+                          values="0 590 383;0 590 383;-34 590 383;-34 590 383;0 590 383;0 590 383"
+                          keyTimes="0;0.18;0.42;0.68;0.9;1" dur="6.4s" repeatCount="indefinite"
+                          calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+
                       
                       <path d="M581 374L646 329Q660 319 674 330L682 342L629 399Q615 411 600 401L582 391Z" fill="url(#dt-arm)" stroke="#a4edf5" strokeWidth="3" strokeLinejoin="round"/>
                       <path d="M601 381L646 348L665 339" fill="none" stroke="#d5faff" strokeOpacity=".32" strokeWidth="1.2"/>
@@ -192,6 +202,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                       <circle cx="590" cy="383" r="5.5" fill="#1c5676"/>
                       {/* Wrist and gripper rotate as a child of the forearm, keeping every bearing connected. */}
                       <g className="dt-robot-gripper">
+                          <animateTransform attributeName="transform" type="rotate"
+                            values="0 665 341;0 665 341;82 665 341;82 665 341;0 665 341;0 665 341"
+                            keyTimes="0;0.18;0.42;0.68;0.9;1" dur="6.4s" repeatCount="indefinite"
+                            calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+
                         
                         <circle cx="665" cy="341" r="13" fill="#b6f7ff" stroke="#174361" strokeWidth="2.5"/>
                         <circle cx="665" cy="341" r="4.8" fill="#1c5676"/>
