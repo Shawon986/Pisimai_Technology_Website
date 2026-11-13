@@ -8456,3 +8456,41 @@ html {
   .tech-hero-visual .dt-particle-stream,
   .tech-hero-visual .dt-safety-lights { animation:none !important; }
 }
+
+
+/* Articulated robot cycle: shoulder, elbow and gripper move as separate joints. */
+.tech-hero-visual .dt-robot-arm {
+  transform-box: view-box !important;
+  transform-origin: 532px 397px !important;
+  animation: dt-robot-shoulder-cycle 6.2s cubic-bezier(.42,0,.28,1) infinite alternate !important;
+}
+.tech-hero-visual .dt-robot-forearm {
+  transform-box: view-box;
+  transform-origin: 589px 382px;
+  animation: dt-robot-elbow-cycle 3.1s cubic-bezier(.45,0,.3,1) infinite alternate;
+}
+.tech-hero-visual .dt-robot-gripper {
+  transform-box: view-box;
+  transform-origin: 665px 341px;
+  animation: dt-robot-gripper-cycle 1.55s ease-in-out infinite alternate;
+}
+@keyframes dt-robot-shoulder-cycle {
+  0%, 100% { transform: rotate(-2deg); }
+  32% { transform: rotate(10deg); }
+  68% { transform: rotate(-8deg); }
+}
+@keyframes dt-robot-elbow-cycle {
+  0%, 100% { transform: rotate(-5deg); }
+  48% { transform: rotate(13deg); }
+}
+@keyframes dt-robot-gripper-cycle {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(9deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero-visual .dt-robot-arm,
+  .tech-hero-visual .dt-robot-forearm,
+  .tech-hero-visual .dt-robot-gripper {
+    animation: none !important;
+  }
+}

@@ -145,15 +145,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <path d="M532 443V485L572 462V419Z" fill="#102b45" stroke="#4b89a8"/>
                   <path d="M511 415L511 393Q511 378 526 369L559 350Q573 342 585 351L599 367L581 390L550 407L548 433Z" fill="url(#dt-arm)" stroke="#9be9f2" strokeWidth="2"/>
                   <path d="M526 370L539 390L570 373L585 351" fill="none" stroke="#d0faff" strokeOpacity=".6" strokeWidth="3"/>
-                  <path d="M554 402L589 382L628 330Q639 315 654 325L670 340L654 360L620 405L580 430Z" fill="url(#dt-arm)" stroke="#9be9f2" strokeWidth="2"/>
-                  <path d="M594 382L620 397L649 353" fill="none" stroke="#c4f6ff" strokeOpacity=".58" strokeWidth="3"/>
-                  <path d="M652 330L674 318L692 331L680 355L658 363L645 350Z" fill="#254e6c" stroke="#a3ecf4" strokeWidth="2"/>
-                  <path d="M678 339L704 350L709 364L697 370L680 358" fill="#8bd9e8" stroke="#c5faff" strokeWidth="1.5"/>
-                  <path d="M704 350L719 342L725 349L714 361" fill="none" stroke="#c3f8ff" strokeWidth="4" strokeLinecap="round"/>
-                  <path d="M704 365L717 376L724 370L713 357" fill="none" stroke="#c3f8ff" strokeWidth="4" strokeLinecap="round"/>
-                  <g fill="#b6f7ff" stroke="#174361" strokeWidth="2"><circle cx="532" cy="397" r="18"/><circle cx="589" cy="382" r="15"/><circle cx="665" cy="341" r="10"/></g>
-                  <g fill="#1c5676"><circle cx="532" cy="397" r="7"/><circle cx="589" cy="382" r="6"/><circle cx="665" cy="341" r="4"/></g>
-                  <path d="M532 397L550 407M589 382L603 389M665 341L675 347" stroke="#d5fbff" strokeWidth="2"/>
+                  <g className="dt-robot-forearm">
+                    <path d="M554 402L589 382L628 330Q639 315 654 325L670 340L654 360L620 405L580 430Z" fill="url(#dt-arm)" stroke="#9be9f2" strokeWidth="2"/>
+                    <path d="M594 382L620 397L649 353" fill="none" stroke="#c4f6ff" strokeOpacity=".58" strokeWidth="3"/>
+                    <g className="dt-robot-gripper">
+                      <path d="M652 330L674 318L692 331L680 355L658 363L645 350Z" fill="#254e6c" stroke="#a3ecf4" strokeWidth="2"/>
+                      <path d="M678 339L704 350L709 364L697 370L680 358" fill="#8bd9e8" stroke="#c5faff" strokeWidth="1.5"/>
+                      <path d="M704 350L719 342L725 349L714 361" fill="none" stroke="#c3f8ff" strokeWidth="4" strokeLinecap="round"/>
+                      <path d="M704 365L717 376L724 370L713 357" fill="none" stroke="#c3f8ff" strokeWidth="4" strokeLinecap="round"/>
+                      <circle cx="665" cy="341" r="10" fill="#b6f7ff" stroke="#174361" strokeWidth="2"/>
+                      <circle cx="665" cy="341" r="4" fill="#1c5676"/>
+                      <path d="M665 341L675 347" stroke="#d5fbff" strokeWidth="2"/>
+                    </g>
+                  </g>
+                  <circle cx="532" cy="397" r="18" fill="#b6f7ff" stroke="#174361" strokeWidth="2"/>
+                  <circle cx="589" cy="382" r="15" fill="#b6f7ff" stroke="#174361" strokeWidth="2"/>
+                  <circle cx="532" cy="397" r="7" fill="#1c5676"/>
+                  <circle cx="589" cy="382" r="6" fill="#1c5676"/>
+                  <path d="M532 397L550 407M589 382L603 389" stroke="#d5fbff" strokeWidth="2"/>
                   <path d="M503 468L560 468" stroke="#65d8e9" strokeOpacity=".65" strokeWidth="2"/>
                 </g>
                 <g className="dt-network-links" fill="none" strokeWidth="2">
