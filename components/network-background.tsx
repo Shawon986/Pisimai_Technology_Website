@@ -26,13 +26,11 @@ export function NetworkBackground() {
     });
     if (!canvas || !context) return;
 
-    // Keep the original mobile rendering, while laptop links are continuously
-    // rebalanced so the network never thins as particles drift across the canvas.
+    // Use the same network motion and particle budget on phones and desktop.
     const animateEnabled = true;
     const maxPoints = 44;
     const maxDistance = 154;
     const maxDistanceSquared = maxDistance * maxDistance;
-    const isLaptop = window.matchMedia("(min-width: 1101px)").matches;
 
     let points: NetworkPoint[] = [];
     let links: NetworkLink[] = [];
@@ -44,36 +42,23 @@ export function NetworkBackground() {
     let lastFrame = 0;
     let pixelRatio = 1;
 
-    const rebuildLinks = () => {
+    const createPoints = () => {
+      const count = maxPoints;
+      points = Array.from({ length: count }, (_, index) => {
+        const angle = Math.random() * Math.PI * 2;
+        // Faster visible drift without adding more particles or expensive effects.
+        const speed = 0.55 + Math.random() * 0.4;
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          accent: index % 9 === 0,
+        };
+      });
+
+      // Build a lightweight, stable web once. Frames only update coordinates.
       links = [];
-      if (isLaptop) {
-        const uniqueLinks = new Set<string>();
-        for (let i = 0; i < points.length; i += 1) {
-          const nearest = points
-            .map((point, index) => {
-              if (index === i) return null;
-              const dx = points[i].x - point.x;
-              const dy = points[i].y - point.y;
-              return { index, distance: dx * dx + dy * dy };
-            })
-            .filter((item): item is { index: number; distance: number } => item !== null)
-            .sort((a, b) => a.distance - b.distance)
-            .slice(0, 2);
-
-          for (const candidate of nearest) {
-            const from = Math.min(i, candidate.index);
-            const to = Math.max(i, candidate.index);
-            const key = `${from}:${to}`;
-            if (!uniqueLinks.has(key)) {
-              uniqueLinks.add(key);
-              links.push({ from, to });
-            }
-          }
-        }
-        return;
-      }
-
-      // Preserve the existing mobile network density and behavior.
       for (let i = 0; i < points.length; i += 1) {
         const nearest: { index: number; distance: number }[] = [];
         for (let j = i + 1; j < points.length; j += 1) {
@@ -90,34 +75,12 @@ export function NetworkBackground() {
       }
     };
 
-    // Laptop keeps the same compact network composition after every refresh.
-    // A seeded layout makes the starting web repeatable at the same viewport size.
-    const createPoints = () => {
-      let seed = (Math.floor(width * 31 + height * 17) >>> 0) || 1;
-      const seededRandom = () => {
-        seed = (seed * 1664525 + 1013904223) >>> 0;
-        return seed / 4294967296;
-      };
-      points = Array.from({ length: maxPoints }, (_, index) => {
-        const random = isLaptop ? seededRandom : Math.random;
-        const angle = random() * Math.PI * 2;
-        const speed = 0.55 + random() * 0.4;
-        return {
-          x: random() * width,
-          y: random() * height,
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed,
-          accent: index % 9 === 0,
-        };
-      });
-      rebuildLinks();
-    };
-
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       width = rect.width;
       height = rect.height;
-      // Render at 0.8x resolution to keep the canvas light on laptop GPUs.
+      // Render at 0.8x resolution: keeps every particle and its speed,
+      // while reducing the full-hero canvas pixel workload by 36%.
       pixelRatio = 0.8;
       canvas.width = Math.max(1, Math.round(width * pixelRatio));
       canvas.height = Math.max(1, Math.round(height * pixelRatio));
@@ -134,11 +97,9 @@ export function NetworkBackground() {
       for (const link of links) {
         const a = points[link.from];
         const b = points[link.to];
-        if (!isLaptop) {
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          if (dx * dx + dy * dy > maxDistanceSquared) continue;
-        }
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        if (dx * dx + dy * dy > maxDistanceSquared) continue;
         context.moveTo(a.x, a.y);
         context.lineTo(b.x, b.y);
       }
@@ -178,12 +139,8 @@ export function NetworkBackground() {
         frame = window.requestAnimationFrame(animate);
         return;
       }
-      const elapsed = lastFrame ? Math.min(time - lastFrame, 50) : 16.67;
-      const delta = elapsed / 16.67;
+      const delta = lastFrame ? Math.min((time - lastFrame) / 16.67, 2) : 1;
       lastFrame = time;
-
-      // Keep the laptop's original compact topology fixed. Moving points carry
-      // their links with them, so the web never thins or reshuffles over time.
 
       for (const point of points) {
         point.x += point.vx * delta;

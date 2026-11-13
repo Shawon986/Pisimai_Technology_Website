@@ -9937,3 +9937,52 @@ html {
   0%,100% { rotate: -16deg; scale: .92 .8; opacity: .28; }
   50% { rotate: 16deg; scale: 1.08 1; opacity: .88; }
 }
+
+
+/* Equal, moderate pacing across all four Technology in Action illustrations. */
+.capability-art-token .token-orbit-a { animation-duration: 22s !important; }
+.capability-art-token .token-orbit-b { animation-duration: 26s !important; }
+.capability-art-token .token-core { animation-duration: 5.6s !important; }
+.capability-art-token .token-particle { animation: capability-particle-beat 5.6s ease-in-out infinite !important; }
+.capability-art-token .token-particle-b { animation-delay: 1.85s !important; }
+.capability-art-token .token-particle-c { animation-delay: 3.7s !important; }
+
+.capability-art-aggregation .aggregation-hub { animation-duration: 5.6s !important; }
+.capability-art-aggregation .aggregation-lines i { animation-duration: 5.6s !important; }
+.capability-art-aggregation .aggregation-lines i::after { animation-duration: 5.6s !important; }
+.capability-art-aggregation .aggregation-node { animation-duration: 5.6s !important; }
+.capability-art-aggregation .aggregation-node-b { animation-delay: 1.4s !important; }
+.capability-art-aggregation .aggregation-node-c { animation-delay: 2.8s !important; }
+.capability-art-aggregation .aggregation-node-d { animation-delay: 4.2s !important; }
+.capability-art-aggregation .aggregation-hub::after { animation-duration: 5.6s !important; }
+
+.capability-art-development .dev-window { animation-duration: 5.6s !important; }
+.capability-art-development .dev-code b { animation-duration: 5.6s !important; }
+.capability-art-development .dev-code b:nth-child(2) { animation-delay: .35s !important; }
+.capability-art-development .dev-code b:nth-child(3) { animation-delay: .7s !important; }
+.capability-art-development .dev-code b:nth-child(4) { animation-delay: 1.05s !important; }
+.capability-art-development .dev-code b:nth-child(5) { animation-delay: 1.4s !important; }
+.capability-art-development .dev-code b:nth-child(6) { animation-delay: 1.75s !important; }
+.capability-art-development .dev-layer { animation-duration: 5.6s !important; }
+.capability-art-development .dev-layer-b { animation-delay: 1.4s !important; }
+.capability-art-development .dev-layer-c { animation-delay: 2.8s !important; }
+.capability-art-development .dev-layer::after { animation-duration: 5.6s !important; }
+.capability-art-development .dev-plus { animation-duration: 5.6s !important; }
+
+.capability-art-proxy .proxy-globe {
+  animation: site-visual-float 5.6s ease-in-out infinite, site-visual-orbit 26s linear infinite !important;
+}
+.capability-art-proxy .proxy-point { animation-duration: 5.6s !important; }
+.capability-art-proxy .proxy-point-b { animation-delay: 1.85s !important; }
+.capability-art-proxy .proxy-point-c { animation-delay: 3.7s !important; }
+.capability-art-proxy .proxy-route { animation-duration: 5.6s !important; }
+.capability-art-proxy .proxy-route-b { animation-delay: 1.85s !important; }
+.capability-art-proxy .proxy-route-c { animation-delay: 3.7s !important; }
+
+@keyframes capability-particle-beat {
+  0%,100% { transform: translate3d(0,0,0) scale(.72); opacity: .48; }
+  50% { transform: translate3d(0,-5px,0) scale(1.25); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .capability-art-token .token-particle { animation-duration: 8s !important; }
+}
