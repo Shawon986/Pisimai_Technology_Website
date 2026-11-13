@@ -26,11 +26,13 @@ export function NetworkBackground() {
     });
     if (!canvas || !context) return;
 
-    // Use the same network motion and particle budget on phones and desktop.
+    // Keep the original mobile rendering, while laptop links are continuously
+    // rebalanced so the network never thins as particles drift across the canvas.
     const animateEnabled = true;
     const maxPoints = 44;
     const maxDistance = 154;
     const maxDistanceSquared = maxDistance * maxDistance;
+    const isLaptop = window.matchMedia("(min-width: 1101px)").matches;
 
     let points: NetworkPoint[] = [];
     let links: NetworkLink[] = [];
@@ -40,25 +42,39 @@ export function NetworkBackground() {
     let running = false;
     let inView = false;
     let lastFrame = 0;
+    let linkRefreshElapsed = 0;
     let pixelRatio = 1;
 
-    const createPoints = () => {
-      const count = maxPoints;
-      points = Array.from({ length: count }, (_, index) => {
-        const angle = Math.random() * Math.PI * 2;
-        // Faster visible drift without adding more particles or expensive effects.
-        const speed = 0.55 + Math.random() * 0.4;
-        return {
-          x: Math.random() * width,
-          y: Math.random() * height,
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed,
-          accent: index % 9 === 0,
-        };
-      });
-
-      // Build a lightweight, stable web once. Frames only update coordinates.
+    const rebuildLinks = () => {
       links = [];
+      if (isLaptop) {
+        const uniqueLinks = new Set<string>();
+        for (let i = 0; i < points.length; i += 1) {
+          const nearest = points
+            .map((point, index) => {
+              if (index === i) return null;
+              const dx = points[i].x - point.x;
+              const dy = points[i].y - point.y;
+              return { index, distance: dx * dx + dy * dy };
+            })
+            .filter((item): item is { index: number; distance: number } => item !== null)
+            .sort((a, b) => a.distance - b.distance)
+            .slice(0, 3);
+
+          for (const candidate of nearest) {
+            const from = Math.min(i, candidate.index);
+            const to = Math.max(i, candidate.index);
+            const key = `${from}:${to}`;
+            if (!uniqueLinks.has(key)) {
+              uniqueLinks.add(key);
+              links.push({ from, to });
+            }
+          }
+        }
+        return;
+      }
+
+      // Preserve the existing mobile network density and behavior.
       for (let i = 0; i < points.length; i += 1) {
         const nearest: { index: number; distance: number }[] = [];
         for (let j = i + 1; j < points.length; j += 1) {
@@ -73,6 +89,22 @@ export function NetworkBackground() {
           links.push({ from: i, to: candidate.index });
         }
       }
+    };
+
+    const createPoints = () => {
+      points = Array.from({ length: maxPoints }, (_, index) => {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 0.55 + Math.random() * 0.4;
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          accent: index % 9 === 0,
+        };
+      });
+      rebuildLinks();
+      linkRefreshElapsed = 0;
     };
 
     const resize = () => {
@@ -97,9 +129,11 @@ export function NetworkBackground() {
       for (const link of links) {
         const a = points[link.from];
         const b = points[link.to];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        if (dx * dx + dy * dy > maxDistanceSquared) continue;
+        if (!isLaptop) {
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          if (dx * dx + dy * dy > maxDistanceSquared) continue;
+        }
         context.moveTo(a.x, a.y);
         context.lineTo(b.x, b.y);
       }
@@ -139,8 +173,17 @@ export function NetworkBackground() {
         frame = window.requestAnimationFrame(animate);
         return;
       }
-      const delta = lastFrame ? Math.min((time - lastFrame) / 16.67, 2) : 1;
+      const elapsed = lastFrame ? Math.min(time - lastFrame, 50) : 16.67;
+      const delta = elapsed / 16.67;
       lastFrame = time;
+
+      if (isLaptop) {
+        linkRefreshElapsed += elapsed;
+        if (linkRefreshElapsed >= 700) {
+          rebuildLinks();
+          linkRefreshElapsed = 0;
+        }
+      }
 
       for (const point of points) {
         point.x += point.vx * delta;

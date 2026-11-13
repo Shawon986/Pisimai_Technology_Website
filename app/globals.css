@@ -3453,19 +3453,8 @@ html { scroll-padding-top: 0; }
 }
 
 
-/* Temporary global motion shutdown: keep the approved layouts and visual styling,
-   but stop all page, component, logo, and hero animations/transitions. */
-*,
-*::before,
-*::after {
-  animation: none !important;
-  transition: none !important;
-  scroll-behavior: auto !important;
-}
-
-html {
-  scroll-behavior: auto !important;
-}
+/* Restore the site's authored motion. Performance-sensitive regions use their
+   own visibility and reduced-motion handling instead of a global animation kill switch. */
 
 
 /* Static rendering mode: preserve layout and color, but avoid costly blur compositing. */
