@@ -7703,3 +7703,42 @@ html {
   .px-delivery-step > i:not(.px-delivery-check) .ui-arrow-icon { width:16px;height:16px; }
   .px-scenario-flow article > i.px-scenario-arrow { right:14px;top:14px; }
 }
+
+
+/* Service capability navigation: use a consistent compact View action instead of arrow glyphs. */
+.inner-service-links a {
+  grid-template-columns: 70px minmax(0,1fr) auto;
+}
+.inner-service-links .service-link-number {
+  color:#647792;
+  font:10px "JetBrains Mono",monospace;
+}
+.inner-service-links .service-view-button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:66px;
+  min-height:32px;
+  padding:0 13px;
+  border:1px solid rgba(93,216,232,.48);
+  border-radius:2px;
+  color:#69dff0;
+  background:rgba(35,133,157,.09);
+  font:600 10px "JetBrains Mono",monospace;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease;
+}
+.inner-service-links a:hover .service-view-button,
+.inner-service-links a:focus-visible .service-view-button {
+  color:#061521;
+  border-color:#69dff0;
+  background:#69dff0;
+}
+.inner-service-links a:focus-visible { outline:2px solid #69dff0;outline-offset:3px; }
+@media(max-width:760px) {
+  .inner-service-links a { grid-template-columns:38px minmax(0,1fr) auto;gap:10px; }
+  .inner-service-links .service-view-button { min-width:60px;min-height:30px;padding:0 10px; }
+}
+/* HOW WE THINK: remove the decorative corner/star marker from each principle row. */
+.px-principles .px-principle-mark { display:none!important; }

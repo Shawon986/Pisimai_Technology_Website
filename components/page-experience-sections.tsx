@@ -77,7 +77,7 @@ export function PageExperienceSections({locale,pageKey}:Props){
     </div>
     <div className="px-about-visual-foot"><span>PEOPLE</span><i/><span>TECHNOLOGY</span><i/><span>REAL-WORLD IMPACT</span></div>
   </div>}
-  {mode==="about"&&<div className="px-principles">{d.principles!.map((x)=><article key={x[0]}><span>{x[0]}</span><div><b>{x[1]}</b><p>{x[2]}</p></div><i className="px-principle-mark" aria-hidden="true" /></article>)}</div>}
+  {mode==="about"&&<div className="px-principles">{d.principles!.map((x)=><article key={x[0]}><span>{x[0]}</span><div><b>{x[1]}</b><p>{x[2]}</p></div></article>)}</div>}
   {mode==="contact"&&<div className="px-contact-journey-visual" aria-label={locale==="zh"?"项目沟通流程":"Project conversation workflow"}>
     <div className="px-contact-journey-head"><span>PROJECT INTAKE / FIRST CONVERSATION</span><b>FROM IDEA TO CLEAR NEXT STEP</b></div>
     <div className="px-contact-journey-track">
