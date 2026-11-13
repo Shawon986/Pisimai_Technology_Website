@@ -156,107 +156,82 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <path d="M179 225L179 210L198 199" fill="none" stroke="#5ed8e9" strokeWidth="1.5"/>
                   <circle cx="198" cy="199" r="3" fill="#8df6ff"/>
                 </g>
-                <g className="dt-robot-arm dt-humanoid-robot">
-                  {/* Full humanoid service robot: head, torso, pelvis, articulated legs and two arms. */}
-                  <ellipse cx="603" cy="523" rx="76" ry="12" fill="#06182a" opacity=".72"/>
-                  <path d="M545 511L554 501L649 501L660 511L649 520L555 520Z" fill="#102d46" stroke="#5ba6c0" strokeWidth="1.8"/>
-                  <path d="M556 510H649" stroke="#8ce8f1" strokeWidth="2" strokeDasharray="5 5" opacity=".65"/>
-                  {/* Legs and feet */}
-                  <g className="dt-humanoid-left-leg">
-                    <path d="M565 420L590 420L590 463L582 482L558 480L559 459Z" fill="#102b43" stroke="#78bfd2" strokeWidth="2"/>
-                    <path d="M563 433L586 433L584 460L565 460Z" fill="url(#dt-arm)" stroke="#b2eaf2" strokeWidth="1.2"/>
-                    <circle cx="574" cy="463" r="11" fill="#17405b" stroke="#9be4ed" strokeWidth="2"/>
-                    <path d="M565 474L584 474L590 498L580 505L548 505L546 498L556 486Z" fill="#0a2035" stroke="#7fc8da" strokeWidth="2" strokeLinejoin="round"/>
-                    <path d="M552 498L584 498M558 486L579 486" stroke="#c6f5f7" strokeOpacity=".55" strokeWidth="1.5"/>
-                    <path d="M553 504L585 504" stroke="#57d8e7" strokeWidth="2"/>
-                  </g>
-                  <g className="dt-humanoid-right-leg">
-                    <path d="M610 420L635 420L641 459L640 480L615 482L608 463Z" fill="#102b43" stroke="#78bfd2" strokeWidth="2"/>
-                    <path d="M614 433L635 433L637 460L615 460Z" fill="url(#dt-arm)" stroke="#b2eaf2" strokeWidth="1.2"/>
-                    <circle cx="627" cy="463" r="11" fill="#17405b" stroke="#9be4ed" strokeWidth="2"/>
-                    <path d="M616 474L638 474L650 490L650 500L641 505L608 505L604 498L610 486Z" fill="#0a2035" stroke="#7fc8da" strokeWidth="2" strokeLinejoin="round"/>
-                    <path d="M610 498L645 498M615 486L639 486" stroke="#c6f5f7" strokeOpacity=".55" strokeWidth="1.5"/>
-                    <path d="M611 504L644 504" stroke="#57d8e7" strokeWidth="2"/>
-                  </g>
-                  {/* Pelvis and articulated waist */}
-                  <path d="M557 393L638 393L650 419L633 440L568 440L548 419Z" fill="#0a2035" stroke="#9adce8" strokeWidth="2.2" strokeLinejoin="round"/>
-                  <path d="M567 400L628 400L637 418L625 430L575 430L560 417Z" fill="url(#dt-arm)" stroke="#5d9eb8" strokeWidth="1.5"/>
-                  <path d="M576 406H621L626 416L618 423H579L570 416Z" fill="#0a1b2d" stroke="#73b9ce" strokeWidth="1.2"/>
-                  <circle cx="600" cy="416" r="8" fill="#1d5470" stroke="#a9eff5" strokeWidth="2"/>
-                  <circle cx="600" cy="416" r="3" fill="#d5fbff"/>
-                  {/* Torso: layered chest shell with visible mechanical structure */}
-                  <path d="M562 307L584 297L620 299L644 315L650 375L636 403L567 403L548 376L550 329Z" fill="#071a2c" stroke="#b2eaf2" strokeWidth="2.8" strokeLinejoin="round"/>
-                  <path d="M558 319L584 306L619 307L638 320L641 373L629 392L573 392L558 372Z" fill="url(#dt-arm)" stroke="#70b5ca" strokeWidth="1.8" strokeLinejoin="round"/>
-                  <path d="M568 321L585 313L597 319L597 355L580 365L565 352Z" fill="#173c57" stroke="#9bddea" strokeWidth="1.4"/>
-                  <path d="M603 319L619 313L634 324L632 352L616 365L603 355Z" fill="#173c57" stroke="#9bddea" strokeWidth="1.4"/>
-                  <path d="M573 325L585 320L590 324L590 349L580 355L573 347Z" fill="#0a1d30" stroke="#5c9bb5"/>
-                  <path d="M608 324L619 320L627 326L625 347L616 355L608 349Z" fill="#0a1d30" stroke="#5c9bb5"/>
-                  <path d="M597 319L603 319L607 359L600 370L593 359Z" fill="#07182a" stroke="#8ed9e7" strokeWidth="1.4"/>
-                  <path d="M576 375L623 375L630 386L619 393L580 393L568 385Z" fill="#102c45" stroke="#70b8cf" strokeWidth="1.4"/>
-                  <path d="M580 381H619M584 387H615" stroke="#d0f8fb" strokeOpacity=".48" strokeWidth="1"/>
-                  <rect x="591" y="337" width="19" height="13" rx="3" fill="#061729" stroke="#69d7e7" strokeWidth="1.2"/>
-                  <circle cx="600.5" cy="343.5" r="3" fill="#6ff0e2" className="dt-machine-led"/>
-                  <path d="M570 313L584 306M622 307L636 318" stroke="#efffff" strokeOpacity=".75" strokeWidth="2" strokeLinecap="round"/>
-                  <path d="M558 362L550 371L557 382M640 360L649 369L641 383" fill="none" stroke="#e6bd77" strokeWidth="2" strokeDasharray="3 4"/>
-                  {/* Neck and head */}
-                  <path d="M584 294L584 306L617 306L617 294Z" fill="#163c56" stroke="#8fd5e3" strokeWidth="1.8"/>
-                  <path d="M590 296V307M611 296V307" stroke="#d4faff" strokeOpacity=".6" strokeWidth="1.5"/>
-                  <path d="M572 251L584 238L617 238L631 252L629 282L615 299L584 299L570 282Z" fill="#071a2c" stroke="#b8edf4" strokeWidth="2.8" strokeLinejoin="round"/>
-                  <path d="M578 252L587 244L614 244L624 254L622 279L612 291L587 291L578 279Z" fill="url(#dt-arm)" stroke="#72bbcf" strokeWidth="1.7"/>
-                  <path d="M579 258L587 250L614 250L622 258L620 274L612 282L588 282L580 274Z" fill="#06192b" stroke="#4f91ad" strokeWidth="1.4"/>
-                  <path d="M583 261L593 257L607 257L617 261L616 271L607 276L592 276L583 271Z" fill="#123a55" stroke="#80d9e7" strokeWidth="1.2"/>
-                  <path d="M588 265H595M605 265H612" stroke="#8cf5f2" strokeWidth="3.5" strokeLinecap="round"/>
-                  <circle cx="591" cy="265" r="1.5" fill="#f1ffff"/><circle cx="609" cy="265" r="1.5" fill="#f1ffff"/>
-                  <path d="M598 269L600 273L602 269" fill="none" stroke="#8dc9d8" strokeWidth="1.2"/>
-                  <path d="M590 284Q600 289 611 284" fill="none" stroke="#70c8d9" strokeWidth="1.4" strokeLinecap="round"/>
-                  <path d="M575 255L582 247M620 247L628 256" stroke="#e5fcff" strokeOpacity=".8" strokeWidth="2" strokeLinecap="round"/>
-                  <circle cx="572" cy="270" r="3" fill="#56dce8"/><circle cx="629" cy="270" r="3" fill="#56dce8"/>
-                  {/* Left arm hangs naturally beside the torso */}
-                  <g className="dt-humanoid-left-arm">
-                    <circle cx="557" cy="322" r="13" fill="#1c506d" stroke="#b4edf3" strokeWidth="2.2"/>
-                    <path d="M550 329L532 359L523 390L537 399L552 374L568 341Z" fill="#102b43" stroke="#8bd2e1" strokeWidth="2" strokeLinejoin="round"/>
-                    <path d="M535 362L550 369L539 390L526 386Z" fill="url(#dt-arm)" stroke="#6caec5" strokeWidth="1.2"/>
-                    <circle cx="529" cy="393" r="9" fill="#17435f" stroke="#9be7ef" strokeWidth="2"/>
-                    <path d="M526 400L519 419L525 431L541 429L546 415L538 399Z" fill="#163b56" stroke="#8bd2e1" strokeWidth="1.8"/>
-                    <path d="M523 419L518 432L524 437L530 430L534 439L540 434L538 422" fill="#7dc7d8" stroke="#d4f8fa" strokeWidth="1.2" strokeLinejoin="round"/>
-                    <path d="M533 342L541 349" stroke="#f0c47d" strokeWidth="2" strokeDasharray="2 3"/>
-                  </g>
-                  {/* Right shoulder and arm animate as connected mechanical joints. */}
-                  <g className="dt-humanoid-right-arm">
-                    <circle cx="641" cy="322" r="16" fill="#0a1c30" stroke="#c0f0f4" strokeWidth="2.4"/>
-                    <circle cx="641" cy="322" r="9" fill="#28617c" stroke="#73d2e2" strokeWidth="2"/>
-                    <circle cx="641" cy="322" r="3" fill="#e4ffff"/>
-                    <g className="dt-humanoid-upper-arm">
-                      <animateTransform attributeName="transform" type="rotate" values="0 641 322;0 641 322;-62 641 322;-62 641 322;0 641 322;0 641 322" keyTimes="0;0.18;0.4;0.68;0.9;1" dur="6.2s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
-                      <path d="M632 330L653 337L677 364L666 382L646 371L621 343Z" fill="#071a2c" stroke="#b3eaf2" strokeWidth="2.4" strokeLinejoin="round"/>
-                      <path d="M635 335L652 342L669 363L663 374L649 365L628 342Z" fill="url(#dt-arm)" stroke="#71b9ce" strokeWidth="1.5"/>
-                      <path d="M641 342L653 348L665 364L658 368L646 358Z" fill="#0b2035" stroke="#6daec3" strokeWidth="1.1"/>
-                      <path d="M637 338L651 344L670 365" fill="none" stroke="#e3fbff" strokeWidth="2" strokeOpacity=".75"/>
-                      <path d="M645 369L665 379" stroke="#f0c27a" strokeWidth="2" strokeDasharray="3 3"/>
-                      <circle cx="663" cy="375" r="12" fill="#17415d" stroke="#a6e9f0" strokeWidth="2.2"/>
-                      <circle cx="663" cy="375" r="5" fill="#75c8d8"/>
-                      <g className="dt-humanoid-forearm">
-                        <animateTransform attributeName="transform" type="rotate" values="0 663 375;0 663 375;-22 663 375;-22 663 375;0 663 375;0 663 375" keyTimes="0;0.18;0.4;0.68;0.9;1" dur="6.2s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
-                        <path d="M654 382L672 383L688 417L675 430L660 403L650 389Z" fill="#071a2c" stroke="#b5edf3" strokeWidth="2.4" strokeLinejoin="round"/>
-                        <path d="M658 385L671 389L682 416L675 423L664 401L654 389Z" fill="url(#dt-arm)" stroke="#72bdd0" strokeWidth="1.4"/>
-                        <path d="M661 391L671 396L678 414" fill="none" stroke="#e1fbff" strokeWidth="1.8" strokeOpacity=".72"/>
-                        <path d="M661 403L675 411" stroke="#0a2035" strokeWidth="4" strokeLinecap="round"/>
-                        <circle cx="680" cy="423" r="9" fill="#17415d" stroke="#a5e9f0" strokeWidth="2"/>
-                        <g className="dt-humanoid-hand">
-                          <animateTransform attributeName="transform" type="rotate" values="0 680 423;0 680 423;12 680 423;12 680 423;0 680 423;0 680 423" keyTimes="0;0.18;0.4;0.68;0.9;1" dur="6.2s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
-                          <path d="M674 428L684 428L691 439L686 445L680 438L674 442L669 437Z" fill="#79c9dc" stroke="#d8fbff" strokeWidth="1.6" strokeLinejoin="round"/>
-                          <path d="M672 434L664 441L666 447L674 442M681 438L679 449L685 451L689 441M687 437L694 444L691 450L685 445" fill="#4c8da8" stroke="#bceef3" strokeWidth="1.3" strokeLinejoin="round"/>
-                          <path d="M676 430L685 431" stroke="#f1c77f" strokeWidth="1.4"/>
-                        </g>
+                <g className="dt-robot-arm dt-industrial-robot">
+                  {/* Six-axis industrial manipulator: fixed pedestal, cast links, servo joints and tool flange. */}
+                  <ellipse cx="566" cy="516" rx="106" ry="16" fill="#041322" opacity=".78"/>
+                  <path d="M474 487L499 470H632L659 487L641 507H493Z" fill="#0a1d30" stroke="#6caec5" strokeWidth="2"/>
+                  <path d="M493 487L509 478H625L641 487L627 499H507Z" fill="#244d66" stroke="#9bdce8" strokeWidth="1.5"/>
+                  <path d="M511 499L511 467L532 451H603L624 467V499Z" fill="#102d45" stroke="#83c9d9" strokeWidth="2"/>
+                  <path d="M526 489V468L540 458H594L609 468V489Z" fill="#173d57" stroke="#5f9db8" strokeWidth="1.4"/>
+                  <path d="M535 480H600M541 472H594" stroke="#c4f4f7" strokeOpacity=".38" strokeWidth="1.4"/>
+                  <rect x="555" y="466" width="23" height="11" rx="2" fill="#07182a" stroke="#6ed5e5"/>
+                  <circle cx="566" cy="471.5" r="2.6" fill="#69eee0" className="dt-machine-led"/>
+                  {/* Shoulder housing and rotating upper link */}
+                  <circle cx="566" cy="424" r="37" fill="#07192b" stroke="#a8e5ee" strokeWidth="3"/>
+                  <circle cx="566" cy="424" r="29" fill="#173f59" stroke="#5eabc4" strokeWidth="2"/>
+                  <circle cx="566" cy="424" r="20" fill="#0a2035" stroke="#8ed7e5" strokeWidth="2"/>
+                  <circle cx="566" cy="424" r="10" fill="#34718b" stroke="#c4f4f7" strokeWidth="2"/>
+                  <circle cx="566" cy="424" r="3.5" fill="#e4ffff"/>
+                  <g className="dt-industrial-shoulder-link">
+                    <animateTransform attributeName="transform" type="rotate" values="0 566 424;0 566 424;-24 566 424;-24 566 424;0 566 424;0 566 424" keyTimes="0;0.18;0.4;0.68;0.9;1" dur="7s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+                    <path d="M539 401L477 322L454 305L429 327L442 356L522 441L548 439L565 421Z" fill="#071a2c" stroke="#b9edf3" strokeWidth="3" strokeLinejoin="round"/>
+                    <path d="M532 405L476 337L450 319L442 331L457 354L516 426L540 429Z" fill="url(#dt-arm)" stroke="#72bbcf" strokeWidth="1.8" strokeLinejoin="round"/>
+                    <path d="M521 408L470 349L458 340L451 348L467 366L512 419Z" fill="#12334d" stroke="#5e9db7" strokeWidth="1.3"/>
+                    <path d="M535 408L478 330L456 313" fill="none" stroke="#efffff" strokeOpacity=".78" strokeWidth="2.3" strokeLinecap="round"/>
+                    <path d="M455 322L476 306L489 318L468 337Z" fill="#315f78" stroke="#9bdeea" strokeWidth="1.5"/>
+                    <path d="M465 317L476 309L482 315L471 324Z" fill="#081a2b" stroke="#72c1d5"/>
+                    <path d="M450 352L464 365M462 341L477 355" stroke="#f0c47d" strokeWidth="2" strokeDasharray="3 4"/>
+                    <path d="M497 379L514 365L528 383L511 398Z" fill="#102d45" stroke="#6eb4ca" strokeWidth="1.5"/>
+                    <path d="M501 382L513 372L520 382L509 391Z" fill="#8bcbd9" opacity=".65"/>
+                    <circle cx="477" cy="330" r="29" fill="#07182a" stroke="#b4edf3" strokeWidth="3"/>
+                    <circle cx="477" cy="330" r="21" fill="#24546d" stroke="#70c3d6" strokeWidth="2"/>
+                    <circle cx="477" cy="330" r="12" fill="#0b2034" stroke="#a3e7ef" strokeWidth="2"/>
+                    <circle cx="477" cy="330" r="4" fill="#d8fcff"/>
+                    <g className="dt-industrial-forearm">
+                      <animateTransform attributeName="transform" type="rotate" values="0 477 330;0 477 330;28 477 330;28 477 330;0 477 330;0 477 330" keyTimes="0;0.18;0.4;0.68;0.9;1" dur="7s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+                      <path d="M456 308L513 242L536 224L561 245L548 271L491 350L467 353L450 332Z" fill="#071a2c" stroke="#b7edf3" strokeWidth="3" strokeLinejoin="round"/>
+                      <path d="M465 310L516 250L539 235L549 246L532 267L488 334L466 338Z" fill="url(#dt-arm)" stroke="#70b8ce" strokeWidth="1.8" strokeLinejoin="round"/>
+                      <path d="M476 313L519 263L532 254L540 261L523 282L486 330Z" fill="#12334d" stroke="#5f9eb8" strokeWidth="1.2"/>
+                      <path d="M471 316L520 254L538 237" fill="none" stroke="#f0ffff" strokeOpacity=".78" strokeWidth="2.2" strokeLinecap="round"/>
+                      <path d="M516 250L530 231L545 243L531 263Z" fill="#315e78" stroke="#a6e6ef" strokeWidth="1.5"/>
+                      <path d="M520 249L531 236L538 243L528 256Z" fill="#071a2b" stroke="#75c3d5"/>
+                      <path d="M493 327L507 337M502 315L517 325" stroke="#f0c47d" strokeWidth="2" strokeDasharray="3 4"/>
+                      <path d="M510 280L526 265L539 278L523 295Z" fill="#102d45" stroke="#75b8ce" strokeWidth="1.5"/>
+                      <path d="M516 281L526 272L533 279L523 289Z" fill="#8bcbd9" opacity=".6"/>
+                      <circle cx="536" cy="245" r="25" fill="#07182a" stroke="#b5edf3" strokeWidth="3"/>
+                      <circle cx="536" cy="245" r="17" fill="#24566f" stroke="#77c8d9" strokeWidth="2"/>
+                      <circle cx="536" cy="245" r="8" fill="#0a2035" stroke="#b5edf3" strokeWidth="2"/>
+                      <circle cx="536" cy="245" r="3" fill="#e1ffff"/>
+                      <g className="dt-industrial-wrist">
+                        <animateTransform attributeName="transform" type="rotate" values="0 536 245;0 536 245;-18 536 245;-18 536 245;0 536 245;0 536 245" keyTimes="0;0.18;0.4;0.68;0.9;1" dur="7s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+                        <path d="M521 226L542 218L560 228L559 251L541 261L524 251Z" fill="#0a2035" stroke="#b9edf3" strokeWidth="2.4" strokeLinejoin="round"/>
+                        <path d="M527 229L543 224L553 231L552 247L540 254L529 247Z" fill="url(#dt-arm)" stroke="#70b8ce" strokeWidth="1.4"/>
+                        <path d="M536 224L540 214L552 218L548 230Z" fill="#315f78" stroke="#a3e5ef" strokeWidth="1.3"/>
+                        <path d="M539 255L551 257L557 271L547 279L535 267Z" fill="#173c56" stroke="#a9eaf2" strokeWidth="2"/>
+                        <circle cx="547" cy="267" r="8" fill="#092036" stroke="#c0eff4" strokeWidth="2"/>
+                        {/* Parallel gripper with two machined fingers */}
+                        <path d="M543 272L558 275L560 289L551 293L540 285Z" fill="#2d617b" stroke="#bcecf3" strokeWidth="1.5"/>
+                        <path d="M542 284L550 287L541 310L532 307Z" fill="#79b9ca" stroke="#e1fbff" strokeWidth="1.5" strokeLinejoin="round"/>
+                        <path d="M556 285L564 283L572 305L563 309Z" fill="#79b9ca" stroke="#e1fbff" strokeWidth="1.5" strokeLinejoin="round"/>
+                        <path d="M532 307L542 310L537 318L528 315Z" fill="#d3e9e9" stroke="#f5ffff" strokeWidth="1.2"/>
+                        <path d="M563 309L572 305L578 313L568 318Z" fill="#d3e9e9" stroke="#f5ffff" strokeWidth="1.2"/>
+                        <path d="M540 290L546 292M557 290L563 288" stroke="#f1c47d" strokeWidth="1.4"/>
+                        <path d="M539 277L562 281" stroke="#d9fbff" strokeOpacity=".7" strokeWidth="1.2"/>
                       </g>
                     </g>
                   </g>
-                  {/* Small animated status lights and chest power core */}
-                  <circle cx="600" cy="367" r="5" fill="#8cf5ed" className="dt-machine-led"/>
-                  <circle cx="600" cy="367" r="11" fill="none" stroke="#64e5e9" strokeOpacity=".45" strokeWidth="1.2"/>
-                  <path d="M551 307L562 298L576 298M624 299L638 307" fill="none" stroke="#e4fbff" strokeOpacity=".48" strokeWidth="1.4"/>
-                  <path d="M579 445L579 453M625 445L625 453" stroke="#64d7e5" strokeWidth="2" strokeDasharray="3 3"/>
-                  <text x="600" y="539" fill="#79b5cc" fontSize="8" textAnchor="middle" letterSpacing="1.6">HUMANOID / UNIT 01</text>
+                  {/* Hydraulic assist cylinder and routed service cable */}
+                  <path d="M548 435L512 390L493 370" fill="none" stroke="#182f43" strokeWidth="12" strokeLinecap="round"/>
+                  <path d="M548 435L512 390L493 370" fill="none" stroke="#91c8d5" strokeWidth="3" strokeLinecap="round"/>
+                  <path d="M548 435L512 390L493 370" fill="none" stroke="#071727" strokeWidth="1.2" strokeDasharray="3 4"/>
+                  <path d="M549 433L513 388" fill="none" stroke="#e7c17d" strokeWidth="1.8" strokeDasharray="3 5"/>
+                  <path d="M566 387C550 357 548 326 481 300C459 290 450 278 466 260" fill="none" stroke="#071727" strokeWidth="8" strokeLinecap="round"/>
+                  <path d="M566 387C550 357 548 326 481 300C459 290 450 278 466 260" fill="none" stroke="#6cb7cb" strokeWidth="2.2" strokeLinecap="round"/>
+                  {/* Base bolts and safety markings */}
+                  {[-1,1].map((side) => <g key={side}>{[0,1,2].map((n) => <circle key={n} cx={566 + side * (48 + n * 18)} cy={489} r="2.5" fill="#c5e9ed" opacity=".7"/>)}</g>)}
+                  <path d="M484 487L494 480M638 480L649 487" stroke="#f0c27a" strokeWidth="3" strokeDasharray="5 4"/>
+                  <circle cx="566" cy="424" r="44" fill="none" stroke="#5bd9e8" strokeOpacity=".18" strokeWidth="1.2" strokeDasharray="4 7"/>
+                  <text x="566" y="539" fill="#79b5cc" fontSize="8" textAnchor="middle" letterSpacing="1.6">INDUSTRIAL ARM / UNIT 01</text>
                 </g>
                 <g className="dt-network-links" fill="none" strokeWidth="2">
                   <path d="M215 242L339 172L495 200L692 245" stroke="#58d9eb" strokeOpacity=".58" strokeDasharray="5 8" className="dt-data-path"/>
