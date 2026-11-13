@@ -7053,7 +7053,7 @@ html {
  .page-experience-robotics .px-robot-stage{width:100%;transform:translate(-50%,-52%)}
 }
 @media(prefers-reduced-motion:reduce){
- .page-experience-robotics .px-robot-machine *,.page-experience-robotics .px-robot-scan-beam,.page-experience-robotics .px-robot-camera,.page-experience-robotics .px-robot-task-route i,.page-experience-robotics .px-robot-telemetry-bars i{animation:none!important}
+ .page-experience-robotics .px-robot-machine *,.page-experience-robotics .px-robot-scan-beam,.page-experience-robotics .px-robot-camera,.page-experience-robotics .px-robot-task-route i,.page-experience-robotics .px-robot-telemetry-bars i{animation-duration:18s!important}
 }
 
 
@@ -9071,7 +9071,7 @@ html {
    Animate only existing visual elements with compositor-friendly transforms
    and opacity. No canvas, filters, layout animation, or extra JS loops.
    ------------------------------------------------------------------------- */
-@media (prefers-reduced-motion: no-preference) {
+{
   /* Capability illustrations: each visual has a restrained, relevant motion. */
   .capability-art-token .token-orbit {
     animation: site-visual-orbit 30s linear infinite;
@@ -9152,11 +9152,11 @@ html {
   .page-experience-software .px-product-screen {
     animation: site-visual-float 9s ease-in-out infinite;
   }
-  .page-experience-software .px-screen-widgets i {
+  .page-experience-software .px-product-widgets i {
     animation: site-visual-node 4.2s ease-in-out infinite;
   }
-  .page-experience-software .px-screen-widgets i:nth-child(2) { animation-delay: 1s; }
-  .page-experience-software .px-screen-widgets i:nth-child(3) { animation-delay: 2s; }
+  .page-experience-software .px-product-widgets i:nth-child(2) { animation-delay: 1s; }
+  .page-experience-software .px-product-widgets i:nth-child(3) { animation-delay: 2s; }
 
   .page-experience-technology .px-tech-stack-layer {
     animation: site-layer-arrive 7.5s ease-in-out infinite;
@@ -9255,40 +9255,81 @@ html {
   .page-experience-about .px-about-orbit-node { animation-duration: 10s; }
 }
 
+/* Reduced-motion preference keeps the motion subtle and slow instead of hiding all visual feedback. */
 @media (prefers-reduced-motion: reduce) {
-  .capability-showcase .token-orbit,
+  .capability-showcase *,
+  .engineering-explorer *,
+  .page-experience * {
+    animation-duration: 24s !important;
+    animation-timing-function: ease-in-out !important;
+  }
+  .capability-art-token .token-orbit,
+  .capability-showcase .ecosystem-orbit,
+  .engineering-explorer .explorer-visual-orbit,
+  .page-experience-about .px-about-orbit-ring-b {
+    animation-duration: 90s !important;
+  }
   .capability-showcase .token-core,
   .capability-showcase .aggregation-hub,
-  .capability-showcase .aggregation-node,
   .capability-showcase .dev-window,
-  .capability-showcase .dev-layer,
-  .capability-showcase .proxy-globe,
-  .capability-showcase .proxy-point,
-  .capability-showcase .proxy-route,
   .capability-showcase .stage-brief-board,
   .capability-showcase .stage-editor,
   .capability-showcase .stage-test-report,
-  .capability-showcase .stage-arch-node,
-  .capability-showcase .ecosystem-orbit,
-  .capability-showcase .ecosystem-core,
-  .capability-showcase .ecosystem-node,
-  .engineering-explorer .explorer-visual-orbit,
   .engineering-explorer .explorer-visual-core,
-  .engineering-explorer .explorer-visual-node,
   .page-experience-software .px-product-screen,
-  .page-experience-software .px-screen-widgets i,
-  .page-experience-technology .px-tech-stack-layer,
-  .page-experience-about .px-about-orbit-ring-b,
   .page-experience-about .px-about-orbit-core,
-  .page-experience-about .px-about-orbit-node,
   .page-experience-contact .px-contact-stage,
-  .page-experience-integration .px-map-center,
-  .page-experience-integration .px-map-node,
-  .page-experience-solutions .px-ops-bars i,
-  .page-experience-ai .px-ai-symbol {
-    animation: none !important;
-    translate: none !important;
-    rotate: none !important;
-    scale: none !important;
+  .page-experience-integration .px-map-center {
+    animation-name: site-visual-reduced-breathe !important;
   }
 }
+@keyframes site-visual-reduced-breathe {
+  0%, 100% { opacity: .94; scale: 1; }
+  50% { opacity: 1; scale: 1.012; }
+}
+
+
+
+/* Visible, low-cost motion for previously static inner-page illustrations. */
+.page-experience-services .px-delivery-step { animation:site-visual-float 7.5s ease-in-out infinite; }
+.page-experience-services .px-delivery-step:nth-child(2) { animation-delay:.7s; }
+.page-experience-services .px-delivery-step:nth-child(3) { animation-delay:1.4s; }
+.page-experience-services .px-delivery-step:nth-child(4) { animation-delay:2.1s; }
+
+.page-experience-solutions .px-ops-bars i {
+  transform-origin:center bottom;
+  animation:site-bar-activity 4.8s ease-in-out infinite;
+}
+.page-experience-solutions .px-ops-bars i:nth-child(3n + 2) { animation-delay:.45s; }
+.page-experience-solutions .px-ops-bars i:nth-child(3n) { animation-delay:.9s; }
+
+.page-experience-software .px-product-widgets i {
+  animation:site-visual-node 3.8s ease-in-out infinite;
+}
+.page-experience-software .px-product-widgets i:nth-child(2) { animation-delay:.8s; }
+.page-experience-software .px-product-widgets i:nth-child(3) { animation-delay:1.6s; }
+.page-experience-software .px-product-float { animation:site-visual-float 7s ease-in-out infinite; }
+
+.page-experience-technology .px-device-hub { animation:site-visual-breathe 6.5s ease-in-out infinite; }
+.page-experience-technology .px-device-node { animation:site-visual-float 7s ease-in-out infinite; }
+.page-experience-technology .px-device-node-b { animation-delay:.7s; }
+.page-experience-technology .px-device-node-c { animation-delay:1.4s; }
+.page-experience-technology .px-device-node-d { animation-delay:2.1s; }
+
+.page-experience-ai .px-ai-symbol { animation:site-visual-breathe 4.8s ease-in-out infinite; }
+.page-experience-ai .px-ai-pipeline button:nth-child(2) .px-ai-symbol { animation-delay:.5s; }
+.page-experience-ai .px-ai-pipeline button:nth-child(3) .px-ai-symbol { animation-delay:1s; }
+.page-experience-ai .px-ai-pipeline button:nth-child(4) .px-ai-symbol { animation-delay:1.5s; }
+
+.page-experience-integration .px-map-center { animation:site-visual-breathe 6s ease-in-out infinite; }
+.page-experience-integration .px-map-node { animation:site-visual-node 3.6s ease-in-out infinite; }
+.page-experience-integration .px-map-node.node-1 { animation-delay:.9s; }
+.page-experience-integration .px-map-node.node-2 { animation-delay:1.8s; }
+.page-experience-integration .px-map-node.node-3 { animation-delay:2.7s; }
+
+.page-experience-robotics .px-robot-scan-beam { animation:px-robot-live 3.5s ease-in-out infinite; }
+.page-experience-robotics .px-robot-camera { animation:site-visual-breathe 4s ease-in-out infinite; }
+.page-experience-robotics .px-robot-task-route i { animation:site-route-signal 3.8s ease-in-out infinite; }
+.page-experience-robotics .px-robot-task-route i:nth-child(2) { animation-delay:.6s; }
+.page-experience-robotics .px-robot-task-route i:nth-child(3) { animation-delay:1.2s; }
+.page-experience-robotics .px-robot-task-route i:nth-child(4) { animation-delay:1.8s; }
