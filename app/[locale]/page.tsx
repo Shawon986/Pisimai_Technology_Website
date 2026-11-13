@@ -169,13 +169,23 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                         calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
 
                     
-                    <path d="M520 387L568 365Q582 359 596 370L603 379L598 393Q590 402 578 396L536 415Q522 418 515 406Z" fill="url(#dt-arm)" stroke="#a4edf5" strokeWidth="3" strokeLinejoin="round"/>
-                    <path d="M527 397L565 374L590 374L596 384L578 400L541 416Z" fill="url(#dt-panel-brush)" opacity=".55"/>
-                    <path d="M540 390L570 378M543 397L573 385M547 404L578 392" stroke="#d8fbff" strokeOpacity=".42" strokeWidth="1"/>
-                    <path d="M535 411L557 401L566 405L544 416Z" fill="#0a2035" stroke="#74c8dd" strokeOpacity=".6"/>
-                    <g fill="#d5fbff"><circle cx="548" cy="389" r="2"/><circle cx="580" cy="375" r="2"/><circle cx="584" cy="395" r="2"/></g>
-                    <path d="M543 410L581 394" stroke="#ffca79" strokeWidth="1.5" strokeDasharray="3 4" opacity=".8"/>                    <path d="M531 391L572 374Q584 369 594 379" fill="none" stroke="#d0faff" strokeOpacity=".82" strokeWidth="3.5" strokeLinecap="round"/>
-                    <path d="M535 408L578 389L591 393" fill="none" stroke="#0a2038" strokeOpacity=".8" strokeWidth="6" strokeLinecap="round"/>
+                    {/* Rebuilt upper arm: a cast industrial shoulder housing with a real actuator spine. */}
+                    <path d="M513 382L526 369L572 350Q588 344 601 356L610 367L603 386L585 402L541 425Q525 430 514 416L507 403Z" fill="#071a2c" stroke="#b4eaf3" strokeWidth="2.8" strokeLinejoin="round"/>
+                    <path d="M516 382L531 372L573 355Q588 350 598 361L604 369L594 382L551 405L531 414L518 405Z" fill="url(#dt-arm)" stroke="#7ec7dc" strokeWidth="1.8" strokeLinejoin="round"/>
+                    <path d="M522 381L536 374L575 358Q587 354 596 364L588 371L546 392L530 400Z" fill="#b7e6eb" fillOpacity=".2"/>
+                    <path d="M518 405L533 414L548 407L591 385L600 376L604 385L589 400L545 422Q529 428 518 414Z" fill="#102a42" stroke="#4e8aa7" strokeWidth="1.5"/>
+                    <path d="M531 381L548 373L553 378L536 388Z M541 397L558 389L563 394L546 403Z M553 412L570 403L575 408L558 417Z" fill="#071729" stroke="#78b9cd" strokeWidth="1"/>
+                    <path d="M535 376L576 358Q589 354 597 365" fill="none" stroke="#e2fbff" strokeOpacity=".88" strokeWidth="2.4" strokeLinecap="round"/>
+                    <path d="M523 410L538 419L582 397" fill="none" stroke="#020d19" strokeWidth="5" strokeLinecap="round"/>
+                    <path d="M526 409L540 416L580 396" fill="none" stroke="#5c9bb6" strokeWidth="1.4" strokeLinecap="round"/>
+                    <path d="M538 369L581 351L595 357M544 423L585 402" fill="none" stroke="#d8f8fb" strokeOpacity=".5" strokeWidth="1.2"/>
+                    <path d="M552 369L588 354L595 359L559 376Z" fill="#07182b" stroke="#79bfd3" strokeWidth="1.2"/>
+                    <path d="M555 371L585 358" stroke="#d8f8fb" strokeWidth="1.6" strokeLinecap="round"/>
+                    <path d="M541 385L568 372" stroke="#f2bd69" strokeWidth="2" strokeDasharray="2 4"/>
+                    <g fill="#d7faff" stroke="#24536d" strokeWidth="1"><circle cx="527" cy="385" r="2.4"/><circle cx="540" cy="374" r="2.4"/><circle cx="580" cy="359" r="2.4"/><circle cx="594" cy="372" r="2.4"/><circle cx="579" cy="397" r="2.4"/><circle cx="538" cy="416" r="2.4"/></g>
+                    <path d="M535 389Q559 374 587 363" fill="none" stroke="#061526" strokeWidth="7" strokeLinecap="round"/>
+                    <path d="M535 389Q559 374 587 363" fill="none" stroke="url(#dt-hydraulic)" strokeWidth="3.2" strokeLinecap="round"/>
+                    <path d="M536 387Q559 373 586 362" fill="none" stroke="#e7fdff" strokeOpacity=".8" strokeWidth="1" strokeLinecap="round"/>
                     <g className="dt-shoulder-actuator">
                       <path d="M540 421L568 405L590 383" fill="none" stroke="#061526" strokeWidth="9" strokeLinecap="round"/>
                       <path d="M540 421L568 405L590 383" fill="none" stroke="url(#dt-hydraulic)" strokeWidth="4" strokeLinecap="round"/>
