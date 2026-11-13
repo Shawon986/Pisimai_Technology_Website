@@ -9844,3 +9844,96 @@ html {
   .capability-art-development .dev-code b,
   .capability-art-development .dev-layer::after { animation-duration: 8s !important; }
 }
+
+
+/* Additional ring families: each diagram now has its own motion language. */
+.art-core::before { border-style: dashed; animation: hero-core-fragment-a 7s ease-in-out infinite !important; }
+.art-core::after { border-style: dotted; animation: hero-core-fragment-b 10s ease-in-out infinite reverse !important; }
+.about-orbit::before { border-style: dashed; animation: about-globe-drift 12s ease-in-out infinite !important; }
+.about-orbit::after { border-style: dotted; animation: about-globe-drift 16s ease-in-out infinite reverse !important; }
+.contact-orbit::before { border-style: dashed; animation: contact-field-sweep 9s ease-in-out infinite !important; }
+.contact-orbit::after { border-style: dotted; animation: contact-field-sweep 12s ease-in-out infinite reverse !important; }
+.service-visual > span:nth-child(1) { border-style: dashed; animation: service-visual-precess 9s ease-in-out infinite !important; }
+.service-visual > span:nth-child(2) { border-style: dotted; animation: service-visual-precess 12s ease-in-out infinite reverse !important; }
+.service-visual > span:nth-child(3) { border-style: dashed; animation: service-visual-precess 15s ease-in-out infinite !important; }
+.service-visual-orbit { border-style: dashed; animation: service-orbit-pulse 10s ease-in-out infinite !important; }
+.hero-atmosphere i:nth-child(1) { animation: atmosphere-parallax 24s ease-in-out infinite !important; }
+.hero-atmosphere i:nth-child(2) { animation: atmosphere-parallax 31s ease-in-out infinite reverse !important; }
+.hero-atmosphere i:nth-child(3) { animation: atmosphere-parallax 19s ease-in-out infinite !important; }
+.architecture-orbit.orbit-a { border-style: dashed; animation: architecture-field-shift 13s ease-in-out infinite !important; }
+.architecture-orbit.orbit-b { border-style: dotted; animation: architecture-field-shift 17s ease-in-out infinite reverse !important; }
+.page-visual-orbit.orbit-one { border-style: dashed; animation: page-orbit-tilt 13s ease-in-out infinite !important; }
+.page-visual-orbit.orbit-two { border-style: dotted; animation: page-orbit-tilt 17s ease-in-out infinite reverse !important; }
+.page-visual-orbit.orbit-three { border-style: dashed; animation: page-orbit-tilt 21s ease-in-out infinite !important; }
+.cap-orbit-a,.cap-orbit-b { border-style: dashed; animation: capability-orbit-scan 14s ease-in-out infinite !important; }
+.cap-orbit-b { animation-duration: 18s !important; animation-direction: reverse !important; }
+.service-art-ai .ai-orbit-one { border-style: dashed; animation: service-ai-field 10s ease-in-out infinite !important; }
+.service-art-ai .ai-orbit-two { border-style: dotted; animation: service-ai-field 14s ease-in-out infinite reverse !important; }
+.about-network::before { border-style: dashed; animation: about-network-field 12s ease-in-out infinite !important; }
+.about-network::after { border-style: dotted; animation: about-network-field 16s ease-in-out infinite reverse !important; }
+.about-blueprint-orbit { border-style: dashed; animation: blueprint-field-scan 14s ease-in-out infinite !important; }
+.reactor-ring { border-style: dashed; animation: reactor-field-pulse 16s ease-in-out infinite !important; }
+.reactor-ring:nth-of-type(2) { animation-duration: 21s !important; animation-direction: reverse !important; }
+.reactor-ring:nth-of-type(3) { animation-duration: 26s !important; }
+.px-robot-orbit-b,.px-robot-ring-inner { border-style: dotted; animation: robotics-sensor-field 11s ease-in-out infinite !important; }
+.px-robot-ring-inner { animation-duration: 8s !important; animation-direction: reverse !important; }
+@keyframes hero-core-fragment-a {
+  0%,100% { rotate: -8deg; scale: 1 .82; opacity: .38; }
+  50% { rotate: 9deg; scale: 1.1 .96; opacity: .92; }
+}
+@keyframes hero-core-fragment-b {
+  0%,100% { rotate: 12deg; scale: .94 1.06; opacity: .25; }
+  50% { rotate: -12deg; scale: 1.08 .9; opacity: .82; }
+}
+@keyframes about-globe-drift {
+  0%,100% { rotate: -10deg; scale: 1 .72; opacity: .34; }
+  50% { rotate: 10deg; scale: 1.08 .92; opacity: .9; }
+}
+@keyframes contact-field-sweep {
+  0%,100% { rotate: -14deg; scale: .94 1.06; opacity: .28; }
+  50% { rotate: 14deg; scale: 1.08 .92; opacity: .9; }
+}
+@keyframes service-visual-precess {
+  0%,100% { rotate: -12deg; scale: 1 .7; opacity: .34; }
+  50% { rotate: 12deg; scale: 1.1 .96; opacity: .95; }
+}
+@keyframes service-orbit-pulse {
+  0%,100% { rotate: -10deg; scale: .9 .72; opacity: .3; }
+  50% { rotate: 10deg; scale: 1.08 .94; opacity: .9; }
+}
+@keyframes atmosphere-parallax {
+  0%,100% { translate: -1% 1%; rotate: -6deg; scale: .96; opacity: .3; }
+  50% { translate: 1% -1%; rotate: 6deg; scale: 1.05; opacity: .85; }
+}
+@keyframes architecture-field-shift {
+  0%,100% { rotate: -13deg; scale: 1 .74; opacity: .28; }
+  50% { rotate: 13deg; scale: 1.08 .98; opacity: .9; }
+}
+@keyframes page-orbit-tilt {
+  0%,100% { rotate: -11deg; scale: .96 .78; opacity: .3; }
+  50% { rotate: 11deg; scale: 1.07 .94; opacity: .88; }
+}
+@keyframes capability-orbit-scan {
+  0%,100% { rotate: -9deg; scale: 1 .72; opacity: .3; }
+  50% { rotate: 9deg; scale: 1.08 .96; opacity: .92; }
+}
+@keyframes service-ai-field {
+  0%,100% { rotate: -15deg; scale: .96 .68; opacity: .34; }
+  50% { rotate: 15deg; scale: 1.1 .94; opacity: .94; }
+}
+@keyframes about-network-field {
+  0%,100% { rotate: -9deg; scale: .92 1.04; opacity: .3; }
+  50% { rotate: 9deg; scale: 1.08 .92; opacity: .9; }
+}
+@keyframes blueprint-field-scan {
+  0%,100% { rotate: -10deg; scale: 1 .8; opacity: .28; }
+  50% { rotate: 10deg; scale: 1.08 .96; opacity: .9; }
+}
+@keyframes reactor-field-pulse {
+  0%,100% { rotate: -7deg; scale: .98 .78; opacity: .32; }
+  50% { rotate: 7deg; scale: 1.05 .94; opacity: .86; }
+}
+@keyframes robotics-sensor-field {
+  0%,100% { rotate: -16deg; scale: .92 .8; opacity: .28; }
+  50% { rotate: 16deg; scale: 1.08 1; opacity: .88; }
+}
