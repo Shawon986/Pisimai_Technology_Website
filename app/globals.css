@@ -9320,3 +9320,351 @@ html {
 .page-experience-robotics .px-robot-task-route i:nth-child(2) { animation-delay:.6s; }
 .page-experience-robotics .px-robot-task-route i:nth-child(3) { animation-delay:1.2s; }
 .page-experience-robotics .px-robot-task-route i:nth-child(4) { animation-delay:1.8s; }
+
+
+/* -------------------------------------------------------------------------
+   Targeted motion restoration: inner-page hero art, contact journey,
+   capability 02/03 artwork, and the home "From concept to reality" visuals.
+   Uses transform-friendly individual properties and short, lightweight loops.
+   ------------------------------------------------------------------------- */
+@keyframes pst-hero-orbit { to { rotate: 360deg; } }
+@keyframes pst-hero-counter-orbit { to { rotate: -360deg; } }
+@keyframes pst-hero-pulse {
+  0%,100% { scale: 1; opacity: .76; }
+  50% { scale: 1.075; opacity: 1; }
+}
+@keyframes pst-hero-float {
+  0%,100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+@keyframes pst-hero-signal {
+  0% { scale: .38; opacity: .85; }
+  100% { scale: 1.55; opacity: 0; }
+}
+@keyframes pst-hero-link {
+  0%,100% { opacity: .25; scale: .78 1; }
+  50% { opacity: 1; scale: 1.12 1; }
+}
+@keyframes pst-hero-grid {
+  from { background-position: 0 0; }
+  to { background-position: 34px 34px; }
+}
+@keyframes pst-contact-scan {
+  0%,100% { translate: -18% 0; opacity: .2; }
+  50% { translate: 18% 0; opacity: 1; }
+}
+@keyframes pst-contact-icon {
+  0%,100% { scale: .94; filter: brightness(.9); }
+  50% { scale: 1.12; filter: brightness(1.35); }
+}
+@keyframes pst-process-radar {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+@keyframes pst-process-ping {
+  0%,100% { scale: .72; opacity: .42; }
+  50% { scale: 1.35; opacity: 1; }
+}
+@keyframes pst-process-flow {
+  0% { translate: -14px 0; opacity: .25; }
+  50% { opacity: 1; }
+  100% { translate: 14px 0; opacity: .25; }
+}
+@keyframes pst-process-build {
+  0%,100% { opacity: .42; scale: .94 1; }
+  50% { opacity: 1; scale: 1.04 1; }
+}
+@keyframes pst-process-progress {
+  0% { scale: .08 1; transform-origin: left center; }
+  100% { scale: 1 1; transform-origin: left center; }
+}
+
+/* SOLUTIONS hero — moving core, orbit, active links and responsive node layout. */
+.inner-page-visual.page-visual-workflow .scene-solution-map {
+  width: 100%;
+  min-width: 0;
+  min-height: 360px;
+  overflow: hidden;
+}
+.inner-page-visual.page-visual-workflow .solution-map-orbit {
+  animation: pst-hero-orbit 18s linear infinite !important;
+}
+.inner-page-visual.page-visual-workflow .solution-map-hub {
+  animation: pst-hero-pulse 3.2s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-workflow .solution-map-hub > i {
+  animation: pst-hero-pulse 1.35s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-workflow .solution-map-node {
+  animation: pst-hero-float 3.6s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-workflow .solution-map-software { animation-delay: .7s !important; }
+.inner-page-visual.page-visual-workflow .solution-map-devices { animation-delay: 1.4s !important; }
+.inner-page-visual.page-visual-workflow .solution-map-link {
+  animation: pst-hero-link 2.2s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-workflow .solution-map-link-b { animation-delay: .55s !important; }
+.inner-page-visual.page-visual-workflow .solution-map-link-c { animation-delay: 1.1s !important; }
+.inner-page-visual.page-visual-workflow .solution-map-grid {
+  animation: pst-hero-grid 16s linear infinite !important;
+}
+
+/* TECHNOLOGY hero — layers visibly travel, exchange signals and pulse around core. */
+.inner-page-visual.page-visual-technology .tech-platform-core {
+  animation: pst-hero-pulse 3.1s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-technology .tech-platform-layer {
+  animation: pst-hero-float 3.4s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-technology .layer-intel { animation-delay: .55s !important; }
+.inner-page-visual.page-visual-technology .layer-infra { animation-delay: 1.1s !important; }
+.inner-page-visual.page-visual-technology .tech-platform-link {
+  animation: pst-hero-link 1.9s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-technology .link-right { animation-delay: .8s !important; }
+.inner-page-visual.page-visual-technology .tech-platform-grid {
+  animation: pst-hero-grid 18s linear infinite !important;
+}
+
+/* ABOUT hero — connected orbiting disciplines with a live central signal. */
+.inner-page-visual.page-visual-architecture .about-ecosystem-orbit.orbit-a {
+  animation: pst-hero-orbit 20s linear infinite !important;
+}
+.inner-page-visual.page-visual-architecture .about-ecosystem-orbit.orbit-b {
+  animation: pst-hero-counter-orbit 28s linear infinite !important;
+}
+.inner-page-visual.page-visual-architecture .about-ecosystem-core {
+  animation: pst-hero-pulse 3s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-architecture .about-ecosystem-node {
+  animation: pst-hero-float 3.5s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-architecture .node-software { animation-delay: .55s !important; }
+.inner-page-visual.page-visual-architecture .node-robotics { animation-delay: 1.1s !important; }
+.inner-page-visual.page-visual-architecture .node-integration { animation-delay: 1.65s !important; }
+.inner-page-visual.page-visual-architecture .about-ecosystem-link {
+  animation: pst-hero-link 2s ease-in-out infinite !important;
+}
+.inner-page-visual.page-visual-architecture .link-b { animation-delay: .5s !important; }
+.inner-page-visual.page-visual-architecture .link-c { animation-delay: 1s !important; }
+.inner-page-visual.page-visual-architecture .link-d { animation-delay: 1.5s !important; }
+
+/* CONTACT middle journey — animate each step and the iconography, not just the frame. */
+.page-experience-contact .px-contact-stage {
+  animation: pst-hero-float 3.8s ease-in-out infinite !important;
+}
+.page-experience-contact .px-contact-stage:nth-child(2) { animation-delay: .65s !important; }
+.page-experience-contact .px-contact-stage:nth-child(3) { animation-delay: 1.3s !important; }
+.page-experience-contact .px-contact-stage > i {
+  animation: pst-contact-icon 2.1s ease-in-out infinite !important;
+}
+.page-experience-contact .px-contact-stage:nth-child(2) > i { animation-delay: .45s !important; }
+.page-experience-contact .px-contact-stage:nth-child(3) > i { animation-delay: .9s !important; }
+.page-experience-contact .px-contact-journey-head b,
+.page-experience-contact .px-contact-journey-foot > i {
+  animation: pst-hero-pulse 1.8s ease-in-out infinite !important;
+}
+.page-experience-contact .px-contact-journey-track {
+  position: relative;
+}
+.page-experience-contact .px-contact-journey-track::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg,transparent,rgba(91,217,232,.85),transparent);
+  animation: pst-contact-scan 3s ease-in-out infinite !important;
+}
+@media (max-width: 620px) {
+  .page-experience-contact .px-contact-journey-track::after {
+    left: 50%;
+    right: auto;
+    top: 8%;
+    bottom: 8%;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg,transparent,rgba(91,217,232,.85),transparent);
+    animation: pst-contact-scan 3s ease-in-out infinite !important;
+  }
+}
+
+/* CAPABILITY 02 — make the digital platform visibly build and update continuously. */
+.page-experience-software .px-product-screen {
+  animation: pst-hero-float 3.8s ease-in-out infinite !important;
+}
+.page-experience-software .px-screen-widgets > i {
+  animation: pst-process-build 1.9s ease-in-out infinite !important;
+}
+.page-experience-software .px-screen-widgets > i:nth-child(2) { animation-delay: .32s !important; }
+.page-experience-software .px-screen-widgets > i:nth-child(3) { animation-delay: .64s !important; }
+.page-experience-software .px-screen-lines > b {
+  animation: pst-process-flow 2.5s ease-in-out infinite !important;
+}
+.page-experience-software .px-screen-lines > b:nth-child(2) { animation-delay: .4s !important; }
+.page-experience-software .px-screen-lines > b:nth-child(3) { animation-delay: .8s !important; }
+.page-experience-software .px-product-layer-arrow {
+  animation: pst-hero-float 2.4s ease-in-out infinite !important;
+}
+
+/* CAPABILITY 03 — make robot sensing, joint motion, conveyor and telemetry active. */
+.page-experience-robotics .px-robot-scan-beam {
+  animation-duration: 2.1s !important;
+}
+.page-experience-robotics .px-robot-camera {
+  animation-duration: 2.4s !important;
+}
+.page-experience-robotics .px-robot-detection {
+  animation: pst-process-ping 1.8s ease-in-out infinite !important;
+}
+.page-experience-robotics .px-robot-task-route i {
+  animation-duration: 1.9s !important;
+}
+.page-experience-robotics .px-robot-data-packets i {
+  animation-duration: 2.2s !important;
+}
+.page-experience-robotics .px-robot-telemetry-bars i {
+  animation: pst-process-build 1.15s ease-in-out infinite !important;
+}
+.page-experience-robotics .px-robot-telemetry-bars i:nth-child(3n + 2) { animation-delay: .2s !important; }
+.page-experience-robotics .px-robot-telemetry-bars i:nth-child(3n) { animation-delay: .4s !important; }
+.page-experience-robotics .px-robot-conveyor > i {
+  animation: pst-process-flow 2.1s ease-in-out infinite !important;
+}
+.page-experience-robotics .px-robot-conveyor > i:nth-child(2) { animation-delay: .35s !important; }
+.page-experience-robotics .px-robot-conveyor > i:nth-child(3) { animation-delay: .7s !important; }
+
+/* FROM CONCEPT TO REALITY — every process illustration has a distinct active motion. */
+.capability-showcase .stage-brief-board {
+  animation: pst-hero-float 3.5s ease-in-out infinite !important;
+}
+.capability-showcase .stage-brief-checks i {
+  animation: pst-process-ping 1.7s ease-in-out infinite !important;
+}
+.capability-showcase .stage-brief-checks i:nth-child(2) { animation-delay: .35s !important; }
+.capability-showcase .stage-brief-checks i:nth-child(3) { animation-delay: .7s !important; }
+.capability-showcase .stage-brief-priority span {
+  animation: pst-process-build 1.8s ease-in-out infinite !important;
+}
+.capability-showcase .stage-architecture .stage-arch-node {
+  animation: pst-hero-pulse 2.5s ease-in-out infinite !important;
+}
+.capability-showcase .stage-architecture .stage-arch-core { animation-delay: .35s !important; }
+.capability-showcase .stage-architecture .stage-arch-output { animation-delay: .7s !important; }
+.capability-showcase .stage-architecture .stage-arch-data { animation-delay: 1.05s !important; }
+.capability-showcase .stage-architecture .stage-arch-connector,
+.capability-showcase .stage-architecture .stage-arch-branch {
+  animation: pst-hero-link 1.8s ease-in-out infinite !important;
+}
+.capability-showcase .stage-editor {
+  animation: pst-hero-float 3.6s ease-in-out infinite !important;
+}
+.capability-showcase .stage-editor-code i {
+  animation: pst-process-flow 2s ease-in-out infinite !important;
+}
+.capability-showcase .stage-editor-code i:nth-child(2n) { animation-delay: .35s !important; }
+.capability-showcase .stage-editor-code i:nth-child(3n) { animation-delay: .7s !important; }
+.capability-showcase .stage-editor-terminal span {
+  animation: pst-hero-pulse 2.1s ease-in-out infinite !important;
+}
+.capability-showcase .stage-test-report {
+  animation: pst-hero-float 3.8s ease-in-out infinite !important;
+}
+.capability-showcase .stage-test-row .stage-check-icon {
+  animation: pst-process-ping 1.8s ease-in-out infinite !important;
+}
+.capability-showcase .stage-test-row:nth-child(3) .stage-check-icon { animation-delay: .35s !important; }
+.capability-showcase .stage-test-row:nth-child(4) .stage-check-icon { animation-delay: .7s !important; }
+.capability-showcase .stage-test-row:nth-child(5) .stage-check-icon { animation-delay: 1.05s !important; }
+.capability-showcase .stage-test-progress > span {
+  animation: pst-process-progress 2.6s ease-in-out infinite alternate !important;
+}
+.capability-showcase .ecosystem-orbit {
+  animation-duration: 24s !important;
+}
+.capability-showcase .ecosystem-orbit-b {
+  animation-duration: 31s !important;
+}
+.capability-showcase .ecosystem-core {
+  animation-duration: 3s !important;
+}
+.capability-showcase .ecosystem-node {
+  animation-duration: 3.4s !important;
+}
+
+/* Keep the solution architecture legible and contained on narrow phones. */
+@media (max-width: 620px) {
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual.page-visual-workflow {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 300px;
+    overflow: hidden;
+  }
+  .inner-page-visual.page-visual-workflow .scene-solution-map {
+    inset: 8% 0 7%;
+    min-height: 300px;
+    width: 100%;
+    transform: none !important;
+  }
+  .inner-page-visual.page-visual-workflow .solution-map-orbit {
+    width: min(54vw,180px);
+    height: min(54vw,180px);
+    top: 43%;
+  }
+  .inner-page-visual.page-visual-workflow .solution-map-hub {
+    width: clamp(72px,24vw,92px);
+    height: clamp(72px,24vw,92px);
+    top: 43%;
+  }
+  .inner-page-visual.page-visual-workflow .solution-map-node {
+    width: min(37%,120px);
+    min-width: 0;
+    padding: 8px 7px;
+  }
+  .inner-page-visual.page-visual-workflow .solution-map-ai {
+    left: 1.5%;
+    top: 12%;
+  }
+  .inner-page-visual.page-visual-workflow .solution-map-software {
+    right: 1.5%;
+    top: 12%;
+  }
+  .inner-page-visual.page-visual-workflow .solution-map-devices {
+    left: 50%;
+    right: auto;
+    bottom: 17%;
+    width: min(44%,140px);
+    transform: translateX(-50%);
+  }
+  .inner-page-visual.page-visual-workflow .solution-map-outcomes {
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    bottom: 1%;
+    width: 96%;
+    padding: 5px 3px;
+    gap: 5px;
+  }
+}
+@media (max-width: 380px) {
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual.page-visual-workflow {
+    min-height: 280px;
+  }
+  .inner-page-visual.page-visual-workflow .scene-solution-map {
+    min-height: 280px;
+  }
+  .inner-page-visual.page-visual-workflow .solution-map-node {
+    width: 36%;
+    padding: 7px 5px;
+  }
+  .inner-page-visual.page-visual-workflow .solution-map-node > span,
+  .inner-page-visual.page-visual-workflow .solution-map-node > small {
+    font-size: 5.5px;
+  }
+}
+
+/* Explicitly retain visible, restrained motion even when OS reduced-motion is set:
+   these loops use opacity/individual transforms and never trigger layout. */
