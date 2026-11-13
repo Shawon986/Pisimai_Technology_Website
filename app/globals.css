@@ -8494,3 +8494,123 @@ html {
     animation: none !important;
   }
 }
+
+
+/* Final mobile-safe ecosystem geometry and articulated robot motion. */
+.tech-hero-visual .dt-robot-arm,
+.tech-hero-visual .dt-robot-forearm,
+.tech-hero-visual .dt-robot-gripper {
+  animation: none !important;
+}
+.capability-showcase .ecosystem-section {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+}
+.capability-showcase .ecosystem-visual {
+  position: relative;
+  width: min(100%, 500px);
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
+  justify-self: center;
+  overflow: visible;
+  contain: layout;
+}
+.capability-showcase .ecosystem-node {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+  width: clamp(72px, 17vw, 108px);
+  min-width: 0;
+  max-width: calc(100% - 8px);
+  min-height: 54px;
+  padding: 8px 6px;
+  border-radius: 8px;
+  transform: translate(-50%, -50%) !important;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.capability-showcase .ecosystem-node b {
+  display: block;
+  max-width: 100%;
+  font-size: clamp(8px, 1vw, 10px);
+  line-height: 1.15;
+}
+.capability-showcase .ecosystem-node span {
+  display: block;
+  max-width: 100%;
+  font-size: clamp(7px, .9vw, 9px);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.capability-showcase .ecosystem-node-1 { top: 10% !important; left: 50% !important; }
+.capability-showcase .ecosystem-node-2 { top: 34% !important; left: 86% !important; }
+.capability-showcase .ecosystem-node-3 { top: 83% !important; left: 72% !important; }
+.capability-showcase .ecosystem-node-4 { top: 83% !important; left: 28% !important; }
+.capability-showcase .ecosystem-node-5 { top: 34% !important; left: 14% !important; }
+.capability-showcase .ecosystem-core {
+  width: clamp(104px, 29%, 150px);
+  min-width: 0;
+}
+.capability-showcase .ecosystem-orbit,
+.capability-showcase .ecosystem-orbit-b {
+  left: 50%;
+  top: 50%;
+  width: 76%;
+  height: 76%;
+  transform: translate(-50%, -50%) rotate(-24deg) scaleY(.72);
+  pointer-events: none;
+}
+.capability-showcase .ecosystem-orbit-b {
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%) rotate(35deg) scaleY(.66);
+}
+@media (max-width: 760px) {
+  .capability-showcase .ecosystem-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .capability-showcase .ecosystem-visual {
+    width: min(100%, 440px);
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    transform: none !important;
+  }
+  .capability-showcase .ecosystem-node {
+    width: clamp(68px, 20vw, 88px);
+    min-height: 50px;
+    padding: 7px 5px;
+    gap: 4px;
+  }
+  .capability-showcase .ecosystem-node b { font-size: 8px; }
+  .capability-showcase .ecosystem-node span { font-size: 7px; }
+  .capability-showcase .ecosystem-core { width: clamp(102px, 31%, 132px); }
+}
+@media (max-width: 380px) {
+  .capability-showcase .ecosystem-visual { width: 100%; }
+  .capability-showcase .ecosystem-node {
+    width: clamp(62px, 22vw, 72px);
+    min-height: 48px;
+    padding: 6px 3px;
+  }
+  .capability-showcase .ecosystem-node b { font-size: 7.5px; }
+  .capability-showcase .ecosystem-node span { font-size: 6.5px; }
+  .capability-showcase .ecosystem-core { width: 98px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero-visual .dt-robot-arm animateTransform,
+  .tech-hero-visual .dt-robot-forearm animateTransform,
+  .tech-hero-visual .dt-robot-gripper animateTransform { display: none; }
+  .tech-hero-visual .dt-robot-arm,
+  .tech-hero-visual .dt-robot-forearm,
+  .tech-hero-visual .dt-robot-gripper { animation: none !important; }
+}
