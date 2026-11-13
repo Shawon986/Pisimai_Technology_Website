@@ -10433,3 +10433,73 @@ html {
     z-index: 20 !important;
   }
 }
+
+/* Mobile Services hero: use a real two-row grid instead of absolutely
+   positioned lower modules. This prevents animation/stacking transforms
+   from pushing the bottom pair behind the central platform on touch devices. */
+@media (max-width: 760px) {
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities {
+    min-height: 410px !important;
+    height: 410px !important;
+    overflow: visible !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab {
+    position: absolute !important;
+    inset: 42px 8px 12px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(136px, 1fr)) !important;
+    gap: 12px !important;
+    align-content: stretch !important;
+    align-items: stretch !important;
+    justify-items: stretch !important;
+    perspective: none !important;
+    transform: none !important;
+    transform-style: flat !important;
+    scale: 1 !important;
+    overflow: visible !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-module {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 136px !important;
+    margin: 0 !important;
+    transform: none !important;
+    translate: none !important;
+    scale: 1 !important;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-ai { grid-column: 1; grid-row: 1; }
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-software { grid-column: 2; grid-row: 1; }
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-robotics { grid-column: 1; grid-row: 2; }
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-integration { grid-column: 2; grid-row: 2; }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-platform,
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-bus,
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-data-stream {
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+}
