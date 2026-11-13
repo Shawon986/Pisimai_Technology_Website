@@ -10345,3 +10345,74 @@ html {
     font-size: 6px;
   }
 }
+
+
+/* Definitive mobile geometry for the four-module Services hero.
+   Give the lower robotics and integration modules enough vertical room;
+   do not rely on the shorter shared mobile scene dimensions. */
+@media (max-width: 760px) {
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities {
+    height: clamp(390px, 112vw, 440px) !important;
+    min-height: 390px !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab {
+    inset: 7% 0 3% !important;
+    transform: none !important;
+    scale: 1 !important;
+    overflow: visible !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-module {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 46% !important;
+    height: 42% !important;
+    min-height: 136px !important;
+    transform: rotateY(-4deg) rotateX(2deg) !important;
+    overflow: visible !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-ai,
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-software {
+    top: 0 !important;
+    bottom: auto !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-robotics,
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-integration {
+    top: auto !important;
+    bottom: 0 !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-robotics {
+    left: 1.5% !important;
+    right: auto !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-integration {
+    right: 1.5% !important;
+    left: auto !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-mini-arm,
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-port-grid {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-module-cap {
+    left: 8px !important;
+    top: 8px !important;
+    font-size: 7px !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities .scene-service-lab .lab-module small {
+    left: 8px !important;
+    bottom: 12px !important;
+    font-size: 6px !important;
+  }
+}
