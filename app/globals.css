@@ -9071,7 +9071,6 @@ html {
    Animate only existing visual elements with compositor-friendly transforms
    and opacity. No canvas, filters, layout animation, or extra JS loops.
    ------------------------------------------------------------------------- */
-{
   /* Capability illustrations: each visual has a restrained, relevant motion. */
   .capability-art-token .token-orbit {
     animation: site-visual-orbit 30s linear infinite;
@@ -9203,7 +9202,6 @@ html {
   .page-experience-ai .px-ai-symbol {
     animation: site-visual-breathe 5.5s ease-in-out infinite;
   }
-}
 
 /* Motion is suspended when a whole section is outside the near viewport. */
 [data-motion-paused="true"],
