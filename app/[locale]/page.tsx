@@ -264,6 +264,41 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <text x="337" y="224" fill="#83c9dc">PRECISION GANTRY</text>
                 </g>
               
+              
+                <g className="dt-native-motion" fill="none" strokeLinecap="round" aria-hidden="true">
+                  <path d="M208 260L352 178L500 204L690 250" stroke="#75f2ff" strokeOpacity=".36" strokeWidth="2" strokeDasharray="3 9"/>
+                  <circle r="5" fill="#c6fbff" stroke="#4ce2f3" strokeWidth="2">
+                    <animateMotion dur="2.8s" repeatCount="indefinite" path="M208 260L352 178L500 204L690 250"/>
+                  </circle>
+                  <circle r="3.5" fill="#a8a4ff" stroke="#d2ceff" strokeWidth="1.5">
+                    <animateMotion dur="3.6s" begin="-1.1s" repeatCount="indefinite" path="M352 178L365 283L528 397"/>
+                  </circle>
+                  <circle r="3.5" fill="#8fffe1" stroke="#c9fff1" strokeWidth="1.5">
+                    <animateMotion dur="3.1s" begin="-2s" repeatCount="indefinite" path="M690 250L745 188L790 203"/>
+                  </circle>
+                  <path d="M190 258L322 344" stroke="#8bf7ff" strokeWidth="3" strokeOpacity=".85" strokeDasharray="15 90">
+                    <animate attributeName="stroke-dashoffset" values="105;0" dur="1.6s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values=".15;1;.15" dur="2.1s" repeatCount="indefinite"/>
+                  </path>
+                  <path d="M250 187H574" stroke="#9ff7ff" strokeWidth="2.5" strokeDasharray="28 296" strokeOpacity=".95">
+                    <animate attributeName="stroke-dashoffset" values="324;0" dur="2.2s" repeatCount="indefinite"/>
+                  </path>
+                  <circle cx="532" cy="397" r="22" stroke="#72edff" strokeWidth="2" strokeOpacity=".8">
+                    <animate attributeName="r" values="18;31;18" dur="2.4s" repeatCount="indefinite"/>
+                    <animate attributeName="stroke-opacity" values=".8;.08;.8" dur="2.4s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="589" cy="382" r="17" stroke="#a6a1ff" strokeWidth="1.8" strokeOpacity=".75">
+                    <animate attributeName="r" values="13;25;13" dur="2.8s" begin="-.8s" repeatCount="indefinite"/>
+                    <animate attributeName="stroke-opacity" values=".75;.08;.75" dur="2.8s" begin="-.8s" repeatCount="indefinite"/>
+                  </circle>
+                  <path d="M150 418L150 280" stroke="#69e7ff" strokeWidth="2" strokeDasharray="5 8" strokeOpacity=".8">
+                    <animate attributeName="stroke-dashoffset" values="26;0" dur=".9s" repeatCount="indefinite"/>
+                  </path>
+                  <circle cx="180" cy="292" r="10" fill="none" stroke="#75f5ff" strokeWidth="1.5">
+                    <animate attributeName="r" values="7;18;7" dur="2s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values=".9;0;.9" dur="2s" repeatCount="indefinite"/>
+                  </circle>
+                </g>
               </svg>
               <div className="dt-hud dt-hud-left"><span>VISION ENGINE</span><b><i /> OBJECT LOCKED</b><small>CONFIDENCE / 98.6%</small></div>
               <div className="dt-hud dt-hud-right"><span>ORCHESTRATION</span><b><i /> 04 SYSTEMS LINKED</b><small>AI · EDGE · MOTION · CLOUD</small></div>

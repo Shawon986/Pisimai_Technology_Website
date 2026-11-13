@@ -8337,3 +8337,122 @@ html {
   .tech-hero-visual .dt-particle-stream,
   .tech-hero-visual .dt-status-beams { animation:none !important; }
 }
+
+
+/* Reliable visible hero motion: SVG-native pulses continue even when CSS transforms are overridden. */
+.tech-hero-visual .dt-native-motion { opacity:1; }
+.tech-hero-visual .dt-gantry-carriage {
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:dt-gantry-travel 3.6s ease-in-out infinite alternate !important;
+}
+.tech-hero-visual .dt-robot-arm {
+  transform-box:fill-box;
+  transform-origin:16% 77%;
+  animation:dt-arm-visible-cycle 4.8s ease-in-out infinite alternate !important;
+}
+.tech-hero-visual .dt-wrist-indicator {
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:dt-wrist-visible-spin 5s linear infinite !important;
+}
+.tech-hero-visual .dt-parcel,
+.tech-hero-visual .dt-parcel-two {
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:dt-parcel-visible 4.8s ease-in-out infinite alternate !important;
+}
+.tech-hero-visual .dt-parcel-two { animation-delay:-2.4s !important; }
+.tech-hero-visual .dt-particle-stream { animation:dt-particle-visible 2.4s linear infinite !important; }
+.tech-hero-visual .dt-safety-lights { animation:dt-beacon-visible 1.4s ease-in-out infinite !important; }
+@keyframes dt-gantry-travel {
+  from { transform:translateX(-44px); }
+  to { transform:translateX(48px); }
+}
+@keyframes dt-arm-visible-cycle {
+  from { transform:rotate(-5deg); }
+  to { transform:rotate(5deg); }
+}
+@keyframes dt-wrist-visible-spin { to { transform:rotate(360deg); } }
+@keyframes dt-parcel-visible {
+  from { transform:translate(-18px,10px); }
+  to { transform:translate(28px,-15px); }
+}
+@keyframes dt-particle-visible {
+  from { transform:translateX(-22px); opacity:.15; }
+  50% { opacity:1; }
+  to { transform:translateX(32px); opacity:.15; }
+}
+@keyframes dt-beacon-visible { 0%,100% { opacity:.45; } 50% { opacity:1; } }
+
+/* Keep the five ecosystem chips inside the visual on narrow screens. */
+.capability-showcase .ecosystem-visual {
+  width:min(100%,500px);
+  max-width:100%;
+  overflow:visible;
+  contain:layout;
+}
+.capability-showcase .ecosystem-node {
+  box-sizing:border-box;
+  width:clamp(64px,23vw,116px);
+  min-width:0;
+  max-width:116px;
+  min-height:clamp(46px,13vw,60px);
+  padding:clamp(5px,1.6vw,9px) clamp(3px,1.3vw,8px);
+  overflow:hidden;
+  text-align:center;
+  overflow-wrap:anywhere;
+}
+.capability-showcase .ecosystem-node b {
+  max-width:100%;
+  font-size:clamp(8px,2.2vw,11px);
+  line-height:1.2;
+  overflow-wrap:anywhere;
+}
+.capability-showcase .ecosystem-node span {
+  max-width:100%;
+  font-size:clamp(6px,1.7vw,9px);
+  line-height:1.25;
+  overflow-wrap:anywhere;
+}
+.capability-showcase .ecosystem-node-1 { top:10%;left:50%; }
+.capability-showcase .ecosystem-node-2 { top:38%;left:88%; }
+.capability-showcase .ecosystem-node-3 { top:82%;left:74%; }
+.capability-showcase .ecosystem-node-4 { top:82%;left:26%; }
+.capability-showcase .ecosystem-node-5 { top:38%;left:12%; }
+@media(max-width:640px) {
+  .capability-showcase .ecosystem-visual {
+    width:min(100%,440px);
+    aspect-ratio:1 / 1;
+    margin-inline:auto;
+  }
+  .capability-showcase .ecosystem-node {
+    width:clamp(64px,23vw,94px);
+    min-height:clamp(46px,13vw,54px);
+    border-radius:7px;
+  }
+  .capability-showcase .ecosystem-node-1 { top:10%;left:50%; }
+  .capability-showcase .ecosystem-node-2 { top:38%;left:88%; }
+  .capability-showcase .ecosystem-node-3 { top:82%;left:74%; }
+  .capability-showcase .ecosystem-node-4 { top:82%;left:26%; }
+  .capability-showcase .ecosystem-node-5 { top:38%;left:12%; }
+}
+@media(max-width:360px) {
+  .capability-showcase .ecosystem-node {
+    width:clamp(62px,23vw,78px);
+    min-height:45px;
+    padding:5px 3px;
+  }
+  .capability-showcase .ecosystem-node b { font-size:8px; }
+  .capability-showcase .ecosystem-node span { font-size:6px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .tech-hero-visual .dt-native-motion { display:none; }
+  .tech-hero-visual .dt-gantry-carriage,
+  .tech-hero-visual .dt-robot-arm,
+  .tech-hero-visual .dt-wrist-indicator,
+  .tech-hero-visual .dt-parcel,
+  .tech-hero-visual .dt-parcel-two,
+  .tech-hero-visual .dt-particle-stream,
+  .tech-hero-visual .dt-safety-lights { animation:none !important; }
+}
