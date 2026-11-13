@@ -8674,7 +8674,6 @@ html {
 .tech-hero-visual .dt-robot-forearm,
 .tech-hero-visual .dt-robot-gripper {
   animation: none !important;
-  transform: none;
 }
 .tech-hero-visual .dt-robot-arm path,
 .tech-hero-visual .dt-robot-arm circle {
