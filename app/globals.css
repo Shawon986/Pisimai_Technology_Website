@@ -10296,3 +10296,52 @@ html {
     width: calc(100% - 28px);
   }
 }
+
+
+/* Mobile service-overview hero: keep all four capability modules equally clear.
+   The shared mobile scene scale was shrinking the lower pair and their labels. */
+@media (max-width: 760px) {
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab {
+    inset: 14% 1% 8%;
+    transform: none;
+    scale: 1;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-module {
+    width: 46%;
+    height: 38%;
+    min-height: 88px;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-ai,
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-software {
+    top: 0;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-robotics,
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-integration {
+    bottom: 0;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-ai,
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-robotics {
+    left: 1.5%;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-software,
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-integration {
+    right: 1.5%;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-module-cap {
+    left: 8px;
+    top: 7px;
+    font-size: 7px;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .inner-page-visual .scene-service-lab .lab-module small {
+    left: 8px;
+    bottom: 11px;
+    font-size: 6px;
+  }
+}
