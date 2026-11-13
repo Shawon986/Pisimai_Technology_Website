@@ -9986,3 +9986,26 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .capability-art-token .token-particle { animation-duration: 8s !important; }
 }
+
+
+@media (max-width: 760px) {
+  .capability-art-token .token-core,
+  .capability-art-aggregation .aggregation-hub,
+  .capability-art-aggregation .aggregation-node,
+  .capability-art-aggregation .aggregation-lines i,
+  .capability-art-aggregation .aggregation-lines i::after,
+  .capability-art-development .dev-window,
+  .capability-art-development .dev-code b,
+  .capability-art-development .dev-layer,
+  .capability-art-development .dev-layer::after,
+  .capability-art-development .dev-plus,
+  .capability-art-proxy .proxy-point,
+  .capability-art-proxy .proxy-route {
+    animation-duration: 5.6s !important;
+  }
+  .capability-art-proxy .proxy-globe {
+    animation-duration: 5.6s, 26s !important;
+  }
+  .capability-art-token .token-orbit-a { animation-duration: 22s !important; }
+  .capability-art-token .token-orbit-b { animation-duration: 26s !important; }
+}
