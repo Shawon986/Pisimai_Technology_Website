@@ -8614,3 +8614,22 @@ html {
   .tech-hero-visual .dt-robot-forearm,
   .tech-hero-visual .dt-robot-gripper { animation: none !important; }
 }
+
+/* Coordinated pick-and-place motion: fixed pedestal, synchronized articulated links. */
+.tech-hero-visual .dt-robot-arm,
+.tech-hero-visual .dt-robot-shoulder-link,
+.tech-hero-visual .dt-robot-forearm,
+.tech-hero-visual .dt-robot-gripper {
+  animation: none !important;
+  transform: none;
+}
+.tech-hero-visual .dt-robot-arm { transform-origin: 532px 397px; }
+.tech-hero-visual .dt-robot-shoulder-link,
+.tech-hero-visual .dt-robot-forearm,
+.tech-hero-visual .dt-robot-gripper { transform-box: view-box; }
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero-visual .dt-robot-shoulder-link animateTransform,
+  .tech-hero-visual .dt-robot-forearm animateTransform,
+  .tech-hero-visual .dt-robot-gripper animateTransform,
+  .tech-hero-visual .dt-robot-gripper path animate { display: none; }
+}
