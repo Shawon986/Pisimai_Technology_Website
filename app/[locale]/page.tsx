@@ -56,6 +56,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 </svg></span></a>
               <Link className="button button-secondary" href={"/" + locale + "/contact#contact-form"}>{t.secondaryCta}</Link>
             </div>
+            <div className="hero-expertise" aria-label={locale === "zh" ? "核心技术领域" : "Core technology disciplines"}>
+              {(locale === "zh" ? ["人工智能", "软件平台", "机器人", "系统集成"] : ["AI & INTELLIGENCE", "SOFTWARE", "ROBOTICS", "SYSTEMS INTEGRATION"]).map((item) => <span key={item}>{item}</span>)}
+            </div>
             <div className="hero-bottomline">
               <p className="hero-scroll"><span />{t.scroll}</p>
               <p className="hero-note">{t.heroNote}</p>

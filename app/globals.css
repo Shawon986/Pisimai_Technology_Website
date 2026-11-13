@@ -8732,3 +8732,281 @@ html {
     animation-duration: 12s;
   }
 }
+
+
+/* PISIMAI hero art direction — restrained editorial hierarchy and a premium engineering showcase. */
+.hero-section.tech-hero {
+  min-height: min(940px, 100svh) !important;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important;
+  align-items: center !important;
+  column-gap: clamp(34px, 4.6vw, 76px) !important;
+  padding: clamp(142px, 15vh, 176px) clamp(28px, 5.4vw, 92px) 92px !important;
+  background:
+    radial-gradient(ellipse at 78% 42%, rgba(36, 116, 165, .16), transparent 40%),
+    radial-gradient(ellipse at 8% 88%, rgba(54, 75, 137, .09), transparent 32%),
+    linear-gradient(112deg, #070d18 0%, #0a1526 54%, #091321 100%) !important;
+}
+.tech-hero .hero-copy {
+  width: 100%;
+  max-width: 660px;
+  animation: hero-copy-in .8s cubic-bezier(.2,.7,.2,1) both;
+}
+.tech-hero .eyebrow {
+  margin-bottom: 25px;
+  color: #72d8e9;
+  font-size: 9px;
+  letter-spacing: .2em;
+}
+.tech-hero .eyebrow span {
+  width: 30px;
+  height: 1px;
+  box-shadow: none;
+}
+.tech-hero .hero-title-hierarchy {
+  gap: .055em;
+  line-height: 1.03;
+  letter-spacing: -.045em;
+}
+.tech-hero .hero-title-line {
+  font-weight: 560;
+  text-wrap: balance;
+}
+.tech-hero .hero-title-line-one {
+  font-size: clamp(48px, 5.05vw, 72px);
+  color: #f4f7fb;
+}
+.tech-hero .hero-title-line-two {
+  font-size: clamp(39px, 4.05vw, 58px);
+  color: #d9e5f2;
+  letter-spacing: -.047em;
+}
+.tech-hero .hero-title-line-three {
+  max-width: 12ch;
+  font-size: clamp(31px, 3.2vw, 45px);
+  color: #83b9ce;
+  letter-spacing: -.04em;
+}
+.tech-hero .hero-description {
+  max-width: 490px;
+  margin-top: 25px;
+  color: #a6b5c9;
+  font-size: 14px;
+  line-height: 1.85;
+}
+.tech-hero .hero-actions {
+  gap: 12px;
+  margin-top: 30px;
+}
+.tech-hero .button {
+  min-height: 52px;
+  padding: 0 19px;
+  border-radius: 5px;
+  font-size: 10px;
+  letter-spacing: .055em;
+}
+.tech-hero .button-primary {
+  gap: 22px;
+  color: #071522;
+  background: linear-gradient(105deg, #72e1e9, #91b8f3);
+  box-shadow: 0 8px 24px rgba(58, 169, 202, .12);
+}
+.tech-hero .button-primary:hover {
+  background: linear-gradient(105deg, #9af0f0, #b1cbff);
+}
+.tech-hero .button-secondary {
+  border-color: rgba(177, 199, 224, .25);
+  background: rgba(13, 27, 45, .42);
+  color: #d8e3ef;
+}
+.tech-hero .button-secondary:hover {
+  border-color: rgba(104, 215, 231, .6);
+  background: rgba(24, 57, 76, .42);
+}
+.tech-hero .hero-expertise {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 0;
+  margin-top: 34px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(154, 184, 215, .15);
+}
+.tech-hero .hero-expertise span {
+  display: inline-flex;
+  align-items: center;
+  color: #8297ae;
+  font: 8px/1.4 "JetBrains Mono", Consolas, monospace;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+.tech-hero .hero-expertise span + span::before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  margin: 0 12px;
+  border-radius: 50%;
+  background: #4dbdd1;
+  opacity: .8;
+}
+.tech-hero .hero-bottomline {
+  margin-top: 28px;
+  gap: 20px;
+}
+.tech-hero .hero-bottomline .hero-scroll {
+  margin: 0;
+  color: #6f8299;
+  font-size: 8px;
+  letter-spacing: .15em;
+}
+.tech-hero .hero-scroll span {
+  width: 22px;
+  box-shadow: none;
+}
+.tech-hero .hero-note {
+  margin: 0;
+  color: #5f7189;
+  font-size: 8px;
+  letter-spacing: .12em;
+}
+.tech-hero > .tech-hero-visual {
+  width: 100%;
+  min-width: 0;
+  min-height: clamp(530px, 45vw, 660px);
+  border: 1px solid rgba(119, 180, 207, .24);
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at 52% 46%, rgba(28, 115, 155, .19), transparent 53%),
+    linear-gradient(148deg, #0b2033 0%, #09182a 57%, #071322 100%);
+  box-shadow: 0 30px 76px rgba(0,0,0,.28), inset 0 1px rgba(223,245,255,.08);
+}
+.tech-hero > .tech-hero-visual::before {
+  opacity: .2;
+  background-size: 38px 38px;
+  mask-image: radial-gradient(ellipse at 52% 48%, #000 10%, rgba(0,0,0,.65) 58%, transparent 100%);
+}
+.tech-hero .digital-twin-stage {
+  inset: 7% 1% 7%;
+}
+.tech-hero .digital-twin-svg {
+  filter: drop-shadow(0 18px 28px rgba(0,0,0,.24));
+}
+.tech-hero .visual-topline {
+  top: 17px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #91aabd;
+  font-size: 7px;
+  letter-spacing: .14em;
+}
+.tech-hero .visual-topline span:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #b0d6d9;
+}
+.tech-hero .visual-topline span:last-child i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #57dcb9;
+  box-shadow: 0 0 9px rgba(87,220,185,.55);
+}
+.tech-hero .visual-bottomline {
+  bottom: 17px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #7894a9;
+  font-size: 6px;
+  letter-spacing: .11em;
+}
+.tech-hero .dt-hud {
+  border-color: rgba(110, 175, 204, .24);
+  border-radius: 5px;
+  background: rgba(5, 19, 34, .78);
+  box-shadow: 0 8px 22px rgba(0,0,0,.16), inset 0 1px rgba(205,238,248,.05);
+}
+.tech-hero .dt-readout {
+  border-radius: 3px;
+  background: rgba(5, 18, 32, .72);
+}
+.tech-hero .hero-index {
+  right: clamp(28px, 5.4vw, 92px);
+  bottom: 26px;
+  color: #60748d;
+}
+.tech-hero .hero-side-label {
+  display: none;
+}
+@media (min-width: 1101px) {
+  .tech-hero .hero-copy { padding-bottom: 18px; }
+}
+@media (max-width: 1100px) {
+  .hero-section.tech-hero {
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-height: 0 !important;
+    padding: 142px clamp(28px, 6vw, 72px) 76px !important;
+    row-gap: 32px !important;
+  }
+  .tech-hero .hero-copy { max-width: 760px; }
+  .tech-hero > .tech-hero-visual {
+    width: min(100%, 860px);
+    min-height: 570px;
+    justify-self: center;
+  }
+  .tech-hero .hero-index { bottom: 20px; }
+}
+@media (max-width: 760px) {
+  .hero-section.tech-hero {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch !important;
+    padding: 126px 22px 64px !important;
+    gap: 26px !important;
+  }
+  .tech-hero .hero-copy { max-width: 100%; }
+  .tech-hero .eyebrow { margin-bottom: 20px; font-size: 8px; }
+  .tech-hero .hero-title-line-one { font-size: clamp(42px, 9.2vw, 60px); }
+  .tech-hero .hero-title-line-two { font-size: clamp(34px, 7.6vw, 49px); }
+  .tech-hero .hero-title-line-three { font-size: clamp(27px, 6.1vw, 39px); }
+  .tech-hero .hero-description { max-width: 600px; margin-top: 20px; font-size: 13px; }
+  .tech-hero .hero-actions { margin-top: 24px; }
+  .tech-hero .hero-expertise { margin-top: 27px; }
+  .tech-hero .hero-bottomline { margin-top: 22px; }
+  .tech-hero > .tech-hero-visual {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 1 / 1.08;
+    width: 100%;
+  }
+  .tech-hero .digital-twin-stage { inset: 13% -4% 13%; }
+  .tech-hero .dt-hud-left { left: 2%; top: 12%; }
+  .tech-hero .dt-hud-right { right: 2%; bottom: 15%; }
+  .tech-hero .visual-topline { top: 12px; left: 12px; right: 12px; font-size: 5.5px; }
+  .tech-hero .visual-bottomline { bottom: 12px; left: 12px; right: 12px; font-size: 5px; }
+  .tech-hero .hero-index { display: none; }
+}
+@media (max-width: 420px) {
+  .hero-section.tech-hero { padding: 116px 17px 54px !important; gap: 22px !important; }
+  .tech-hero .hero-title-line-one { font-size: clamp(37px, 9.5vw, 43px); }
+  .tech-hero .hero-title-line-two { font-size: clamp(30px, 7.7vw, 35px); }
+  .tech-hero .hero-title-line-three { font-size: clamp(23px, 6vw, 28px); }
+  .tech-hero .hero-actions { align-items: stretch; flex-direction: row; }
+  .tech-hero .button { min-height: 48px; padding-inline: 12px; gap: 10px; font-size: 9px; }
+  .tech-hero .hero-expertise { gap: 8px 0; margin-top: 23px; }
+  .tech-hero .hero-expertise span { font-size: 7px; letter-spacing: .06em; }
+  .tech-hero .hero-expertise span + span::before { margin-inline: 8px; }
+  .tech-hero .hero-note { display: none; }
+  .tech-hero > .tech-hero-visual { aspect-ratio: 1 / 1.14; border-radius: 10px; }
+  .tech-hero .visual-topline { font-size: 4.5px; letter-spacing: .06em; }
+  .tech-hero .visual-bottomline { font-size: 4px; letter-spacing: .04em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero .hero-copy { animation: none !important; }
+}
