@@ -9010,3 +9010,57 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .tech-hero .hero-copy { animation: none !important; }
 }
+
+
+/* Product / Layers: use the shared SVG arrow so its shape stays identical on mobile. */
+.px-product-lab aside button > b {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 18px;
+  width:18px;
+  height:18px;
+  margin-left:auto;
+  color:#69dff0;
+  line-height:1;
+}
+.px-product-lab aside button > b .px-product-layer-arrow {
+  display:block;
+  width:15px;
+  height:15px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+@media (max-width:760px) {
+  .px-product-lab aside button > b { flex-basis:18px; width:18px; height:18px; }
+  .px-product-lab aside button > b .px-product-layer-arrow { width:15px; height:15px; }
+}
+
+/* Service navigation: keep the current page's View action visible but disabled. */
+.inner-service-links .service-link-current {
+  display:grid;
+  grid-template-columns:70px minmax(0,1fr) auto;
+  align-items:center;
+  gap:16px;
+  padding:21px 8px;
+  border-bottom:1px solid var(--line);
+}
+.inner-service-links .service-link-current .service-view-button.is-current {
+  color:#7d8da3;
+  border-color:rgba(125,141,163,.25);
+  background:rgba(125,141,163,.07);
+  box-shadow:none;
+  cursor:not-allowed;
+  opacity:.62;
+  pointer-events:none;
+}
+@media (max-width:760px) {
+  .inner-service-links .service-link-current {
+    grid-template-columns:38px minmax(0,1fr) auto;
+    gap:10px;
+    padding:21px 8px;
+  }
+}

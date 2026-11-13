@@ -419,11 +419,19 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
           </div>
           {isServices && (
             <div className="inner-service-links">
-              {serviceSlugs.map((serviceSlug, index) => (
-                <Link href={"/" + locale + "/" + serviceSlug} key={serviceSlug}>
-                  <span className="service-link-number">0{index + 1}</span><strong>{labels[index]}</strong><span className="service-view-button">{locale === "zh" ? "查看" : "View"}</span>
-                </Link>
-              ))}
+              {serviceSlugs.map((serviceSlug, index) => {
+                const isCurrentService = pageKey === serviceSlug;
+                const content = <>
+                  <span className="service-link-number">0{index + 1}</span>
+                  <strong>{labels[index]}</strong>
+                  <span className={"service-view-button" + (isCurrentService ? " is-current" : "")} aria-disabled={isCurrentService || undefined} aria-current={isCurrentService ? "page" : undefined}>{locale === "zh" ? "查看" : "View"}</span>
+                </>;
+                return isCurrentService ? (
+                  <div className="service-link-current" key={serviceSlug}>{content}</div>
+                ) : (
+                  <Link href={"/" + locale + "/" + serviceSlug} key={serviceSlug}>{content}</Link>
+                );
+              })}
             </div>
           )}
         </section>
