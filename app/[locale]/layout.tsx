@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     title: "PISIMAI TECHNOLOGY",
     description: "Engineering Tomorrow. Empowering Today."
   },
-  robots: { index: true, follow: true }
 };
 
 const organizationSchema = {

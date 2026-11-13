@@ -281,9 +281,9 @@ export function generateStaticParams() {
 }
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string[] }> }): Promise<Metadata> {
   const { locale: rawLocale, slug } = await params;
-  if (!isLocale(rawLocale)) return { robots: { index: false, follow: false } };
+  if (!isLocale(rawLocale)) return {};
   const page = pages[slug.join("/")];
-  if (!page) return { robots: { index: false, follow: false } };
+  if (!page) return {};
   const content = page[rawLocale];
   const localizedPath = "/" + rawLocale + "/" + slug.join("/");
   return {
