@@ -113,6 +113,19 @@ export function NetworkBackground() {
       rebuildLinks();
     };
 
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      // Render at 0.8x resolution to keep the canvas light on laptop GPUs.
+      pixelRatio = 0.8;
+      canvas.width = Math.max(1, Math.round(width * pixelRatio));
+      canvas.height = Math.max(1, Math.round(height * pixelRatio));
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      createPoints();
+      render(0);
+    };
+
     const render = (time: number) => {
       context.clearRect(0, 0, width, height);
 
