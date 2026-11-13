@@ -72,6 +72,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <linearGradient id="dt-arm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#a4e8f3"/><stop offset=".18" stopColor="#4b94b5"/><stop offset=".52" stopColor="#1d4c70"/><stop offset="1" stopColor="#0a1a31"/></linearGradient>
                   <linearGradient id="dt-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#1b6686" stopOpacity=".75"/><stop offset="1" stopColor="#0a1b32" stopOpacity=".94"/></linearGradient>
                   <linearGradient id="dt-belt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#274e69"/><stop offset=".45" stopColor="#102a43"/><stop offset="1" stopColor="#071628"/></linearGradient>
+                  <linearGradient id="dt-chrome" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#d4f8ff"/><stop offset=".2" stopColor="#568eaa"/><stop offset=".48" stopColor="#173b59"/><stop offset=".72" stopColor="#78b6c9"/><stop offset="1" stopColor="#0a1b30"/></linearGradient>
+                  <linearGradient id="dt-hydraulic" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#d9fbff"/><stop offset=".35" stopColor="#4a91ad"/><stop offset=".55" stopColor="#142d45"/><stop offset="1" stopColor="#a8e9f1"/></linearGradient>
+                  <radialGradient id="dt-bearing"><stop stopColor="#baf8ff"/><stop offset=".35" stopColor="#397b9a"/><stop offset=".72" stopColor="#102a43"/><stop offset="1" stopColor="#061426"/></radialGradient>
+                  <pattern id="dt-panel-brush" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 1H8M0 5H8" stroke="#b5eff7" strokeOpacity=".12" strokeWidth=".7"/></pattern>
                   <pattern id="dt-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#5da3c6" strokeOpacity=".13" strokeWidth="1"/></pattern>
                 </defs>
                 <g className="dt-atmosphere">
@@ -100,7 +104,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <g stroke="#5bbad9" strokeWidth="2"><path d="M690 282L702 289M690 323L702 330M690 364L702 371"/></g>
                   <path d="M738 277L777 255M738 318L777 296M738 359L777 337" stroke="#77d9e8" strokeOpacity=".5" strokeWidth="2"/>
                   <path d="M739 286L769 270M739 327L769 311M739 368L769 352" stroke="#7e8fff" strokeOpacity=".5" strokeWidth="2"/>
-                  <path d="M722 285L722 415" stroke="#8bdced" strokeOpacity=".4"/>
+                  <path d="M730 251L730 411M739 246L739 406" stroke="#8bdced" strokeOpacity=".2" strokeWidth="1"/>
+                  <path d="M667 255L716 282M667 395L716 422" stroke="#a8eaf4" strokeOpacity=".28" strokeWidth="1.2"/>
+                  <g fill="#68e8ee" opacity=".9"><circle cx="777" cy="259" r="2"/><circle cx="777" cy="300" r="2"/><circle cx="777" cy="341" r="2"/></g>
+                  <path d="M746 273L781 254V374L746 394Z" fill="url(#dt-panel-brush)" opacity=".42"/>
+                  <path d="M727 398L780 369" stroke="#b5f5ff" strokeOpacity=".4" strokeWidth="1.2"/>                  <path d="M722 285L722 415" stroke="#8bdced" strokeOpacity=".4"/>
                 </g>
                 <g className="dt-conveyor">
                   <path d="M170 408L367 303 506 377 307 485Z" fill="#07172a" stroke="#4d91ad" strokeWidth="2"/>
@@ -110,6 +118,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <g fill="#183d59" stroke="#70b5ce" strokeOpacity=".55">
                     <path d="M183 403L191 407V429L183 425Z"/><path d="M210 417L218 421V443L210 439Z"/><path d="M239 432L247 436V458L239 454Z"/><path d="M268 447L276 451V473L268 469Z"/>
                     <path d="M299 451L307 455V477L299 473Z"/><path d="M333 432L341 436V458L333 454Z"/><path d="M368 413L376 417V439L368 435Z"/><path d="M403 394L411 398V420L403 416Z"/><path d="M438 375L446 379V401L438 397Z"/>
+                  </g>
+                  <g className="dt-conveyor-detail" fill="none" strokeLinecap="round">
+                    <path d="M177 389L307 459L500 356" stroke="#b5efff" strokeOpacity=".42" strokeWidth="2.5"/>
+                    <path d="M179 397L307 466L498 364" stroke="#071321" strokeWidth="5"/>
+                    <path d="M181 398L307 466L497 365" stroke="#7bd8e8" strokeOpacity=".8" strokeWidth="1.2" strokeDasharray="2 7" className="dt-roller-lights"/>
+                    <path d="M188 382L196 386M218 366L226 370M249 349L257 353M280 333L288 337M311 317L319 321M342 300L350 304" stroke="#c2f6ff" strokeOpacity=".45" strokeWidth="2"/>
+                    <path d="M171 391L307 468L508 360" stroke="#a2e8f4" strokeOpacity=".22" strokeWidth="1"/>
                   </g>
                   <g className="dt-parcel">
                     <path d="M272 352L319 327 365 352 318 378Z" fill="#d5a66c" stroke="#ffe0aa" strokeWidth="1.4"/>
@@ -150,13 +165,28 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <g className="dt-robot-shoulder-link">
                     
                     <path d="M520 387L568 365Q582 359 596 370L603 379L598 393Q590 402 578 396L536 415Q522 418 515 406Z" fill="url(#dt-arm)" stroke="#a4edf5" strokeWidth="3" strokeLinejoin="round"/>
-                    <path d="M531 391L572 374Q584 369 594 379" fill="none" stroke="#d0faff" strokeOpacity=".82" strokeWidth="3.5" strokeLinecap="round"/>
+                    <path d="M527 397L565 374L590 374L596 384L578 400L541 416Z" fill="url(#dt-panel-brush)" opacity=".55"/>
+                    <path d="M540 390L570 378M543 397L573 385M547 404L578 392" stroke="#d8fbff" strokeOpacity=".42" strokeWidth="1"/>
+                    <path d="M535 411L557 401L566 405L544 416Z" fill="#0a2035" stroke="#74c8dd" strokeOpacity=".6"/>
+                    <g fill="#d5fbff"><circle cx="548" cy="389" r="2"/><circle cx="580" cy="375" r="2"/><circle cx="584" cy="395" r="2"/></g>
+                    <path d="M543 410L581 394" stroke="#ffca79" strokeWidth="1.5" strokeDasharray="3 4" opacity=".8"/>                    <path d="M531 391L572 374Q584 369 594 379" fill="none" stroke="#d0faff" strokeOpacity=".82" strokeWidth="3.5" strokeLinecap="round"/>
                     <path d="M535 408L578 389L591 393" fill="none" stroke="#0a2038" strokeOpacity=".8" strokeWidth="6" strokeLinecap="round"/>
+                    <g className="dt-shoulder-actuator">
+                      <path d="M540 421L568 405L590 383" fill="none" stroke="#061526" strokeWidth="9" strokeLinecap="round"/>
+                      <path d="M540 421L568 405L590 383" fill="none" stroke="url(#dt-hydraulic)" strokeWidth="4" strokeLinecap="round"/>
+                      <path d="M541 420L558 410" stroke="#d9fbff" strokeWidth="1.3" strokeLinecap="round"/>
+                      <circle cx="540" cy="421" r="5" fill="url(#dt-bearing)" stroke="#a9eff7"/>
+                    </g>
                     {/* Elbow link is nested at the elbow pivot: it cannot drift away from the upper arm. */}
                     <g className="dt-robot-forearm">
                       
                       <path d="M581 374L646 329Q660 319 674 330L682 342L629 399Q615 411 600 401L582 391Z" fill="url(#dt-arm)" stroke="#a4edf5" strokeWidth="3" strokeLinejoin="round"/>
-                      <path d="M590 378L650 335Q660 326 671 335" fill="none" stroke="#d0faff" strokeOpacity=".82" strokeWidth="3.5" strokeLinecap="round"/>
+                      <path d="M601 381L646 348L665 339" fill="none" stroke="#d5faff" strokeOpacity=".32" strokeWidth="1.2"/>
+                      <path d="M606 390L647 357M612 395L653 362M618 399L659 366" stroke="#d5faff" strokeOpacity=".32" strokeWidth="1"/>
+                      <path d="M604 373L648 342L659 346L616 382Z" fill="url(#dt-panel-brush)" opacity=".48"/>
+                      <path d="M598 367Q625 337 653 328" fill="none" stroke="#f2c36f" strokeWidth="2" strokeDasharray="2 5" opacity=".85"/>
+                      <path d="M602 371Q628 341 656 332" fill="none" stroke="#071a2c" strokeWidth="5" strokeLinecap="round"/>
+                      <path d="M602 371Q628 341 656 332" fill="none" stroke="#70d9e9" strokeWidth="1.5" strokeLinecap="round"/>                      <path d="M590 378L650 335Q660 326 671 335" fill="none" stroke="#d0faff" strokeOpacity=".82" strokeWidth="3.5" strokeLinecap="round"/>
                       <path d="M597 394L620 400L665 350" fill="none" stroke="#0a2038" strokeOpacity=".8" strokeWidth="6" strokeLinecap="round"/>
                       <circle cx="590" cy="383" r="14" fill="#b6f7ff" stroke="#174361" strokeWidth="2.5"/>
                       <circle cx="590" cy="383" r="5.5" fill="#1c5676"/>
@@ -166,7 +196,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                         <circle cx="665" cy="341" r="13" fill="#b6f7ff" stroke="#174361" strokeWidth="2.5"/>
                         <circle cx="665" cy="341" r="4.8" fill="#1c5676"/>
                         <path d="M659 333L675 321L691 335L684 355L666 362L651 348Z" fill="#254e6c" stroke="#b3f2f8" strokeWidth="2.5" strokeLinejoin="round"/>
-                        <path d="M674 337L702 326L715 335L706 347L679 350Z" fill="#79c9dc" stroke="#d2fbff" strokeWidth="2" strokeLinejoin="round">
+                        <path d="M658 341L665 326L678 332L684 345L676 358L663 355Z" fill="url(#dt-panel-brush)" opacity=".55"/>
+                        <path d="M668 332L674 329L681 337M667 351L675 354" stroke="#e0fbff" strokeOpacity=".65" strokeWidth="1.2" fill="none"/>
+                        <circle cx="665" cy="341" r="8" fill="none" stroke="#d4fbff" strokeOpacity=".55" strokeWidth="1.2"/>
+                        <circle cx="665" cy="341" r="2" fill="#c7faff"/>
+                        <path d="M690 333L700 329M688 357L700 365" stroke="#e6fbff" strokeOpacity=".55" strokeWidth="1.3"/>                        <path d="M674 337L702 326L715 335L706 347L679 350Z" fill="#79c9dc" stroke="#d2fbff" strokeWidth="2" strokeLinejoin="round">
                           <animate attributeName="d" values="M674 337L702 326L715 335L706 347L679 350Z;M674 337L714 312L726 321L706 347L679 350Z;M674 337L714 312L726 321L706 347L679 350Z;M674 337L702 326L715 335L706 347L679 350Z" keyTimes="0;.22;.68;1" dur="7s" repeatCount="indefinite"/>
                         </path>
                         <path d="M679 350L706 359L715 371L702 381L674 360Z" fill="#79c9dc" stroke="#d2fbff" strokeWidth="2" strokeLinejoin="round">
@@ -240,10 +274,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <path d="M250 187L574 187" stroke="#9bdce8" strokeOpacity=".55" strokeWidth="3"/>
                   <path d="M260 180L565 180" stroke="#b7edf5" strokeOpacity=".22" strokeWidth="1"/>
                   <path d="M272 191V203M552 191V203" stroke="#79c5d8" strokeWidth="4"/>
+                  <path d="M258 195L258 407M566 195L566 251" stroke="#07182b" strokeWidth="8"/>
+                  <path d="M258 195L258 407M566 195L566 251" stroke="#6ca9c2" strokeOpacity=".5" strokeWidth="2"/>
+                  <path d="M250 245L574 245" stroke="#091b2e" strokeWidth="3" opacity=".8"/>
+                  <path d="M268 174L284 187M548 174L564 187" stroke="#9ce9f2" strokeOpacity=".38" strokeWidth="2"/>
                   <g className="dt-gantry-carriage">
                     <path d="M391 174L432 174L445 187L432 205L391 205L378 190Z" fill="#24516d" stroke="#9be4ed" strokeWidth="1.5"/>
                     <path d="M391 180H432L438 188H385Z" fill="#8bdce8" fillOpacity=".3"/>
                     <path d="M402 205V221M422 205V221" stroke="#91ddea" strokeWidth="3"/>
+                    <path d="M399 203L399 217L425 217L425 203" fill="#102c44" stroke="#6bbbd2" strokeWidth="1.2"/>
+                    <circle cx="412" cy="188" r="10" fill="none" stroke="#d4fbff" strokeOpacity=".48" strokeWidth="1"/>
+                    <path d="M407 190H417M412 185V195" stroke="#f0fdff" strokeOpacity=".75" strokeWidth="1"/>
+                    <rect x="400" y="218" width="24" height="4" rx="2" fill="#4ee2ef" className="dt-carriage-laser"/>
                     <circle cx="412" cy="188" r="5" fill="#b8f7fa" stroke="#2b6b89" strokeWidth="2"/>
                   </g>
                 </g>
@@ -275,6 +317,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <path d="M600 453L650 480L700 453" stroke="#b1eaf0" strokeOpacity=".25"/>
                   <path d="M461 572L500 551M478 581L517 560M495 590L534 569" strokeWidth="2"/>
                 </g>
+                <g className="dt-lidar-sweep" fill="none">
+                  <path d="M180 292L340 365L470 431" stroke="#65efff" strokeOpacity=".35" strokeWidth="1.5" strokeDasharray="4 7"/>
+                  <path d="M180 292L340 365L470 431" stroke="#a5f7ff" strokeWidth="2" strokeDasharray="18 170" className="dt-lidar-pulse"/>
+                  <path d="M152 420L330 514L510 418" stroke="#63dff0" strokeOpacity=".14" strokeWidth="1.2" strokeDasharray="3 8"/>
+                  <ellipse cx="340" cy="365" rx="34" ry="15" stroke="#65efff" strokeOpacity=".45" strokeDasharray="3 5" className="dt-work-zone"/>
+                </g>
                 <g className="dt-status-beams" fill="none">
                   <path d="M151 286L151 420M160 286L160 420" stroke="#55dce9" strokeOpacity=".18" strokeWidth="2" strokeDasharray="4 7"/>
                   <path d="M735 285L735 407" stroke="#8c8cff" strokeOpacity=".22" strokeWidth="2" strokeDasharray="3 7"/>
@@ -292,6 +340,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 </g>
               
               
+                <g className="dt-precision-markers" fill="none" strokeLinecap="round">
+                  <path d="M450 230V246M442 238H458M795 410V426M787 418H803M96 414V430M88 422H104" stroke="#9cefff" strokeOpacity=".6" strokeWidth="1.5"/>
+                  <circle cx="450" cy="238" r="5" stroke="#76e9f7" strokeOpacity=".75"/>
+                  <circle cx="450" cy="238" r="11" stroke="#76e9f7" strokeOpacity=".25" strokeDasharray="2 4"/>
+                </g>
                 <g className="dt-native-motion" fill="none" strokeLinecap="round" aria-hidden="true">
                   <path d="M208 260L352 178L500 204L690 250" stroke="#75f2ff" strokeOpacity=".36" strokeWidth="2" strokeDasharray="3 9"/>
                   <circle r="5" fill="#c6fbff" stroke="#4ce2f3" strokeWidth="2">
