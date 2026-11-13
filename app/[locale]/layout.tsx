@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
 import { RouteScrollReset } from "@/components/route-scroll-reset";
+import { MotionVisibilityManager } from "@/components/motion-visibility-manager";
 import { ConversionTracking } from "@/components/conversion-tracking";
 import { isLocale, locales } from "@/lib/i18n";
 import { siteUrl } from "@/lib/site-url";
@@ -76,6 +77,7 @@ export default async function LocaleRootLayout({
       <body suppressHydrationWarning>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: organizationJsonLd }} />
         <RouteScrollReset />
+        <MotionVisibilityManager />
         <ConversionTracking />
         {children}
         <Analytics />

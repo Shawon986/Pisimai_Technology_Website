@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 
 /**
- * Keep the existing motion exactly as authored while ensuring animations
- * outside the user's viewing area do not consume CPU/GPU time.
+ * Pause decorative motion outside the near-viewport and when the tab is hidden.
+ * Animations use transform/opacity only; the observer keeps off-screen work idle.
  */
 export function MotionVisibilityManager() {
   useEffect(() => {
@@ -23,6 +23,14 @@ export function MotionVisibilityManager() {
       ".contact-form-section",
       ".inner-page-cta",
       ".site-footer",
+      ".action-showcase",
+      ".innovation-section",
+      ".industry-section",
+      ".process-section",
+      ".ecosystem-section",
+      ".engineering-explorer",
+      ".page-experience",
+      ".exhibition-section",
     ].join(","));
 
     if (motionRegions.length === 0) return;
@@ -31,24 +39,25 @@ export function MotionVisibilityManager() {
       (entries) => {
         for (const entry of entries) {
           const region = entry.target as HTMLElement;
-          if (entry.isIntersecting) {
-            region.removeAttribute("data-motion-paused");
-          } else {
-            region.setAttribute("data-motion-paused", "true");
-          }
+          region.toggleAttribute("data-motion-paused", !entry.isIntersecting);
         }
       },
-      {
-        // Resume motion shortly before a region enters the viewport so
-        // users never see an animation abruptly restart while scrolling.
-        rootMargin: "300px 0px",
-        threshold: 0,
-      },
+      { rootMargin: "240px 0px", threshold: 0 },
     );
 
     motionRegions.forEach((region) => observer.observe(region));
 
-    return () => observer.disconnect();
+    const handleVisibility = () => {
+      document.documentElement.toggleAttribute("data-document-hidden", document.visibilityState !== "visible");
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    handleVisibility();
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibility);
+      document.documentElement.removeAttribute("data-document-hidden");
+    };
   }, []);
 
   return null;

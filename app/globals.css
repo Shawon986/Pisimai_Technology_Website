@@ -9064,3 +9064,231 @@ html {
     padding:21px 8px;
   }
 }
+
+
+/* -------------------------------------------------------------------------
+   Lightweight visual motion pass.
+   Animate only existing visual elements with compositor-friendly transforms
+   and opacity. No canvas, filters, layout animation, or extra JS loops.
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Capability illustrations: each visual has a restrained, relevant motion. */
+  .capability-art-token .token-orbit {
+    animation: site-visual-orbit 30s linear infinite;
+  }
+  .capability-art-token .token-orbit-b { animation-direction: reverse; animation-duration: 38s; }
+  .capability-art-token .token-core,
+  .capability-art-aggregation .aggregation-hub {
+    animation: site-visual-float 7.5s ease-in-out infinite;
+  }
+  .capability-art-aggregation .aggregation-node {
+    animation: site-visual-node 3.8s ease-in-out infinite;
+  }
+  .capability-art-aggregation .aggregation-node-b { animation-delay: .7s; }
+  .capability-art-aggregation .aggregation-node-c { animation-delay: 1.4s; }
+  .capability-art-aggregation .aggregation-node-d { animation-delay: 2.1s; }
+  .capability-art-development .dev-window {
+    animation: site-visual-float 8.5s ease-in-out infinite;
+  }
+  .capability-art-development .dev-layer {
+    animation: site-layer-arrive 5.6s ease-in-out infinite;
+  }
+  .capability-art-development .dev-layer-b { animation-delay: .45s; }
+  .capability-art-development .dev-layer-c { animation-delay: .9s; }
+  .capability-art-proxy .proxy-globe {
+    animation: site-visual-float 8s ease-in-out infinite, site-visual-orbit 48s linear infinite;
+  }
+  .capability-art-proxy .proxy-point { animation: site-visual-node 3.6s ease-in-out infinite; }
+  .capability-art-proxy .proxy-point-b { animation-delay: 1.1s; }
+  .capability-art-proxy .proxy-point-c { animation-delay: 2.2s; }
+  .capability-art-proxy .proxy-route { animation: site-route-signal 4.8s ease-in-out infinite; }
+  .capability-art-proxy .proxy-route-b { animation-delay: 1.2s; }
+  .capability-art-proxy .proxy-route-c { animation-delay: 2.4s; }
+
+  /* Concept-to-reality process cards. */
+  .capability-showcase .stage-brief-board,
+  .capability-showcase .stage-editor,
+  .capability-showcase .stage-test-report {
+    animation: site-visual-float 8s ease-in-out infinite;
+  }
+  .capability-showcase .stage-editor { animation-delay: .8s; }
+  .capability-showcase .stage-test-report { animation-delay: 1.6s; }
+  .capability-showcase .stage-arch-node {
+    animation: site-visual-node 4.2s ease-in-out infinite;
+  }
+  .capability-showcase .stage-arch-output { animation-delay: .8s; }
+  .capability-showcase .stage-arch-data { animation-delay: 1.6s; }
+  .capability-showcase .stage-arch-core { animation-delay: .4s; }
+
+  /* Connected-technology diagram. */
+  .capability-showcase .ecosystem-orbit {
+    animation: site-visual-orbit 42s linear infinite;
+  }
+  .capability-showcase .ecosystem-orbit-b { animation-direction: reverse; animation-duration: 54s; }
+  .capability-showcase .ecosystem-core { animation: site-visual-breathe 7s ease-in-out infinite; }
+  .capability-showcase .ecosystem-node { animation: site-visual-float 7.5s ease-in-out infinite; }
+  .capability-showcase .ecosystem-node-2 { animation-delay: .8s; }
+  .capability-showcase .ecosystem-node-3 { animation-delay: 1.6s; }
+  .capability-showcase .ecosystem-node-4 { animation-delay: 2.4s; }
+  .capability-showcase .ecosystem-node-5 { animation-delay: 3.2s; }
+
+  /* Inner-page interactive diagrams that were previously static. */
+  .engineering-explorer .explorer-visual-orbit {
+    animation: site-visual-orbit 34s linear infinite;
+  }
+  .engineering-explorer .explorer-visual-orbit.orbit-two {
+    animation-direction: reverse;
+    animation-duration: 46s;
+  }
+  .engineering-explorer .explorer-visual-core {
+    animation: site-visual-breathe 6.8s ease-in-out infinite;
+  }
+  .engineering-explorer .explorer-visual-node {
+    animation: site-visual-node 3.8s ease-in-out infinite;
+  }
+  .engineering-explorer .explorer-visual-node.node-two { animation-delay: 1.2s; }
+  .engineering-explorer .explorer-visual-node.node-three { animation-delay: 2.4s; }
+
+  .page-experience-software .px-product-screen {
+    animation: site-visual-float 9s ease-in-out infinite;
+  }
+  .page-experience-software .px-screen-widgets i {
+    animation: site-visual-node 4.2s ease-in-out infinite;
+  }
+  .page-experience-software .px-screen-widgets i:nth-child(2) { animation-delay: 1s; }
+  .page-experience-software .px-screen-widgets i:nth-child(3) { animation-delay: 2s; }
+
+  .page-experience-technology .px-tech-stack-layer {
+    animation: site-layer-arrive 7.5s ease-in-out infinite;
+  }
+  .page-experience-technology .px-tech-stack-layer:nth-child(2) { animation-delay: .5s; }
+  .page-experience-technology .px-tech-stack-layer:nth-child(3) { animation-delay: 1s; }
+  .page-experience-technology .px-tech-stack-layer:nth-child(4) { animation-delay: 1.5s; }
+
+  .page-experience-about .px-about-orbit-ring-b {
+    animation: site-visual-orbit 38s linear infinite reverse;
+  }
+  .page-experience-about .px-about-orbit-core {
+    animation: site-visual-breathe 7s ease-in-out infinite;
+  }
+  .page-experience-about .px-about-orbit-node {
+    animation: site-visual-float 8s ease-in-out infinite;
+  }
+  .page-experience-about .px-about-node-b { animation-delay: 1s; }
+  .page-experience-about .px-about-node-c { animation-delay: 2s; }
+  .page-experience-about .px-about-node-d { animation-delay: 3s; }
+
+  .page-experience-contact .px-contact-stage {
+    animation: site-visual-float 7.5s ease-in-out infinite;
+  }
+  .page-experience-contact .px-contact-stage:nth-child(2) { animation-delay: .9s; }
+  .page-experience-contact .px-contact-stage:nth-child(3) { animation-delay: 1.8s; }
+
+  .page-experience-integration .px-map-center {
+    animation: site-visual-breathe 7s ease-in-out infinite;
+  }
+  .page-experience-integration .px-map-node {
+    animation: site-visual-node 4.2s ease-in-out infinite;
+  }
+  .page-experience-integration .px-map-node.node-1 { animation-delay: 1s; }
+  .page-experience-integration .px-map-node.node-2 { animation-delay: 2s; }
+  .page-experience-integration .px-map-node.node-3 { animation-delay: 3s; }
+
+  .page-experience-solutions .px-ops-bars i {
+    transform-origin: center bottom;
+    animation: site-bar-activity 5s ease-in-out infinite;
+  }
+  .page-experience-solutions .px-ops-bars i:nth-child(3n + 2) { animation-delay: .6s; }
+  .page-experience-solutions .px-ops-bars i:nth-child(3n) { animation-delay: 1.2s; }
+  .page-experience-ai .px-ai-symbol {
+    animation: site-visual-breathe 5.5s ease-in-out infinite;
+  }
+}
+
+/* Motion is suspended when a whole section is outside the near viewport. */
+[data-motion-paused="true"],
+[data-motion-paused="true"] *,
+[data-motion-paused="true"] *::before,
+[data-motion-paused="true"] *::after,
+[data-document-hidden="true"] *,
+[data-document-hidden="true"] *::before,
+[data-document-hidden="true"] *::after {
+  animation-play-state: paused !important;
+}
+
+@keyframes site-visual-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -4px; }
+}
+@keyframes site-visual-breathe {
+  0%, 100% { scale: 1; opacity: .88; }
+  50% { scale: 1.035; opacity: 1; }
+}
+@keyframes site-visual-orbit {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+@keyframes site-visual-node {
+  0%, 100% { opacity: .62; }
+  50% { opacity: 1; }
+}
+@keyframes site-layer-arrive {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 3px 0; }
+}
+@keyframes site-route-signal {
+  0%, 100% { opacity: .3; }
+  50% { opacity: .95; }
+}
+@keyframes site-bar-activity {
+  0%, 100% { scale: 1 .82; opacity: .72; }
+  50% { scale: 1 1; opacity: 1; }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  /* Fewer concurrent loops on compact devices, with the same visual language. */
+  .capability-art-token .token-orbit { animation-duration: 42s; }
+  .capability-art-token .token-orbit-b { animation-duration: 52s; }
+  .capability-showcase .ecosystem-orbit { animation-duration: 58s; }
+  .capability-showcase .ecosystem-orbit-b { animation-duration: 68s; }
+  .engineering-explorer .explorer-visual-orbit { animation-duration: 48s; }
+  .page-experience-about .px-about-orbit-node { animation-duration: 10s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capability-showcase .token-orbit,
+  .capability-showcase .token-core,
+  .capability-showcase .aggregation-hub,
+  .capability-showcase .aggregation-node,
+  .capability-showcase .dev-window,
+  .capability-showcase .dev-layer,
+  .capability-showcase .proxy-globe,
+  .capability-showcase .proxy-point,
+  .capability-showcase .proxy-route,
+  .capability-showcase .stage-brief-board,
+  .capability-showcase .stage-editor,
+  .capability-showcase .stage-test-report,
+  .capability-showcase .stage-arch-node,
+  .capability-showcase .ecosystem-orbit,
+  .capability-showcase .ecosystem-core,
+  .capability-showcase .ecosystem-node,
+  .engineering-explorer .explorer-visual-orbit,
+  .engineering-explorer .explorer-visual-core,
+  .engineering-explorer .explorer-visual-node,
+  .page-experience-software .px-product-screen,
+  .page-experience-software .px-screen-widgets i,
+  .page-experience-technology .px-tech-stack-layer,
+  .page-experience-about .px-about-orbit-ring-b,
+  .page-experience-about .px-about-orbit-core,
+  .page-experience-about .px-about-orbit-node,
+  .page-experience-contact .px-contact-stage,
+  .page-experience-integration .px-map-center,
+  .page-experience-integration .px-map-node,
+  .page-experience-solutions .px-ops-bars i,
+  .page-experience-ai .px-ai-symbol {
+    animation: none !important;
+    translate: none !important;
+    rotate: none !important;
+    scale: none !important;
+  }
+}
