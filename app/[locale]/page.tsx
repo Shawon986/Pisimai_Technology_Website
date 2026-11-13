@@ -62,53 +62,137 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           <div className="tech-hero-visual" role="img" aria-label={locale === "zh" ? "人工智能、软件、自动化与系统集成的互联技术架构示意" : "An interconnected technology architecture showing AI, software, automation and system integration"}>
-            <div className="visual-topline"><span> PISIMAI / SYSTEMS LAB</span><span><i /> {locale === "zh" ? "系统在线" : "SYSTEMS ONLINE"}</span></div>
-            <div className="architecture-grid" aria-hidden="true" />
-            <div className="hero-reactor-scene" aria-hidden="true">
-              <div className="reactor-aura" />
-              <div className="reactor-ring reactor-ring-x"><i /><i /><i /></div>
-              <div className="reactor-ring reactor-ring-y"><i /><i /></div>
-              <div className="reactor-ring reactor-ring-z"><i /><i /></div>
-              <div className="reactor-sphere">
-                <span className="reactor-sphere-latitude" />
-                <span className="reactor-sphere-longitude" />
-                <span className="reactor-sphere-core" />
-              </div>
-              <span className="reactor-pulse reactor-pulse-a" />
-              <span className="reactor-pulse reactor-pulse-b" />
-              <span className="reactor-pulse reactor-pulse-c" />
-              <span className="reactor-ray reactor-ray-a" />
-              <span className="reactor-ray reactor-ray-b" />
+            <div className="visual-topline"><span>PISIMAI / INTELLIGENT ENGINEERING LAB</span><span><i /> {locale === "zh" ? "系统在线" : "LIVE SYSTEMS"}</span></div>
+            <div className="digital-twin-stage" aria-hidden="true">
+              <svg className="digital-twin-svg" viewBox="0 0 900 650" role="presentation">
+                <defs>
+                  <linearGradient id="dt-floor" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#163c5c"/><stop offset=".55" stopColor="#0b2139"/><stop offset="1" stopColor="#071426"/></linearGradient>
+                  <linearGradient id="dt-metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#9bc8d8"/><stop offset=".22" stopColor="#315d79"/><stop offset=".62" stopColor="#142d48"/><stop offset="1" stopColor="#08172b"/></linearGradient>
+                  <linearGradient id="dt-arm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#a4e8f3"/><stop offset=".18" stopColor="#4b94b5"/><stop offset=".52" stopColor="#1d4c70"/><stop offset="1" stopColor="#0a1a31"/></linearGradient>
+                  <linearGradient id="dt-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#1b6686" stopOpacity=".75"/><stop offset="1" stopColor="#0a1b32" stopOpacity=".94"/></linearGradient>
+                  <linearGradient id="dt-belt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#274e69"/><stop offset=".45" stopColor="#102a43"/><stop offset="1" stopColor="#071628"/></linearGradient>
+                  <pattern id="dt-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#5da3c6" strokeOpacity=".13" strokeWidth="1"/></pattern>
+                </defs>
+                <g className="dt-atmosphere">
+                  <path d="M110 150L445 48 790 166" fill="none" stroke="#39b8df" strokeOpacity=".16" strokeDasharray="3 10"/>
+                  <path d="M125 190L445 91 772 198" fill="none" stroke="#7c83f2" strokeOpacity=".13" strokeDasharray="2 12"/>
+                  <circle cx="450" cy="290" r="240" fill="none" stroke="#49c8e8" strokeOpacity=".09" strokeDasharray="2 12"/>
+                </g>
+                <g className="dt-platform">
+                  <path d="M92 431L451 238 824 433 463 626Z" fill="url(#dt-floor)" stroke="#4c9abb" strokeOpacity=".65" strokeWidth="2"/>
+                  <path d="M92 431L463 626V646L92 450Z" fill="#08172b" stroke="#245878" strokeWidth="1.2"/>
+                  <path d="M463 626L824 433V452L463 646Z" fill="#0b2036" stroke="#2e6b88" strokeWidth="1.2"/>
+                  <path d="M92 431L451 238 824 433 463 626Z" fill="url(#dt-grid)" opacity=".8"/>
+                  <path d="M126 430L451 256 790 433" fill="none" stroke="#44c4e8" strokeOpacity=".34" strokeWidth="2" strokeDasharray="7 8"/>
+                  <path d="M157 449L463 610 756 453" fill="none" stroke="#7b8ff0" strokeOpacity=".22" strokeWidth="1.5" strokeDasharray="4 10"/>
+                  <path d="M108 432L463 619 808 435" fill="none" stroke="#71e1ef" strokeOpacity=".42" strokeWidth="2"/>
+                  <path d="M138 438L160 450M780 440L802 428" stroke="#a4f2ff" strokeWidth="3"/>
+                </g>
+                <g className="dt-server-rack">
+                  <path d="M662 247L733 209 793 241 721 281Z" fill="#1d4b69" stroke="#62b9d4" strokeOpacity=".8"/>
+                  <path d="M662 247V386L721 419V281Z" fill="#0d2944" stroke="#397b9a"/>
+                  <path d="M721 281V419L793 378V241Z" fill="#102f4d" stroke="#4d9ab7"/>
+                  <path d="M673 266L710 287V315L673 294Z" fill="#07182c" stroke="#4b93ad"/>
+                  <path d="M673 307L710 328V356L673 335Z" fill="#07182c" stroke="#4b93ad"/>
+                  <path d="M673 348L710 369V396L673 375Z" fill="#07182c" stroke="#4b93ad"/>
+                  <g fill="#5fe4ee"><circle cx="681" cy="281" r="2.6"/><circle cx="681" cy="322" r="2.6"/><circle cx="681" cy="363" r="2.6"/></g>
+                  <g stroke="#5bbad9" strokeWidth="2"><path d="M690 282L702 289M690 323L702 330M690 364L702 371"/></g>
+                  <path d="M738 277L777 255M738 318L777 296M738 359L777 337" stroke="#77d9e8" strokeOpacity=".5" strokeWidth="2"/>
+                  <path d="M739 286L769 270M739 327L769 311M739 368L769 352" stroke="#7e8fff" strokeOpacity=".5" strokeWidth="2"/>
+                  <path d="M722 285L722 415" stroke="#8bdced" strokeOpacity=".4"/>
+                </g>
+                <g className="dt-conveyor">
+                  <path d="M170 408L367 303 506 377 307 485Z" fill="#07172a" stroke="#4d91ad" strokeWidth="2"/>
+                  <path d="M170 392L367 287 506 361 307 469Z" fill="url(#dt-belt)" stroke="#70c9df" strokeOpacity=".8" strokeWidth="1.5"/>
+                  <path d="M170 392L307 469L506 361" fill="none" stroke="#8ce9f1" strokeOpacity=".55" strokeWidth="2"/>
+                  <path d="M183 393L307 459L492 361" fill="none" stroke="#4f8da9" strokeWidth="5" strokeDasharray="4 8" className="dt-belt-motion"/>
+                  <g fill="#183d59" stroke="#70b5ce" strokeOpacity=".55">
+                    <path d="M183 403L191 407V429L183 425Z"/><path d="M210 417L218 421V443L210 439Z"/><path d="M239 432L247 436V458L239 454Z"/><path d="M268 447L276 451V473L268 469Z"/>
+                    <path d="M299 451L307 455V477L299 473Z"/><path d="M333 432L341 436V458L333 454Z"/><path d="M368 413L376 417V439L368 435Z"/><path d="M403 394L411 398V420L403 416Z"/><path d="M438 375L446 379V401L438 397Z"/>
+                  </g>
+                  <g className="dt-parcel">
+                    <path d="M272 352L319 327 365 352 318 378Z" fill="#d5a66c" stroke="#ffe0aa" strokeWidth="1.4"/>
+                    <path d="M272 352V392L318 418V378Z" fill="#956b49" stroke="#d8ae7d"/>
+                    <path d="M318 378L365 352V392L318 418Z" fill="#b78352" stroke="#f0c18a"/>
+                    <path d="M309 333L309 372M327 338L327 367" stroke="#fff0cf" strokeOpacity=".7" strokeWidth="3"/>
+                    <path d="M288 359L302 367V380L288 372Z" fill="#17334c" stroke="#8fd7e3" strokeWidth="1"/>
+                  </g>
+                  <g className="dt-parcel dt-parcel-two">
+                    <path d="M378 365L405 350 433 365 405 381Z" fill="#8fb7c7" stroke="#d1f4f7"/>
+                    <path d="M378 365V389L405 405V381Z" fill="#426c83" stroke="#91c7d5"/>
+                    <path d="M405 381L433 365V389L405 405Z" fill="#31556f" stroke="#80b5ca"/>
+                  </g>
+                </g>
+                <g className="dt-vision">
+                  <path d="M180 255L180 334" stroke="#426f8d" strokeWidth="10"/>
+                  <path d="M161 334L199 334L209 344L151 344Z" fill="#173b59" stroke="#65b5d0"/>
+                  <path d="M163 249L196 231L218 243L184 262Z" fill="#2a5a78" stroke="#8ad8e8"/>
+                  <path d="M163 249V274L184 286V262Z" fill="#102b46" stroke="#4c93b2"/>
+                  <path d="M184 262L218 243V269L184 286Z" fill="#153b59" stroke="#70c1d8"/>
+                  <path d="M190 254L204 246L213 251L199 259Z" fill="#081c30" stroke="#75d9ec"/>
+                  <circle cx="201" cy="253" r="4" fill="#9af4ff"/>
+                  <path d="M200 263L315 339" stroke="#55e0f0" strokeWidth="2" strokeOpacity=".25" strokeDasharray="5 5"/>
+                  <path d="M200 263L315 339" stroke="#70eafa" strokeWidth="1.2" className="dt-scan-beam"/>
+                  <path d="M315 339L343 324L371 339L343 354Z" fill="none" stroke="#63e6ef" strokeWidth="1.5" strokeDasharray="4 4" className="dt-detection-box"/>
+                  <path d="M179 225L179 210L198 199" fill="none" stroke="#5ed8e9" strokeWidth="1.5"/>
+                  <circle cx="198" cy="199" r="3" fill="#8df6ff"/>
+                </g>
+                <g className="dt-robot-arm">
+                  <path d="M493 462L493 420L532 397L572 419L572 462Z" fill="#0b1d32" stroke="#4b91b0" strokeWidth="2"/>
+                  <path d="M493 420L532 397L572 419L532 443Z" fill="#376a86" stroke="#91d7e8"/>
+                  <path d="M493 420V462L532 485V443Z" fill="#173a56" stroke="#4b89a8"/>
+                  <path d="M532 443V485L572 462V419Z" fill="#102b45" stroke="#4b89a8"/>
+                  <path d="M511 415L511 393Q511 378 526 369L559 350Q573 342 585 351L599 367L581 390L550 407L548 433Z" fill="url(#dt-arm)" stroke="#9be9f2" strokeWidth="2"/>
+                  <path d="M526 370L539 390L570 373L585 351" fill="none" stroke="#d0faff" strokeOpacity=".6" strokeWidth="3"/>
+                  <path d="M554 402L589 382L628 330Q639 315 654 325L670 340L654 360L620 405L580 430Z" fill="url(#dt-arm)" stroke="#9be9f2" strokeWidth="2"/>
+                  <path d="M594 382L620 397L649 353" fill="none" stroke="#c4f6ff" strokeOpacity=".58" strokeWidth="3"/>
+                  <path d="M652 330L674 318L692 331L680 355L658 363L645 350Z" fill="#254e6c" stroke="#a3ecf4" strokeWidth="2"/>
+                  <path d="M678 339L704 350L709 364L697 370L680 358" fill="#8bd9e8" stroke="#c5faff" strokeWidth="1.5"/>
+                  <path d="M704 350L719 342L725 349L714 361" fill="none" stroke="#c3f8ff" strokeWidth="4" strokeLinecap="round"/>
+                  <path d="M704 365L717 376L724 370L713 357" fill="none" stroke="#c3f8ff" strokeWidth="4" strokeLinecap="round"/>
+                  <g fill="#b6f7ff" stroke="#174361" strokeWidth="2"><circle cx="532" cy="397" r="18"/><circle cx="589" cy="382" r="15"/><circle cx="665" cy="341" r="10"/></g>
+                  <g fill="#1c5676"><circle cx="532" cy="397" r="7"/><circle cx="589" cy="382" r="6"/><circle cx="665" cy="341" r="4"/></g>
+                  <path d="M532 397L550 407M589 382L603 389M665 341L675 347" stroke="#d5fbff" strokeWidth="2"/>
+                  <path d="M503 468L560 468" stroke="#65d8e9" strokeOpacity=".65" strokeWidth="2"/>
+                </g>
+                <g className="dt-network-links" fill="none" strokeWidth="2">
+                  <path d="M215 242L339 172L495 200L692 245" stroke="#58d9eb" strokeOpacity=".58" strokeDasharray="5 8" className="dt-data-path"/>
+                  <path d="M340 172L365 283L528 397" stroke="#7e8eff" strokeOpacity=".55" strokeDasharray="4 8" className="dt-data-path dt-data-path-two"/>
+                  <path d="M692 245L745 188L790 203" stroke="#5ee1e9" strokeOpacity=".55" strokeDasharray="4 7" className="dt-data-path"/>
+                  <circle cx="340" cy="172" r="5" fill="#a1f5ff" stroke="none"/><circle cx="495" cy="200" r="5" fill="#a1f5ff" stroke="none"/>
+                  <circle cx="745" cy="188" r="4" fill="#a1f5ff" stroke="none"/>
+                </g>
+                <g className="dt-cloud-node">
+                  <path d="M305 112Q305 92 327 92Q338 63 369 77Q390 78 394 101Q416 104 411 126Q407 142 389 142H329Q304 140 305 112Z" fill="url(#dt-glass)" stroke="#6bd9ed" strokeWidth="1.5"/>
+                  <path d="M339 111L356 126L380 96" fill="none" stroke="#8ef5f5" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <text x="359" y="158" fill="#8fc9df" fontSize="9" textAnchor="middle" letterSpacing="2">CLOUD / AI</text>
+                </g>
+                <g className="dt-control-panel">
+                  <path d="M570 104L735 104L735 201L570 201Z" fill="#07192c" fillOpacity=".92" stroke="#4387a9" strokeWidth="1.5"/>
+                  <path d="M570 104L735 104L735 122L570 122Z" fill="#16405d"/>
+                  <circle cx="584" cy="113" r="3" fill="#69e4e9"/><circle cx="596" cy="113" r="3" fill="#7b8fff"/><circle cx="608" cy="113" r="3" fill="#75c4d7"/>
+                  <text x="620" y="116" fill="#c3eefa" fontSize="7" letterSpacing="1.4">CONTROL / LIVE</text>
+                  <path d="M586 182V148M601 182V160M616 182V139M631 182V153M646 182V132M661 182V145M676 182V157" stroke="#49c9e5" strokeWidth="5" strokeLinecap="round" opacity=".75"/>
+                  <path d="M582 189H719" stroke="#35647f"/>
+                  <path d="M687 143L701 134L713 139L722 128" fill="none" stroke="#9a91ff" strokeWidth="2"/>
+                  <circle cx="722" cy="128" r="3" fill="#b4aaff"/>
+                </g>
+                <g className="dt-labels" fontFamily="monospace" fontSize="9" letterSpacing="1.3">
+                  <text x="114" y="184" fill="#79b5cc">01 / MACHINE VISION</text>
+                  <text x="610" y="224" fill="#79b5cc">02 / EDGE COMPUTE</text>
+                  <text x="468" y="526" fill="#79b5cc">03 / ROBOTIC CONTROL</text>
+                  <text x="210" y="510" fill="#79b5cc">04 / MOTION SYSTEM</text>
+                </g>
+                <g className="dt-status-points">
+                  <circle cx="117" cy="197" r="3" fill="#5fe5e8"/><circle cx="612" cy="237" r="3" fill="#5fe5e8"/>
+                  <circle cx="469" cy="539" r="3" fill="#a59aff"/><circle cx="211" cy="523" r="3" fill="#a59aff"/>
+                </g>
+              </svg>
+              <div className="dt-hud dt-hud-left"><span>VISION ENGINE</span><b><i /> OBJECT LOCKED</b><small>CONFIDENCE / 98.6%</small></div>
+              <div className="dt-hud dt-hud-right"><span>ORCHESTRATION</span><b><i /> 04 SYSTEMS LINKED</b><small>AI · EDGE · MOTION · CLOUD</small></div>
+              <div className="dt-readout"><span>LIVE TELEMETRY</span><b>18.4 <small>ms</small></b><i /><b>99.98<small>%</small></b><span>SYNC</span></div>
             </div>
-            <div className="hero-hud hero-hud-a" aria-hidden="true">
-              <span className="hero-hud-label">NEURAL FABRIC</span>
-              <strong>04 <small>ACTIVE NODES</small></strong>
-              <span className="hero-hud-meter"><i /></span>
-            </div>
-            <div className="hero-hud hero-hud-b" aria-hidden="true">
-              <span className="hero-hud-label">SYSTEM HEALTH</span>
-              <strong>OPTIMAL <i /></strong>
-              <span className="hero-hud-readout">SYNC / 99.98%</span>
-            </div>
-            <div className="hero-signal-strip" aria-hidden="true">
-              <span><i /> DATA FLOW <b>LIVE</b></span>
-              <span>LATENCY <b>18ms</b></span>
-              <span>UPTIME <b>99.98%</b></span>
-            </div>
-
-            <div className="architecture-connectors" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
-            <div className="architecture-core">
-              <div className="core-bracket bracket-a" /><div className="core-bracket bracket-b" />
-              <div className="core-symbol"><span /><span /><span /><span /></div>
-              <strong>INTELLIGENCE</strong><small>CORE / 01</small>
-            </div>
-            <div className="architecture-module module-ai"><span className="module-icon ai-icon">AI</span><div><b>AI SYSTEMS</b><small>Models · APIs · Agents</small></div><i className="module-status" /></div>
-            <div className="architecture-module module-software"><span className="module-icon software-icon"><i /><i /><i /></span><div><b>SOFTWARE</b><small>Web · Platforms · Apps</small></div><i className="module-status" /></div>
-            <div className="architecture-module module-robotics"><span className="module-icon robotics-icon"><i /><i /></span><div><b>ROBOTICS</b><small>Control · Automation</small></div><i className="module-status" /></div>
-            <div className="architecture-module module-integration"><span className="module-icon integration-icon"><i /><i /><i /><i /></span><div><b>INTEGRATION</b><small>Devices · Data · Systems</small></div><i className="module-status" /></div>
-            <div className="architecture-data data-a"><span>01</span><i /> INPUT STREAM</div>
-            <div className="architecture-data data-b"><span>04</span><i /> CONNECTED LAYERS</div>
-            <div className="visual-bottomline"><span>ENGINEERED TO WORK TOGETHER</span><span> PST — 001</span></div>
+            <div className="visual-bottomline"><span>FROM INTELLIGENCE TO REAL-WORLD ACTION</span><span> DIGITAL TWIN / 001</span></div>
           </div>
           <div className="hero-index"><span>01</span><i />04</div>
           <div className="hero-side-label">{locale === "zh" ? "智能 · 工程 · 集成" : "INTELLIGENCE / ENGINEERING / INTEGRATION"}</div>
