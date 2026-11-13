@@ -8822,3 +8822,54 @@ html {
     animation-duration: 12s !important;
   }
 }
+
+
+/* Connected industrial arm lift: shoulder raises, elbow folds, wrist stays level. */
+.tech-hero-visual .dt-robot-arm {
+  animation: none !important;
+  transform: none !important;
+}
+.tech-hero-visual .dt-robot-shoulder-link,
+.tech-hero-visual .dt-robot-forearm,
+.tech-hero-visual .dt-robot-gripper {
+  transform-box: view-box !important;
+  transform-origin: 532px 397px;
+  animation-duration: 7s !important;
+  animation-timing-function: cubic-bezier(.42, 0, .22, 1) !important;
+  animation-iteration-count: infinite !important;
+  animation-fill-mode: both !important;
+  will-change: transform;
+}
+.tech-hero-visual .dt-robot-shoulder-link {
+  transform-origin: 532px 397px !important;
+  animation-name: hero-arm-lift-shoulder !important;
+}
+.tech-hero-visual .dt-robot-forearm {
+  transform-origin: 590px 383px !important;
+  animation-name: hero-arm-lift-elbow !important;
+}
+.tech-hero-visual .dt-robot-gripper {
+  transform-origin: 665px 341px !important;
+  animation-name: hero-arm-lift-wrist !important;
+}
+@keyframes hero-arm-lift-shoulder {
+  0%, 12%, 88%, 100% { transform: rotate(0deg); }
+  30%, 58% { transform: rotate(-30deg); }
+}
+@keyframes hero-arm-lift-elbow {
+  0%, 12%, 88%, 100% { transform: rotate(0deg); }
+  30%, 58% { transform: rotate(-32deg); }
+}
+@keyframes hero-arm-lift-wrist {
+  0%, 12%, 88%, 100% { transform: rotate(0deg); }
+  30%, 58% { transform: rotate(90deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero-visual .dt-robot-shoulder-link,
+  .tech-hero-visual .dt-robot-forearm,
+  .tech-hero-visual .dt-robot-gripper {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto;
+  }
+}
