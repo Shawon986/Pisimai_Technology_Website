@@ -10233,3 +10233,66 @@ html {
   .page-experience-integration .px-map-node i,
   .page-experience-integration .px-map-detail::after { animation:none!important; }
 }
+
+
+/* Service detail heroes: keep the complete desktop visual composition on phones.
+   Stack the artwork below the copy instead of cropping/fading it off-canvas. */
+@media (max-width: 760px) {
+  .inner-page-hero:not(.about-page-hero) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: 8px;
+    min-height: 0;
+    padding-top: 132px;
+    padding-bottom: 76px;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-hero-content {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual {
+    position: relative;
+    grid-column: 1;
+    grid-row: 2;
+    inset: auto;
+    justify-self: center;
+    align-self: center;
+    width: min(100%, 520px);
+    height: clamp(300px, 82vw, 380px);
+    min-height: 300px;
+    max-width: 100%;
+    margin: 4px auto 0;
+    transform: none;
+    opacity: .96;
+    overflow: visible;
+  }
+
+  .inner-page-hero:not(.about-page-hero) .page-visual-caption,
+  .inner-page-hero:not(.about-page-hero) .page-visual-readout {
+    display: flex;
+  }
+}
+
+/* Keep the selected integration node detail panel anchored at the bottom,
+   including the NODE / 01 DEVICES state. */
+.page-experience-integration .px-map-detail {
+  position: absolute;
+  left: 50%;
+  top: auto;
+  bottom: 5%;
+  transform: translateX(-50%);
+  width: min(360px, calc(100% - 32px));
+}
+@media (max-width: 620px) {
+  .page-experience-integration .px-map-detail {
+    bottom: 5%;
+    top: auto;
+    width: calc(100% - 28px);
+  }
+}
