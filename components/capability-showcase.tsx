@@ -96,7 +96,7 @@ export function CapabilityShowcase({ locale }: { locale: Locale }) {
                 {visual === "development" && <><div className="dev-window"><div className="dev-window-top"><i /><i /><i /><span>BUILD / EXTEND</span></div><div className="dev-code"><b /><b /><b /><b /><b /><b /></div><div className="dev-layer dev-layer-a">EXISTING SYSTEM</div><div className="dev-layer dev-layer-b">CUSTOM MODULE</div><div className="dev-layer dev-layer-c">NEW CAPABILITY</div></div><span className="dev-plus">+</span></>}
                 {visual === "proxy" && <><div className="proxy-globe"><i className="proxy-latitude proxy-latitude-a" /><i className="proxy-latitude proxy-latitude-b" /><i className="proxy-longitude" /><b /></div><span className="proxy-point proxy-point-a" /><span className="proxy-point proxy-point-b" /><span className="proxy-point proxy-point-c" /><div className="proxy-route proxy-route-a" /><div className="proxy-route proxy-route-b" /><div className="proxy-route proxy-route-c" /></>}
               </div>
-              <div className="capability-card-copy"><div className="capability-card-meta"><span>{number} / CAPABILITY</span><span>{tag}</span></div><h3>{title}</h3><p>{description}</p><span className="capability-card-arrow" aria-hidden="true">↗</span></div>
+              <div className="capability-card-copy"><div className="capability-card-meta"><span>{number} / CAPABILITY</span><span>{tag}</span></div><h3>{title}</h3><p>{description}</p></div>
             </article>
           ))}
         </div>
@@ -104,12 +104,12 @@ export function CapabilityShowcase({ locale }: { locale: Locale }) {
 
       <section className="innovation-section section-wrap" id="innovation">
         <div className="innovation-intro"><p className="section-kicker">{t.labLabel}</p><h2>{t.labTitle}</h2><p>{t.labText}</p></div>
-        <div className="innovation-list">{t.labItems.map((item, i) => <div className="innovation-row" key={item}><span>0{i + 1}</span><p>{item}</p><i aria-hidden="true">↗</i></div>)}</div>
+        <div className="innovation-list">{t.labItems.map((item, i) => <div className="innovation-row" key={item}><span>0{i + 1}</span><p>{item}</p></div>)}</div>
       </section>
 
       <section className="industry-section section-wrap" id="industry-applications">
         <div className="showcase-heading"><p className="section-kicker">{t.industryLabel}</p><h2>{t.industryTitle}</h2><p>{t.industryText}</p></div>
-        <div className="industry-grid">{t.industries.map(([number, title, text]) => <article className="industry-card" key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div><i aria-hidden="true">↗</i></article>)}</div>
+        <div className="industry-grid">{t.industries.map(([number, title, text]) => <article className="industry-card" key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
       </section>
 
       <section className="process-section section-wrap" id="development-process">

@@ -7682,3 +7682,24 @@ html {
     flex-basis:29px!important;
   }
 }
+
+
+/* Keep service-index arrows cyan at rest; hover only changes the row itself. */
+.inner-service-links .ui-arrow-shell { color: #69dff0 !important; }
+
+/* Shared vector geometry for the ENGINEER marker and COORDINATE scenario tile. */
+.px-delivery-step > i:not(.px-delivery-check) .ui-arrow-icon {
+  display:block;width:16px;height:16px;min-width:16px;fill:none;
+  stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;
+}
+.px-scenario-flow article > i.px-scenario-arrow {
+  display:grid;place-items:center;width:28px;height:28px;line-height:0;
+}
+.px-scenario-flow article > i.px-scenario-arrow .ui-arrow-icon {
+  display:block;width:18px;height:18px;fill:none;stroke:currentColor;
+  stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;
+}
+@media (max-width:620px) {
+  .px-delivery-step > i:not(.px-delivery-check) .ui-arrow-icon { width:16px;height:16px; }
+  .px-scenario-flow article > i.px-scenario-arrow { right:14px;top:14px; }
+}
