@@ -10416,3 +10416,20 @@ html {
     font-size: 6px !important;
   }
 }
+
+
+/* Mobile Services hero: keep the two lower capability chips above the
+   central scene layer throughout its entrance/settling animations. */
+@media (max-width: 760px) {
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-module {
+    z-index: 5 !important;
+  }
+
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-robotics,
+  .inner-page-hero:not(.about-page-hero) > .inner-page-visual.page-visual-capabilities
+    .scene-service-lab .lab-integration {
+    z-index: 20 !important;
+  }
+}
