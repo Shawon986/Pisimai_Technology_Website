@@ -8707,3 +8707,53 @@ html {
   }
 }
 
+
+
+/* Hero robot: one mechanically connected, hand-like arm cycle.
+   All joint pivots are fixed to the same nested arm assembly; only the
+   joints rotate, never translate independently or detach from their bearings. */
+.tech-hero-visual .dt-robot-arm {
+  animation: none !important;
+  transform: none !important;
+}
+.tech-hero-visual .dt-robot-shoulder-link {
+  transform-box: view-box !important;
+  transform-origin: 532px 397px !important;
+  animation: hero-arm-shoulder 5.2s cubic-bezier(.42,0,.28,1) infinite !important;
+  will-change: transform;
+}
+.tech-hero-visual .dt-robot-forearm {
+  transform-box: view-box !important;
+  transform-origin: 590px 383px !important;
+  animation: hero-arm-elbow 5.2s cubic-bezier(.42,0,.28,1) infinite !important;
+  will-change: transform;
+}
+.tech-hero-visual .dt-robot-gripper {
+  transform-box: view-box !important;
+  transform-origin: 665px 341px !important;
+  animation: hero-arm-wrist 5.2s cubic-bezier(.42,0,.28,1) infinite !important;
+  will-change: transform;
+}
+@keyframes hero-arm-shoulder {
+  0%, 12%, 100% { transform: rotate(0deg); }
+  38%, 62% { transform: rotate(13deg); }
+  82% { transform: rotate(-5deg); }
+}
+@keyframes hero-arm-elbow {
+  0%, 12%, 100% { transform: rotate(0deg); }
+  38%, 62% { transform: rotate(-25deg); }
+  82% { transform: rotate(9deg); }
+}
+@keyframes hero-arm-wrist {
+  0%, 12%, 100% { transform: rotate(0deg); }
+  38%, 62% { transform: rotate(12deg); }
+  82% { transform: rotate(-7deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero-visual .dt-robot-shoulder-link,
+  .tech-hero-visual .dt-robot-forearm,
+  .tech-hero-visual .dt-robot-gripper {
+    animation-duration: 8s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
