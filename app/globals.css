@@ -8687,3 +8687,22 @@ html {
     display: none !important;
   }
 }
+
+
+/* Final robot motion model: a single connected arm pivots at the shoulder.
+   No independently transformed elbow, forearm, wrist or gripper groups. */
+.tech-hero-visual .dt-robot-arm,
+.tech-hero-visual .dt-robot-motion {
+  animation: none !important;
+  transform: none !important;
+}
+.tech-hero-visual .dt-robot-arm path,
+.tech-hero-visual .dt-robot-arm circle {
+  vector-effect: non-scaling-stroke;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero-visual .dt-robot-motion animateTransform,
+  .tech-hero-visual .dt-robot-motion animate {
+    display: none !important;
+  }
+}
