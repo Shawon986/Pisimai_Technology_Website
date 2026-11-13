@@ -42,7 +42,6 @@ export function NetworkBackground() {
     let running = false;
     let inView = false;
     let lastFrame = 0;
-    let linkRefreshElapsed = 0;
     let pixelRatio = 1;
 
     const rebuildLinks = () => {
@@ -112,7 +111,6 @@ export function NetworkBackground() {
         };
       });
       rebuildLinks();
-      linkRefreshElapsed = 0;
     };
 
     const render = (time: number) => {
