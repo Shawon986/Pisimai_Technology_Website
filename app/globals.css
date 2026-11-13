@@ -8208,3 +8208,29 @@ html {
     animation: none !important;
   }
 }
+
+/* Re-enable only the hero's lightweight, compositor-friendly motion. */
+.tech-hero-visual .dt-platform { animation: dt-platform-breathe 9s ease-in-out infinite !important; }
+.tech-hero-visual .dt-robot-arm { animation: dt-arm-cycle 7s ease-in-out infinite !important; }
+.tech-hero-visual .dt-parcel { animation: dt-package-travel 8s linear infinite !important; }
+.tech-hero-visual .dt-parcel-two { animation: dt-package-travel 8s linear -4s infinite !important; }
+.tech-hero-visual .dt-belt-motion { animation: dt-belt-flow 1.5s linear infinite !important; }
+.tech-hero-visual .dt-scan-beam { animation: dt-scan 3.4s ease-in-out infinite !important; }
+.tech-hero-visual .dt-detection-box { animation: dt-lock 2.8s ease-in-out infinite !important; }
+.tech-hero-visual .dt-data-path { animation: dt-data-flow 3.2s linear infinite !important; }
+.tech-hero-visual .dt-data-path-two { animation: dt-data-flow 3.2s linear -1.6s infinite !important; }
+.tech-hero-visual .dt-cloud-node { animation: dt-panel-float 7s ease-in-out infinite !important; }
+.tech-hero-visual .dt-control-panel { animation: dt-panel-float 8s ease-in-out -2s infinite !important; }
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero-visual .dt-platform,
+  .tech-hero-visual .dt-robot-arm,
+  .tech-hero-visual .dt-parcel,
+  .tech-hero-visual .dt-parcel-two,
+  .tech-hero-visual .dt-belt-motion,
+  .tech-hero-visual .dt-scan-beam,
+  .tech-hero-visual .dt-detection-box,
+  .tech-hero-visual .dt-data-path,
+  .tech-hero-visual .dt-data-path-two,
+  .tech-hero-visual .dt-cloud-node,
+  .tech-hero-visual .dt-control-panel { animation: none !important; }
+}
