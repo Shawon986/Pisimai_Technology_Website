@@ -59,7 +59,7 @@ export function NetworkBackground() {
             })
             .filter((item): item is { index: number; distance: number } => item !== null)
             .sort((a, b) => a.distance - b.distance)
-            .slice(0, 3);
+            .slice(0, 2);
 
           for (const candidate of nearest) {
             const from = Math.min(i, candidate.index);
@@ -91,13 +91,21 @@ export function NetworkBackground() {
       }
     };
 
+    // Laptop keeps the same compact network composition after every refresh.
+    // A seeded layout makes the starting web repeatable at the same viewport size.
     const createPoints = () => {
+      let seed = (Math.floor(width * 31 + height * 17) >>> 0) || 1;
+      const seededRandom = () => {
+        seed = (seed * 1664525 + 1013904223) >>> 0;
+        return seed / 4294967296;
+      };
       points = Array.from({ length: maxPoints }, (_, index) => {
-        const angle = Math.random() * Math.PI * 2;
-        const speed = 0.55 + Math.random() * 0.4;
+        const random = isLaptop ? seededRandom : Math.random;
+        const angle = random() * Math.PI * 2;
+        const speed = 0.55 + random() * 0.4;
         return {
-          x: Math.random() * width,
-          y: Math.random() * height,
+          x: random() * width,
+          y: random() * height,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
           accent: index % 9 === 0,
@@ -105,20 +113,6 @@ export function NetworkBackground() {
       });
       rebuildLinks();
       linkRefreshElapsed = 0;
-    };
-
-    const resize = () => {
-      const rect = canvas.getBoundingClientRect();
-      width = rect.width;
-      height = rect.height;
-      // Render at 0.8x resolution: keeps every particle and its speed,
-      // while reducing the full-hero canvas pixel workload by 36%.
-      pixelRatio = 0.8;
-      canvas.width = Math.max(1, Math.round(width * pixelRatio));
-      canvas.height = Math.max(1, Math.round(height * pixelRatio));
-      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-      createPoints();
-      render(0);
     };
 
     const render = (time: number) => {
@@ -177,13 +171,8 @@ export function NetworkBackground() {
       const delta = elapsed / 16.67;
       lastFrame = time;
 
-      if (isLaptop) {
-        linkRefreshElapsed += elapsed;
-        if (linkRefreshElapsed >= 700) {
-          rebuildLinks();
-          linkRefreshElapsed = 0;
-        }
-      }
+      // Keep the laptop's original compact topology fixed. Moving points carry
+      // their links with them, so the web never thins or reshuffles over time.
 
       for (const point of points) {
         point.x += point.vx * delta;

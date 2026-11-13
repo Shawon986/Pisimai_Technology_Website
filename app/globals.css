@@ -9668,3 +9668,178 @@ html {
 
 /* Explicitly retain visible, restrained motion even when OS reduced-motion is set:
    these loops use opacity/individual transforms and never trigger layout. */
+
+
+/* Distinct, high-visibility motion pass for capability 02 and 03. */
+.capability-art-aggregation .aggregation-hub {
+  animation: aggregation-hub-live 3.6s ease-in-out infinite !important;
+  box-shadow: 0 0 0 1px rgba(62,225,245,.18), 0 0 30px rgba(22,217,245,.32), inset 0 0 24px rgba(22,217,245,.22);
+}
+.capability-art-aggregation .aggregation-lines i {
+  height: 2px;
+  background: linear-gradient(90deg,rgba(47,213,239,.04),rgba(47,213,239,.25) 30%,rgba(119,245,255,.95) 72%,rgba(47,213,239,.08));
+  background-size: 220% 100%;
+  animation: aggregation-channel-flow 1.9s linear infinite;
+}
+.capability-art-aggregation .aggregation-lines i:nth-child(2) { animation-delay: -.45s; }
+.capability-art-aggregation .aggregation-lines i:nth-child(3) { animation-delay: -.9s; }
+.capability-art-aggregation .aggregation-lines i:nth-child(4) { animation-delay: -1.35s; }
+.capability-art-aggregation .aggregation-lines i::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: #d9fdff;
+  box-shadow: 0 0 10px 3px rgba(57,226,255,.8);
+  animation: aggregation-packet 2.4s cubic-bezier(.35,0,.2,1) infinite;
+}
+.capability-art-aggregation .aggregation-lines i:nth-child(2)::after { animation-delay: -.6s; }
+.capability-art-aggregation .aggregation-lines i:nth-child(3)::after { animation-delay: -1.2s; }
+.capability-art-aggregation .aggregation-lines i:nth-child(4)::after { animation-delay: -1.8s; }
+.capability-art-aggregation .aggregation-node {
+  border-radius: 8px;
+  transform: rotate(45deg);
+  animation: aggregation-provider-active 2.8s ease-in-out infinite !important;
+  box-shadow: 0 0 18px rgba(63,201,255,.22), inset 0 0 12px rgba(72,213,245,.12);
+}
+.capability-art-aggregation .aggregation-node-b { animation-delay: -.7s !important; }
+.capability-art-aggregation .aggregation-node-c { animation-delay: -1.4s !important; }
+.capability-art-aggregation .aggregation-node-d { animation-delay: -2.1s !important; }
+.capability-art-aggregation .aggregation-node::first-letter { transform: rotate(-45deg); }
+.capability-art-aggregation .aggregation-hub::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border: 1px solid rgba(82,226,245,.45);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 28%;
+  transform: rotate(0deg);
+  animation: aggregation-hub-bracket 4.5s linear infinite;
+}
+.capability-art-development .dev-window {
+  transform-origin: 50% 80%;
+  animation: development-window-lift 4.8s cubic-bezier(.4,0,.2,1) infinite !important;
+  box-shadow: 0 18px 48px rgba(0,0,0,.38), 0 0 28px rgba(47,205,238,.12);
+}
+.capability-art-development .dev-code b {
+  transform-origin: left center;
+  animation: development-code-build 2.8s cubic-bezier(.2,.7,.2,1) infinite;
+}
+.capability-art-development .dev-code b:nth-child(2) { animation-delay: .18s; }
+.capability-art-development .dev-code b:nth-child(3) { animation-delay: .36s; }
+.capability-art-development .dev-code b:nth-child(4) { animation-delay: .54s; }
+.capability-art-development .dev-code b:nth-child(5) { animation-delay: .72s; }
+.capability-art-development .dev-code b:nth-child(6) { animation-delay: .9s; }
+.capability-art-development .dev-layer {
+  position: relative;
+  animation: development-layer-assemble 3.6s ease-in-out infinite;
+}
+.capability-art-development .dev-layer-b { animation-delay: .35s; }
+.capability-art-development .dev-layer-c { animation-delay: .7s; }
+.capability-art-development .dev-layer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 30%;
+  height: 1px;
+  background: #a5f8ff;
+  box-shadow: 0 0 9px #4ce4f5;
+  animation: development-layer-scan 2.2s ease-in-out infinite;
+}
+.capability-art-development .dev-plus {
+  animation: development-plus-spark 2.4s ease-in-out infinite !important;
+  text-shadow: 0 0 16px rgba(67,229,246,.9);
+}
+@keyframes aggregation-hub-live {
+  0%,100% { transform: translateY(0) scale(1); filter: brightness(.94); }
+  48% { transform: translateY(-5px) scale(1.075); filter: brightness(1.32); }
+}
+@keyframes aggregation-channel-flow { to { background-position: -220% 0; } }
+@keyframes aggregation-packet {
+  0% { transform: translateX(0) scale(.55); opacity: 0; }
+  12% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { transform: translateX(34% ) scale(.8); opacity: 0; }
+}
+@keyframes aggregation-provider-active {
+  0%,100% { scale: 1; filter: brightness(.86); }
+  50% { scale: 1.16; filter: brightness(1.45); }
+}
+@keyframes aggregation-hub-bracket { to { transform: rotate(360deg); } }
+@keyframes development-window-lift {
+  0%,100% { translate: 0 5px; rotate: -4deg; }
+  50% { translate: 0 -9px; rotate: -1.5deg; }
+}
+@keyframes development-code-build {
+  0%,15% { scale: .18 1; opacity: .3; }
+  42%,78% { scale: 1 1; opacity: 1; }
+  100% { scale: .55 1; opacity: .55; }
+}
+@keyframes development-layer-assemble {
+  0%,100% { translate: 0 4px; filter: brightness(.8); }
+  48% { translate: 0 -5px; filter: brightness(1.35); }
+}
+@keyframes development-layer-scan {
+  0%,100% { left: 0; opacity: 0; }
+  18%,78% { opacity: 1; }
+  88% { left: 70%; opacity: 0; }
+}
+@keyframes development-plus-spark {
+  0%,100% { transform: translate(0,0) rotate(0deg) scale(.86); opacity: .65; }
+  50% { transform: translate(3px,-7px) rotate(90deg) scale(1.3); opacity: 1; }
+}
+
+/* Replace repetitive circular loops with differentiated orbital, scan and pulse motion. */
+.art-orbit.orbit-one { border-style: dashed; animation: hero-orbit-precession 18s ease-in-out infinite !important; }
+.art-orbit.orbit-two { border-style: dotted; animation: hero-orbit-precession 23s ease-in-out infinite reverse !important; }
+.art-orbit.orbit-three { border-style: dashed; animation: hero-orbit-precession 29s ease-in-out infinite !important; }
+.orbit-four { border-style: dotted; animation: hero-orbit-precession 34s ease-in-out infinite reverse !important; }
+.token-orbit { border-style: dashed !important; animation: token-orbit-wobble 12s ease-in-out infinite !important; }
+.token-orbit-b { border-style: dotted !important; animation: token-orbit-wobble 16s ease-in-out infinite reverse !important; }
+.capability-showcase .ecosystem-orbit { border-style: dashed !important; animation: ecosystem-field-scan 14s ease-in-out infinite !important; }
+.capability-showcase .ecosystem-orbit-b { border-style: dotted !important; animation: ecosystem-field-scan 19s ease-in-out infinite reverse !important; }
+.engineering-explorer .explorer-visual-orbit { border-style: dashed !important; animation: explorer-orbit-sweep 11s ease-in-out infinite !important; }
+.engineering-explorer .explorer-visual-orbit.orbit-two { border-style: dotted !important; animation: explorer-orbit-sweep 15s ease-in-out infinite reverse !important; }
+.page-experience-about .px-about-orbit-ring-a { border-style: dotted; animation: about-orbit-pulse 9s ease-in-out infinite !important; }
+.page-experience-about .px-about-orbit-ring-b { border-style: dashed; animation: about-orbit-pulse 13s ease-in-out infinite reverse !important; }
+.installation-ring.ring-outer { border-style: dashed; animation: installation-ring-tilt 10s ease-in-out infinite !important; }
+.installation-ring.ring-inner { border-style: dotted; animation: installation-ring-tilt 13s ease-in-out infinite reverse !important; }
+@keyframes hero-orbit-precession {
+  0%,100% { rotate: -7deg; scale: 1 .82; opacity: .46; }
+  50% { rotate: 8deg; scale: 1.05 .94; opacity: .95; }
+}
+@keyframes token-orbit-wobble {
+  0%,100% { rotate: -16deg; scale: 1 .76; opacity: .45; }
+  50% { rotate: 16deg; scale: 1.08 .92; opacity: .95; }
+}
+@keyframes ecosystem-field-scan {
+  0%,100% { rotate: -8deg; scale: 1 .86; opacity: .3; }
+  50% { rotate: 8deg; scale: 1.06 1; opacity: .88; }
+}
+@keyframes explorer-orbit-sweep {
+  0%,100% { rotate: -18deg; scale: 1 .58; opacity: .35; }
+  50% { rotate: 18deg; scale: 1.1 .78; opacity: .9; }
+}
+@keyframes about-orbit-pulse {
+  0%,100% { rotate: -12deg; scale: .94; opacity: .32; }
+  50% { rotate: 12deg; scale: 1.08; opacity: .85; }
+}
+@keyframes installation-ring-tilt {
+  0%,100% { rotate: -12deg; scale: 1 .84; opacity: .4; }
+  50% { rotate: 12deg; scale: 1.04 1; opacity: .95; }
+}
+@media (max-width: 760px) {
+  .capability-art-aggregation .aggregation-hub { animation-duration: 3.6s !important; }
+  .capability-art-development .dev-window { animation-duration: 5.2s !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .capability-art-aggregation .aggregation-lines i,
+  .capability-art-aggregation .aggregation-lines i::after,
+  .capability-art-development .dev-code b,
+  .capability-art-development .dev-layer::after { animation-duration: 8s !important; }
+}
