@@ -8665,3 +8665,26 @@ html {
   .capability-showcase .ecosystem-node-5 { left: 16% !important; }
   .capability-showcase .ecosystem-core { width: 96px; }
 }
+
+
+/* Robot arm: the SVG nested joints are the only source of articulation.
+   Remove legacy CSS rotations that caused links to drift away from their bearings. */
+.tech-hero-visual .dt-robot-arm,
+.tech-hero-visual .dt-robot-shoulder-link,
+.tech-hero-visual .dt-robot-forearm,
+.tech-hero-visual .dt-robot-gripper {
+  animation: none !important;
+  transform: none;
+}
+.tech-hero-visual .dt-robot-arm path,
+.tech-hero-visual .dt-robot-arm circle {
+  vector-effect: non-scaling-stroke;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero-visual .dt-robot-shoulder-link animateTransform,
+  .tech-hero-visual .dt-robot-forearm animateTransform,
+  .tech-hero-visual .dt-robot-gripper animateTransform,
+  .tech-hero-visual .dt-robot-gripper animate {
+    display: none !important;
+  }
+}

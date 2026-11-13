@@ -139,40 +139,49 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <circle cx="198" cy="199" r="3" fill="#8df6ff"/>
                 </g>
                 <g className="dt-robot-arm">
+                  {/* Fixed pedestal: all articulation begins at the shoulder bearing. */}
                   <path d="M493 462L493 420L532 397L572 419L572 462Z" fill="#0b1d32" stroke="#4b91b0" strokeWidth="2"/>
                   <path d="M493 420L532 397L572 419L532 443Z" fill="#376a86" stroke="#91d7e8"/>
                   <path d="M493 420V462L532 485V443Z" fill="#173a56" stroke="#4b89a8"/>
                   <path d="M532 443V485L572 462V419Z" fill="#102b45" stroke="#4b89a8"/>
                   <g className="dt-robot-shoulder-link">
-                    <animateTransform attributeName="transform" type="rotate" values="0 532 397;-9 532 397;-20 532 397;-13 532 397;0 532 397" keyTimes="0;0.2;0.38;0.72;1" dur="8s" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" repeatCount="indefinite"/>
-                    <path d="M511 415L511 393Q511 378 526 369L559 350Q573 342 585 351L599 367L581 390L550 407L548 433Z" fill="url(#dt-arm)" stroke="#9be9f2" strokeWidth="2"/>
-                    <path d="M526 370L539 390L570 373L585 351" fill="none" stroke="#d0faff" strokeOpacity=".6" strokeWidth="3"/>
+                    <animateTransform attributeName="transform" type="rotate" values="0 532 397;-9 532 397;-18 532 397;-12 532 397;0 532 397" keyTimes="0;0.25;0.4;0.72;1" dur="8s" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" repeatCount="indefinite"/>
+                    {/* One continuous upper-arm housing, physically spanning shoulder to elbow. */}
+                    <path d="M520 385L572 367Q587 362 598 375L603 386L544 416Q529 420 518 407Z" fill="url(#dt-arm)" stroke="#a4edf5" strokeWidth="2.4" strokeLinejoin="round"/>
+                    <path d="M530 389L574 374Q586 370 592 379" fill="none" stroke="#d0faff" strokeOpacity=".72" strokeWidth="3"/>
+                    <path d="M535 407L579 386" fill="none" stroke="#0a2038" strokeOpacity=".8" strokeWidth="5"/>
                     <g className="dt-robot-forearm">
-                      <animateTransform attributeName="transform" type="rotate" values="0 589 382;18 589 382;42 589 382;27 589 382;0 589 382" keyTimes="0;0.2;0.38;0.72;1" dur="8s" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" repeatCount="indefinite"/>
-                      <path d="M554 402L589 382L628 330Q639 315 654 325L670 340L654 360L620 405L580 430Z" fill="url(#dt-arm)" stroke="#9be9f2" strokeWidth="2"/>
-                      <path d="M594 382L620 397L649 353" fill="none" stroke="#c4f6ff" strokeOpacity=".58" strokeWidth="3"/>
+                      <animateTransform attributeName="transform" type="rotate" values="0 590 382;16 590 382;34 590 382;18 590 382;0 590 382" keyTimes="0;0.25;0.4;0.72;1" dur="8s" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" repeatCount="indefinite"/>
+                      {/* Forearm starts exactly at the elbow bearing and ends at the wrist bearing. */}
+                      <path d="M578 373L644 326Q657 317 670 328L679 342L613 397Q600 406 588 395L579 387Z" fill="url(#dt-arm)" stroke="#a4edf5" strokeWidth="2.4" strokeLinejoin="round"/>
+                      <path d="M592 379L648 338Q659 330 668 336" fill="none" stroke="#d0faff" strokeOpacity=".7" strokeWidth="3"/>
+                      <path d="M603 394L656 355" fill="none" stroke="#0a2038" strokeOpacity=".78" strokeWidth="5"/>
                       <g className="dt-robot-gripper">
-                        <animateTransform attributeName="transform" type="rotate" values="0 665 341;-9 665 341;-22 665 341;-14 665 341;0 665 341" keyTimes="0;0.2;0.38;0.72;1" dur="8s" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" repeatCount="indefinite"/>
-                        <path d="M652 330L674 318L692 331L680 355L658 363L645 350Z" fill="#254e6c" stroke="#a3ecf4" strokeWidth="2"/>
-                        <path d="M678 339L704 350L709 364L697 370L680 358" fill="#8bd9e8" stroke="#c5faff" strokeWidth="1.5"/>
-                        <path d="M704 350L719 342L725 349L714 361" fill="none" stroke="#c3f8ff" strokeWidth="4" strokeLinecap="round">
-                          <animate attributeName="d" values="M704 350L719 342L725 349L714 361;M704 350L726 332L733 340L714 361;M704 350L719 342L725 349L714 361;M704 350L726 332L733 340L714 361;M704 350L719 342L725 349L714 361" keyTimes="0;0.2;0.38;0.72;1" dur="8s" repeatCount="indefinite"/>
+                        <animateTransform attributeName="transform" type="rotate" values="0 665 341;-7 665 341;-16 665 341;-6 665 341;0 665 341" keyTimes="0;0.25;0.4;0.72;1" dur="8s" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" repeatCount="indefinite"/>
+                        {/* Wrist housing and both jaws are one gripper assembly. */}
+                        <path d="M650 327L668 317L685 331L678 352L659 360L646 346Z" fill="#254e6c" stroke="#b3f2f8" strokeWidth="2.2" strokeLinejoin="round"/>
+                        <path d="M657 331L670 324L677 331" fill="none" stroke="#d8fbff" strokeOpacity=".72" strokeWidth="2"/>
+                        <path d="M674 337L702 326L714 335L706 346L679 350Z" fill="#79c9dc" stroke="#d2fbff" strokeWidth="2" strokeLinejoin="round">
+                          <animate attributeName="d" values="M674 337L702 326L714 335L706 346L679 350Z;M674 337L714 312L726 321L706 346L679 350Z;M674 337L714 312L726 321L706 346L679 350Z;M674 337L702 326L714 335L706 346L679 350Z;M674 337L702 326L714 335L706 346L679 350Z" keyTimes="0;0.25;0.4;0.72;1" dur="8s" repeatCount="indefinite"/>
                         </path>
-                        <path d="M704 365L717 376L724 370L713 357" fill="none" stroke="#c3f8ff" strokeWidth="4" strokeLinecap="round">
-                          <animate attributeName="d" values="M704 365L717 376L724 370L713 357;M704 365L726 386L733 378L713 357;M704 365L717 376L724 370L713 357;M704 365L726 386L733 378L713 357;M704 365L717 376L724 370L713 357" keyTimes="0;0.2;0.38;0.72;1" dur="8s" repeatCount="indefinite"/>
+                        <path d="M678 350L706 359L714 371L702 380L674 359Z" fill="#79c9dc" stroke="#d2fbff" strokeWidth="2" strokeLinejoin="round">
+                          <animate attributeName="d" values="M678 350L706 359L714 371L702 380L674 359Z;M678 350L714 374L726 386L714 395L674 359Z;M678 350L714 374L726 386L714 395L674 359Z;M678 350L706 359L714 371L702 380L674 359Z;M678 350L706 359L714 371L702 380L674 359Z" keyTimes="0;0.25;0.4;0.72;1" dur="8s" repeatCount="indefinite"/>
                         </path>
-                        <circle cx="665" cy="341" r="10" fill="#b6f7ff" stroke="#174361" strokeWidth="2"/>
-                        <circle cx="665" cy="341" r="4" fill="#1c5676"/>
-                        <path d="M665 341L675 347" stroke="#d5fbff" strokeWidth="2"/>
                       </g>
+                      {/* Wrist bearing is drawn in the forearm's coordinate space, so it travels with it. */}
+                      <circle cx="665" cy="341" r="11" fill="#b6f7ff" stroke="#174361" strokeWidth="2.4"/>
+                      <circle cx="665" cy="341" r="4.2" fill="#1c5676"/>
+                      <path d="M665 341L674 347" stroke="#e0fcff" strokeWidth="2"/>
                     </g>
-                    <circle cx="589" cy="382" r="15" fill="#b6f7ff" stroke="#174361" strokeWidth="2"/>
-                    <circle cx="589" cy="382" r="6" fill="#1c5676"/>
-                    <path d="M589 382L603 389" stroke="#d5fbff" strokeWidth="2"/>
+                    {/* Elbow bearing stays attached to the upper arm while the forearm pivots around it. */}
+                    <circle cx="590" cy="382" r="13" fill="#b6f7ff" stroke="#174361" strokeWidth="2.4"/>
+                    <circle cx="590" cy="382" r="5" fill="#1c5676"/>
+                    <path d="M590 382L600 388" stroke="#e0fcff" strokeWidth="2"/>
                   </g>
-                  <circle cx="532" cy="397" r="18" fill="#b6f7ff" stroke="#174361" strokeWidth="2"/>
+                  {/* Fixed shoulder bearing cap, aligned with the stationary pedestal. */}
+                  <circle cx="532" cy="397" r="18" fill="#b6f7ff" stroke="#174361" strokeWidth="2.4"/>
                   <circle cx="532" cy="397" r="7" fill="#1c5676"/>
-                  <path d="M532 397L550 407" stroke="#d5fbff" strokeWidth="2"/>
+                  <path d="M532 397L546 405" stroke="#e0fcff" strokeWidth="2"/>
                   <path d="M503 468L560 468" stroke="#65d8e9" strokeOpacity=".65" strokeWidth="2"/>
                 </g>
                 <g className="dt-network-links" fill="none" strokeWidth="2">
