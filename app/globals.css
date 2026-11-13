@@ -7999,6 +7999,68 @@ html {
   border-color: rgba(174,235,251,.68);
   background: radial-gradient(circle at 36% 25%, rgba(111,215,255,.22), transparent 28%), radial-gradient(circle at 50% 50%, rgba(37,128,174,.2), rgba(5,18,39,.97) 70%);
 
+  box-shadow: 0 0 0 9px rgba(54,217,242,.045), 0 0 0 22px rgba(54,217,242,.022), 0 24px 62px rgba(0,0,0,.55), 0 0 76px rgba(36,167,220,.3), inset 0 2px 10px rgba(217,246,255,.18), inset 0 -18px 35px rgba(2,9,22,.8);
+}
+.core-symbol { width: 48px; height: 48px; }
+.core-symbol span { background: linear-gradient(145deg, rgba(93,230,246,.5), rgba(41,104,176,.08)); }
+.architecture-connectors i { height: 2px; }
+.architecture-module {
+  border-color: rgba(126,205,233,.43);
+  background: linear-gradient(145deg, rgba(17,48,75,.94), rgba(5,17,34,.96));
+  box-shadow: 0 18px 38px rgba(0,0,0,.34), inset 0 1px rgba(221,246,255,.12), 0 0 24px rgba(54,217,242,.09);
+}
+.architecture-module:before { opacity: .9; }
+.module-status { animation: status-pulse 2.4s ease-in-out infinite; }
+.visual-topline,.visual-bottomline { color: #8aa8c5; }
+.visual-topline span:last-child { color: #a6d5e1; }
+@keyframes reactor-ring-spin-a { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes reactor-ring-spin-b { from { rotate: 360deg; } to { rotate: 0deg; } }
+@keyframes reactor-ring-spin-c { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes reactor-aura-breathe { 0%,100% { opacity: .55; scale: .94; } 50% { opacity: 1; scale: 1.06; } }
+@keyframes reactor-sphere-float { 0%,100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+@keyframes reactor-core-pulse { 0%,100% { scale: .84; opacity: .76; } 50% { scale: 1.12; opacity: 1; } }
+@keyframes reactor-pulse-drift { 0%,100% { translate: 0 0; opacity: .3; } 50% { translate: 9px -11px; opacity: 1; } }
+@keyframes reactor-ray-breathe { 0%,100% { opacity: .15; scale: .8 1; } 50% { opacity: .7; scale: 1.2 1; } }
+@keyframes hero-hud-hover { 0%,100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+@keyframes hud-meter-flow { from { transform: scaleX(.7); opacity: .6; } to { transform: scaleX(1); opacity: 1; } }
+@media (max-width: 1100px) {
+  .hero-hud { width: 116px; padding: 8px 9px; }
+  .reactor-sphere { width: 132px; }
+  .hero-signal-strip { left: 29%; right: 29%; gap: 8px; font-size: 5px; }
+}
+@media (max-width: 760px) {
+  .hero-reactor-scene { inset: 8% 1% 9%; }
+  .reactor-sphere { width: 112px; }
+  .reactor-ring-x { width: 88%; }
+  .reactor-ring-y { width: 66%; }
+  .reactor-ring-z { width: 78%; }
+  .hero-hud { width: 104px; padding: 7px 8px; }
+  .hero-hud-a { left: 3%; top: 10%; }
+  .hero-hud-b { right: 3%; bottom: 10%; }
+  .hero-hud-label { font-size: 5px; }
+  .hero-hud strong { font-size: 9px; }
+  .hero-signal-strip { left: 24%; right: 24%; bottom: 5.5%; gap: 5px; padding: 6px 3px; font-size: 4.5px; }
+  .architecture-core { width: 118px; height: 118px; }
+  .core-symbol { width: 36px; height: 36px; }
+  .module-ai { left: 1%; top: 24%; }
+  .module-software { right: 1%; top: 24%; }
+  .module-robotics { left: 1%; bottom: 22%; }
+  .module-integration { right: 1%; bottom: 22%; }
+}
+@media (max-width: 420px) {
+  .reactor-sphere { width: 96px; }
+  .hero-hud { width: 94px; }
+  .hero-hud strong { font-size: 8px; }
+  .hero-signal-strip { left: 22%; right: 22%; gap: 3px; font-size: 4px; }
+  .architecture-core { width: 106px; height: 106px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-reactor-scene *, .hero-reactor-scene *::before, .hero-reactor-scene *::after,
+  .hero-hud, .hero-hud-meter i, .hero-signal-strip, .module-status {
+    animation: none !important;
+  }
+}
+
 /* New homepage hero: low-cost isometric intelligent factory digital twin. */
 .tech-hero-visual {
   position: relative;
