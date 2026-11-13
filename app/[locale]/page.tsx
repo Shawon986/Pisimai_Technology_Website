@@ -53,82 +53,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="hero-description">{t.description}</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#services">{t.primaryCta}<span aria-hidden="true"><svg className="ui-arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M5 4h7v7" />
-                <g className="dt-factory-enclosure" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M126 414V220L445 48L790 226V420" stroke="#76b9d2" strokeOpacity=".28" strokeWidth="7"/>
-                  <path d="M140 408V229L445 67L775 235V414" stroke="#b4e8f2" strokeOpacity=".24" strokeWidth="2"/>
-                  <path d="M140 229L775 235M445 67V238" stroke="#70b9d2" strokeOpacity=".25" strokeDasharray="3 8"/>
-                  <path d="M146 238L146 397M765 244L765 400" stroke="#67c4dc" strokeOpacity=".22" strokeWidth="5"/>
-                  <path d="M153 248L153 394M758 252L758 397" stroke="#b2e7f2" strokeOpacity=".18" strokeWidth="1"/>
-                  <path d="M132 219L445 52L783 224" stroke="#8de6f2" strokeOpacity=".35" strokeWidth="2"/>
-                  <path d="M126 414L140 421M790 420L775 428" stroke="#8de6f2" strokeOpacity=".5" strokeWidth="3"/>
-                </g>
-                <g className="dt-machine-cell">
-                  <path d="M93 356L151 325L209 356L151 389Z" fill="#102d46" stroke="#4d8cab"/>
-                  <path d="M93 356V405L151 438V389Z" fill="#0a1c30" stroke="#376b88"/>
-                  <path d="M151 389L209 356V405L151 438Z" fill="#153a55" stroke="#4d8cab"/>
-                  <path d="M105 360L151 385L195 360" fill="none" stroke="#8be5ef" strokeOpacity=".55" strokeWidth="2"/>
-                  <path d="M108 399L151 423L194 399" fill="none" stroke="#3e83a0" strokeWidth="2"/>
-                  <rect x="119" y="369" width="19" height="12" rx="2" fill="#06182a" stroke="#6ac6dc"/>
-                  <circle cx="128" cy="375" r="2.4" fill="#5fe4d2" className="dt-machine-led"/>
-                  <path d="M98 350L151 320L204 350" fill="none" stroke="#8acfe0" strokeOpacity=".6" strokeWidth="2"/>
-                  <path d="M98 406L151 436L204 406" fill="none" stroke="#5b9db7" strokeOpacity=".55" strokeWidth="2"/>
-                </g>
-                <g className="dt-gantry">
-                  <path d="M250 245L250 187L574 187L574 250" fill="none" stroke="#315e79" strokeWidth="13"/>
-                  <path d="M250 187L574 187" stroke="#9bdce8" strokeOpacity=".55" strokeWidth="3"/>
-                  <path d="M260 180L565 180" stroke="#b7edf5" strokeOpacity=".22" strokeWidth="1"/>
-                  <path d="M272 191V203M552 191V203" stroke="#79c5d8" strokeWidth="4"/>
-                  <g className="dt-gantry-carriage">
-                    <path d="M391 174L432 174L445 187L432 205L391 205L378 190Z" fill="#24516d" stroke="#9be4ed" strokeWidth="1.5"/>
-                    <path d="M391 180H432L438 188H385Z" fill="#8bdce8" fillOpacity=".3"/>
-                    <path d="M402 205V221M422 205V221" stroke="#91ddea" strokeWidth="3"/>
-                    <circle cx="412" cy="188" r="5" fill="#b8f7fa" stroke="#2b6b89" strokeWidth="2"/>
-                  </g>
-                </g>
-                <g className="dt-safety-lights">
-                  <path d="M116 286L116 309M116 286L128 279" stroke="#5c9bb6" strokeWidth="3"/>
-                  <rect x="108" y="270" width="17" height="21" rx="4" fill="#153c58" stroke="#78c9dc"/>
-                  <circle cx="116.5" cy="276" r="3.3" fill="#64f0c5" className="dt-beacon-green"/>
-                  <circle cx="116.5" cy="285" r="2.5" fill="#e4b76c"/>
-                  <path d="M760 302V326" stroke="#5c9bb6" strokeWidth="3"/>
-                  <rect x="752" y="282" width="17" height="22" rx="4" fill="#153c58" stroke="#78c9dc"/>
-                  <circle cx="760.5" cy="289" r="3.3" fill="#64f0c5" className="dt-beacon-green"/>
-                  <circle cx="760.5" cy="298" r="2.5" fill="#e4b76c"/>
-                </g>
-                <g className="dt-wrist-indicator" fill="none" stroke="#a8f2f5">
-                  <circle cx="665" cy="341" r="17" strokeOpacity=".72" strokeWidth="1.2"/>
-                  <circle cx="665" cy="341" r="12" stroke="#58d9ec" strokeWidth="2" strokeDasharray="5 4"/>
-                  <path d="M665 321V328M665 354V361M645 341H652M678 341H685" strokeWidth="2"/>
-                </g>
-                <g className="dt-sensor-array">
-                  <path d="M180 296L180 318M170 318H190" stroke="#83d8e7" strokeWidth="2"/>
-                  <circle cx="180" cy="292" r="8" fill="#123a56" stroke="#80d7e8"/>
-                  <circle cx="180" cy="292" r="3" fill="#bafaff" className="dt-sensor-pulse"/>
-                  <path d="M180 301L180 328" stroke="#63dff0" strokeOpacity=".5" strokeDasharray="2 4"/>
-                  <path d="M180 328L220 350" stroke="#63dff0" strokeOpacity=".2" strokeDasharray="3 5"/>
-                </g>
-                <g className="dt-floor-markings" fill="none" stroke="#66bad4" strokeOpacity=".35">
-                  <path d="M232 483L310 525L388 484M236 493L310 532L388 493" strokeWidth="1.5" strokeDasharray="5 7"/>
-                  <path d="M590 453L650 421L710 452L650 486Z" strokeDasharray="4 6"/>
-                  <path d="M600 453L650 480L700 453" stroke="#b1eaf0" strokeOpacity=".25"/>
-                  <path d="M461 572L500 551M478 581L517 560M495 590L534 569" strokeWidth="2"/>
-                </g>
-                <g className="dt-status-beams" fill="none">
-                  <path d="M151 286L151 420M160 286L160 420" stroke="#55dce9" strokeOpacity=".18" strokeWidth="2" strokeDasharray="4 7"/>
-                  <path d="M735 285L735 407" stroke="#8c8cff" strokeOpacity=".22" strokeWidth="2" strokeDasharray="3 7"/>
-                  <path d="M246 267L246 405" stroke="#5de0ed" strokeOpacity=".13" strokeWidth="1"/>
-                  <path d="M246 267L574 267" stroke="#5de0ed" strokeOpacity=".13" strokeWidth="1" strokeDasharray="3 8"/>
-                </g>
-                <g className="dt-particle-stream" fill="#a9f8ff">
-                  <circle cx="273" cy="202" r="2.5"/><circle cx="298" cy="188" r="1.8"/><circle cx="323" cy="174" r="2"/>
-                  <circle cx="349" cy="161" r="2.4"/><circle cx="374" cy="174" r="1.8"/><circle cx="399" cy="189" r="2"/>
-                </g>
-                <g className="dt-micro-labels" fontFamily="monospace" fontSize="7" letterSpacing="1.1">
-                  <text x="95" y="462" fill="#6ca7c2">CELL / A-04</text>
-                  <text x="684" y="472" fill="#6ca7c2">SAFETY ZONE</text>
-                  <text x="337" y="224" fill="#83c9dc">PRECISION GANTRY</text>
-                </g>
-              </svg></span></a>
+                </svg></span></a>
               <Link className="button button-secondary" href={"/" + locale + "/contact#contact-form"}>{t.secondaryCta}</Link>
             </div>
             <div className="hero-bottomline">
@@ -263,6 +188,82 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <circle cx="117" cy="197" r="3" fill="#5fe5e8"/><circle cx="612" cy="237" r="3" fill="#5fe5e8"/>
                   <circle cx="469" cy="539" r="3" fill="#a59aff"/><circle cx="211" cy="523" r="3" fill="#a59aff"/>
                 </g>
+              <g className="dt-factory-enclosure" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M126 414V220L445 48L790 226V420" stroke="#76b9d2" strokeOpacity=".28" strokeWidth="7"/>
+                  <path d="M140 408V229L445 67L775 235V414" stroke="#b4e8f2" strokeOpacity=".24" strokeWidth="2"/>
+                  <path d="M140 229L775 235M445 67V238" stroke="#70b9d2" strokeOpacity=".25" strokeDasharray="3 8"/>
+                  <path d="M146 238L146 397M765 244L765 400" stroke="#67c4dc" strokeOpacity=".22" strokeWidth="5"/>
+                  <path d="M153 248L153 394M758 252L758 397" stroke="#b2e7f2" strokeOpacity=".18" strokeWidth="1"/>
+                  <path d="M132 219L445 52L783 224" stroke="#8de6f2" strokeOpacity=".35" strokeWidth="2"/>
+                  <path d="M126 414L140 421M790 420L775 428" stroke="#8de6f2" strokeOpacity=".5" strokeWidth="3"/>
+                </g>
+                <g className="dt-machine-cell">
+                  <path d="M93 356L151 325L209 356L151 389Z" fill="#102d46" stroke="#4d8cab"/>
+                  <path d="M93 356V405L151 438V389Z" fill="#0a1c30" stroke="#376b88"/>
+                  <path d="M151 389L209 356V405L151 438Z" fill="#153a55" stroke="#4d8cab"/>
+                  <path d="M105 360L151 385L195 360" fill="none" stroke="#8be5ef" strokeOpacity=".55" strokeWidth="2"/>
+                  <path d="M108 399L151 423L194 399" fill="none" stroke="#3e83a0" strokeWidth="2"/>
+                  <rect x="119" y="369" width="19" height="12" rx="2" fill="#06182a" stroke="#6ac6dc"/>
+                  <circle cx="128" cy="375" r="2.4" fill="#5fe4d2" className="dt-machine-led"/>
+                  <path d="M98 350L151 320L204 350" fill="none" stroke="#8acfe0" strokeOpacity=".6" strokeWidth="2"/>
+                  <path d="M98 406L151 436L204 406" fill="none" stroke="#5b9db7" strokeOpacity=".55" strokeWidth="2"/>
+                </g>
+                <g className="dt-gantry">
+                  <path d="M250 245L250 187L574 187L574 250" fill="none" stroke="#315e79" strokeWidth="13"/>
+                  <path d="M250 187L574 187" stroke="#9bdce8" strokeOpacity=".55" strokeWidth="3"/>
+                  <path d="M260 180L565 180" stroke="#b7edf5" strokeOpacity=".22" strokeWidth="1"/>
+                  <path d="M272 191V203M552 191V203" stroke="#79c5d8" strokeWidth="4"/>
+                  <g className="dt-gantry-carriage">
+                    <path d="M391 174L432 174L445 187L432 205L391 205L378 190Z" fill="#24516d" stroke="#9be4ed" strokeWidth="1.5"/>
+                    <path d="M391 180H432L438 188H385Z" fill="#8bdce8" fillOpacity=".3"/>
+                    <path d="M402 205V221M422 205V221" stroke="#91ddea" strokeWidth="3"/>
+                    <circle cx="412" cy="188" r="5" fill="#b8f7fa" stroke="#2b6b89" strokeWidth="2"/>
+                  </g>
+                </g>
+                <g className="dt-safety-lights">
+                  <path d="M116 286L116 309M116 286L128 279" stroke="#5c9bb6" strokeWidth="3"/>
+                  <rect x="108" y="270" width="17" height="21" rx="4" fill="#153c58" stroke="#78c9dc"/>
+                  <circle cx="116.5" cy="276" r="3.3" fill="#64f0c5" className="dt-beacon-green"/>
+                  <circle cx="116.5" cy="285" r="2.5" fill="#e4b76c"/>
+                  <path d="M760 302V326" stroke="#5c9bb6" strokeWidth="3"/>
+                  <rect x="752" y="282" width="17" height="22" rx="4" fill="#153c58" stroke="#78c9dc"/>
+                  <circle cx="760.5" cy="289" r="3.3" fill="#64f0c5" className="dt-beacon-green"/>
+                  <circle cx="760.5" cy="298" r="2.5" fill="#e4b76c"/>
+                </g>
+                <g className="dt-wrist-indicator" fill="none" stroke="#a8f2f5">
+                  <circle cx="665" cy="341" r="17" strokeOpacity=".72" strokeWidth="1.2"/>
+                  <circle cx="665" cy="341" r="12" stroke="#58d9ec" strokeWidth="2" strokeDasharray="5 4"/>
+                  <path d="M665 321V328M665 354V361M645 341H652M678 341H685" strokeWidth="2"/>
+                </g>
+                <g className="dt-sensor-array">
+                  <path d="M180 296L180 318M170 318H190" stroke="#83d8e7" strokeWidth="2"/>
+                  <circle cx="180" cy="292" r="8" fill="#123a56" stroke="#80d7e8"/>
+                  <circle cx="180" cy="292" r="3" fill="#bafaff" className="dt-sensor-pulse"/>
+                  <path d="M180 301L180 328" stroke="#63dff0" strokeOpacity=".5" strokeDasharray="2 4"/>
+                  <path d="M180 328L220 350" stroke="#63dff0" strokeOpacity=".2" strokeDasharray="3 5"/>
+                </g>
+                <g className="dt-floor-markings" fill="none" stroke="#66bad4" strokeOpacity=".35">
+                  <path d="M232 483L310 525L388 484M236 493L310 532L388 493" strokeWidth="1.5" strokeDasharray="5 7"/>
+                  <path d="M590 453L650 421L710 452L650 486Z" strokeDasharray="4 6"/>
+                  <path d="M600 453L650 480L700 453" stroke="#b1eaf0" strokeOpacity=".25"/>
+                  <path d="M461 572L500 551M478 581L517 560M495 590L534 569" strokeWidth="2"/>
+                </g>
+                <g className="dt-status-beams" fill="none">
+                  <path d="M151 286L151 420M160 286L160 420" stroke="#55dce9" strokeOpacity=".18" strokeWidth="2" strokeDasharray="4 7"/>
+                  <path d="M735 285L735 407" stroke="#8c8cff" strokeOpacity=".22" strokeWidth="2" strokeDasharray="3 7"/>
+                  <path d="M246 267L246 405" stroke="#5de0ed" strokeOpacity=".13" strokeWidth="1"/>
+                  <path d="M246 267L574 267" stroke="#5de0ed" strokeOpacity=".13" strokeWidth="1" strokeDasharray="3 8"/>
+                </g>
+                <g className="dt-particle-stream" fill="#a9f8ff">
+                  <circle cx="273" cy="202" r="2.5"/><circle cx="298" cy="188" r="1.8"/><circle cx="323" cy="174" r="2"/>
+                  <circle cx="349" cy="161" r="2.4"/><circle cx="374" cy="174" r="1.8"/><circle cx="399" cy="189" r="2"/>
+                </g>
+                <g className="dt-micro-labels" fontFamily="monospace" fontSize="7" letterSpacing="1.1">
+                  <text x="95" y="462" fill="#6ca7c2">CELL / A-04</text>
+                  <text x="684" y="472" fill="#6ca7c2">SAFETY ZONE</text>
+                  <text x="337" y="224" fill="#83c9dc">PRECISION GANTRY</text>
+                </g>
+              
               </svg>
               <div className="dt-hud dt-hud-left"><span>VISION ENGINE</span><b><i /> OBJECT LOCKED</b><small>CONFIDENCE / 98.6%</small></div>
               <div className="dt-hud dt-hud-right"><span>ORCHESTRATION</span><b><i /> 04 SYSTEMS LINKED</b><small>AI · EDGE · MOTION · CLOUD</small></div>
