@@ -64,6 +64,37 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="tech-hero-visual" role="img" aria-label={locale === "zh" ? "人工智能、软件、自动化与系统集成的互联技术架构示意" : "An interconnected technology architecture showing AI, software, automation and system integration"}>
             <div className="visual-topline"><span> PISIMAI / SYSTEMS LAB</span><span><i /> {locale === "zh" ? "系统在线" : "SYSTEMS ONLINE"}</span></div>
             <div className="architecture-grid" aria-hidden="true" />
+            <div className="hero-reactor-scene" aria-hidden="true">
+              <div className="reactor-aura" />
+              <div className="reactor-ring reactor-ring-x"><i /><i /><i /></div>
+              <div className="reactor-ring reactor-ring-y"><i /><i /></div>
+              <div className="reactor-ring reactor-ring-z"><i /><i /></div>
+              <div className="reactor-sphere">
+                <span className="reactor-sphere-latitude" />
+                <span className="reactor-sphere-longitude" />
+                <span className="reactor-sphere-core" />
+              </div>
+              <span className="reactor-pulse reactor-pulse-a" />
+              <span className="reactor-pulse reactor-pulse-b" />
+              <span className="reactor-pulse reactor-pulse-c" />
+              <span className="reactor-ray reactor-ray-a" />
+              <span className="reactor-ray reactor-ray-b" />
+            </div>
+            <div className="hero-hud hero-hud-a" aria-hidden="true">
+              <span className="hero-hud-label">NEURAL FABRIC</span>
+              <strong>04 <small>ACTIVE NODES</small></strong>
+              <span className="hero-hud-meter"><i /></span>
+            </div>
+            <div className="hero-hud hero-hud-b" aria-hidden="true">
+              <span className="hero-hud-label">SYSTEM HEALTH</span>
+              <strong>OPTIMAL <i /></strong>
+              <span className="hero-hud-readout">SYNC / 99.98%</span>
+            </div>
+            <div className="hero-signal-strip" aria-hidden="true">
+              <span><i /> DATA FLOW <b>LIVE</b></span>
+              <span>LATENCY <b>18ms</b></span>
+              <span>UPTIME <b>99.98%</b></span>
+            </div>
 
             <div className="architecture-connectors" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
             <div className="architecture-core">
